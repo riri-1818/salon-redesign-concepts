@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ponoco — Concept Redesign</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --paper:#F0EFEA; --ink:#20211E; --ink-soft:#63645D; --teal:#4E7B72; --teal-deep:#345650; --line:rgba(32,33,30,0.16);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --paper:#191A17; --ink:#EEEDE7; --ink-soft:#B4B4AC; --teal:#8FBBB0; --teal-deep:#BEDAD2; --line:rgba(238,237,231,0.18); }
+  }
+  :root[data-theme="dark"]{ --paper:#191A17; --ink:#EEEDE7; --ink-soft:#B4B4AC; --teal:#8FBBB0; --teal-deep:#BEDAD2; --line:rgba(238,237,231,0.18); }
+  *{box-sizing:border-box;} [hidden]{display:none!important;}
+  html{background:var(--paper);}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Work Sans","Hiragino Kaku Gothic Pro",sans-serif;line-height:1.85;font-size:16.5px;}
+  h1,h2{font-family:"Zen Old Mincho",serif;font-weight:600;text-wrap:balance;margin:0;}
+  a{color:var(--teal-deep);}
+  .ribbon{background:var(--teal-deep);color:#fff;font-size:12px;text-align:center;padding:8px 16px;}
+  .topbar{display:flex;justify-content:space-between;align-items:center;max-width:640px;margin:0 auto;padding:26px 24px 0;}
+  .wordmark{font-family:"Zen Old Mincho",serif;font-size:20px;letter-spacing:.06em;}
+  .lang-switch{display:inline-flex;border:1px solid var(--line);border-radius:20px;overflow:hidden;}
+  .lang-btn{border:none;background:transparent;color:var(--ink-soft);font:inherit;font-size:11px;font-weight:600;padding:5px 12px;cursor:pointer;}
+  .lang-btn[aria-pressed="true"]{background:var(--teal-deep);color:#fff;}
+
+  .essay{max-width:640px;margin:0 auto;padding:60px 24px 100px;}
+  .kicker{text-align:center;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-deep);font-weight:600;margin-bottom:20px;}
+  .essay h1{text-align:center;font-size:clamp(24px,3.2vw,32px);line-height:1.6;}
+  .essay-photo{margin:44px 0;border-radius:2px;overflow:hidden;aspect-ratio:16/10;filter:grayscale(1) contrast(1.03);}
+  .essay-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .essay p.body{font-size:16.5px;color:var(--ink);margin:26px 0;}
+  .essay p.body.soft{color:var(--ink-soft);}
+  .dropcap:first-letter{float:left;font-family:"Zen Old Mincho",serif;font-size:52px;line-height:.8;padding:6px 10px 0 0;color:var(--teal-deep);}
+
+  .commitment{display:flex;gap:22px;padding:26px 0;border-top:1px solid var(--line);}
+  .commitment:last-child{border-bottom:1px solid var(--line);}
+  .cnum{font-family:"Zen Old Mincho",serif;font-size:26px;color:var(--teal-deep);min-width:34px;}
+  .commitment h3{font-size:17px;font-family:"Work Sans";font-weight:600;}
+  .commitment p{color:var(--ink-soft);font-size:14.5px;margin-top:4px;}
+
+  .cta-block{text-align:center;margin-top:56px;}
+  .btn{display:inline-flex;padding:14px 30px;border-radius:2px;background:var(--teal-deep);color:#fff;text-decoration:none;font-size:14px;font-weight:600;}
+
+  .colophon{text-align:center;font-size:13.5px;color:var(--ink-soft);margin-top:56px;padding-top:26px;border-top:1px solid var(--line);}
+  .disclaimer{margin:20px auto 0;font-size:11px;color:var(--ink-soft);line-height:1.6;max-width:56ch;}
+</style>
+</head>
+<body>
+<div class="ribbon">🌊 コンセプト・リデザイン案 — ponoco 様への営業提案サンプルです。公式サイトではありません / Concept redesign sample, not the official site</div>
+<div class="topbar">
+  <div class="wordmark">ponoco</div>
+  <div class="lang-switch"><button class="lang-btn" data-setlang="en" aria-pressed="true">EN</button><button class="lang-btn" data-setlang="ja" aria-pressed="false">日本語</button></div>
+</div>
+
+<article class="essay">
+  <div class="kicker"><span data-lang="en">A note from the chair — Chatswood</span><span data-lang="ja" hidden>チャッツウッドより、施術椅子からのひとこと</span></div>
+  <h1><span data-lang="en">Great hair care starts at the scalp.</span><span data-lang="ja" hidden>上質なヘアケアとは、頭皮からはじまる。</span></h1>
+
+  <div class="essay-photo"><img src="images/hero.jpg" alt="ponoco brand image"></div>
+
+  <p class="body dropcap">
+    <span data-lang="en">Most people think about their hair. Almost no one thinks about what it grows from. At ponoco, that's where every visit begins — with the scalp, not the strands.</span>
+    <span data-lang="ja" hidden>多くの人が「髪」のことは考えても、その髪がどこから生えているかまでは考えません。ponocoでは、いつもそこから始めます — 髪そのものではなく、頭皮から。</span>
+  </p>
+  <p class="body soft">
+    <span data-lang="en">It's a small shift in thinking that changes everything about how a treatment feels — and how your hair looks weeks later, not just the day you leave the salon.</span>
+    <span data-lang="ja" hidden>この小さな視点の違いが、施術の感じ方も、数週間後の髪の状態も変えていきます。サロンを出た瞬間だけでなく、その先まで。</span>
+  </p>
+
+  <div class="commitment">
+    <div class="cnum">01</div>
+    <div><h3><span data-lang="en">Skill &amp; knowledge</span><span data-lang="ja" hidden>技術×知識</span></h3><p><span data-lang="en">A team with 15+ years of experience</span><span data-lang="ja" hidden>15年以上の経験豊富なスタッフ</span></p></div>
+  </div>
+  <div class="commitment">
+    <div class="cnum">02</div>
+    <div><h3><span data-lang="en">Premium Japanese products</span><span data-lang="ja" hidden>高品質な日本製薬剤</span></h3><p><span data-lang="en">Carefully selected for safety and quality</span><span data-lang="ja" hidden>安全性の高い薬剤を厳選</span></p></div>
+  </div>
+  <div class="commitment">
+    <div class="cnum">03</div>
+    <div><h3><span data-lang="en">Microbubble shampoo</span><span data-lang="ja" hidden>マイクロバブルシャンプー</span></h3><p><span data-lang="en">Using marbb3 technology</span><span data-lang="ja" hidden>marbb3を使用</span></p></div>
+  </div>
+  <div class="commitment">
+    <div class="cnum">04</div>
+    <div><h3><span data-lang="en">Relaxing massage</span><span data-lang="ja" hidden>リラックスできるマッサージ</span></h3></div>
+  </div>
+  <div class="commitment">
+    <div class="cnum">05</div>
+    <div><h3><span data-lang="en">Free touch-up, within 2 weeks</span><span data-lang="ja" hidden>施術後2週間以内の無料修正保証</span></h3></div>
+  </div>
+
+  <p class="body soft" style="margin-top:36px;">
+    <span data-lang="en">Open every day, 10am to 7pm, in Chatswood.</span>
+    <span data-lang="ja" hidden>チャッツウッドにて、年中無休 10:00〜19:00で営業しています。</span>
+  </p>
+
+  <div class="cta-block">
+    <a class="btn" href="https://ponoco.gettimely.com/" target="_blank" rel="noopener"><span data-lang="en">Book a visit</span><span data-lang="ja" hidden>ご予約はこちら</span></a>
+  </div>
+
+  <div class="colophon">
+    ponoco — Chatswood, NSW
+    <div class="disclaimer">
+      これはWeb制作の営業提案として作成したコンセプト・リデザインです。ponoco様の公式サイトではありません。掲載内容は同社の既存サイト(ponoco-hair.com)の公開情報を基に構成した試作品です。<br>
+      This is an unofficial concept redesign created as a portfolio / pitch sample and is not affiliated with or published by ponoco.
+    </div>
+  </div>
+</article>
+
+<script>
+(function(){
+  var KEY='ponoco-lang';
+  function apply(lang){
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-lang]').forEach(function(el){el.hidden=el.getAttribute('data-lang')!==lang;});
+    document.querySelectorAll('.lang-btn').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.setlang===lang));});
+    try{localStorage.setItem(KEY,lang);}catch(e){}
+  }
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.setlang);});});
+  var saved='en'; try{saved=localStorage.getItem(KEY)||'en';}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>

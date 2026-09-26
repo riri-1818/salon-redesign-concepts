@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koko Hair Artistry — Concept Redesign</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --paper:#F3EFEA; --ink:#231F1C; --ink-soft:#6B6259; --line:rgba(35,31,28,0.16);
+    --fd:#A6673D; --fd-deep:#7C4A28; --nb:#3E5E56; --nb-deep:#2A423C;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --paper:#1C1917; --ink:#F2ECE6; --ink-soft:#BFB4A9; --line:rgba(242,236,230,0.18);
+      --fd:#D69A6C; --fd-deep:#EBC29A; --nb:#8FB3A9; --nb-deep:#BEDAD2; }
+  }
+  :root[data-theme="dark"]{ --paper:#1C1917; --ink:#F2ECE6; --ink-soft:#BFB4A9; --line:rgba(242,236,230,0.18);
+    --fd:#D69A6C; --fd-deep:#EBC29A; --nb:#8FB3A9; --nb-deep:#BEDAD2; }
+  *{box-sizing:border-box;} [hidden]{display:none!important;}
+  html{background:var(--paper);}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Work Sans","Hiragino Kaku Gothic Pro",sans-serif;line-height:1.6;}
+  h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:600;text-wrap:balance;margin:0;}
+  a{color:inherit;text-decoration:none;}
+  .ribbon{background:var(--ink);color:var(--paper);font-size:12px;text-align:center;padding:8px 16px;}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;position:relative;z-index:9;}
+  .wordmark{font-family:"Cormorant Garamond",serif;font-size:19px;letter-spacing:.04em;}
+  .topctrl{display:flex;gap:10px;align-items:center;}
+  .lang-switch{display:inline-flex;border:1px solid var(--line);border-radius:20px;overflow:hidden;}
+  .lang-btn{border:none;background:transparent;color:var(--ink-soft);font:inherit;font-size:11px;font-weight:600;padding:5px 12px;cursor:pointer;}
+  .lang-btn[aria-pressed="true"]{background:var(--ink);color:var(--paper);}
+
+  .diptych{display:grid;grid-template-columns:1fr 1fr;min-height:88vh;position:relative;}
+  .diptych::after{content:"";position:absolute;left:50%;top:8%;bottom:8%;width:1px;background:var(--line);}
+  .panel{position:relative;padding:60px 44px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;min-height:520px;}
+  .panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .6s ease;}
+  .panel:hover img{transform:scale(1.04);}
+  .panel::before{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.62), rgba(0,0,0,.06) 55%);z-index:1;}
+  .panel-inner{position:relative;z-index:2;color:#fff;}
+  .panel .eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:10px;opacity:.9;}
+  .panel h2{font-size:clamp(26px,3.4vw,40px);color:#fff;}
+  .panel p{margin-top:12px;max-width:36ch;font-size:14.5px;color:rgba(255,255,255,.88);}
+  .panel .btn{display:inline-flex;margin-top:18px;padding:10px 18px;border:1px solid rgba(255,255,255,.7);border-radius:20px;font-size:13px;font-weight:600;color:#fff;}
+  .panel.fd .btn:hover{background:var(--fd);border-color:var(--fd);}
+  .panel.nb .btn:hover{background:var(--nb);border-color:var(--nb);}
+
+  .center-note{text-align:center;padding:14px 0;font-size:12px;color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase;}
+
+  section{max-width:920px;margin:0 auto;padding:54px 28px;border-top:1px solid var(--line);}
+  .lead-block{text-align:center;max-width:56ch;margin:0 auto;}
+  .lead-block h1{font-size:clamp(24px,3vw,34px);}
+  .lead-block p{color:var(--ink-soft);margin-top:14px;font-size:15.5px;}
+
+  .feature-row{display:flex;justify-content:center;gap:48px;margin-top:36px;flex-wrap:wrap;text-align:center;}
+  .feature-row .f{max-width:220px;}
+  .feature-row h3{font-size:18px;} .feature-row p{color:var(--ink-soft);font-size:13px;margin-top:6px;}
+
+  .note{color:var(--ink-soft);font-size:13.5px;margin-top:22px;text-align:center;}
+  footer{border-top:1px solid var(--line);padding:26px 28px 40px;text-align:center;}
+  .disclaimer{margin:18px auto 0;padding-top:16px;border-top:1px dashed var(--line);font-size:11px;color:var(--ink-soft);line-height:1.6;max-width:64ch;}
+  @media(max-width:760px){.diptych{grid-template-columns:1fr;}.diptych::after{display:none;}.panel{min-height:70vh;}}
+</style>
+</head>
+<body>
+<div class="ribbon">🪞 コンセプト・リデザイン案 — Koko Hair Artistry 様への営業提案サンプルです。公式サイトではありません / Concept redesign sample, not the official site</div>
+<div class="topbar">
+  <div class="wordmark">KOKO <em>Hair Artistry</em></div>
+  <div class="topctrl">
+    <div class="lang-switch"><button class="lang-btn" data-setlang="en" aria-pressed="true">EN</button><button class="lang-btn" data-setlang="ja" aria-pressed="false">日本語</button></div>
+  </div>
+</div>
+
+<div class="diptych">
+  <a class="panel fd" href="https://www.instagram.com/koko_hair_art/" target="_blank" rel="noopener">
+    <img src="images/hero.jpg" alt="Koko Hair Artistry, Five Dock">
+    <div class="panel-inner">
+      <div class="eyebrow"><span data-lang="en">Salon 01</span><span data-lang="ja" hidden>1号店</span></div>
+      <h2>Five Dock</h2>
+      <p><span data-lang="en">Our original salon — where Koko Hair Artistry began.</span><span data-lang="ja" hidden>KOKO Hair Artistryの始まりの場所。</span></p>
+      <span class="btn">@koko_hair_art →</span>
+    </div>
+  </a>
+  <a class="panel nb" href="https://www.instagram.com/koko_tokyo0117/" target="_blank" rel="noopener">
+    <img src="images/hero.jpg" alt="Koko Tokyo, Neutral Bay" style="filter:grayscale(.15) saturate(1.05);">
+    <div class="panel-inner">
+      <div class="eyebrow"><span data-lang="en">Salon 02</span><span data-lang="ja" hidden>2号店</span></div>
+      <h2>Neutral Bay</h2>
+      <p><span data-lang="en">Koko Tokyo — our second chapter, same technique.</span><span data-lang="ja" hidden>Koko Tokyo — 同じ技術を、もう一店舗で。</span></p>
+      <span class="btn">@koko_tokyo0117 →</span>
+    </div>
+  </a>
+</div>
+<div class="center-note"><span data-lang="en">Two salons — one Japanese technique</span><span data-lang="ja" hidden>2店舗、ひとつの日本の技術</span></div>
+
+<section>
+  <div class="lead-block">
+    <h1><span data-lang="en">Quiet, precise, Japanese hair care.</span><span data-lang="ja" hidden>静かで、丁寧な、日本の美容室。</span></h1>
+    <p><span data-lang="en">Whichever door you walk through, Koko Hair Artistry brings Tokyo-trained technique to Sydney — specialising in Japanese straightening and deep repair treatments.</span><span data-lang="ja" hidden>どちらの店舗も、東京仕込みの技術をシドニーで。縮毛矯正と本格的なリペアトリートメントを得意としています。</span></p>
+  </div>
+  <div class="feature-row">
+    <div class="f">
+      <h3><span data-lang="en">Japanese Straightening</span><span data-lang="ja" hidden>縮毛矯正</span></h3>
+      <p><span data-lang="en">Precision straightening, Japanese technique</span><span data-lang="ja" hidden>日本式の精度の高い技術</span></p>
+    </div>
+    <div class="f">
+      <h3><span data-lang="en">Sublimic Repair</span><span data-lang="ja" hidden>サブリミック リペア</span></h3>
+      <p><span data-lang="en">Deep hair repair treatment</span><span data-lang="ja" hidden>本格的なヘアリペアトリートメント</span></p>
+    </div>
+  </div>
+  <p class="note"><span data-lang="en">Full menu, pricing and booking via each salon's Instagram.</span><span data-lang="ja" hidden>詳しいメニュー・料金・ご予約は各店舗のInstagramから。</span></p>
+</section>
+
+<footer>
+  <div class="wordmark">KOKO <em>Hair Artistry</em></div>
+  <div class="disclaimer">
+    これはWeb制作の営業提案として作成したコンセプト・リデザインです。Koko Hair Artistry様の公式サイトではありません。掲載内容は同社の既存サイト(kokohairart.com)・Instagramの公開情報を基に構成した試作品です。<br>
+    This is an unofficial concept redesign created as a portfolio / pitch sample and is not affiliated with or published by Koko Hair Artistry.
+  </div>
+</footer>
+
+<script>
+(function(){
+  var KEY='koko-lang';
+  function apply(lang){
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-lang]').forEach(function(el){el.hidden=el.getAttribute('data-lang')!==lang;});
+    document.querySelectorAll('.lang-btn').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.setlang===lang));});
+    try{localStorage.setItem(KEY,lang);}catch(e){}
+  }
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.setlang);});});
+  var saved='en'; try{saved=localStorage.getItem(KEY)||'en';}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>

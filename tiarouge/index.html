@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tia Rouge — Concept Redesign</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Work+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --paper:#EFEDEA; --ink:#171514; --ink-soft:#635E5A; --rouge:#7C1A22; --rouge-deep:#541016; --line:rgba(23,21,20,0.16);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --paper:#171514; --ink:#F1EDE9; --ink-soft:#BDB4AD; --rouge:#E0616B; --rouge-deep:#F1949B; --line:rgba(241,237,233,0.18); }
+  }
+  :root[data-theme="dark"]{ --paper:#171514; --ink:#F1EDE9; --ink-soft:#BDB4AD; --rouge:#E0616B; --rouge-deep:#F1949B; --line:rgba(241,237,233,0.18); }
+  *{box-sizing:border-box;} [hidden]{display:none!important;}
+  html{background:var(--paper);}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Work Sans","Hiragino Kaku Gothic Pro",sans-serif;line-height:1.6;}
+  h1,h2{font-family:"Bodoni Moda",serif;font-weight:600;text-wrap:balance;margin:0;}
+  a{color:inherit;}
+  .ribbon{background:var(--rouge-deep);color:#fff;font-size:12px;text-align:center;padding:8px 16px;}
+  .bar{position:fixed;top:0;left:0;right:0;z-index:9;display:flex;justify-content:space-between;align-items:center;padding:20px 32px;mix-blend-mode:difference;}
+  .bar *{color:#fff;}
+  .lang-switch{display:inline-flex;border:1px solid rgba(255,255,255,.5);border-radius:20px;overflow:hidden;}
+  .lang-btn{border:none;background:transparent;color:#fff;font:inherit;font-size:11px;font-weight:600;padding:5px 12px;cursor:pointer;}
+  .lang-btn[aria-pressed="true"]{background:#fff;color:#000!important;}
+
+  .cover{position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-end;}
+  .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .cover-copy{position:relative;z-index:1;padding:0 32px 8vh;color:#fff;}
+  .cover-copy .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px;opacity:.9;}
+  .cover-copy h1{font-size:clamp(46px,9vw,120px);line-height:.92;color:#fff;}
+
+  .statement{max-width:640px;margin:0 auto;padding:110px 32px;text-align:center;}
+  .statement h2{font-size:clamp(24px,3.4vw,36px);line-height:1.35;}
+  .statement .cta{display:inline-flex;gap:10px;margin-top:30px;}
+  .btn{display:inline-flex;padding:13px 26px;border-radius:30px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:.03em;}
+  .btn-fill{background:var(--rouge-deep);color:#fff;}
+  .btn-line{border:1px solid var(--ink);color:var(--ink);}
+
+  .facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .facts-row{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);}
+  .facts-row > div{padding:44px 32px;border-left:1px solid var(--line);}
+  .facts-row > div:first-child{border-left:none;}
+  .facts-row .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--rouge);margin-bottom:10px;}
+  .facts-row .v{font-family:"Bodoni Moda",serif;font-size:19px;}
+  .facts-row .v small{display:block;font-family:"Work Sans";font-size:13px;color:var(--ink-soft);font-weight:400;margin-top:4px;}
+
+  footer{padding:40px 32px;text-align:center;}
+  .disclaimer{margin:16px auto 0;padding-top:14px;border-top:1px dashed var(--line);font-size:11px;color:var(--ink-soft);line-height:1.6;max-width:64ch;}
+  @media(max-width:720px){.facts-row{grid-template-columns:1fr;}.facts-row>div{border-left:none;border-top:1px solid var(--line);}.facts-row>div:first-child{border-top:none;}}
+</style>
+</head>
+<body>
+<div class="ribbon">💅 コンセプト・リデザイン案 — Tia Rouge 様への営業提案サンプルです。公式サイトではありません / Concept redesign sample, not the official site</div>
+<div class="bar">
+  <div style="font-family:'Bodoni Moda',serif;font-size:15px;">Tia Rouge</div>
+  <div class="lang-switch"><button class="lang-btn" data-setlang="en" aria-pressed="true">EN</button><button class="lang-btn" data-setlang="ja" aria-pressed="false">日本語</button></div>
+</div>
+
+<div class="cover">
+  <img src="images/hero.jpg" alt="Tia Rouge">
+  <div class="cover-copy">
+    <div class="eyebrow"><span data-lang="en">Nails &amp; Lashes — Sydney CBD</span><span data-lang="ja" hidden>ネイル＆まつげ — シドニーCBD</span></div>
+    <h1>Tia Rouge</h1>
+  </div>
+</div>
+
+<div class="statement">
+  <h2><span data-lang="en">Nails, with attitude.</span><span data-lang="ja" hidden>個性を、指先に。</span></h2>
+  <div class="cta">
+    <a class="btn btn-fill" href="tel:+61425221643"><span data-lang="en">Call to book</span><span data-lang="ja" hidden>電話で予約</span></a>
+    <a class="btn btn-line" href="https://www.instagram.com/tiarouge_hideka0214/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</div>
+
+<div class="facts">
+  <div class="facts-row">
+    <div>
+      <div class="k"><span data-lang="en">Menu</span><span data-lang="ja" hidden>メニュー</span></div>
+      <div class="v">Nails / Lashes<small><span data-lang="en">current designs on Instagram</span><span data-lang="ja" hidden>最新デザインはInstagramにて</span></small></div>
+    </div>
+    <div>
+      <div class="k"><span data-lang="en">Hours</span><span data-lang="ja" hidden>営業時間</span></div>
+      <div class="v"><span data-lang="en">Mon–Fri 11–8, Sat 12–7</span><span data-lang="ja" hidden>月〜金 11-20時、土 12-19時</span><small><span data-lang="en">Closed Sun &amp; public holidays</span><span data-lang="ja" hidden>日曜・祝日休業</span></small></div>
+    </div>
+    <div>
+      <div class="k"><span data-lang="en">Visit</span><span data-lang="ja" hidden>アクセス</span></div>
+      <div class="v">308/147 King St<small>Sydney NSW 2000</small></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div><a href="mailto:tiarouge@hotmail.com">tiarouge@hotmail.com</a> · <a href="tel:+61425221643">+61 425 221 643</a></div>
+  <div class="disclaimer">
+    これはWeb制作の営業提案として作成したコンセプト・リデザインです。Tia Rouge様の公式サイトではありません。掲載内容は同社の既存サイト(tiarouge.com.au)の公開情報を基に構成した試作品です。<br>
+    This is an unofficial concept redesign created as a portfolio / pitch sample and is not affiliated with or published by Tia Rouge.
+  </div>
+</footer>
+
+<script>
+(function(){
+  var KEY='tiarouge-lang';
+  function apply(lang){
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-lang]').forEach(function(el){el.hidden=el.getAttribute('data-lang')!==lang;});
+    document.querySelectorAll('.lang-btn').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.setlang===lang));});
+    try{localStorage.setItem(KEY,lang);}catch(e){}
+  }
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.setlang);});});
+  var saved='en'; try{saved=localStorage.getItem(KEY)||'en';}catch(e){}
+  apply(saved);
+})();
+</script>
+</body>
+</html>
