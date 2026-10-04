@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>シドニー指圧クリニック｜タウンホールの指圧・鍼灸・マッサージ</title>
+<meta name="description" content="2003年開業。タウンホールから徒歩5分、Dymocksビル9階の指圧・鍼灸・マッサージ。">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f3efe6">
+<link rel="preload" href="fonts/mincho.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p class="proposal">Sydney Shiatsu Clinic 様へのご提案用デザインです（公式サイトではありません）</p>
+
+<canvas id="ink" aria-hidden="true"></canvas>
+
+<header class="top">
+  <a class="mark" href="#hero"><span class="seal">指</span><span class="mark-t">Sydney Shiatsu Clinic</span></a>
+  <nav class="top-nav" aria-label="メイン">
+    <a href="#body" data-ja="施術を選ぶ" data-en="Find a treatment">施術を選ぶ</a>
+    <a href="#prices" data-ja="料金" data-en="Prices">料金</a>
+    <a href="#people" data-ja="施術者" data-en="Our team">施術者</a>
+    <a href="#access" data-ja="アクセス" data-en="Find us">アクセス</a>
+  </nav>
+  <button class="lang" type="button" aria-label="Switch language"><span class="on">日本語</span><span>EN</span></button>
+</header>
+
+<!-- 経絡：スクロールに合わせて伸びる線と、節ごとのツボ -->
+<aside class="meridian" aria-hidden="true">
+  <i class="meridian-fill"></i>
+  <b data-for="hero"></b><b data-for="body"></b><b data-for="menu"></b><b data-for="prices"></b><b data-for="people"></b><b data-for="access"></b>
+</aside>
+
+<main>
+<section class="hero" id="hero">
+  <div class="hero-v" aria-hidden="true">
+    <span class="v-line"><i>押</i><i>す</i><i>、</i><i>と</i><i>い</i><i>う</i></span>
+    <span class="v-line v2"><i>治</i><i>療</i><i>。</i></span>
+  </div>
+  <h1 class="sr">押す、という治療。シドニー指圧クリニック</h1>
+  <div class="hero-side">
+    <p class="kicker" data-ja="指圧・鍼灸・マッサージ ｜ シドニー Town Hall" data-en="Shiatsu · Acupuncture · Massage — Town Hall, Sydney">指圧・鍼灸・マッサージ ｜ シドニー Town Hall</p>
+    <p class="hero-lead" data-ja="指と手のひらだけで、体の状態を探り、そのままツボを押す。日本とオーストラリアで資格を取ったセラピストが施術します。" data-en="With only the thumbs and palms, we read the body and press where it needs it. Our therapists are qualified in Japan and Australia.">指と手のひらだけで、体の状態を探り、そのままツボを押す。日本とオーストラリアで資格を取ったセラピストが施術します。</p>
+    <div class="since"><span class="since-n" data-count="2003">2003</span><span class="since-t" data-ja="年から、シティの真ん中で" data-en="in the heart of the city since">年から、シティの真ん中で</span></div>
+    <div class="hero-cta"><a class="call magnetic" href="tel:+61292233000"><span data-ja="電話で予約" data-en="Call to book">電話で予約</span><b>02 9223 3000</b></a><a class="text-link" href="#body" data-ja="つらいところから施術を選ぶ" data-en="Choose a treatment by where it hurts">つらいところから施術を選ぶ</a></div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><i></i></div>
+</section>
+
+<section class="words" aria-label="施術の一覧">
+  <div class="marquee"><div class="marquee-in">
+    <span>指圧</span><i>●</i><span>鍼灸</span><i>●</i><span>リメディアル・マッサージ</span><i>●</i><span>リフレクソロジー</span><i>●</i><span>リンパ・マッサージ</span><i>●</i><span>骨盤矯正</span><i>●</i><span>美容鍼</span><i>●</i><span>スポーツ・マッサージ</span><i>●</i>
+    <span>指圧</span><i>●</i><span>鍼灸</span><i>●</i><span>リメディアル・マッサージ</span><i>●</i><span>リフレクソロジー</span><i>●</i><span>リンパ・マッサージ</span><i>●</i><span>骨盤矯正</span><i>●</i><span>美容鍼</span><i>●</i><span>スポーツ・マッサージ</span><i>●</i>
+  </div></div>
+</section>
+
+<section class="body-sec" id="body">
+  <div class="sec-head reveal">
+    <p class="no">一</p>
+    <h2 data-ja="つらいところを、<br>押してください。" data-en="Press where<br>it hurts.">つらいところを、<br>押してください。</h2>
+    <p class="sec-lead press-hint" data-ja="体の図の朱い点を押してみてください。合う施術と料金が出ます。" data-en="Press a red point on the figure to see the treatment that fits, and its price.">体の図の朱い点を押してみてください。合う施術と料金が出ます。</p>
+  </div>
+  <div class="body-grid">
+    <div class="figure reveal">
+      <svg viewBox="0 0 300 640" role="img" aria-label="体の図">
+        <g class="fig-line" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="150" cy="58" r="34"/>
+          <path d="M136 90 L134 108 Q100 114 78 132 Q62 146 60 176 L52 300 Q50 322 58 336"/>
+          <path d="M164 90 L166 108 Q200 114 222 132 Q238 146 240 176 L248 300 Q250 322 242 336"/>
+          <path d="M92 168 L96 300 Q98 340 104 372 L112 500 Q114 560 108 606 L134 606 Q140 520 144 440 L150 372"/>
+          <path d="M208 168 L204 300 Q202 340 196 372 L188 500 Q186 560 192 606 L166 606 Q160 520 156 440 L150 372"/>
+          <path class="spine" d="M150 104 L150 356" stroke-dasharray="3 9"/>
+        </g>
+        <g class="tsubo">
+          <g data-key="face" transform="translate(150 58)"><circle class="ring" r="15"/><circle class="dot" r="6.5"/></g>
+          <g data-key="shoulder" transform="translate(112 128)"><circle class="ring" r="15"/><circle class="dot" r="6.5"/></g>
+          <g data-key="back" transform="translate(150 214)"><circle class="ring" r="15"/><circle class="dot" r="6.5"/></g>
+          <g data-key="pelvis" transform="translate(150 338)"><circle class="ring" r="15"/><circle class="dot" r="6.5"/></g>
+          <g data-key="knee" transform="translate(190 470)"><circle class="ring" r="15"/><circle class="dot" r="6.5"/></g>
+          <g data-key="foot" transform="translate(120 600)"><circle class="ring" r="15"/><circle class="dot" r="6.5"/></g>
+        </g>
+      </svg>
+      <div class="chips" role="tablist"></div>
+    </div>
+    <article class="answer reveal" aria-live="polite">
+      <p class="answer-where"></p>
+      <h3 class="answer-title"></h3>
+      <p class="answer-body"></p>
+      <ul class="answer-prices"></ul>
+      <a class="text-link" href="tel:+61292233000" data-ja="この施術を電話で予約する" data-en="Call to book this treatment">この施術を電話で予約する</a>
+    </article>
+  </div>
+</section>
+
+<section class="menu-sec" id="menu">
+    <div class="sec-head reveal">
+      <p class="no">二</p>
+      <h2 data-ja="八つの施術。" data-en="Eight treatments.">八つの施術。</h2>
+      <div class="track-nav"><span class="track-hint" data-ja="横にスクロールできます" data-en="Scroll sideways">横にスクロールできます</span><button type="button" class="tn prev" aria-label="前へ" disabled>←</button><button type="button" class="tn next" aria-label="次へ">→</button></div>
+    </div>
+    <div class="track" tabindex="0">
+      <article class="card"><span class="card-n">01</span><h3 data-ja="指圧" data-en="Shiatsu">指圧</h3><p data-ja="浪越徳次郎が考案した日本独自の手技。指と手のひらだけで、体の中心から末端へ押していきます。日本では国家資格のある技術です。" data-en="A technique developed in Japan by Tokujiro Namikoshi. Pressure with the thumbs and palms only, from the centre of the body outwards. A nationally licensed therapy in Japan.">浪越徳次郎が考案した日本独自の手技。指と手のひらだけで、体の中心から末端へ押していきます。日本では国家資格のある技術です。</p><b>$95〜</b></article>
+      <article class="card"><span class="card-n">02</span><h3 data-ja="鍼灸" data-en="Acupuncture">鍼灸</h3><p data-ja="太さ0.18〜0.20mmのステンレスの鍼。使い捨てです。筒を使って、痛くないように刺します。" data-en="Stainless-steel needles 0.18–0.20mm thick, used once. A guide tube keeps insertion comfortable.">太さ0.18〜0.20mmのステンレスの鍼。使い捨てです。筒を使って、痛くないように刺します。</p><b>$80〜</b></article>
+      <article class="card"><span class="card-n">03</span><h3 data-ja="リメディアル・<br>マッサージ" data-en="Remedial<br>massage">リメディアル・<br>マッサージ</h3><p data-ja="症状に合わせて複数の技術を組み合わせるオイルマッサージ。オイルはホホバ、ジュリークのラベンダーかローズ。" data-en="An oil massage combining several techniques to suit your symptoms. Jojoba oil, or Jurlique lavender or rose.">症状に合わせて複数の技術を組み合わせるオイルマッサージ。オイルはホホバ、ジュリークのラベンダーかローズ。</p><b>$110〜</b></article>
+      <article class="card"><span class="card-n">04</span><h3 data-ja="リフレクソロジー" data-en="Reflexology">リフレクソロジー</h3><p data-ja="足の裏や手のひらの特定の部位を押す療法。カルテを作り、変化を長い目で記録します。" data-en="Pressure on specific points of the soles and palms. We keep a record of every visit to follow changes over time.">足の裏や手のひらの特定の部位を押す療法。カルテを作り、変化を長い目で記録します。</p><b data-ja="指圧とセットで $105〜" data-en="With shiatsu, from $105">指圧とセットで $105〜</b></article>
+      <article class="card"><span class="card-n">05</span><h3 data-ja="リンパ・<br>マッサージ" data-en="Lymphatic<br>massage">リンパ・<br>マッサージ</h3><p data-ja="足先から頭まで、全身のリンパの流れを整えるマッサージ。" data-en="A full-body massage, from the feet to the head, following the flow of the lymph.">足先から頭まで、全身のリンパの流れを整えるマッサージ。</p><b>$110〜</b></article>
+      <article class="card"><span class="card-n">06</span><h3 data-ja="姿勢・骨盤矯正" data-en="Posture &amp; pelvic correction">姿勢・骨盤矯正</h3><p data-ja="カイロプラクティックの手技で骨盤を軽く刺激し、体の反射を利用して整えます。ソフトに行えます。" data-en="A chiropractic technique that stimulates the pelvis lightly and uses the body’s reflexes. It can be done gently.">カイロプラクティックの手技で骨盤を軽く刺激し、体の反射を利用して整えます。ソフトに行えます。</p><b data-ja="指圧とセットで $105〜" data-en="With shiatsu, from $105">指圧とセットで $105〜</b></article>
+      <article class="card"><span class="card-n">07</span><h3 data-ja="美容鍼 ＆<br>ガルバニック・スパ" data-en="Cosmetic acupuncture<br>&amp; galvanic spa">美容鍼 ＆<br>ガルバニック・スパ</h3><p data-ja="顔への鍼にガルバニック・スパを組み合わせ、トナーと保湿クリームで仕上げます。" data-en="Facial acupuncture with a galvanic spa treatment, finished with toner and moisturiser.">顔への鍼にガルバニック・スパを組み合わせ、トナーと保湿クリームで仕上げます。</p><b data-ja="50分 $130" data-en="50 min, $130">50分 $130</b></article>
+      <article class="card"><span class="card-n">08</span><h3 data-ja="スポーツ・<br>マッサージ" data-en="Sports<br>massage">スポーツ・<br>マッサージ</h3><p data-ja="スポーツ医学をもとに、練習や試合のあとの回復を早めます。お仕事のあとにも。" data-en="Based on sports medicine, to speed recovery after training or competition. Just as good after work.">スポーツ医学をもとに、練習や試合のあとの回復を早めます。お仕事のあとにも。</p><b data-ja="ご予約時にご相談ください" data-en="Ask when booking">ご予約時にご相談ください</b></article>
+    </div>
+    <div class="track-bar" aria-hidden="true"><i></i></div>
+</section>
+
+<section class="prices" id="prices">
+  <div class="sec-head reveal">
+    <p class="no">三</p>
+    <h2 data-ja="料金。" data-en="Prices.">料金。</h2>
+    <div class="switch" role="group" aria-label="時間">
+      <button type="button" class="on" data-min="60">60<small data-ja="分" data-en=" min">分</small></button>
+      <button type="button" data-min="90">90<small data-ja="分" data-en=" min">分</small></button>
+      <i class="switch-pill" aria-hidden="true"></i>
+    </div>
+  </div>
+  <ul class="price-list"></ul>
+  <ul class="price-fixed reveal"></ul>
+  <p class="price-note reveal" data-ja="CBDのホテルへの出張はプラス $50。時間外、日曜・祝日は15%のサーチャージが加算されます。料金はオーストラリアドルです。" data-en="Visits to CBD hotels are an extra $50. A 15% surcharge applies outside opening hours and on Sundays and public holidays. Prices are in Australian dollars.">CBDのホテルへの出張はプラス $50。時間外、日曜・祝日は15%のサーチャージが加算されます。料金はオーストラリアドルです。</p>
+</section>
+
+<section class="people" id="people">
+  <div class="sec-head reveal">
+    <p class="no">四</p>
+    <h2 data-ja="施術する人。" data-en="The people.">施術する人。</h2>
+  </div>
+  <div class="owner">
+    <figure class="owner-photo reveal"><img src="img/owner.jpg" alt="紺の施術着で笑顔のオーナー、川村勝仁" width="999" height="1200" loading="lazy"></figure>
+    <div class="owner-text">
+      <p class="role reveal" data-ja="オーナー ／ 鍼灸指圧師" data-en="Owner · Acupuncturist and shiatsu practitioner">オーナー ／ 鍼灸指圧師</p>
+      <h3 class="reveal"><span data-ja="川村 勝仁" data-en="Katsuhito Kawamura">川村 勝仁</span><small data-ja="かわむら かつひと" data-en="川村 勝仁">かわむら かつひと</small></h3>
+      <p class="reveal" data-ja="鍼灸、あん摩マッサージ指圧の国家資格を取得後、仙台の整形外科医院理療科で鍼灸師として勤務。東北地方を中心に、スポーツトレーナー（専門は肩、スローイング）を兼任しました。鍼灸の専門は運動器系と婦人科疾患系。日曜から金曜に在院しています。" data-en="After gaining national licences in acupuncture and in massage and shiatsu in Japan, he worked as an acupuncturist at an orthopaedic clinic in Sendai and as a sports trainer across the Tohoku region, specialising in the shoulder and throwing. His acupuncture focuses on musculoskeletal and women’s health conditions. At the clinic Sunday to Friday.">鍼灸、あん摩マッサージ指圧の国家資格を取得後、仙台の整形外科医院理療科で鍼灸師として勤務。東北地方を中心に、スポーツトレーナー（専門は肩、スローイング）を兼任しました。鍼灸の専門は運動器系と婦人科疾患系。日曜から金曜に在院しています。</p>
+      <ol class="years">
+        <li class="reveal"><time>2003</time><span data-ja="オーストラリア移住後、鍼灸指圧クリニック HANZON を立ち上げ。アイスホッケーチームの選手兼トレーナー。" data-en="Founds HANZON, an acupuncture and shiatsu clinic, after moving to Australia. Plays for and trains an ice hockey team.">オーストラリア移住後、鍼灸指圧クリニック HANZON を立ち上げ。アイスホッケーチームの選手兼トレーナー。</span></li>
+        <li class="reveal"><time>2014</time><span data-ja="1月、シドニー指圧クリニックのオーナーに就任。" data-en="Becomes owner of Sydney Shiatsu Clinic in January.">1月、シドニー指圧クリニックのオーナーに就任。</span></li>
+      </ol>
+      <p class="reg reveal">AHPRA CMR0001739710 ／ ATMS 15605</p>
+    </div>
+  </div>
+  <div class="teams reveal">
+    <p class="teams-h" data-ja="トレーナーとして支えたチーム" data-en="Teams he has trained">トレーナーとして支えたチーム</p>
+    <ul>
+      <li><b data-ja="JR東日本 硬式野球部" data-en="JR East baseball club">JR東日本 硬式野球部</b><span data-ja="全国大会 準優勝" data-en="National runner-up">全国大会 準優勝</span></li>
+      <li><b data-ja="東北大学 アメフト部" data-en="Tohoku University American football">東北大学 アメフト部</b><span data-ja="東北大会 優勝" data-en="Tohoku champions">東北大会 優勝</span></li>
+      <li><b data-ja="仙台育英 硬式野球部" data-en="Sendai Ikuei baseball">仙台育英 硬式野球部</b><span data-ja="東北大会 優勝" data-en="Tohoku champions">東北大会 優勝</span></li>
+      <li><b data-ja="東邦銀行 女子ソフトボール部" data-en="Toho Bank women’s softball">東邦銀行 女子ソフトボール部</b><span data-ja="二部リーグ 優勝" data-en="Second-division champions">二部リーグ 優勝</span></li>
+      <li><b data-ja="YKK 女子サッカー部" data-en="YKK women’s soccer">YKK 女子サッカー部</b><span data-ja="全国社会人大会 優勝" data-en="National corporate champions">全国社会人大会 優勝</span></li>
+    </ul>
+  </div>
+  <div class="rie reveal">
+    <h3><span data-ja="理恵" data-en="Rie">理恵</span><small data-ja="りえ" data-en="理恵">りえ</small></h3>
+    <p data-ja="指圧セラピスト ／ リメディアル・マッサージ・セラピスト ／ リンパ・マッサージ・セラピスト" data-en="Shiatsu therapist · Remedial massage therapist · Lymphatic massage therapist">指圧セラピスト ／ リメディアル・マッサージ・セラピスト ／ リンパ・マッサージ・セラピスト</p>
+  </div>
+</section>
+
+<section class="access" id="access">
+  <div class="lift">
+    <div class="lift-shaft" aria-hidden="true"><div class="lift-car"><span class="lift-n">1</span><small>F</small></div></div>
+    <div class="lift-text">
+      <p class="no">五</p>
+      <h2 data-ja="Dymocksビルの、<br>九階へ。" data-en="Up to Level 9,<br>Dymocks Building.">Dymocksビルの、<br>九階へ。</h2>
+      <p class="sec-lead" data-ja="タウンホールから歩いて5分ほど。George Street 428番地です。" data-en="About five minutes’ walk from Town Hall, at 428 George Street.">タウンホールから歩いて5分ほど。George Street 428番地です。</p>
+    </div>
+    <figure class="door"><div class="door-in"><img src="img/door.jpg" alt="9階にある木の両開きの扉" width="720" height="960" loading="lazy"></div><figcaption data-ja="9階の入口。" data-en="The entrance on Level 9.">9階の入口。</figcaption></figure>
+  </div>
+  <dl class="facts">
+    <div class="reveal"><dt data-ja="住所" data-en="Address">住所</dt><dd>Level 9, Suite 3B, Dymocks Building<br>428 George St, Sydney NSW 2000<br><a class="text-link" href="https://www.google.com/maps/search/?api=1&query=Sydney+Shiatsu+Clinic+428+George+St+Sydney" rel="noopener" data-ja="Googleマップで開く" data-en="Open in Google Maps">Googleマップで開く</a></dd></div>
+    <div class="reveal"><dt data-ja="営業時間" data-en="Hours">営業時間</dt><dd><span class="h-row"><span data-ja="月〜金" data-en="Mon to Fri">月〜金</span><b>10:00 – 19:00</b></span><span class="h-row"><span data-ja="土・日・祝" data-en="Sat, Sun &amp; holidays">土・日・祝</span><b>10:00 – 17:00</b></span><span class="open-now" hidden></span></dd></div>
+    <div class="reveal"><dt data-ja="ご予約" data-en="Booking">ご予約</dt><dd><a class="big-tel magnetic" href="tel:+61292233000">02 9223 3000</a><a class="text-link" href="mailto:sydneyshiatsuclinic@gmail.com">sydneyshiatsuclinic@gmail.com</a></dd></div>
+  </dl>
+</section>
+</main>
+
+<footer class="foot">
+  <span class="seal">指</span>
+  <p>Sydney Shiatsu Clinic ｜ Level 9, Suite 3B, Dymocks Building, 428 George St, Sydney</p>
+  <p class="foot-note">Sydney Shiatsu Clinic 様へのご提案用デザインです。公式サイトではありません。</p>
+</footer>
+
+<nav class="dock" aria-label="すぐ使う">
+  <a href="tel:+61292233000" data-ja="電話する" data-en="Call">電話する</a>
+  <a href="mailto:sydneyshiatsuclinic@gmail.com" data-ja="メール" data-en="Email">メール</a>
+  <a href="https://www.google.com/maps/search/?api=1&query=Sydney+Shiatsu+Clinic+428+George+St+Sydney" rel="noopener" data-ja="地図" data-en="Map">地図</a>
+</nav>
+
+<script src="app.js" defer></script>
+</body>
+</html>
