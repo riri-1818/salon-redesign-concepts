@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eva | Luxury European Makeup, Sydney</title>
+<meta name="description" content="Eva is a professional makeup artist in Sydney with a diploma from a European makeup academy. Every look is designed individually for the client's features and colouring.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#ede7e0">
+<link rel="preload" href="fonts/display.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p class="proposal">A design proposal for Eva MUA. This is not the official website.</p>
+
+<header class="top">
+  <a class="mark" href="#top">Eva</a>
+  <nav class="nav" aria-label="Main"><a href="#artist">The artist</a><a href="#approach">The approach</a><a href="#enquire">Enquire</a></nav>
+  <a class="enq-top" href="#enquire">Enquire</a>
+</header>
+
+<main id="top">
+<section class="cover">
+  <svg class="strokes" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
+    <path class="s s1" pathLength="1" d="M-40 190 C200 120 420 250 660 170 S1060 120 1260 200"/>
+    <path class="s s2" pathLength="1" d="M-40 330 C240 270 460 400 720 320 S1080 280 1260 340"/>
+    <path class="s s3" pathLength="1" d="M-40 470 C220 420 520 520 780 450 S1100 430 1260 480"/>
+  </svg>
+  <p class="issue">Sydney <span>·</span> Makeup artist</p>
+  <p class="sig" aria-label="Eva"><span>Eva</span></p>
+  <h1>Luxury European Makeup</h1>
+  <p class="lead">Polished, sophisticated and precisely executed. Every look is designed for one face.</p>
+  <a class="btn" href="#enquire">Make an enquiry</a>
+</section>
+
+<section class="artist" id="artist">
+  <p class="no">N° 01</p>
+  <h2>The artist</h2>
+  <div class="spread">
+    <figure><img loading="lazy" src="img/eva.jpg" width="900" height="1384" alt="Eva in a black blazer, holding makeup brushes"><figcaption>Eva</figcaption></figure>
+    <div class="cols">
+      <p class="drop">Eva is a professional makeup artist with a diploma from a European makeup academy. Highly skilled and experienced, she is recognised for her refined technique and a distinctive approach to beauty.</p>
+      <p>Her work spans fashion and editorial makeup. She is a former Dior makeup artist, and her work has been published in Harper’s Bazaar.</p>
+      <p>Her signature style is an elegant European aesthetic. Rather than following fleeting trends, Eva focuses on delivering a strong, perfected foundation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="approach" id="approach">
+  <p class="no">N° 02</p>
+  <h2>The approach</h2>
+  <ol class="three">
+    <li><span class="sw" style="--c:#e7cdb8"></span><b>Flawless skin</b><p>The base comes first: a strong, perfected foundation.</p></li>
+    <li><span class="sw" style="--c:#c9937c"></span><b>Precise colour harmony</b><p>Colour chosen for the client’s own features and colouring.</p></li>
+    <li><span class="sw" style="--c:#7a4b3a"></span><b>On camera and in person</b><p>Makeup that translates seamlessly both ways.</p></li>
+  </ol>
+  <blockquote>A one-size-fits-all approach is never applied.</blockquote>
+</section>
+
+<section class="enquire" id="enquire">
+  <p class="no light">N° 03</p>
+  <h2>Tell Eva about your day.</h2>
+  <p class="sub">Fill in what you know. The enquiry is written for you, ready to send from your own email.</p>
+  <form class="form" id="form" novalidate>
+    <label><span>The occasion</span><input type="text" id="f-occ" placeholder="A wedding, a shoot, an event…" autocomplete="off"></label>
+    <label><span>The date</span><input type="date" id="f-date"></label>
+    <label><span>Where</span><input type="text" id="f-where" placeholder="Suburb or venue" autocomplete="off"></label>
+    <label><span>How many people</span><div class="stepper"><button type="button" id="minus" aria-label="Fewer">−</button><output id="f-n">1</output><button type="button" id="plus" aria-label="More">+</button></div></label>
+  </form>
+  <div class="letter" aria-live="polite">
+    <p class="l-to">To: eva-mua@hotmail.com</p>
+    <p class="l-sub">Subject: Makeup Service Enquiry</p>
+    <p class="l-body" id="l-body"></p>
+    <a class="btn dark" id="send" href="mailto:eva-mua@hotmail.com?subject=Makeup%20Service%20Enquiry">Send this enquiry</a>
+  </div>
+</section>
+</main>
+<footer class="foot"><p class="sig small"><span>Eva</span></p><p>Luxury European Makeup · Sydney</p><p class="mail"><a href="mailto:eva-mua@hotmail.com?subject=Makeup%20Service%20Enquiry">eva-mua@hotmail.com</a></p></footer>
+<nav class="dock" aria-label="Quick actions"><a class="dock-main" href="#enquire">Make an enquiry</a><a href="mailto:eva-mua@hotmail.com?subject=Makeup%20Service%20Enquiry">Email</a></nav>
+<script src="app.js" defer></script>
+</body>
+</html>
