@@ -42,7 +42,13 @@ function showWall(a = true) { $(".filters").innerHTML = FILTERS.map(([k, l]) => 
 $(".pick").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { course = +b.dataset.i; showCourse(); } });
 $("#nine").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { open = open === +b.dataset.i ? -1 : +b.dataset.i; showNine(); } });
 $(".filters").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { filter = b.dataset.k; showWall(); } });
+/* enquiry form (same fields as the Contact Us form on the current site, plus the course). It opens the visitor's own email app, filled in. */
+const fc = $("#f-course"); fc.innerHTML = `<option value="">Not sure yet</option>` + COURSES.map((c) => `<option>${c.tab}</option>`).join("");
+$("#c-ask").addEventListener("click", () => { fc.value = COURSES[course].tab; });
+$("#enq").addEventListener("submit", (e) => { e.preventDefault(); const f = e.target, bad = [...f.elements].find((x) => x.required && !x.value.trim()) || (!f.email.checkValidity() && f.email); $$(".enq .bad").forEach((x) => x.classList.remove("bad")); $("#f-err").hidden = !bad; if (bad) { bad.closest("label").classList.add("bad"); bad.focus(); return; }
+  const v = Object.fromEntries(new FormData(f)), body = ["Hello,", "", "Nature of enquiry: " + v.kind, v.course ? "Course: " + v.course : null, "", v.msg, "", "Name: " + v.first + " " + v.last, "Email: " + v.email, "Phone: " + v.phone].filter((x) => x !== null).join("\n");
+  location.href = "mailto:enquiries@japanesetutoring.com.au?subject=" + encodeURIComponent("Enquiry: " + v.kind + (v.course ? " (" + v.course + ")" : "")) + "&body=" + encodeURIComponent(body); });
 showCourse(false); showNine(); showWall(false);
 if (reduce || !("IntersectionObserver" in window)) document.documentElement.classList.add("no-motion");
-else { const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -10% 0px" }); $$(".sec-head, .pick, .course, .nine, .kyoshin > div, .k-art, .filters, .wall, .g-main, .history li, .contact").forEach((el) => { el.classList.add("rv"); io.observe(el); }); }
+else { const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -10% 0px" }); $$(".sec-head, .pick, .course, .nine, .kyoshin > div, .k-art, .filters, .wall, .g-main, .history li, .c-head, .enq").forEach((el) => { el.classList.add("rv"); io.observe(el); }); }
 requestAnimationFrame(() => document.documentElement.classList.add("ready"));

@@ -15,7 +15,7 @@
 <header class="top">
   <a class="mark" href="#top"><b>KJA</b><span>Kaneko Japanese Academy</span></a>
   <nav class="nav" aria-label="Main"><a href="#courses">Courses</a><a href="#system">How we teach</a><a href="#results">Results</a><a href="#gloria">Gloria</a></nav>
-  <a class="ask-top" href="http://japanesetutoring.com.au/contact-us.php" target="_blank" rel="noopener">Ask a question</a>
+  <a class="ask-top" href="#contact">Ask a question</a>
 </header>
 <main id="top">
 <section class="hero">
@@ -23,7 +23,7 @@
     <p class="tag">Online Japanese tutoring · HSC and IB · since 2005</p>
     <h1>Japanese, the way it is <em>spoken in Japan.</em></h1>
     <p class="lead">Personalised one-on-one and small-group online tuition for NSW school students and IB students worldwide. Every lesson is designed and taught by Gloria Kaneko, with native Japanese-speaking assistant tutors.</p>
-    <div class="cta"><a class="btn" href="http://japanesetutoring.com.au/contact-us.php" target="_blank" rel="noopener">Ask about lessons</a><a class="link" href="tel:+61287100441">(02) 8710 0441</a></div>
+    <div class="cta"><a class="btn" href="#contact">Ask about lessons</a><a class="link" href="tel:+61287100441">(02) 8710 0441</a></div>
   </div>
   <div class="genko" aria-hidden="true">
     <div class="cells" id="cells"></div>
@@ -35,7 +35,7 @@
 <section class="courses" id="courses">
   <div class="sec-head"><p class="tag">Our courses</p><h2>What are you studying for?</h2></div>
   <div class="pick" role="tablist" aria-label="Course"></div>
-  <div class="course"><div><h3 id="c-title"></h3><p id="c-body"></p></div><dl><div><dt>Lesson duration</dt><dd id="c-dur"></dd></div><div><dt>Syllabuses</dt><dd id="c-syl"></dd></div></dl></div>
+  <div class="course"><div><h3 id="c-title"></h3><p id="c-body"></p></div><dl><div><dt>Lesson duration</dt><dd id="c-dur"></dd></div><div><dt>Syllabuses</dt><dd id="c-syl"></dd></div><div><a class="link" href="#contact" id="c-ask">Ask about this course →</a></div></dl></div>
 </section>
 
 <section class="system" id="system">
@@ -54,7 +54,7 @@
   <div class="sec-head"><p class="tag">Student feedback</p><h2>What our students went on to achieve.</h2></div>
   <div class="filters" role="tablist" aria-label="Filter"></div>
   <ul class="wall" id="wall"></ul>
-  <p class="fine">Results as shared by past and current students on the academy’s Student Feedback page. <a href="http://japanesetutoring.com.au/student-feedback.php" target="_blank" rel="noopener">Read their full stories →</a></p>
+  <p class="fine">Results as shared by past and current students on the academy’s Student Feedback page.</p>
 </section>
 
 <section class="gloria" id="gloria">
@@ -65,14 +65,25 @@
 </section>
 
 <section class="contact" id="contact">
-  <h2>Got a question? <em>Ask us anything.</em></h2>
-  <p>Lessons, prices, class times, or anything else. We normally reply pretty quickly.</p>
-  <div class="cta"><a class="btn" href="http://japanesetutoring.com.au/contact-us.php" target="_blank" rel="noopener">Send an enquiry</a><a class="link" href="mailto:enquiries@japanesetutoring.com.au">enquiries@japanesetutoring.com.au</a></div>
-  <p class="tels"><a href="tel:+61287100441">(02) 8710 0441</a><a href="tel:+61400322426">0400 322 426</a></p>
+  <div class="c-head"><h2>Got a question? <em>Ask us anything.</em></h2>
+    <p>Lessons, prices, class times, or anything else. We normally reply pretty quickly.</p>
+    <p class="tels"><a href="tel:+61287100441">(02) 8710 0441</a><a href="tel:+61400322426">0400 322 426</a></p>
+    <p class="mail"><a href="mailto:enquiries@japanesetutoring.com.au">enquiries@japanesetutoring.com.au</a></p></div>
+  <form class="enq" id="enq" novalidate>
+    <label class="half"><span>First name</span><input name="first" autocomplete="given-name" required></label>
+    <label class="half"><span>Last name</span><input name="last" autocomplete="family-name" required></label>
+    <label class="half"><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+    <label class="half"><span>Phone</span><input name="phone" type="tel" autocomplete="tel" required></label>
+    <label class="half"><span>Nature of your enquiry</span><select name="kind"><option>Tutoring lessons</option><option>Jobs</option><option>Business</option><option>General</option></select></label>
+    <label class="half"><span>Course</span><select name="course" id="f-course"></select></label>
+    <label><span>Message</span><textarea name="msg" rows="4" required></textarea></label>
+    <p class="err" id="f-err" role="alert" hidden>Please fill in the highlighted field.</p>
+    <div class="send"><button class="btn" type="submit">Send enquiry</button><p class="how">Your email app opens with your enquiry filled in. Nothing is sent until you press send there.</p></div>
+  </form>
 </section>
 </main>
 <footer class="foot"><p><b>KJA</b> Kaneko Japanese Academy</p><p class="small">Online Japanese tutoring · HSC and IB</p></footer>
-<nav class="dock" aria-label="Quick actions"><a class="dock-main" href="http://japanesetutoring.com.au/contact-us.php" target="_blank" rel="noopener">Ask a question</a><a href="tel:+61287100441">Call</a><a href="mailto:enquiries@japanesetutoring.com.au">Email</a></nav>
+<nav class="dock" aria-label="Quick actions"><a class="dock-main" href="#contact">Ask a question</a><a href="tel:+61287100441">Call</a><a href="mailto:enquiries@japanesetutoring.com.au">Email</a></nav>
 <script src="app.js" defer></script>
 </body>
 </html>
