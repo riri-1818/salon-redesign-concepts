@@ -92,25 +92,43 @@ function showNext() {
   const s = TT[d].find((x) => x[2] !== "x"), when = d === today ? t(["Today", "本日"]) : t(DAYS[d]) + (lang === "ja" ? "曜" : "");
   $("#next").innerHTML = `<i></i>${t(["Next classes", "次のクラス"])}: <b>${when} ${s[0]}</b> ${t(s[1])}`;
 }
-$(".paths").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { path = +b.dataset.i; stage = 0; showPath(); } });
+$(".paths").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { path = +b.dataset.i; stage = 0; showPath(); if (!trialClass) fillTrial(); } });
 $("#p-stages").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { stage = +b.dataset.i; showPath(false); } });
 $(".days").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { day = +b.dataset.i; showDay(); } });
 $("#slots").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { path = PATHS.findIndex((p) => p.id === b.dataset.p); stage = 0; showPath(); $("#classes").scrollIntoView({ behavior: reduce ? "auto" : "smooth" }); } });
 $("#tlist").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { teacher = +b.dataset.i; showTeacher(); } });
+/* ---------- free trial form (same fields as the form on the current site). The date list only offers days when the chosen class runs. ---------- */
+let trialClass = "", trialDate = "";
+function trialDates() {
+  const k = trialClass || PATHS[path].id, out = [], now = new Date();
+  for (let i = 0; i < 21 && out.length < 6; i++) { const d = new Date(now.getTime() + i * 864e5), wd = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].indexOf(new Intl.DateTimeFormat("en-AU", { timeZone: "Australia/Sydney", weekday: "short" }).format(d).slice(0, 3));
+    if (i === 0) continue; TT[wd].filter((s) => s[2] === k).forEach((s) => out.push({ v: new Intl.DateTimeFormat("en-AU", { timeZone: "Australia/Sydney", weekday: "long", day: "numeric", month: "long" }).format(d) + ", " + s[0] + " (" + s[1][0] + ")", l: new Intl.DateTimeFormat(lang === "ja" ? "ja-JP" : "en-AU", { timeZone: "Australia/Sydney", weekday: "short", day: "numeric", month: "short" }).format(d) + " · " + s[0] + " · " + t(s[1]) })); }
+  return out.slice(0, 6);
+}
+function fillTrial() {
+  const k = trialClass || PATHS[path].id;
+  $("#f-class").innerHTML = PATHS.map((p) => `<option value="${p.id}" ${p.id === k ? "selected" : ""}>${t(p.tab)} (${t(p.age)})</option>`).join("");
+  const ds = trialDates(); $("#f-date").innerHTML = ds.map((d) => `<option value="${d.v}" ${d.v === trialDate ? "selected" : ""}>${d.l}</option>`).join("");
+}
+$("#f-class").addEventListener("change", (e) => { trialClass = e.target.value; trialDate = ""; fillTrial(); });
+$("#f-date").addEventListener("change", (e) => { trialDate = e.target.value; });
+$("#enq").addEventListener("submit", (e) => { e.preventDefault(); const f = e.target, bad = [...f.elements].find((x) => x.required && !x.value.trim()); $$(".enq .bad").forEach((x) => x.classList.remove("bad")); $("#f-err").hidden = !bad; if (bad) { bad.closest("label").classList.add("bad"); bad.focus(); $("#f-err").textContent = t(["Please fill in the highlighted field.", "色のついた欄をご記入ください。"]); return; }
+  const v = Object.fromEntries(new FormData(f)), body = ["Hi Harrison, I would like to book a free trial at Shinbukan.", "Class: " + PATHS.find((p) => p.id === v.cls).tab[0], "Date: " + v.date, "Name: " + v.name, "Phone: " + v.phone, v.email ? "Email: " + v.email : null, v.msg ? "I would like to know more about: " + v.msg : null].filter((x) => x !== null).join("\n");
+  location.href = "sms:+61417884131?&body=" + encodeURIComponent(body); });
 function applyLang() {
   document.documentElement.lang = lang;
   $$("[data-en]").forEach((el) => { el.innerHTML = el.dataset[lang]; });
   $$("[data-alt-en]").forEach((el) => { el.alt = lang === "en" ? el.dataset.altEn : el.dataset.altJa; });
   $$(".lang span").forEach((s, i) => s.classList.toggle("on", (i === 0) === (lang === "en")));
   $("#line").innerHTML = LINE.map(([y, h, b]) => `<li><time>${y}</time><h3>${t(h)}</h3><p>${t(b)}</p></li>`).join("");
-  showPath(false); showDay(false); showTeacher(false); showNext(); observe();
+  showPath(false); showDay(false); showTeacher(false); showNext(); fillTrial(); observe();
 }
 $(".lang").addEventListener("click", () => { lang = lang === "en" ? "ja" : "en"; applyLang(); });
 let io;
 function observe() {
   if (reduce || !("IntersectionObserver" in window)) { document.documentElement.classList.add("no-motion"); return; }
   io ??= new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -10% 0px" });
-  $$(".sec-head, .paths, .path, .days, #slots, .saito-top, #line li, .harrison, .tgrid, .visit > div").forEach((el) => { if (!el.classList.contains("rv")) { el.classList.add("rv"); io.observe(el); } });
+  $$(".sec-head, .paths, .path, .days, #slots, .saito-top, #line li, .harrison, .tgrid, .visit > div, .enq").forEach((el) => { if (!el.classList.contains("rv")) { el.classList.add("rv"); io.observe(el); } });
 }
 applyLang();
 requestAnimationFrame(() => document.documentElement.classList.add("ready"));

@@ -17,7 +17,7 @@
   <a class="mark" href="#top"><b>神武館</b><span>Shinbukan</span></a>
   <nav class="nav" aria-label="Main"><a href="#classes" data-en="Classes" data-ja="クラス">Classes</a><a href="#week" data-en="Timetable" data-ja="時間割">Timetable</a><a href="#saito" data-en="The Saitos" data-ja="斉藤家">The Saitos</a><a href="#teachers" data-en="Instructors" data-ja="指導者">Instructors</a></nav>
   <button class="lang" type="button" aria-label="Language / 言語"><span>EN</span><span>日本語</span></button>
-  <a class="trial-top" href="https://www.shinbukan.com.au/contact-shinbukan" target="_blank" rel="noopener" data-en="Free trial" data-ja="無料体験">Free trial</a>
+  <a class="trial-top" href="#trial" data-en="Free trial" data-ja="無料体験">Free trial</a>
 </header>
 
 <main id="top">
@@ -27,7 +27,7 @@
     <p class="tag" data-en="Lane Cove, Sydney · est. 1978" data-ja="Lane Cove（シドニー）・1978年創立">Lane Cove, Sydney · est. 1978</p>
     <h1 data-en="Train for years,<br>not for <em>seasons.</em>" data-ja="一季ではなく、<br><em>一生</em>の稽古を。">Train for years,<br>not for <em>seasons.</em></h1>
     <p class="lead" data-en="A traditional Japanese dojo, founded by Kazuo Saito, who migrated from Tokyo to Sydney in 1978. Goju-Ryu Karate for kids and adults, and Iga Ryu Ninjutsu." data-ja="1978年に東京からシドニーへ渡った斉藤一夫が開いた、日本の伝統武道の道場です。子どもと大人の剛柔流空手、伊賀流忍術。">A traditional Japanese dojo, founded by Kazuo Saito, who migrated from Tokyo to Sydney in 1978. Goju-Ryu Karate for kids and adults, and Iga Ryu Ninjutsu.</p>
-    <div class="cta"><a class="btn" href="https://www.shinbukan.com.au/contact-shinbukan" target="_blank" rel="noopener" data-en="Book a free trial" data-ja="無料体験を申し込む">Book a free trial</a><a class="link" href="#week" data-en="This week’s classes ↓" data-ja="今週のクラス ↓">This week’s classes ↓</a></div>
+    <div class="cta"><a class="btn" href="#trial" data-en="Book a free trial" data-ja="無料体験を申し込む">Book a free trial</a><a class="link" href="#week" data-en="This week’s classes ↓" data-ja="今週のクラス ↓">This week’s classes ↓</a></div>
     <p class="next" id="next"></p>
   </div>
   <figure class="hero-art"><i class="sun" aria-hidden="true"></i><img src="img/throw.jpg" width="871" height="900" alt="" data-alt-en="Ink-style silhouette of a throw" data-alt-ja="投げ技の瞬間の影絵"></figure>
@@ -71,11 +71,26 @@
   <img loading="lazy" src="img/dojo.jpg" width="1300" height="1300" alt="" data-alt-en="Adults training in the dojo" data-alt-ja="道場での大人の稽古">
   <div><p class="tag light" data-en="Your first class is free" data-ja="初回は無料です">Your first class is free</p><h2 data-en="Come and train once." data-ja="まず一度、稽古へ。">Come and train once.</h2>
     <dl class="info"><div><dt data-en="Dojo" data-ja="道場">Dojo</dt><dd>151 Burns Bay Road, Lane Cove NSW 2066</dd></div><div><dt data-en="Phone" data-ja="電話">Phone</dt><dd><a href="tel:+61417884131">0417 884 131</a> <span>Harrison Saito</span></dd></div></dl>
-    <div class="cta"><a class="btn" href="https://www.shinbukan.com.au/contact-shinbukan" target="_blank" rel="noopener" data-en="Book a free trial" data-ja="無料体験を申し込む">Book a free trial</a><a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=Shinbukan+151+Burns+Bay+Road+Lane+Cove" target="_blank" rel="noopener" data-en="Open in Google Maps →" data-ja="Google マップで開く →">Open in Google Maps →</a></div></div>
+    <div class="cta"><a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=Shinbukan+151+Burns+Bay+Road+Lane+Cove" target="_blank" rel="noopener" data-en="Open in Google Maps →" data-ja="Google マップで開く →">Open in Google Maps →</a></div></div>
+</section>
+
+<section class="trial" id="trial">
+  <div class="sec-head"><p class="tag" data-en="Free trial" data-ja="無料体験">Free trial</p><h2 data-en="Organise a free trial." data-ja="無料体験を申し込む。">Organise a free trial.</h2>
+    <ul class="expect"><li data-en="Comfortable sport clothes." data-ja="動きやすい服装で。">Comfortable sport clothes.</li><li data-en="Fundamentals first, aiming for calmness and grounding." data-ja="まず基本から。落ち着きと安定を目指します。">Fundamentals first, aiming for calmness and grounding.</li><li data-en="Intensity is scaled by experienced judgement, with control as the baseline." data-ja="強度は、経験にもとづく判断で調整します。制御が土台です。">Intensity is scaled by experienced judgement, with control as the baseline.</li></ul></div>
+  <form class="enq" id="enq" novalidate>
+    <label class="half"><span data-en="Name" data-ja="お名前">Name</span><input name="name" autocomplete="name" required></label>
+    <label class="half"><span data-en="Phone" data-ja="電話番号">Phone</span><input name="phone" type="tel" autocomplete="tel" required></label>
+    <label><span data-en="Email" data-ja="メールアドレス">Email</span><input name="email" type="email" autocomplete="email"></label>
+    <label class="half"><span data-en="Which class?" data-ja="どのクラス？">Which class?</span><select name="cls" id="f-class"></select></label>
+    <label class="half"><span data-en="Pick a trial date" data-ja="体験の希望日">Pick a trial date</span><select name="date" id="f-date" required></select></label>
+    <label><span data-en="What would you like to learn more about?" data-ja="知りたいこと">What would you like to learn more about?</span><textarea name="msg" rows="3"></textarea></label>
+    <p class="err" id="f-err" role="alert" hidden></p>
+    <div class="send"><button class="btn" type="submit" data-en="Send request by text message" data-ja="SMS で申し込む">Send request by text message</button><p class="how" data-en="Your messages app opens with the request filled in, addressed to 0417 884 131. Nothing is sent until you press send there." data-ja="申し込み内容が入った状態で、メッセージの画面（宛先 0417 884 131）が開きます。そこで送信を押すまで、何も送られません。">Your messages app opens with the request filled in, addressed to 0417 884 131. Nothing is sent until you press send there.</p></div>
+  </form>
 </section>
 </main>
 <footer class="foot"><p><b>神武館</b> Shinbukan Japanese Culture &amp; Martial Arts Academy</p><p class="small">Lane Cove, Sydney · est. 1978</p></footer>
-<nav class="dock" aria-label="Quick actions"><a class="dock-main" href="https://www.shinbukan.com.au/contact-shinbukan" target="_blank" rel="noopener" data-en="Free trial" data-ja="無料体験">Free trial</a><a href="tel:+61417884131" data-en="Call" data-ja="電話">Call</a><a href="#week" data-en="Timetable" data-ja="時間割">Timetable</a></nav>
+<nav class="dock" aria-label="Quick actions"><a class="dock-main" href="#trial" data-en="Free trial" data-ja="無料体験">Free trial</a><a href="tel:+61417884131" data-en="Call" data-ja="電話">Call</a><a href="#week" data-en="Timetable" data-ja="時間割">Timetable</a></nav>
 <script src="app.js" defer></script>
 </body>
 </html>
