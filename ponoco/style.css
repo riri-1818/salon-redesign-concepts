@@ -61,4 +61,5 @@ section { scroll-margin-top: 4.2rem; }
   .dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: grid; grid-template-columns: 1.4fr 1fr 1fr; background: var(--forest); padding-bottom: env(safe-area-inset-bottom); }
   .dock a { color: #fff; text-decoration: none; text-align: center; font-family: var(--kiwi); font-weight: 500; padding: .9rem .4rem; border-left: 1px solid rgba(255, 255, 255, .2); } .dock .dock-main { background: var(--sand); color: var(--ink); border-left: 0; }
 }
+@media (max-width: 380px) { .tabs { gap: .2rem; } .tabs b { font-size: .8rem; } html[lang="en"] .tabs b { font-size: .62rem; letter-spacing: -.01em; } .tabs button { padding-inline: 0; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
