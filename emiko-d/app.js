@@ -37,10 +37,22 @@ function applyLang() {
   $$("[data-alt-en]").forEach((el) => { el.alt = lang === "en" ? el.dataset.altEn : el.dataset.altJa; });
   $$(".lang span").forEach((s, i) => s.classList.toggle("on", (i === 0) === (lang === "en")));
   $("#helps").innerHTML = HELPS.map((h, i) => `<li style="--d:${i * 80}ms">${t(h)}</li>`).join(""); $("#chips").innerHTML = CHIPS.map((c) => `<li>${t(c)}</li>`).join("");
-  render(false);
+  render(false); fillForm();
 }
 $(".lang").addEventListener("click", () => { lang = lang === "en" ? "ja" : "en"; applyLang(); });
+
+/* ---------- enquiry form (same fields as the form on the current site). It opens the visitor's own email or SMS app, filled in. ---------- */
+const SERVICES = [["Wedding: bride only", "ウェディング（花嫁のみ）"], ["Wedding: bridal package", "ウェディング（ブライダルパッケージ）"], ["Registry wedding", "レジストリー婚"], ["Elopement / micro wedding", "エロープメント・少人数婚"], ["Pre-wedding photoshoot", "前撮り"], ["Engagement party", "婚約パーティー"], ["Maternity photoshoot", "マタニティ撮影"], ["Photoshoot with a newborn baby", "ニューボーン撮影"], ["Special event", "特別なイベント"], ["Corporate function", "企業イベント"], ["Portrait photoshoot", "ポートレート撮影"], ["School formal", "フォーマル"], ["Graduation", "卒業式"], ["Personal make-up lesson", "パーソナル メイクレッスン"], ["Over-50 personal make-up lesson", "50代からのメイクレッスン"], ["Other", "その他"]];
+let picked = "", service = 0;
+function fillForm() { $("#f-service").innerHTML = SERVICES.map((s, i) => `<option value="${i}" ${i === service ? "selected" : ""}>${t(s)}</option>`).join(""); $("#picked").hidden = !picked; $("#picked-text").textContent = picked; }
+function message(f) { const d = Object.fromEntries(new FormData(f)); return ["Hello Em,", "", picked ? "Selection: " + picked : null, "Service: " + SERVICES[+d.service][0], "Date: " + d.date, "Location (suburb): " + d.place, "", d.msg ? "Questions: " + d.msg : null, "", "Name: " + d.first + " " + d.last, "Email: " + d.email].filter((x) => x !== null).join("\n"); }
+function ok(f) { const bad = [...f.elements].find((e) => e.required && !e.value.trim()) || (!f.email.checkValidity() && f.email); $$(".enq .bad").forEach((e) => e.classList.remove("bad")); if (!bad) { $("#f-err").hidden = true; return true; } bad.closest("label").classList.add("bad"); bad.focus(); $("#f-err").hidden = false; $("#f-err").textContent = t(["Please fill in the highlighted field.", "色のついた欄をご記入ください。"]); return false; }
+$("#f-service").addEventListener("change", (e) => { service = +e.target.value; });
+$("#enq").addEventListener("submit", (e) => { e.preventDefault(); const f = e.target; if (ok(f)) location.href = "mailto:emiko@weddingmakeupartistsydney.com.au?subject=" + encodeURIComponent("Booking enquiry: " + SERVICES[service][0] + ", " + f.date.value) + "&body=" + encodeURIComponent(message(f)); });
+$("#f-sms").addEventListener("click", () => { const f = $("#enq"); if (ok(f)) location.href = "sms:+61415616715?&body=" + encodeURIComponent(message(f)); });
+$("#t-ask").addEventListener("click", () => { const c = COLLS[coll]; picked = c.n[0] + (extra ? ` + ${extra} more ${extra === 1 ? "person" : "people"}` : "") + ", " + $("#t-price").textContent; service = extra ? 1 : 0; fillForm(); });
+$("#picked-x").addEventListener("click", () => { picked = ""; fillForm(); });
 applyLang();
 if (reduce || !("IntersectionObserver" in window)) document.documentElement.classList.add("no-motion");
-else { const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -10% 0px" }); $$(".sec-head, .builder, .reel figure, .companion > div, .helps, .m-card, .em figure, .em > div, .contact").forEach((el) => { el.classList.add("rv"); io.observe(el); }); }
+else { const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -10% 0px" }); $$(".sec-head, .builder, .reel figure, .companion > div, .helps, .m-card, .em figure, .em > div, .c-head, .enq").forEach((el) => { el.classList.add("rv"); io.observe(el); }); }
 requestAnimationFrame(() => document.documentElement.classList.add("ready"));
