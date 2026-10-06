@@ -87,9 +87,15 @@ function showTeacher(animate = true) {
   const x = TEACH[teacher]; $("#q-text").textContent = "“" + x[2] + "”"; $("#q-name").textContent = x[0]; $("#q-rank").textContent = x[1]; $("#q-note").textContent = x[3];
   if (animate && !reduce) { const el = $(".quote"); el.classList.remove("swap"); void el.offsetWidth; el.classList.add("swap"); }
 }
+// minutes past midnight when a slot such as "5:45–6:45pm" or "10:00am–4:00pm" ends
+const endMin = (slot) => { const m = slot.split("–")[1].match(/(\d+):(\d+)(am|pm)/); return (+m[1] % 12 + (m[3] === "pm" ? 12 : 0)) * 60 + +m[2]; };
+const nowMin = () => { const p = Object.fromEntries(new Intl.DateTimeFormat("en-AU", { timeZone: "Australia/Sydney", hour: "numeric", minute: "numeric", hour12: false }).formatToParts(new Date()).map((x) => [x.type, x.value])); return (+p.hour % 24) * 60 + +p.minute; };
 function showNext() {
-  const d = [0, 1, 2, 3, 4, 5, 6].map((i) => (today + i) % 7).find((i) => TT[i].some((s) => s[2] !== "x"));
-  const s = TT[d].find((x) => x[2] !== "x"), when = d === today ? t(["Today", "本日"]) : t(DAYS[d]) + (lang === "ja" ? "曜" : "");
+  // the next public class that has not finished yet: later today, or the first one on the next class day
+  const left = (i) => TT[i].filter((s) => s[2] !== "x" && (i !== today || endMin(s[0]) > nowMin()));
+  let d = today, s = left(today)[0];
+  if (!s) { d = [1, 2, 3, 4, 5, 6, 7].map((i) => (today + i) % 7).find((i) => TT[i].some((x) => x[2] !== "x")); s = TT[d].find((x) => x[2] !== "x"); }
+  const when = d === today && left(today).length ? t(["Today", "本日"]) : t(DAYS[d]) + (lang === "ja" ? "曜" : "");
   $("#next").innerHTML = `<i></i>${t(["Next classes", "次のクラス"])}: <b>${when} ${s[0]}</b> ${t(s[1])}`;
 }
 $(".paths").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { path = +b.dataset.i; stage = 0; showPath(); if (!trialClass) fillTrial(); } });
