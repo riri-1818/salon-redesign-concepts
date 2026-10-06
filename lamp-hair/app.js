@@ -50,8 +50,6 @@ function applyLang() {
   render(false); hours();
 }
 $(".lang").addEventListener("click", () => { lang = lang === "en" ? "ja" : "en"; applyLang(); });
-// the lamp follows the pointer a little (desktop only)
-if (!reduce && matchMedia("(pointer: fine)").matches) { const hero = $(".hero"), lamp = $(".lamp"); hero.addEventListener("pointermove", (e) => { const r = hero.getBoundingClientRect(); lamp.style.setProperty("--sw", ((e.clientX - r.left) / r.width - .72) * 9 + "deg"); }); hero.addEventListener("pointerleave", () => lamp.style.setProperty("--sw", "0deg")); }
 if (reduce || !("IntersectionObserver" in window)) document.documentElement.classList.add("no-motion");
 else { const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -10% 0px" }); $$(".sec-head, .tiers, .menu-grid, .people li, .yoshiko, .s-a, .s-b, .s-copy, .v-head, .hours, .info").forEach((el) => { el.classList.add("rv"); io.observe(el); }); }
 applyLang();
