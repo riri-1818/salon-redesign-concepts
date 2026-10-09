@@ -46,7 +46,7 @@ function people() {
 }
 function price(v) { return typeof v === "number" ? `<b>$${v}</b>` : Array.isArray(v) ? `<b class="moves">$${v[rank]}</b>` : v.f ? `<b>${t(["from $" + v.f, "$" + v.f + "〜"])}</b>` : `<b class="txt">${t(v.s)}</b>`; }
 function menu(bump) {
-  $("#p-title").textContent = rank ? t([`Prices with ${rank === 1 ? "Yuzuru or another stylist" : RANKS[rank][0][0]}`, `${rank === 1 ? "Yuzuru・ほかのスタイリスト" : RANKS[rank][0][1]}を指名したときの料金`]) : t(["Prices without a stylist request", "指名なしの料金"]);
+  $("#p-title").textContent = rank ? t([`Prices with ${rank === 1 ? "Yuzuru or another stylist" : RANKS[rank][0][0]}`, `${rank === 1 ? "Yuzuru・ほかのスタイリスト" : RANKS[rank][0][1]} を指名したときの料金`]) : t(["Prices without a stylist request", "指名なしの料金"]);
   $("#ranks").innerHTML = RANKS.map((r, i) => `<button type="button" class="chip" role="radio" aria-checked="${i === rank}" data-rank="${i}">${t(r[0])}${r[1] ? "（+$" + r[1] + "）" : ""}</button>`).join("");
   $("#cols").innerHTML = MENU.map((g) => `<div class="grp"><h3>${t(g.n)}</h3><ul class="rows">${g.rows.map((r) => `<li><span>${t(r)}</span><span class="pr">${price(r[2])}<a href="#ask" data-ask="${r[0]}" aria-label="${t(["Ask about", "問い合わせる"])}: ${t(r)}">${t(["Ask", "質問"])}</a></span></li>`).join("")}</ul></div>`).join("");
   if (bump && !reduce) $$(".moves").forEach((b) => b.classList.add("bump"));
