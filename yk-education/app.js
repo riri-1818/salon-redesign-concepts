@@ -1,20 +1,29 @@
-// YK Education — the parts that change: the topic order that follows the school, the subject finder, the enrolment message. (Shared helpers are in ds.js.)
+// YK Education — the parts that change: the topic order that follows the school, the subject finder, the enrolment message. Language helpers are in ds.js; dragging uses SortableJS, the pen marks use Rough Notation, motion uses GSAP.
 
 /* the demonstration: five topics of Year 11 Mathematics Advanced, in three made-up school orders */
 const TOPICS = [["Functions", "関数"], ["Trigonometric Functions", "三角関数"], ["Calculus", "微積分"], ["Exponential and Logarithmic Functions", "指数・対数関数"], ["Statistical Analysis", "統計"]];
 const SCHOOLS = [[["School A", "A校"], [0, 1, 2, 3, 4]], [["School B", "B校"], [0, 2, 1, 4, 3]], [["School C", "C校"], [3, 0, 4, 1, 2]]];
-let school = 0, timer, touched = false;
-function blocks(id, order) { $(id).innerHTML = order.map((k, i) => `<li data-t="${k}" class="c${k}"><i>${i + 1}</i><span>${t(TOPICS[k])}</span></li>`).join(""); }
-function move(id, order) {
+let school = 0, order = SCHOOLS[0][1].slice(), timer, touched = false, sortable = null, notes = [];
+function blocks(id, ord) { $(id).innerHTML = ord.map((k, i) => `<li data-t="${k}" class="c${k}"><i>${i + 1}</i><span>${t(TOPICS[k])}</span></li>`).join(""); }
+function chips() { $(".schools").innerHTML = SCHOOLS.map((s, i) => `<button type="button" class="sch" role="radio" aria-checked="${i === school}" data-school="${i}">${t(s[0])}</button>`).join(""); }
+/* move the cards to a new order, each one sliding from where it was */
+function move(id, ord) {
   const row = $(id), before = new Map($$("li", row).map((el) => [el.dataset.t, el.getBoundingClientRect()]));
-  order.forEach((k, i) => { const el = $(`li[data-t="${k}"]`, row); row.appendChild(el); $("i", el).textContent = i + 1; });
-  if (reduce) return;
-  $$("li", row).forEach((el) => { const a = before.get(el.dataset.t), b = el.getBoundingClientRect(), dx = a.left - b.left, dy = a.top - b.top; if (!dx && !dy) return; el.style.transition = "none"; el.style.transform = `translate(${dx}px, ${dy}px)`; requestAnimationFrame(() => requestAnimationFrame(() => { el.style.transition = ""; el.style.transform = ""; })); });
+  ord.forEach((k, i) => { const el = $(`li[data-t="${k}"]`, row); row.appendChild(el); $("i", el).textContent = i + 1; });
+  if (reduce || !window.gsap) return;
+  $$("li", row).forEach((el) => { const p = before.get(el.dataset.t), q = el.getBoundingClientRect(), dx = p.left - q.left, dy = p.top - q.top; if (dx || dy) gsap.fromTo(el, { x: dx, y: dy }, { x: 0, y: 0, duration: .55, ease: "power3.out", clearProps: "transform" }); });
+}
+/* the left column can be dragged (SortableJS); the right column then follows */
+function drag() {
+  if (!window.Sortable) return; if (sortable) sortable.destroy();
+  sortable = Sortable.create($("#r-school"), { animation: reduce ? 0 : 200, delay: 120, delayOnTouchOnly: true, ghostClass: "ghost", onEnd() {
+    touched = true; order = $$("#r-school li").map((el) => +el.dataset.t); $$("#r-school li").forEach((el, i) => { $("i", el).textContent = i + 1; });
+    school = SCHOOLS.findIndex((s) => s[1].join() === order.join()); chips(); move("#r-yk", order);
+  } });
 }
 function seq(first) {
-  $(".schools").innerHTML = SCHOOLS.map((s, i) => `<button type="button" class="chip" role="radio" aria-checked="${i === school}" data-school="${i}">${t(s[0])}</button>`).join("");
-  const order = SCHOOLS[school][1];
-  if (first) { blocks("#r-school", order); blocks("#r-yk", order); return; }
+  chips();
+  if (first) { blocks("#r-school", order); blocks("#r-yk", order); drag(); return; }
   move("#r-school", order); clearTimeout(timer); timer = setTimeout(() => move("#r-yk", order), reduce ? 0 : 380);
 }
 
@@ -29,12 +38,12 @@ const FIND = [
 const OPTIONS = ["Year 7-10 Maths", "Year 7-10 English", "Year 7-10 Japanese", "Year 11-12 Standard Mathematics", "Year 11-12 Advance Mathematics", "Year 11-12 Extension Mathematics", "Year 11-12 Standard English", "Year 11-12 Advance English", "Year 11-12 Beginner Japanese", "Year 11-12 Continuers Japanese", "Year 11-12 Extension Japanese"];
 const KINDS = [["I’d like to book a consultation and trial lesson", "無料相談と体験レッスンを予約したい"], ["I’d like to chat about my child or myself", "子ども（自分）のことを相談したい"], ["I’d like to know more about the program, including pricing", "プログラムと料金について知りたい"]];
 let fy = 1, fs = 0, sub = "", kind = 0;
+const titleOf = (y, x) => lang === "ja" ? `${YEARS[y][1]}の${SUBS[x][1]}` : `${SUBS[x][0]}, ${YEARS[y][0]}`;
+/* year by subject, as a small timetable. The number is how many courses are listed for that square. */
 function finder() {
-  $("#f-year").innerHTML = YEARS.map((y, i) => `<button type="button" class="chip" role="radio" aria-checked="${i === fy}" data-y="${i}">${t(y)}</button>`).join("");
-  $("#f-sub").innerHTML = SUBS.map((s, i) => `<button type="button" class="chip" role="radio" aria-checked="${i === fs}" data-s="${i}">${t(s)}</button>`).join("");
+  $("#matrix").innerHTML = "<span></span>" + SUBS.map((x) => `<span class="mh">${t(x)}</span>`).join("") + YEARS.map((y, yi) => `<span class="mr">${t(y)}</span>` + SUBS.map((x, si) => { const f = FIND[yi][si]; return `<button type="button" class="mc" aria-pressed="${yi === fy && si === fs}" data-y="${yi}" data-s="${si}" aria-label="${titleOf(yi, si)}"><b>${f.c.length}</b><span>${f.c.length === 1 ? t(["course", "コース"]) : t(["courses", "コース"])}</span><ul>${f.c.map((k) => `<li>${t(k)}</li>`).join("")}</ul></button>`; }).join("")).join("");
   const f = FIND[fy][fs];
-  $("#f-title").textContent = lang === "ja" ? `${YEARS[fy][1]}の${SUBS[fs][1]}` : `${SUBS[fs][0]}, ${YEARS[fy][0]}`;
-  $("#f-body").textContent = t(f.b); $("#f-courses").innerHTML = f.c.map((c) => `<li>${t(c)}</li>`).join("");
+  $("#f-title").textContent = titleOf(fy, fs); $("#f-body").textContent = t(f.b); $("#f-courses").innerHTML = f.c.map((k) => `<li>${t(k)}</li>`).join("");
 }
 function form() {
   $("#a-kind").innerHTML = KINDS.map((k, i) => `<option value="${i}"${i === kind ? " selected" : ""}>${t(k)}</option>`).join("");
@@ -49,13 +58,12 @@ const QUOTES = [
 ];
 const RESULTS = [["Year 10 Barker College", "5.3 Course Maths クラス1位・学年10位"], ["Year 10 Chatswood High School", "English 学年1位"], ["Year 11 Willoughby Girls High School", "Advanced Maths 学年1位（100点）"], ["Year 11 Sydney Grammar School", "Advanced Maths 学年1位"], ["Year 11 Chatswood High School", "EALD 学年1位"], ["Year 11 Sydney Grammar School", "Extension 1 Maths 学年3位"], ["Year 12 Turramurra High School", "Advanced Maths 学年1位"], ["Year 12 Willoughby Girls High School", "Standard Maths 学年1位"], ["Year 12 Turramurra High School", "Standard English 学年3位"]];
 function rest() {
-  $("#quotes").innerHTML = QUOTES.map((x) => `<blockquote class="card"><p>${t(x[0])}</p><footer class="note">${t(x[1])}</footer></blockquote>`).join("");
+  $("#quotes").innerHTML = QUOTES.map((x) => `<blockquote><p>${t(x[0])}</p><footer>${t(x[1])}</footer></blockquote>`).join("");
   $("#results-list").innerHTML = RESULTS.map((r) => `<li><span>${r[0]}</span><b>${r[1]}</b></li>`).join("");
 }
 document.addEventListener("click", (e) => {
-  const s = e.target.closest("[data-school]"); if (s) { touched = true; school = +s.dataset.school; seq(false); return; }
-  const y = e.target.closest("[data-y]"); if (y) { fy = +y.dataset.y; finder(); return; }
-  const b = e.target.closest("[data-s]"); if (b) { fs = +b.dataset.s; finder(); return; }
+  const s = e.target.closest("[data-school]"); if (s) { touched = true; school = +s.dataset.school; order = SCHOOLS[school][1].slice(); seq(false); return; }
+  const m = e.target.closest(".mc"); if (m) { fy = +m.dataset.y; fs = +m.dataset.s; finder(); if (window.gsap && !reduce) gsap.from(".f-out > *", { y: 12, opacity: 0, duration: .35, stagger: .05, ease: "power2.out", clearProps: "transform,opacity" }); return; }
   if (e.target.closest("#f-ask")) { sub = FIND[fy][fs].o; form(); }
 });
 $("#a-sub").addEventListener("change", (e) => { sub = e.target.value; }); $("#a-kind").addEventListener("change", (e) => { kind = +e.target.value; });
@@ -66,7 +74,34 @@ $("#ask").addEventListener("submit", (e) => {
   const body = [KINDS[kind][0], sub && "Year and subject: " + sub, name && "Student: " + name, sc && "School: " + sc, msg && "\n" + msg].filter(Boolean).join("\n");
   location.href = `mailto:hello@ykeducation.com.au?subject=${encodeURIComponent(t(["Enquiry", "お問い合わせ"]) + (sub ? ": " + sub : ""))}&body=${encodeURIComponent(body)}`;
 });
-onRender(() => { seq(true); finder(); form(); rest(); });
-start(".head, .steps > li, .hours > *, .finder > *, .yuna > *, .quotes > *, .results, .fees > *, .qa, .enrol > *");
-/* show once that the rows can move: School B, then back to School A (stops as soon as the visitor chooses) */
-if (!reduce) { setTimeout(() => { if (!touched) { school = 1; seq(false); } }, 2200); setTimeout(() => { if (!touched) { school = 0; seq(false); } }, 5200); }
+/* pen marks (Rough Notation): a highlighter on the key words of the headline, an underline on “free consultation” */
+function marks() {
+  notes.forEach((n) => n.remove()); notes = [];
+  if (!window.RoughNotation) return;
+  document.documentElement.classList.add("rn");
+  const hl = $("h1 .hl"), ul = $("#enrol .ul");
+  if (hl) { const n = RoughNotation.annotate(hl, { type: "highlight", color: "#ffd84a", animate: !reduce, animationDuration: 700, multiline: true, iterations: 1 }); notes.push(n); n.show(); }
+  if (ul) { const n = RoughNotation.annotate(ul, { type: "underline", color: "#cf1259", strokeWidth: 3, padding: 3, animate: !reduce, animationDuration: 600, iterations: 2 }); notes.push(n);
+    if (!("IntersectionObserver" in window)) n.show(); else { const io = new IntersectionObserver((es) => { if (es[0].isIntersecting) { setTimeout(() => n.show(), reduce ? 0 : 650); io.disconnect(); } }, { rootMargin: "0px 0px -15% 0px" }); io.observe(ul); } }
+}
+let ready = false;
+onRender(() => { seq(true); finder(); form(); rest(); if (ready) setTimeout(marks, 60); });
+applyLang();
+(document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(() => setTimeout(() => { ready = true; marks(); }, reduce ? 0 : 1000));
+
+/* motion (GSAP). Everything is visible without it. */
+if (window.gsap && !reduce) {
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from(".hero-copy > *", { y: 22, opacity: 0, duration: .55, stagger: .07, ease: "power2.out", clearProps: "transform,opacity" });
+  gsap.from(".seq", { y: 40, opacity: 0, rotate: 3, duration: .7, delay: .15, ease: "back.out(1.4)", clearProps: "transform,opacity" });
+  gsap.from(".blocks li", { scale: .8, opacity: 0, duration: .4, stagger: .04, delay: .45, ease: "back.out(2)", clearProps: "transform,opacity" });
+  /* show once that the rows can move: School B, then back to School A (stops as soon as the visitor chooses) */
+  setTimeout(() => { if (!touched) { school = 1; order = SCHOOLS[1][1].slice(); seq(false); } }, 2400);
+  setTimeout(() => { if (!touched) { school = 0; order = SCHOOLS[0][1].slice(); seq(false); } }, 5400);
+  const pop = (sel, trigger, vars = {}) => gsap.from(sel, { y: 30, opacity: 0, scale: .94, duration: .5, stagger: .1, ease: "back.out(1.6)", clearProps: "transform,opacity", scrollTrigger: { trigger, start: "top 85%", once: true }, ...vars });
+  pop(".steps li", ".steps"); pop(".mc", "#matrix", { stagger: .05 }); pop(".quotes blockquote", ".quotes"); pop(".fees > div", ".fees", { stagger: .07 }); pop(".qa details", ".qa", { stagger: .06 });
+  gsap.from(".half", { scaleX: 0, duration: .7, stagger: .35, ease: "power3.out", clearProps: "transform", scrollTrigger: { trigger: ".bar", start: "top 82%", once: true } });
+  gsap.from(".half > *", { opacity: 0, duration: .4, stagger: .08, delay: .35, clearProps: "opacity", scrollTrigger: { trigger: ".bar", start: "top 82%", once: true } });
+  gsap.from(".yuna figure", { rotate: 6, y: 40, opacity: 0, duration: .7, ease: "back.out(1.4)", clearProps: "transform,opacity", scrollTrigger: { trigger: ".yuna", start: "top 80%", once: true } });
+  ScrollTrigger.batch(".sec-head > *, .f-out, .y-copy > *, .res, .fees-h, .e-info > figure, .facts, .form, .twoh > .fine", { start: "top 92%", once: true, onEnter: (els) => gsap.from(els, { y: 22, opacity: 0, duration: .5, stagger: .05, ease: "power2.out", clearProps: "transform,opacity" }) });
+}
