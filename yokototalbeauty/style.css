@@ -127,4 +127,14 @@ h1 { font-size: clamp(38px, 10.5vw, 88px); line-height: 1.08; letter-spacing: -.
   .visit { grid-template-columns: 1fr 1fr; gap: 72px; padding: 120px var(--pad); } .form { padding: 48px; }
   .foot { grid-template-columns: 1fr auto auto; align-items: baseline; gap: 40px; padding: 56px var(--pad); }
 }
+/* 2026-10-10 追加：いまのサイトの全ページの文章を、原文のまま、ページごとに開いて読めるようにした */
+.full-body { display: grid; gap: 28px; min-width: 0; } .full-head { display: grid; gap: 12px; align-content: start; }
+.orig { display: grid; gap: 10px; padding: 4px 0 24px; max-width: 48em; overflow-wrap: anywhere; } .orig h4 { font-size: 16px; line-height: 1.5; margin-top: 12px; } .orig p, .orig li { font-size: 15px; line-height: 1.75; } .orig ul { display: grid; gap: 6px; padding-left: 1.2em; list-style: disc; }
+.full { padding: 64px var(--pad); display: grid; gap: 32px; border-top: 1px solid var(--line); } .full-head > p:not(.fine) { color: var(--mute); } .full-body { gap: 40px; }
+.full-body h3 { font-family: var(--body) !important; font-size: 14px; font-weight: 700; letter-spacing: .1em !important; color: var(--wine); margin-bottom: -28px; }
+.full details { border-top: 1px solid var(--ink); } .full details:last-child { border-bottom: 1px solid var(--ink); }
+.full summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr 20px; gap: 16px; align-items: center; min-height: 64px; padding: 10px 0; font: italic 500 24px/1.25 "Bodoni", "ZOM", serif; letter-spacing: 0; } :lang(ja) .full summary { font: 500 19px/1.5 var(--jp); letter-spacing: .04em; } .full summary::-webkit-details-marker { display: none; }
+.full summary::after { content: "+"; font: 400 24px/1 var(--body); color: var(--wine); text-align: center; transition: transform .3s; } .full details[open] summary::after { transform: rotate(45deg); }
+.full .orig { color: var(--mute); } .full .orig h4 { font-family: var(--body); font-weight: 700; color: var(--ink); letter-spacing: .03em; }
+@media (min-width: 900px) { .full { padding: 120px var(--pad); grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 72px; align-items: start; } .full-head { position: sticky; top: 120px; } .full summary { font-size: 30px; min-height: 76px; } :lang(ja) .full summary { font-size: 22px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
