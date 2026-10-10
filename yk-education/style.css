@@ -146,4 +146,13 @@ html[lang="en"] .ja-only { display: none; }
   .enrol { grid-template-columns: 1fr 1fr; gap: 64px; padding: 104px var(--pad) 120px; max-width: 1400px; margin: 0 auto; align-items: start; } .form { padding: 40px; } .facts dd { font-size: 16px; }
   .foot { grid-template-columns: auto 1fr; align-items: center; gap: 32px; padding: 48px var(--pad); }
 }
+/* 2026-10-10 追加：いまのサイトの全ページの文章を、原文のまま、ページごとに開いて読めるようにした */
+.full-body { display: grid; gap: 28px; min-width: 0; } .full-head { display: grid; gap: 12px; align-content: start; }
+.orig { display: grid; gap: 10px; padding: 4px 0 24px; max-width: 48em; overflow-wrap: anywhere; } .orig h4 { font-size: 16px; line-height: 1.5; margin-top: 12px; } .orig p, .orig li { font-size: 15px; line-height: 1.75; } .orig ul { display: grid; gap: 6px; padding-left: 1.2em; list-style: disc; }
+.full { padding: 64px var(--pad); display: grid; gap: 28px; } .full-body h3 { font-size: 20px; margin-bottom: -12px; }
+.full .acc { display: grid; gap: 12px; } .full details { background: #fff; border: 2px solid var(--ink); border-radius: 16px; } .full details[open] { box-shadow: 4px 4px 0 var(--ink); }
+.full summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr 28px; gap: 12px; align-items: center; min-height: 60px; padding: 12px 18px; font-weight: 700; } .full summary::-webkit-details-marker { display: none; }
+.full summary::after { content: "+"; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--sun); border: 2px solid var(--ink); font: 800 18px/1 "Outfit", sans-serif; transition: transform .25s; } .full details[open] summary::after { transform: rotate(45deg); }
+.full .orig { padding: 0 18px 20px; } .full .orig h4 { color: var(--green); }
+@media (min-width: 900px) { .full { padding: 104px var(--pad); grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 56px; max-width: 1400px; margin: 0 auto; align-items: start; } .full-head { position: sticky; top: 104px; } .full summary { padding: 16px 24px; font-size: 18px; } .full .orig { padding: 0 24px 24px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
