@@ -129,4 +129,35 @@ fieldset { border: 0; display: grid; gap: 10px; min-width: 0; } legend { font: 6
   .reach { grid-template-columns: 1fr 1fr; gap: 72px; padding: 120px var(--pad); align-items: start; } .form { padding: 40px; } .form .btn { justify-self: start; }
   .foot { padding: 56px var(--pad); } .f-word { font-size: 25.5vw; }
 }
+/* 2026-10-10 追加：元のサイトにある情報を全部戻した（ミッションとビジョンの全文、写真、ギフト券、協賛、営業時間、利用規約、採用、登録） */
+.who .sub, .hrs b { font: 600 14px/1.4 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--mute); margin-bottom: 8px; } :lang(ja) .who .sub, :lang(ja) .hrs b { font-weight: 700; letter-spacing: .04em; }
+.lead2 { font-size: 20px; line-height: 1.5; color: var(--char) !important; margin-top: 16px !important; font-weight: 600; } :lang(ja) .lead2 { font-weight: 700; font-size: 18px; line-height: 1.8; }
+.vision { display: grid; gap: 14px; padding-top: 28px; border-top: 2px solid var(--char); } .vision h3 { font-size: 44px; } :lang(ja) .vision h3 { font-size: 28px; } .vision div { display: grid; gap: 14px; } .vision p { color: var(--mute); max-width: 44em; }
+.vals-h { font-size: 30px; font-weight: 600; margin-bottom: -16px; } :lang(ja) .vals-h { font-size: 20px; font-weight: 700; }
+.kinds p + p { margin-top: 2px; }
+.strip { display: grid; grid-template-columns: 1fr 1fr; } .strip img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.gift { display: grid; gap: 20px; justify-items: start; padding-top: 36px; border-top: 1px solid rgba(255, 255, 255, .45); } .gift h3 { font-size: 44px; margin-bottom: 8px; } :lang(ja) .gift h3 { font-size: 26px; } .gift .label { margin-bottom: 10px; }
+.payline img { width: 280px; border-radius: 4px; }
+.supp { background: #fff; padding: 56px var(--pad); display: grid; gap: 28px; } .supp h2 { font-size: clamp(30px, 8vw, 48px); } :lang(ja) .supp h2 { font-size: clamp(22px, 5.6vw, 30px); }
+.logos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; } .logos li { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #fff; } .logos img { width: 100%; aspect-ratio: 1; object-fit: contain; }
+.hrs { display: grid; } .hrs span { font-weight: 600; } :lang(ja) .hrs span { font-weight: 700; } .where .hrs b { color: var(--mute-d); }
+.terms { padding: 64px var(--pad); display: grid; gap: 32px; } .terms-head { display: grid; gap: 12px; align-content: start; } .terms-head > p:not(.label):not(.fine) { color: var(--mute); } html[lang="en"] .ja-note { display: none; }
+.acc details { border-top: 1.5px solid var(--char); } .acc details:last-child { border-bottom: 1.5px solid var(--char); }
+.acc summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr 24px; gap: 16px; align-items: center; min-height: 64px; padding: 12px 0; font: 600 24px/1.15 "BC", "Noto", sans-serif; text-transform: uppercase; letter-spacing: .02em; } :lang(ja) .acc summary { font: 700 17px/1.5 "Noto", sans-serif; text-transform: none; } .acc summary::-webkit-details-marker { display: none; }
+.acc summary::after { content: "+"; font: 400 28px/1 var(--body); color: var(--terra); text-align: center; transition: transform .25s; } .acc details[open] summary::after { transform: rotate(45deg); }
+.acc details > div { display: grid; gap: 10px; padding: 0 0 22px; color: var(--mute); max-width: 46em; font-size: 16px; } :lang(ja) .acc details > div { font-size: 15px; }
+.jobs { background: var(--char); color: #fff; padding: 64px var(--pad); display: grid; gap: 36px; } .jobs .label { color: var(--terra-l); } .jobs-head { display: grid; gap: 16px; justify-items: start; } .jobs-head > p:not(.label) { color: var(--mute-d); max-width: 46em; } .jobs .fine { color: var(--mute-d); }
+.jobs-cols { display: grid; gap: 28px; } .jobs-cols > div { padding-top: 20px; border-top: 2px solid #fff; display: grid; gap: 14px; align-content: start; } .jobs-cols h3 { font-size: 28px; font-weight: 600; } :lang(ja) .jobs-cols h3 { font-size: 19px; font-weight: 700; }
+.dots { display: grid; gap: 10px; } .dots li { position: relative; padding-left: 20px; color: var(--mute-d); font-size: 16px; line-height: 1.55; } :lang(ja) .dots li { font-size: 15px; line-height: 1.8; } .dots li::before { content: ""; position: absolute; left: 0; top: .62em; width: 8px; height: 8px; background: var(--terra-l); }
+.logo-img { width: 200px; mix-blend-mode: multiply; margin-bottom: 24px; }
+.sub { margin-top: 32px; display: grid; gap: 12px; justify-items: start; } .sub label { display: grid; gap: 6px; width: 100%; } .sub label span { font-weight: 600; font-size: 15px; } :lang(ja) .sub label span { font-weight: 700; } .sub input { width: 100%; min-height: 54px; padding: 12px 14px; border: 1.5px solid var(--char); border-radius: 6px; background: #fff; font-size: 16px; }
+.f-links { display: flex; flex-wrap: wrap; gap: 4px 24px; margin: 8px 0; } .f-links a { display: inline-flex; min-height: 44px; align-items: center; color: #fff; }
+@media (min-width: 900px) {
+  .lead2 { font-size: 24px; } :lang(ja) .lead2 { font-size: 20px; } .vision { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 48px; padding-top: 40px; } .vision h3 { font-size: 64px; } :lang(ja) .vision h3 { font-size: 36px; } .vals-h { font-size: 40px; margin-bottom: -40px; } :lang(ja) .vals-h { font-size: 24px; }
+  .strip { grid-column: 1 / -1; grid-template-columns: repeat(4, 1fr); }
+  .gift { grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 48px; padding-top: 48px; } .gift h3 { font-size: 64px; } :lang(ja) .gift h3 { font-size: 34px; }
+  .supp { padding: 88px var(--pad); grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 48px; align-items: center; } .logos { grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .terms { padding: 120px var(--pad); grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 72px; align-items: start; } .terms-head { position: sticky; top: 108px; } .acc summary { font-size: 30px; min-height: 76px; } :lang(ja) .acc summary { font-size: 19px; }
+  .jobs { padding: 120px var(--pad); gap: 56px; } .jobs-cols { grid-template-columns: repeat(3, 1fr); gap: 48px; } .jobs-cols h3 { font-size: 34px; } :lang(ja) .jobs-cols h3 { font-size: 21px; }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }

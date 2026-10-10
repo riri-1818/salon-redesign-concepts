@@ -8,7 +8,7 @@ const OPT = {
   day: [[["Weekday", "平日"], 0], [["Weekend", "週末"], 0]],
 };
 const pick = { len: 0, first: 0, time: 0, day: 0 };
-let asked = false, shown = 170;
+let asked = false, shown = 170, topic = null;
 function calc(bump) {
   for (const k of Object.keys(OPT)) $("#o-" + k).innerHTML = OPT[k].map((o, i) => `<button type="button" class="opt" role="radio" aria-checked="${i === pick[k]}" data-k="${k}" data-i="${i}">${t(o[0])}</button>`).join("");
   const lines = [[t(["Remedial massage, ", "リメディアル・マッサージ "]) + t(OPT.len[pick.len][0]), OPT.len[pick.len][1]]];
@@ -25,7 +25,7 @@ function calc(bump) {
   chosenLine();
 }
 function summary() { return `${t(OPT.len[pick.len][0])}${pick.first ? t([", first visit", "、初回"]) : ""}${pick.time ? t([", ", "、"]) + t(OPT.time[pick.time][0]) : ""}${pick.day ? t([", weekend", "、週末"]) : ""}（$${shown}${pick.day ? " +" : ""}）`.replace("（", lang === "en" ? " (" : "（").replace("）", lang === "en" ? ")" : "）"); }
-function chosenLine() { $("#chosen").textContent = asked ? t(["About: ", "ご用件："]) + summary() : ""; }
+function chosenLine() { $("#chosen").textContent = asked ? t(["About: ", "ご用件："]) + summary() : topic ? t(["About: ", "ご用件："]) + t(topic) : ""; }
 function today() {
   const d = new Intl.DateTimeFormat("en-AU", { timeZone: "Australia/Sydney", weekday: "short" }).format(new Date());
   const where = d === "Mon" || d === "Fri" ? "Bondi Junction" : d === "Tue" || d === "Thu" ? "Potts Point" : "";
@@ -34,7 +34,8 @@ function today() {
 }
 document.addEventListener("click", (e) => {
   const b = e.target.closest("[data-k]"); if (b) { pick[b.dataset.k] = +b.dataset.i; calc(true); return; }
-  if (e.target.closest("#b-ask")) { asked = true; chosenLine(); }
+  if (e.target.closest("#b-ask")) { asked = true; topic = null; chosenLine(); return; }
+  const tp = e.target.closest("[data-topic-en]"); if (tp) { asked = false; topic = [tp.dataset.topicEn, tp.dataset.topicJa]; chosenLine(); }
 });
 $("#ask").addEventListener("submit", (e) => {
   e.preventDefault();
@@ -42,6 +43,12 @@ $("#ask").addEventListener("submit", (e) => {
   if (!msg) { err.textContent = t(["Please write your message.", "お問い合わせの内容を入力してください。"]); err.hidden = false; $("#a-msg").focus(); return; } err.hidden = true;
   const about = $("#chosen").textContent;
   location.href = `mailto:hello@kaizenrmt.com.au?subject=${encodeURIComponent(t(["Enquiry", "お問い合わせ"]))}&body=${encodeURIComponent((about ? about + "\n\n" : "") + msg + "\n\n" + name)}`;
+});
+$("#sub").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const mail = $("#s-mail").value.trim(), err = $("#sub-err");
+  if (!/^\S+@\S+\.\S+$/.test(mail)) { err.textContent = t(["Please enter your email address.", "メールアドレスを入力してください。"]); err.hidden = false; $("#s-mail").focus(); return; } err.hidden = true;
+  location.href = `mailto:hello@kaizenrmt.com.au?subject=${encodeURIComponent(t(["Subscribe to promotions", "キャンペーンのお知らせを登録"]))}&body=${encodeURIComponent(t(["Please add this address to your promotions list: ", "このアドレスを、お知らせの送り先に登録してください："]) + mail)}`;
 });
 onRender(() => { calc(false); today(); });
 applyLang();
@@ -59,7 +66,8 @@ if (window.gsap && !reduce) {
     .from(".hero-photo img", { scale: 1.18, duration: 1.6, ease: "power2.out", clearProps: "transform" }, 0);
   gsap.fromTo(".care-photo img", { yPercent: -5, scale: 1.12 }, { yPercent: 5, scale: 1.12, ease: "none", scrollTrigger: { trigger: ".care", start: "top bottom", end: "bottom top", scrub: true } });
   gsap.from(".values h3", { xPercent: -8, opacity: 0, duration: .7, stagger: .12, ease: "power3.out", clearProps: "transform,opacity", scrollTrigger: { trigger: ".values", start: "top 82%", once: true } });
+  gsap.from(".strip img", { scale: 1.15, opacity: 0, duration: .7, stagger: .08, ease: "power2.out", clearProps: "transform,opacity", scrollTrigger: { trigger: ".strip", start: "top 88%", once: true } });
   gsap.from(".wk li", { scale: .5, opacity: 0, duration: .35, stagger: .05, ease: "back.out(2)", clearProps: "transform,opacity", scrollTrigger: { trigger: ".rooms", start: "top 80%", once: true } });
   gsap.fromTo(".f-word", { xPercent: -4 }, { xPercent: 0, ease: "none", scrollTrigger: { trigger: ".foot", start: "top bottom", end: "bottom bottom", scrub: true } });
-  ScrollTrigger.batch(".who-head > *, .values p, .care-body > .label, .care-body > h2, .kinds li, .cost-head > *, .opts > *, .bill, .team-head > *, .members li, .where-head > *, .rooms article, .know > div, .reach > *", { start: "top 90%", once: true, onEnter: (els) => gsap.from(els, { y: 28, opacity: 0, duration: .55, stagger: .06, ease: "power2.out", clearProps: "transform,opacity" }) });
+  ScrollTrigger.batch(".who-head > *, .values p, .care-body > .label, .care-body > h2, .kinds li, .cost-head > *, .opts > *, .bill, .team-head > *, .members li, .where-head > *, .rooms article, .know > div, .reach > *, .vision > *, .vals-h, .gift, .supp h2, .logos li, .terms-head > *, .acc details, .jobs-head > *, .jobs-cols > div", { start: "top 90%", once: true, onEnter: (els) => gsap.from(els, { y: 28, opacity: 0, duration: .55, stagger: .06, ease: "power2.out", clearProps: "transform,opacity" }) });
 }
