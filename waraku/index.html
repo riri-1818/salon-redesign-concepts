@@ -6,86 +6,85 @@
 <title>WARAKU Healthcare &amp; Massage | Japanese acupuncture, shiatsu and remedial massage in Chatswood</title>
 <meta name="description" content="Japanese acupuncture, shiatsu, remedial massage and facial dry needling in Chatswood since 2004. Two rooms, three and six minutes from Chatswood station. Open daily 9:30am to 6pm.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#ffffff">
-<link rel="preload" href="fonts/noto-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="ds.css">
+<meta name="theme-color" content="#f3f5f1">
+<link rel="preload" href="fonts/sm-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <p class="proposal" data-en="A design proposal for WARAKU Healthcare &amp; Massage (not the official website)" data-ja="WARAKU Healthcare &amp; Massage 様へのご提案用デザインです（公式サイトではありません）">A design proposal for WARAKU Healthcare &amp; Massage (not the official website)</p>
-<header class="top"><div>
+<header class="top">
   <a class="mark" href="#top"><img src="img/logo.png" width="399" height="78" alt="WARAKU"></a>
   <nav class="nav" aria-label="Main"><a href="#rooms" data-en="Two rooms" data-ja="2つの治療室">Two rooms</a><a href="#menu" data-en="Prices" data-ja="料金">Prices</a><a href="#people" data-en="Therapists" data-ja="セラピスト">Therapists</a><a href="#info" data-en="Information" data-ja="ご案内">Information</a></nav>
   <div class="langs" role="group" aria-label="Language / 言語"><button class="lang" type="button" data-lang="en">EN</button><button class="lang" type="button" data-lang="ja">日本語</button></div>
-  <a class="btn btn--m" href="#book" data-en="Book" data-ja="予約する">Book</a>
-</div></header>
+  <a class="top-book" href="#book" data-en="Book" data-ja="予約する">Book</a>
+</header>
 <main id="top">
-<section class="sec hero">
-  <div class="hero-grid">
-    <div class="hero-copy">
-      <p class="pill" data-en="Chatswood · since 2004" data-ja="Chatswood で 2004年から">Chatswood · since 2004</p>
-      <h1 data-en="Japanese acupuncture, shiatsu and remedial massage." data-ja="日本の技術で行う、鍼・指圧・マッサージ。">Japanese acupuncture, shiatsu and remedial massage.</h1>
+<section class="hero">
+  <div class="hero-in">
+    <p class="since" data-en="Chatswood, since 2004" data-ja="Chatswood で、2004年から">Chatswood, since 2004</p>
+    <h1 id="h1" data-en="Japanese acupuncture, shiatsu and remedial massage." data-ja="日本の技術で行う、<br>鍼・指圧・マッサージ。">Japanese acupuncture, shiatsu and remedial massage.</h1>
+    <div class="hero-side">
       <p class="lead" data-en="At WARAKU, we bring the art of Japanese healing to Chatswood. Our therapists trained in Japan or Australia, and our two rooms are a short walk from the station." data-ja="WARAKU は、Chatswood にある日本式の治療院です。日本やオーストラリアで学んだセラピストが施術します。治療室は2か所。どちらも駅から歩いてすぐです。">At WARAKU, we bring the art of Japanese healing to Chatswood. Our therapists trained in Japan or Australia, and our two rooms are a short walk from the station.</p>
-      <p class="open"><i id="dot"></i><b id="open"></b></p>
+      <p class="opennow"><i id="dot"></i><b id="open"></b></p>
       <div class="btns"><a class="btn" href="#book" data-en="Request a booking" data-ja="予約をリクエストする">Request a booking</a><a class="btn btn--line" href="tel:+61294103413"><span data-en="Call" data-ja="電話する">Call</span> 02 9410 3413</a></div>
     </div>
-    <div class="board card" id="board">
-      <h2 id="b-title"></h2>
-      <p class="note" data-en="Choose a day to see who is in." data-ja="曜日を選ぶと、その日のセラピストが分かります。">Choose a day to see who is in.</p>
-      <div class="chips days" role="tablist" aria-label="Day"></div>
-      <div class="room-row"><h3 data-en="Lemon Grove room" data-ja="Lemon Grove の治療室">Lemon Grove room</h3><p class="note" data-en="Remedial massage, facial dry needling" data-ja="リメディアル・マッサージ、美顔鍼">Remedial massage, facial dry needling</p><div class="names" id="n-lemon"></div></div>
-      <div class="room-row"><h3 data-en="Archer Street room" data-ja="Archer Street の治療室">Archer Street room</h3><p class="note" data-en="Acupuncture, shiatsu" data-ja="鍼、指圧">Acupuncture, shiatsu</p><div class="names" id="n-archer"></div></div>
-      <div class="who" id="who" aria-live="polite"></div>
-      <p class="note" id="b-note" hidden data-en="Names in brackets are shown in brackets on the current roster." data-ja="（ ）つきの名前は、今の担当表でも（ ）つきで書かれています。">Names in brackets are shown in brackets on the current roster.</p>
-    </div>
   </div>
-  <ul class="points">
-    <li><b data-en="3 and 6 minutes" data-ja="徒歩3分と6分">3 and 6 minutes</b><span data-en="on foot from Chatswood station" data-ja="Chatswood 駅から">on foot from Chatswood station</span></li>
+  <div class="slab" id="board">
+    <div class="slab-head">
+      <h2 id="b-title"></h2>
+      <p data-en="Tap a name to meet the therapist." data-ja="名前を押すと、セラピストの紹介が出ます。">Tap a name to meet the therapist.</p>
+    </div>
+    <div class="week" id="week"></div>
+    <div class="who" id="who" aria-live="polite"></div>
+    <p class="fine" id="b-note" hidden data-en="Names in brackets are shown in brackets on the current roster." data-ja="（ ）つきの名前は、今の担当表でも（ ）つきで書かれています。">Names in brackets are shown in brackets on the current roster.</p>
+  </div>
+  <ul class="three">
     <li><b data-en="Open every day" data-ja="毎日営業">Open every day</b><span data-en="9:30am to 6:00pm" data-ja="9:30〜18:00">9:30am to 6:00pm</span></li>
+    <li><b data-en="3 and 6 minutes" data-ja="徒歩3分と6分">3 and 6 minutes</b><span data-en="on foot from Chatswood station" data-ja="Chatswood 駅から">on foot from Chatswood station</span></li>
     <li><b data-en="Health fund rebates" data-ja="保険の払い戻しに対応">Health fund rebates</b><span data-en="HICAPS available" data-ja="HICAPS が使えます">HICAPS available</span></li>
   </ul>
 </section>
 
-<section class="sec sec--tint" id="rooms">
-  <div class="head head--center"><p class="pill" data-en="Two rooms" data-ja="2つの治療室">Two rooms</p><h2 data-en="The room depends on your treatment." data-ja="受ける施術によって、治療室が変わります。">The room depends on your treatment.</h2></div>
-  <div class="rooms">
-    <article class="card room">
+<section class="band" id="rooms">
+  <div class="rail-title"><h2 data-en="The room depends on your treatment." data-ja="受ける施術によって、治療室が変わります。">The room depends on your treatment.</h2></div>
+  <div class="route">
+    <p class="stn"><i></i><span data-en="Chatswood station" data-ja="Chatswood 駅">Chatswood station</span></p>
+    <article class="stop">
+      <p class="walk"><i></i><b>3</b><span data-en="minutes on foot" data-ja="分（歩いて）">minutes on foot</span></p>
       <figure><img loading="lazy" src="img/lemon.jpg" width="1200" height="800" alt="" data-alt-en="The entrance of Lemon Grove Shopping Centre on Victoria Avenue, with WARAKU inside" data-alt-ja="Victoria Avenue にある Lemon Grove Shopping Centre の入口と、中にある WARAKU"></figure>
-      <p class="walk"><b>3</b><span data-en="minutes from the station" data-ja="分（駅から歩いて）">minutes from the station</span></p>
       <h3 data-en="Lemon Grove room" data-ja="Lemon Grove の治療室">Lemon Grove room</h3>
       <p data-en="Remedial massage, aromatic remedial massage and facial dry needling." data-ja="リメディアル・マッサージ、アロマ、美顔鍼はこちらです。">Remedial massage, aromatic remedial massage and facial dry needling.</p>
       <p class="addr">Shop 5 Lemon Grove Shopping Centre, 427-441 Victoria Avenue, Chatswood NSW 2067</p>
       <p class="today" id="t-lemon"></p>
-      <div class="btns"><a class="btn btn--line btn--m" href="tel:+61294103413"><span data-en="Call" data-ja="電話">Call</span> 02 9410 3413</a><a class="btn btn--line btn--m" href="sms:+61449569107"><span data-en="Text" data-ja="SMS">Text</span> 0449 569 107</a></div>
-      <a class="more" href="https://www.google.com/maps/search/?api=1&amp;query=Waraku+Healthcare+and+Massage+Lemon+Grove+Chatswood" target="_blank" rel="noopener" data-en="Open in Google Maps" data-ja="Google マップで見る">Open in Google Maps</a>
+      <p class="links"><a href="tel:+61294103413"><span data-en="Call" data-ja="電話">Call</span> 02 9410 3413</a><a href="sms:+61449569107"><span data-en="Text" data-ja="SMS">Text</span> 0449 569 107</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Waraku+Healthcare+and+Massage+Lemon+Grove+Chatswood" target="_blank" rel="noopener" data-en="Open in Google Maps" data-ja="Google マップで見る">Open in Google Maps</a></p>
     </article>
-    <article class="card room">
+    <article class="stop">
+      <p class="walk"><i></i><b>6</b><span data-en="minutes on foot" data-ja="分（歩いて）">minutes on foot</span></p>
       <figure><img loading="lazy" src="img/archer.jpg" width="1200" height="800" alt="" data-alt-en="The entrance of 71-73 Archer Street. WARAKU is on Level 3." data-alt-ja="71-73 Archer Street の入口。WARAKU は Level 3 です。"></figure>
-      <p class="walk"><b>6</b><span data-en="minutes from the station" data-ja="分（駅から歩いて）">minutes from the station</span></p>
       <h3 data-en="Archer Street room" data-ja="Archer Street の治療室">Archer Street room</h3>
       <p data-en="Acupuncture, shiatsu and sound therapy. We are on Level 3." data-ja="鍼、指圧、サウンドセラピーはこちらです。Level 3 にあります。">Acupuncture, shiatsu and sound therapy. We are on Level 3.</p>
       <p class="addr">Suite 307 / Lot 46, 71-73 Archer Street, Chatswood NSW 2067</p>
       <p class="today" id="t-archer"></p>
-      <div class="btns"><a class="btn btn--line btn--m" href="tel:+61294102258"><span data-en="Call" data-ja="電話">Call</span> 02 9410 2258</a></div>
-      <a class="more" href="https://www.google.com/maps/search/?api=1&amp;query=71-73+Archer+Street+Chatswood+NSW+2067" target="_blank" rel="noopener" data-en="Open in Google Maps" data-ja="Google マップで見る">Open in Google Maps</a>
+      <p class="links"><a href="tel:+61294102258"><span data-en="Call" data-ja="電話">Call</span> 02 9410 2258</a><a href="https://www.google.com/maps/search/?api=1&amp;query=71-73+Archer+Street+Chatswood+NSW+2067" target="_blank" rel="noopener" data-en="Open in Google Maps" data-ja="Google マップで見る">Open in Google Maps</a></p>
     </article>
   </div>
 </section>
 
-<section class="sec" id="menu">
-  <div class="head head--center"><p class="pill" data-en="Treatments and prices" data-ja="メニューと料金">Treatments and prices</p><h2 data-en="Choose a treatment to see the price." data-ja="施術を選ぶと、料金が出ます。">Choose a treatment to see the price.</h2></div>
-  <div class="chips kinds" role="tablist" aria-label="Treatment"></div>
-  <div class="card detail" id="detail" aria-live="polite"></div>
+<section class="band band--paper" id="menu">
+  <div class="rail-title"><h2 data-en="Treatments and prices" data-ja="施術と料金">Treatments and prices</h2><p data-en="Open a treatment to see the lengths and prices." data-ja="施術の名前を押すと、時間と料金が開きます。">Open a treatment to see the lengths and prices.</p></div>
+  <div class="list" id="list"></div>
 </section>
 
-<section class="sec sec--tint" id="people">
-  <div class="head head--center"><p class="pill" data-en="Our therapists" data-ja="セラピスト">Our therapists</p><h2 data-en="Trained in Japan or Australia." data-ja="日本やオーストラリアで学んだセラピストです。">Trained in Japan or Australia.</h2>
-    <p data-en="All therapists are qualified and most are registered with professional associations. They are also registered with most private health funds." data-ja="全員が資格を持ち、ほとんどが専門の協会に登録しています。多くのヘルスファンド（民間の医療保険）にも登録しています。">All therapists are qualified and most are registered with professional associations. They are also registered with most private health funds.</p></div>
-  <ul class="staff" id="staff"></ul>
+<section class="band" id="people">
+  <div class="rail-title"><h2 data-en="Trained in Japan or Australia." data-ja="日本やオーストラリアで学んだセラピストです。">Trained in Japan or Australia.</h2>
+    <p data-en="All therapists are qualified and most are registered with professional associations. They are also registered with most private health funds." data-ja="全員が資格を持ち、ほとんどが専門の協会に登録しています。多くのヘルスファンド（民間の医療保険）にも登録しています。">All therapists are qualified and most are registered with professional associations. They are also registered with most private health funds.</p>
+    <div class="arrows"><button type="button" id="s-prev" aria-label="Previous" data-label-en="Previous" data-label-ja="前へ">←</button><button type="button" id="s-next" aria-label="Next" data-label-en="Next" data-label-ja="次へ">→</button><span data-en="You can also drag sideways." data-ja="横に動かしても見られます。">You can also drag sideways.</span></div>
+  </div>
+  <div class="embla" id="embla"><ul class="staff" id="staff"></ul></div>
 </section>
 
-<section class="sec" id="info">
-  <div class="head"><p class="pill" data-en="Information" data-ja="ご案内">Information</p><h2 data-en="Before you come." data-ja="ご来院の前に。">Before you come.</h2></div>
+<section class="band band--dark" id="info">
+  <div class="rail-title"><h2 data-en="Before you come." data-ja="ご来院の前に。">Before you come.</h2></div>
   <dl class="facts">
     <div><dt data-en="Opening hours" data-ja="営業時間">Opening hours</dt><dd data-en="Open daily from 9:30am to 6:00pm." data-ja="毎日 9:30〜18:00。">Open daily from 9:30am to 6:00pm.</dd></div>
     <div><dt data-en="Bookings" data-ja="ご予約">Bookings</dt><dd data-en="By phone or text message, in English or Japanese. Text messages are answered during business hours only." data-ja="お電話か SMS で承ります。日本語でも英語でもどうぞ。SMS へのお返事は営業時間内に行います。">By phone or text message, in English or Japanese. Text messages are answered during business hours only.</dd></div>
@@ -96,28 +95,31 @@
   </dl>
 </section>
 
-<section class="sec sec--key" id="book">
-  <div class="head head--center"><p class="pill pill--white" data-en="Booking request" data-ja="予約リクエスト">Booking request</p><h2 data-en="Choose, and your message is written for you." data-ja="選ぶだけで、予約のメッセージができます。">Choose, and your message is written for you.</h2></div>
+<section class="band" id="book">
+  <div class="rail-title"><h2 data-en="Choose, and your message is written for you." data-ja="選ぶだけで、予約のメッセージができます。">Choose, and your message is written for you.</h2></div>
   <form class="req" id="req" novalidate>
-    <div class="form card">
-      <label class="field"><span data-en="Treatment" data-ja="施術">Treatment</span><select id="f-treat"></select></label>
-      <label class="field"><span data-en="Length" data-ja="時間">Length</span><select id="f-len"></select></label>
-      <label class="field"><span data-en="Day" data-ja="日にち">Day</span><select id="f-day"></select></label>
-      <label class="field"><span data-en="Time of day" data-ja="時間帯">Time of day</span><select id="f-time"></select></label>
-      <label class="field"><span data-en="Your name" data-ja="お名前">Your name</span><input id="f-name" type="text" autocomplete="name"></label>
+    <div class="slipform">
+      <label><span data-en="Treatment" data-ja="施術">Treatment</span><select id="f-treat"></select></label>
+      <label><span data-en="Length" data-ja="時間">Length</span><select id="f-len"></select></label>
+      <label><span data-en="Day" data-ja="日にち">Day</span><select id="f-day"></select></label>
+      <label><span data-en="Time of day" data-ja="時間帯">Time of day</span><select id="f-time"></select></label>
+      <label><span data-en="Your name" data-ja="お名前">Your name</span><input id="f-name" type="text" autocomplete="name"></label>
     </div>
-    <div class="slip card">
-      <h3 data-en="Your message" data-ja="送るメッセージ">Your message</h3>
-      <p class="note" id="slip-to"></p>
-      <p class="slip-msg" id="slip-msg"></p>
+    <div class="out">
+      <p class="out-to" id="slip-to"></p>
+      <p class="bubble" id="slip-msg"></p>
       <div class="btns" id="slip-go"></div>
-      <p class="note" data-en="Your phone’s message screen opens with this text filled in. Nothing is sent until you press send there." data-ja="ボタンを押すと、この文面が入った状態でメッセージの画面が開きます。そこで送信するまでは送られません。">Your phone’s message screen opens with this text filled in. Nothing is sent until you press send there.</p>
+      <p class="fine" data-en="Your phone’s message screen opens with this text filled in. Nothing is sent until you press send there." data-ja="ボタンを押すと、この文面が入った状態でメッセージの画面が開きます。そこで送信するまでは送られません。">Your phone’s message screen opens with this text filled in. Nothing is sent until you press send there.</p>
     </div>
   </form>
 </section>
 </main>
-<footer class="foot"><p>WARAKU Healthcare &amp; Massage</p><p data-en="Open daily 9:30am to 6:00pm" data-ja="毎日 9:30〜18:00">Open daily 9:30am to 6:00pm</p><p><a href="https://instagram.com/warakuchatswood" target="_blank" rel="noopener">Instagram @warakuchatswood</a></p></footer>
+<footer class="foot"><img src="img/logo.png" width="399" height="78" alt="WARAKU Healthcare &amp; Massage"><p data-en="Open daily 9:30am to 6:00pm" data-ja="毎日 9:30〜18:00">Open daily 9:30am to 6:00pm</p><p><a href="https://instagram.com/warakuchatswood" target="_blank" rel="noopener">Instagram @warakuchatswood</a></p></footer>
 <nav class="dock" aria-label="Quick actions"><a class="dock-main" href="#book" data-en="Book" data-ja="予約する">Book</a><a href="tel:+61294103413" data-en="Call" data-ja="電話する">Call</a><a href="#menu" data-en="Prices" data-ja="料金">Prices</a></nav>
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="vendor/SplitText.min.js" defer></script>
+<script src="vendor/embla.min.js" defer></script>
 <script src="ds.js" defer></script>
 <script src="app.js" defer></script>
 </body>

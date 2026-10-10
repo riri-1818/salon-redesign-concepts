@@ -1,4 +1,4 @@
-// WARAKU Healthcare & Massage — the parts that change: who is in, treatments and prices, the booking message. (Shared helpers are in ds.js.)
+// WARAKU Healthcare & Massage — the parts that change: who is in, treatments and prices, the booking message. Language and Sydney-time helpers are in ds.js; motion uses GSAP, the therapist strip uses Embla.
 
 /* weekly roster, Monday to Sunday, exactly as on the current booking page */
 const ROSTER = {
@@ -43,18 +43,18 @@ const state = { treat: "rem", len: 2, day: 0, time: 0, who: "" };
 const clean = (n) => n.replace(/[()]/g, "");
 const menuOf = (id) => MENU.find((x) => x.id === id);
 
+const KINDS = { lemon: ["Remedial massage, facial dry needling", "リメディアル・マッサージ、美顔鍼"], archer: ["Acupuncture, shiatsu", "鍼、指圧"] };
 function openNow() {
   const on = NOW.m >= 570 && NOW.m < 1080;
   $("#dot").classList.toggle("on", on);
   $("#open").textContent = on ? t(["Open now, until 6:00pm", "ただいま営業中です（18:00 まで）"]) : NOW.m < 570 ? t(["Opens today at 9:30am", "本日は 9:30 から営業します"]) : t(["Closed for today. Opens tomorrow at 9:30am", "本日の営業は終了しました。明日は 9:30 からです"]);
 }
-function board(move) {
+/* the weekly roster: one column per day on a wide screen, one day at a time on a phone */
+function board() {
   $("#b-title").textContent = day === NOW.d ? t([`Who is in today, ${DAYS_L[day][0]}`, `今日（${DAYS_L[day][1]}）の担当`]) : t([`Who is in on ${DAYS_L[day][0]}`, `${DAYS_L[day][1]}の担当`]);
-  $(".days").innerHTML = DAYS.map((d, i) => `<button type="button" class="chip" role="tab" aria-selected="${i === day}" data-day="${i}">${t(d)}</button>`).join("");
-  for (const r of ["lemon", "archer"]) {
-    const names = ROSTER[r][day];
-    $("#n-" + r).innerHTML = names.length ? names.map((n, i) => `<button type="button" class="name${move ? " drop" : ""}" aria-pressed="${picked === clean(n)}" data-n="${clean(n)}" style="--i:${i}">${n}</button>`).join("") : `<p class="note">${t(["No one is listed for this day. Please call.", "この曜日は、担当の記載がありません。お電話でお問い合わせください。"])}</p>`;
-  }
+  const head = DAYS.map((d, i) => `<button type="button" class="day" aria-pressed="${i === day}" data-day="${i}" aria-label="${t(DAYS_L[i])}">${i === NOW.d ? `<i>${t(["Today", "今日"])}</i>` : ""}${t(d)}</button>`).join("");
+  const row = (r) => `<div class="rlabel"><b>${t(ROOM[r])}</b><span>${t(KINDS[r])}</span></div>` + ROSTER[r].map((names, i) => `<div class="cell${i === day ? " on" : ""}">${names.length ? names.map((n) => `<button type="button" class="name" aria-pressed="${picked === clean(n) && i === day}" data-n="${clean(n)}" data-d="${i}">${n}</button>`).join("") : `<span class="none">${t(["Not listed. Please call.", "記載なし。お電話でどうぞ。"])}</span>`}</div>`).join("");
+  $("#week").innerHTML = `<div class="corner"></div>${head}${row("lemon")}${row("archer")}`;
   $("#b-note").hidden = !ROSTER.lemon[day].concat(ROSTER.archer[day]).some((n) => n.includes("("));
   who();
 }
@@ -64,18 +64,27 @@ function daysOf(n) {
 function who() {
   const el = $("#who"); if (!picked) { el.innerHTML = ""; return; }
   const p = PEOPLE[picked];
-  el.innerHTML = `<div class="who-card">${p.img ? `<img src="img/${p.img}.jpg" width="300" height="300" alt="">` : ""}<div><h3>${p.full}</h3><p class="note">${t(p.role)}</p>${t(p.say) ? `<p>${t(p.say)}</p>` : ""}<p class="note">${t(["In on ", "担当日："])}${daysOf(picked)}</p><a class="more" href="#book" data-who="${picked}">${t(["Request a booking with " + picked, picked + " さんで予約をリクエストする"])}</a></div></div>`;
+  el.innerHTML = `<div class="who-card">${p.img ? `<img src="img/${p.img}.jpg" width="300" height="300" alt="">` : "<span></span>"}<div><h3>${p.full}</h3><p class="role">${t(p.role)}</p>${t(p.say) ? `<p class="say">${t(p.say)}</p>` : ""}<p class="in">${t(["In on ", "出勤："])}${daysOf(picked)}</p></div><a href="#book" data-who="${picked}">${t(["Book with " + picked, picked + " さんで予約する"])}</a></div>`;
 }
 function todayLines() {
   for (const r of ["lemon", "archer"]) { const n = ROSTER[r][NOW.d]; $("#t-" + r).textContent = n.length ? t(["In today: ", "今日の担当："]) + n.join(t([", ", "、"])) : t(["Please call to ask who is in today.", "今日の担当は、お電話でお問い合わせください。"]); }
 }
+/* treatments: a list that opens, grouped by room */
 function menu() {
-  $(".kinds").innerHTML = MENU.map((m) => `<button type="button" class="chip" role="tab" aria-selected="${m.id === kind}" data-kind="${m.id}">${t(m.n)}</button>`).join("");
-  const m = menuOf(kind);
-  $("#detail").innerHTML = `<div><p class="pill">${t(ROOM[m.room])}</p><h3>${t(m.n)}</h3><p>${t(m.d)}</p>${m.note ? `<p class="special">${t(m.note)}</p>` : ""}</div><ul class="rows">${m.rows.map((r, i) => `<li><span>${t(r[0])}</span><span class="price"><b>$${r[1]}</b><a href="#book" data-treat="${m.id}" data-len="${i}" aria-label="${t(["Book", "予約する"])}: ${t(m.n)} ${t(r[0])}">${t(["Book", "予約する"])}</a></span></li>`).join("")}</ul>`;
+  $("#list").innerHTML = ["lemon", "archer"].map((r) => `<h3 class="room-h">${t(ROOM[r])}</h3>` + MENU.filter((m) => m.room === r).map((m) => {
+    const open = m.id === kind, from = Math.min(...m.rows.map((x) => x[1]));
+    return `<div class="item${open ? " open" : ""}"><button type="button" class="item-h" aria-expanded="${open}" data-kind="${m.id}"><span class="nm">${t(m.n)}</span><span class="from">${t(["from $" + from, "$" + from + "〜"])}</span><i class="pm"></i></button><div class="item-b"><div><div class="item-in"><p>${t(m.d)}</p>${m.note ? `<p class="special">${t(m.note)}</p>` : ""}<ul class="rows">${m.rows.map((x, i) => `<li><span>${t(x[0])}</span><b>$${x[1]}</b><a href="#book" data-treat="${m.id}" data-len="${i}" aria-label="${t(["Book", "予約する"])}: ${t(m.n)} ${t(x[0])}">${t(["Book", "予約する"])}</a></li>`).join("")}</ul></div></div></div></div>`;
+  }).join("")).join("");
 }
+let embla = null;
 function staff() {
-  $("#staff").innerHTML = ["Tom", "Saki", "Rie", "Norie", "Alisa", "Jun"].map((k) => { const p = PEOPLE[k]; return `<li class="card"><img loading="lazy" src="img/${p.img}.jpg" width="300" height="300" alt=""><div><h3>${p.full}</h3><p class="note">${t(p.role)}</p><p>${t(p.say)}</p><p class="note">${t(["In on ", "担当日："])}${daysOf(k)}</p></div></li>`; }).join("");
+  $("#staff").innerHTML = ["Tom", "Saki", "Rie", "Norie", "Alisa", "Jun"].map((k) => { const p = PEOPLE[k]; return `<li><img loading="lazy" src="img/${p.img}.jpg" width="300" height="300" alt="" draggable="false"><h3>${p.full}</h3><p class="role">${t(p.role)}</p><p class="say">${t(p.say)}</p><p class="in">${t(["In on ", "出勤："])}${daysOf(k)}</p></li>`; }).join("");
+  for (const b of $$(".arrows button")) b.setAttribute("aria-label", t([b.dataset.labelEn, b.dataset.labelJa]));
+  if (!window.EmblaCarousel) return;
+  if (embla) embla.destroy();
+  embla = EmblaCarousel($("#embla"), { align: "start", containScroll: "trimSnaps", dragFree: true });
+  const sync = () => { $("#s-prev").disabled = !embla.canScrollPrev(); $("#s-next").disabled = !embla.canScrollNext(); };
+  embla.on("select", sync).on("reInit", sync).on("settle", sync); sync();
 }
 
 /* booking request: the choices become a message */
@@ -114,13 +123,37 @@ $("#req").addEventListener("change", (e) => { const id = e.target.id; if (id ===
 $("#f-name").addEventListener("input", slip);
 $("#req").addEventListener("submit", (e) => e.preventDefault());
 document.addEventListener("click", (e) => {
-  const d = e.target.closest("[data-day]"); if (d) { day = +d.dataset.day; picked = null; board(!reduce); return; }
-  const n = e.target.closest(".name"); if (n) { picked = picked === n.dataset.n ? null : n.dataset.n; board(false); return; }
-  const k = e.target.closest("[data-kind]"); if (k) { kind = k.dataset.kind; menu(); return; }
+  const d = e.target.closest("[data-day]"); if (d) { day = +d.dataset.day; picked = null; board(); drop(); return; }
+  const n = e.target.closest(".name"); if (n) { const same = picked === n.dataset.n && day === +n.dataset.d; day = +n.dataset.d; picked = same ? null : n.dataset.n; board(); if (picked && window.gsap && !reduce) gsap.from(".who-card", { y: 16, opacity: 0, duration: .4, ease: "power2.out" }); return; }
+  const k = e.target.closest("[data-kind]"); if (k) { kind = kind === k.dataset.kind ? "" : k.dataset.kind; for (const it of $$(".item")) { const on = it.firstElementChild.dataset.kind === kind; it.classList.toggle("open", on); it.firstElementChild.setAttribute("aria-expanded", on); } return; }
+  if (e.target.id === "s-prev" && embla) { embla.scrollPrev(); return; }
+  if (e.target.id === "s-next" && embla) { embla.scrollNext(); return; }
   const a = e.target.closest("[data-treat]"); if (a) { state.treat = a.dataset.treat; state.len = +a.dataset.len; state.day = 0; form(); return; }
   const w = e.target.closest("[data-who]");
   if (w) { state.who = w.dataset.who; const inRoom = (r) => ROSTER[r].some((x) => x.map(clean).includes(state.who)); if (!inRoom(menuOf(state.treat).room)) { state.treat = inRoom("lemon") ? "rem" : "acu"; state.len = 0; } const i = nextDays().findIndex((x) => ROSTER[menuOf(state.treat).room][x.d].map(clean).includes(state.who)); state.day = Math.max(0, i); form(); return; }
   if (e.target.id === "copy") { const b = e.target; (navigator.clipboard ? navigator.clipboard.writeText($("#slip-msg").textContent) : Promise.reject()).then(() => { b.textContent = t(["Copied", "コピーしました"]); }).catch(() => { const r = document.createRange(); r.selectNodeContents($("#slip-msg")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = t(["Selected. Please copy.", "選択しました。コピーしてください"]); }); }
 });
-onRender(() => { openNow(); board(false); todayLines(); menu(); staff(); form(); });
-start(".head, .points, .room, .kinds, .detail, .staff > li, .facts > div, .req > *");
+onRender(() => { openNow(); board(); todayLines(); menu(); staff(); form(); });
+applyLang();
+
+/* motion (GSAP). Everything is visible without it, and it is skipped when reduced motion is on. */
+function drop() { if (window.gsap && !reduce) gsap.from(".cell.on .name", { y: -10, opacity: 0, duration: .35, stagger: .05, ease: "power2.out", clearProps: "all" }); }
+if (window.gsap && !reduce) {
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+  const split = new SplitText("#h1", { type: "lines", linesClass: "ln" });
+  const inner = split.lines.map((l) => { const s = document.createElement("div"); s.innerHTML = l.innerHTML; l.innerHTML = ""; l.appendChild(s); return s; });
+  gsap.timeline({ defaults: { ease: "power3.out" } })
+    .from(inner, { yPercent: 105, duration: .8, stagger: .12, onComplete: () => split.revert() })
+    .from(".since, .hero-side > *", { y: 14, opacity: 0, duration: .5, stagger: .07 }, .25)
+    .from(".slab-head > *", { y: 14, opacity: 0, duration: .5, stagger: .06 }, .45)
+    .from(".day", { y: 18, opacity: 0, duration: .45, stagger: .04 }, .55)
+    .from(".cell.on .name, .rlabel", { opacity: 0, y: 10, duration: .4, stagger: .03, clearProps: "all" }, .8);
+  ScrollTrigger.batch(".rail-title, .item, .room-h, .facts > div, .req > *, .three li", { start: "top 90%", once: true, onEnter: (els) => gsap.from(els, { y: 24, opacity: 0, duration: .55, stagger: .06, ease: "power2.out", clearProps: "transform,opacity" }) });
+  /* the walk from the station: the line is drawn, then each stop appears */
+  const route = $(".route");
+  gsap.timeline({ scrollTrigger: { trigger: route, start: "top 78%", once: true } })
+    .fromTo(route, { "--draw": 0 }, { "--draw": 1, duration: 1.1, ease: "power2.inOut" })
+    .from(".stn, .stop", { opacity: 0, y: 20, duration: .5, stagger: .22, ease: "power2.out", clearProps: "transform,opacity" }, .1)
+    .from(".stop img", { scale: 1.12, duration: 1.2, stagger: .22, ease: "power2.out", clearProps: "transform" }, .1);
+  gsap.from(".staff li", { scrollTrigger: { trigger: "#embla", start: "top 85%", once: true }, x: 60, opacity: 0, duration: .6, stagger: .07, ease: "power2.out", clearProps: "transform,opacity" });
+}
