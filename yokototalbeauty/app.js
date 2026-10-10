@@ -1,4 +1,4 @@
-// yokototalbeauty — the parts that change: the four parts of the face, their prices, the touch-up slider. (Shared helpers are in ds.js.)
+// yokototalbeauty — the parts that change: the four parts of the face, their prices, the touch-up slider. Language helpers are in ds.js; the photo viewer and the reviews use Swiper, motion uses GSAP.
 
 /* treatments and prices (from the service pages of the current site). A string price is shown as written. */
 const PARTS = [
@@ -28,31 +28,37 @@ const QUOTES = [
 ];
 const COURSES = ["Nano Eyebrow Course", "Eyebrow Microblading / Combination Course", "Eyebrow Microblading / Nanofeather Course", "Ombre / Powder Brow Course", "Lip Blush Tattoo Course", "Eyeliner Tattoo Course", "Hairline Microblading Course", "Hyaluron Pen Course", "Eyelash Extension Course", "Keratin Lash Lift Course", "Teeth Whitening Course", "Scalp Micropigmentation Course"];
 
-let cur = 0, asked = "";
+let cur = 0, asked = "", view = null, said = null;
 const money = (v) => typeof v === "number" ? "$" + v.toLocaleString("en-AU") : v;
-const row = (r) => `<li><span>${t(r)}</span><span class="price"><b>${money(r[2])}</b><a href="#ask" data-ask="${r[0]}" aria-label="${t(["Ask about", "質問する"])}: ${t(r)}">${t(["Ask", "質問する"])}</a></span></li>`;
-function parts(fade) {
+const row = (r) => `<li><span>${t(r)}</span><b>${money(r[2])}</b><a href="#ask" data-ask="${r[0]}" aria-label="${t(["Ask about", "質問する"])}: ${t(r)}">${t(["Ask", "質問する"])}</a></li>`;
+/* the four big words are the index; the photo and the prices follow the chosen word */
+function panel(move) {
   const f = PARTS[cur];
-  $(".parts").innerHTML = PARTS.map((p, i) => `<button type="button" class="chip" role="tab" aria-selected="${i === cur}" data-part="${i}">${t(p.w)}</button>`).join("");
-  const box = $("#p-img"), set = () => { box.innerHTML = `<img src="img/${f.img}.jpg" width="1000" height="1000" alt="${t(f.cap)}" style="object-position:${f.pos}">`; box.classList.remove("out"); };
-  if (fade && !reduce) { box.classList.add("out"); setTimeout(set, 180); } else set();
-  $("#p-cap").textContent = t(f.cap); $("#p-title").textContent = t(f.w); $("#p-lead").textContent = t(f.lead);
-  $("#p-groups").innerHTML = f.groups.map((g) => `<h4>${t(g.n)}</h4><ul class="rows">${g.rows.map(row).join("")}</ul>`).join("") + `<h4>${t(["Also at the clinic", "ほかのメニュー"])}</h4><ul class="rows">${MORE.map(row).join("")}<li><span>${t(["Plasma skin tightening, Hyaluron Pen", "プラズマ・スキンタイトニング、ヒアルロンペン"])}</span><span class="price"><a href="#ask" data-ask="Other treatments">${t(["Ask", "質問する"])}</a></span></li></ul>`;
+  $("#index").innerHTML = PARTS.map((p, i) => `<button type="button" class="word" role="tab" aria-selected="${i === cur}" data-part="${i}">${t(p.w)}</button>`).join("");
+  $("#p-cap").textContent = t(f.cap); $("#p-lead").textContent = t(f.lead);
+  $("#p-groups").innerHTML = f.groups.map((g) => `<div class="grp"><h3>${t(g.n)}</h3><ul class="rows">${g.rows.map(row).join("")}</ul></div>`).join("");
   $("#touch").hidden = f.id !== "brows"; touch();
+  $$("#view-list img").forEach((im, i) => { im.alt = t(PARTS[i].cap); });
+  if (move && window.gsap && !reduce) gsap.from("#p-lead, #p-groups .grp, #touch:not([hidden])", { y: 20, opacity: 0, duration: .45, stagger: .07, ease: "power2.out", clearProps: "transform,opacity" });
 }
 function touch() {
   const m = +$("#months").value, b = TOUCH.find((x) => m < x[0]);
   $("#t-when").textContent = t([`${m} month${m === 1 ? "" : "s"} ago (${b[1][0]})`, `${m}か月前（${b[1][1]}）`]); $("#t-price").textContent = "$" + b[2];
   $("#months").style.setProperty("--p", ((m - 1) / 29 * 100) + "%");
 }
+function count() { if (said) { $("#q-count").textContent = `${said.activeIndex + 1} / ${QUOTES.length}`; } }
 function rest() {
-  $("#quotes").innerHTML = QUOTES.map((x) => `<blockquote class="card"><p>${t(x[0])}</p><footer class="note">${x[1]}</footer></blockquote>`).join("");
+  $("#more").innerHTML = MORE.map(row).join("") + `<li><span>${t(["Plasma skin tightening, Hyaluron Pen", "プラズマ・スキンタイトニング、ヒアルロンペン"])}</span><b></b><a href="#ask" data-ask="Other treatments">${t(["Ask", "質問する"])}</a></li>`;
+  $("#quotes").innerHTML = QUOTES.map((x) => `<blockquote class="swiper-slide"><p>${t(x[0])}</p><footer>${x[1]}</footer></blockquote>`).join("");
   $("#c-list").innerHTML = COURSES.map((c) => `<li>${c}</li>`).join("");
   const opts = [...PARTS.flatMap((f) => f.groups.flatMap((g) => g.rows.map((r) => [r[0], t(r)]))), ...MORE.map((r) => [r[0], t(r)]), ["Other treatments", t(["Other treatments", "そのほかのメニュー"])], ["Courses", t(["Courses", "技術コース"])]];
   $("#a-what").innerHTML = `<option value="">${t(["Please choose", "選んでください"])}</option>` + opts.map((o) => `<option value="${o[0]}"${o[0] === asked ? " selected" : ""}>${o[1]}</option>`).join("");
+  $("#q-prev").setAttribute("aria-label", t(["Previous review", "前のレビュー"])); $("#q-next").setAttribute("aria-label", t(["Next review", "次のレビュー"]));
+  if (said) { said.update(); count(); }
 }
+$("#view-list").innerHTML = PARTS.map((f) => `<div class="swiper-slide"><img src="img/${f.img}.jpg" width="1000" height="1000" alt="" style="object-position:${f.pos}"></div>`).join("");
 document.addEventListener("click", (e) => {
-  const p = e.target.closest("[data-part]"); if (p) { cur = +p.dataset.part; parts(true); return; }
+  const p = e.target.closest("[data-part]"); if (p) { const i = +p.dataset.part; if (view) view.slideTo(i); else { cur = i; panel(true); } return; }
   const a = e.target.closest("[data-ask]"); if (a) { asked = a.dataset.ask; $("#a-what").value = asked; }
 });
 $("#months").addEventListener("input", touch);
@@ -63,5 +69,23 @@ $("#ask").addEventListener("submit", (e) => {
   if (!msg) { err.textContent = t(["Please write your question.", "ご質問を入力してください。"]); err.hidden = false; $("#a-msg").focus(); return; } err.hidden = true;
   location.href = `mailto:yoko@yokototalbeauty.com.au?subject=${encodeURIComponent(t(["Question", "ご質問"]) + (what ? `: ${what}` : ""))}&body=${encodeURIComponent(msg + "\n\n" + name)}`;
 });
-onRender(() => { parts(false); rest(); });
-start(".head, .parts, .panel, .touch, .about > *, .quotes > *, .courses, .visit > *");
+onRender(() => { panel(false); rest(); });
+applyLang();
+
+/* Swiper: the photo fades to the chosen part (and can be swiped); the reviews are a strip you can drag */
+if (window.Swiper) {
+  view = new Swiper("#view", { effect: "fade", fadeEffect: { crossFade: true }, speed: reduce ? 0 : 700, on: { slideChange(s) { cur = s.activeIndex; panel(true); } } });
+  said = new Swiper("#said", { slidesPerView: "auto", spaceBetween: 16, speed: reduce ? 0 : 500, grabCursor: true, breakpoints: { 900: { spaceBetween: 28 } }, navigation: { prevEl: "#q-prev", nextEl: "#q-next", disabledClass: "is-off" }, on: { slideChange: count } });
+  count();
+}
+/* motion (GSAP). Photos open like a page being uncovered; nothing is hidden without it. */
+if (window.gsap && !reduce) {
+  gsap.registerPlugin(ScrollTrigger);
+  const open = (fig, delay = 0, trigger) => { const o = trigger ? { scrollTrigger: { trigger, start: "top 80%", once: true } } : {}; gsap.from(fig, { clipPath: "inset(100% 0 0 0)", duration: 1.1, delay, ease: "power3.inOut", clearProps: "clipPath", ...o }); gsap.from(fig.querySelector("img"), { scale: 1.25, duration: 1.6, delay, ease: "power2.out", clearProps: "transform", ...o }); };
+  open($(".c-a .clip")); open($(".c-b .clip"), .25);
+  gsap.from(".hero-copy > *", { y: 22, opacity: 0, duration: .6, stagger: .08, ease: "power2.out", clearProps: "transform,opacity" });
+  gsap.to(".c-b", { yPercent: -16, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+  gsap.from(".word", { yPercent: 60, opacity: 0, duration: .7, stagger: .08, ease: "power3.out", clearProps: "transform,opacity", scrollTrigger: { trigger: "#index", start: "top 88%", once: true } });
+  open($("#view"), 0, "#view"); open($(".about .clip"), 0, ".about figure");
+  ScrollTrigger.batch(".h-small, .also, .about-copy > *, .said-head > *, #quotes blockquote, .courses > div > *, .c-list li, .visit > div > *, .form", { start: "top 92%", once: true, onEnter: (els) => gsap.from(els, { y: 24, opacity: 0, duration: .55, stagger: .05, ease: "power2.out", clearProps: "transform,opacity" }) });
+}
