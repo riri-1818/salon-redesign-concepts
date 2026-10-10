@@ -3,88 +3,94 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>CREATE by ReNCOUNTER | Japanese hair salon in Neutral Bay, Sydney</title>
-<meta name="description" content="CREATE by ReNCOUNTER is a Japanese hair salon in Neutral Bay, Sydney. Haircuts, herbal colour, perms and Japanese straightening, plus our own IMA products. Japanese available.">
+<title>CREATE by ReNCOUNTER | Japanese hair salon in Neutral Bay</title>
+<meta name="description" content="CREATE by ReNCOUNTER is a Japanese hair salon in Neutral Bay, Sydney. Cut, colour, perm and straightening, with our own IMA and ISSOU hair care.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#ffffff">
-<link rel="preload" href="fonts/noto-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="ds.css">
+<meta name="theme-color" content="#faf9f6">
+<link rel="preload" href="fonts/bri.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/salon.jpg" as="image">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <p class="proposal" data-en="A design proposal for CREATE by ReNCOUNTER (not the official website)" data-ja="CREATE by ReNCOUNTER 様へのご提案用デザインです（公式サイトではありません）">A design proposal for CREATE by ReNCOUNTER (not the official website)</p>
-<header class="top"><div>
+<header class="top">
   <a class="mark" href="#top">CREATE <small>by ReNCOUNTER</small></a>
   <nav class="nav" aria-label="Main"><a href="#stylists" data-en="Stylists" data-ja="スタイリスト">Stylists</a><a href="#price" data-en="Prices" data-ja="料金">Prices</a><a href="#products" data-en="Products" data-ja="プロダクト">Products</a><a href="#visit" data-en="Visit" data-ja="アクセス">Visit</a></nav>
   <div class="langs" role="group" aria-label="Language / 言語"><button class="lang" type="button" data-lang="en">EN</button><button class="lang" type="button" data-lang="ja">日本語</button></div>
-  <a class="btn btn--m" href="tel:+61452150215" data-en="Call to book" data-ja="電話で予約">Call to book</a>
-</div></header>
+  <a class="top-call" href="tel:+61452150215" data-en="Call to book" data-ja="電話で予約">Call to book</a>
+</header>
 <main id="top">
-<section class="sec hero">
-  <div class="hero-grid">
+<section class="hero">
+  <div class="letters" id="shelf" role="group" aria-label="CREATE"></div>
+  <div class="hero-row">
+    <div class="stage" id="stage"><div class="st" id="st-a"></div><div class="st" id="st-b"></div><p class="st-cap"><b id="st-l"></b><span id="st-cap"></span></p></div>
     <div class="hero-copy">
-      <p class="pill" data-en="Japanese hair salon · Neutral Bay" data-ja="Neutral Bay の日本人美容室">Japanese hair salon · Neutral Bay</p>
-      <h1 data-en="We CREATE more than style." data-ja="つくるのは、髪型だけではありません。">We CREATE more than style.</h1>
+      <p class="where" data-en="Japanese hair salon, Neutral Bay" data-ja="Neutral Bay の日本人美容室">Japanese hair salon, Neutral Bay</p>
+      <h1 data-en="We CREATE more than style." data-ja="つくるのは、<br>髪型だけではありません。">We CREATE more than style.</h1>
       <p class="lead" data-en="From the atmosphere, sound, visuals, and conversations to the time spent here, every detail is part of the experience we create." data-ja="空間、音、会話、そしてここで過ごす時間まで。そのすべてが、私たちのつくる体験です。">From the atmosphere, sound, visuals, and conversations to the time spent here, every detail is part of the experience we create.</p>
-      <p class="open"><i id="dot"></i><b id="open"></b></p>
-      <div class="btns"><a class="btn" href="tel:+61452150215"><span data-en="Call to book" data-ja="電話で予約する">Call to book</span> 0452 150 215</a><a class="btn btn--line" href="#price" data-en="See the prices" data-ja="料金を見る">See the prices</a></div>
-      <p class="note" data-en="You can book in Japanese or English." data-ja="日本語でも英語でもご予約いただけます。">You can book in Japanese or English.</p>
-    </div>
-    <div>
-      <div class="shelf" id="shelf"></div>
-      <p class="note shelf-note" data-en="Tap a square to see the salon." data-ja="マスを押すと、サロンの写真が見られます。">Tap a square to see the salon.</p>
+      <p class="opennow"><i id="dot"></i><b id="open"></b></p>
+      <div class="btns"><a class="btn btn--fill" href="tel:+61452150215"><span data-en="Call to book" data-ja="電話で予約する">Call to book</span> 0452 150 215</a><a class="btn" href="#price" data-en="See the prices" data-ja="料金を見る">See the prices</a></div>
+      <p class="fine" data-en="You can book in Japanese or English. Tap a letter above to see the salon." data-ja="日本語でも英語でもご予約いただけます。上の文字を押すと、サロンの写真が替わります。">You can book in Japanese or English. Tap a letter above to see the salon.</p>
     </div>
   </div>
 </section>
 
-<section class="sec sec--tint" id="stylists">
-  <div class="head head--center"><p class="pill" data-en="Stylists" data-ja="スタイリスト">Stylists</p><h2 data-en="Choose a stylist to see their prices." data-ja="スタイリストを選ぶと、料金が分かります。">Choose a stylist to see their prices.</h2></div>
+<section class="rate" id="stylists">
+  <h2 data-en="Choose a stylist to see their prices." data-ja="スタイリストを選ぶと、料金が分かります。">Choose a stylist to see their prices.</h2>
   <ul class="people" id="people"></ul>
-</section>
-
-<section class="sec" id="price">
-  <div class="head head--center"><p class="pill" data-en="Menu and prices" data-ja="メニューと料金">Menu and prices</p><h2 id="p-title"></h2></div>
-  <div class="chips ranks" role="radiogroup" aria-label="Stylist request" id="ranks"></div>
-  <div class="cols" id="cols"></div>
-  <p class="note p-note" data-en="Prices may vary depending on hair length, thickness, condition and the time required. We always give you a consultation and a quote before we start. Where one price is shown, it is the base price before the stylist request fee." data-ja="料金は、髪の長さ・量・状態・かかる時間によって変わることがあります。施術の前に、かならずカウンセリングをして、お見積もりをお伝えします。金額が1つだけのメニューは、指名料を含まない料金です。">Prices may vary depending on hair length, thickness, condition and the time required. We always give you a consultation and a quote before we start. Where one price is shown, it is the base price before the stylist request fee.</p>
-</section>
-
-<section class="sec sec--tint" id="products">
-  <div class="head head--center"><p class="pill" data-en="Our products" data-ja="プロダクト">Our products</p><h2 data-en="Kind to both body and planet." data-ja="体にも、地球にも、やさしいものを。">Kind to both body and planet.</h2>
-    <p data-en="IMA is our own lifestyle brand, born from harmony with the natural world. ISSOU is a professional hair care series in three steps: cleanse, condition and hydrate." data-ja="IMA は、自然との調和から生まれた、私たちのブランドです。ISSOU は、洗う・整える・うるおすの3ステップで使う、サロン品質のヘアケアです。">IMA is our own lifestyle brand, born from harmony with the natural world. ISSOU is a professional hair care series in three steps: cleanse, condition and hydrate.</p></div>
-  <ul class="goods" id="goods"></ul>
-  <div class="card spa">
-    <figure><img loading="lazy" src="img/headspa.jpg" width="900" height="1200" alt="" data-alt-en="Warm herbal water being poured at the basin" data-alt-ja="シャンプー台で、あたたかいハーブの湯をそそいでいるところ"></figure>
-    <div><p class="pill" data-en="Coming soon" data-ja="近日スタート">Coming soon</p><h3>IMA Headspa</h3><p data-en="Experience IMA Head Spa to reconnect with nature and awaken the senses through gentle touch from the fingertips." data-ja="指先のやさしいタッチで感覚を目覚めさせる、ヘッドスパです。">Experience IMA Head Spa to reconnect with nature and awaken the senses through gentle touch from the fingertips.</p><a class="more" href="#ask" data-ask="IMA Headspa" data-en="Ask about IMA Headspa" data-ja="IMA Headspa について問い合わせる">Ask about IMA Headspa</a></div>
+  <div class="price" id="price">
+    <div class="rankbar"><div class="ranks" role="radiogroup" aria-label="Stylist request" id="ranks"></div></div>
+    <h3 class="p-title" id="p-title"></h3>
+    <div class="cols" id="cols"></div>
+    <p class="fine p-note" data-en="Prices may vary depending on hair length, thickness, condition and the time required. We always give you a consultation and a quote before we start. Where one price is shown, it is the base price before the stylist request fee." data-ja="料金は、髪の長さ・量・状態・かかる時間によって変わることがあります。施術の前に、かならずカウンセリングをして、お見積もりをお伝えします。金額が1つだけのメニューは、指名料を含まない料金です。">Prices may vary depending on hair length, thickness, condition and the time required. We always give you a consultation and a quote before we start. Where one price is shown, it is the base price before the stylist request fee.</p>
   </div>
 </section>
 
-<section class="sec" id="visit">
-  <div class="head"><p class="pill" data-en="Visit" data-ja="アクセス">Visit</p><h2 data-en="Find the salon." data-ja="サロンの場所。">Find the salon.</h2></div>
+<section class="made" id="products">
+  <div class="made-head">
+    <h2 data-en="Kind to both body and planet." data-ja="体にも、地球にも、やさしいものを。">Kind to both body and planet.</h2>
+    <p data-en="IMA is our own lifestyle brand, born from harmony with the natural world. ISSOU is a professional hair care series in three steps: cleanse, condition and hydrate." data-ja="IMA は、自然との調和から生まれた、私たちのブランドです。ISSOU は、洗う・整える・うるおすの3ステップで使う、サロン品質のヘアケアです。">IMA is our own lifestyle brand, born from harmony with the natural world. ISSOU is a professional hair care series in three steps: cleanse, condition and hydrate.</p>
+    <div class="g-nav"><button type="button" id="g-prev" aria-label="Previous">←</button><button type="button" id="g-next" aria-label="Next">→</button><span data-en="Drag sideways to see them all." data-ja="横に動かすと、すべて見られます。">Drag sideways to see them all.</span></div>
+  </div>
+  <div class="g-view" id="g-view"><ul class="goods" id="goods"></ul></div>
+  <div class="spa">
+    <figure><img loading="lazy" src="img/headspa.jpg" width="900" height="1200" alt="" data-alt-en="Warm herbal water being poured at the basin" data-alt-ja="シャンプー台で、あたたかいハーブの湯をそそいでいるところ"></figure>
+    <div><p class="soon" data-en="Coming soon" data-ja="近日スタート">Coming soon</p><h3>IMA Headspa</h3><p data-en="Experience IMA Head Spa to reconnect with nature and awaken the senses through gentle touch from the fingertips." data-ja="指先のやさしいタッチで感覚を目覚めさせる、ヘッドスパです。">Experience IMA Head Spa to reconnect with nature and awaken the senses through gentle touch from the fingertips.</p><a class="btn" href="#ask" data-ask="IMA Headspa" data-en="Ask about IMA Headspa" data-ja="IMA Headspa について問い合わせる">Ask about IMA Headspa</a></div>
+  </div>
+</section>
+
+<section class="where-sec" id="visit">
   <figure class="front"><img loading="lazy" src="img/front.jpg" width="1600" height="890" alt="" data-alt-en="The salon seen from the street, with timber and plants" data-alt-ja="通りから見たサロン。木と植物に囲まれています"></figure>
   <div class="visit">
-    <dl class="facts">
-      <div><dt data-en="Address" data-ja="住所">Address</dt><dd>Shop 1/3-5 Waters Rd, Neutral Bay NSW 2089<br><a class="more" href="https://www.google.com/maps/search/?api=1&amp;query=CREATE+by+ReNCOUNTER+Neutral+Bay" target="_blank" rel="noopener" data-en="Open in Google Maps" data-ja="Google マップで見る">Open in Google Maps</a></dd></div>
-      <div><dt data-en="Opening hours" data-ja="営業時間">Opening hours</dt><dd id="hours"></dd></div>
-      <div><dt data-en="Bookings" data-ja="ご予約">Bookings</dt><dd><a href="tel:+61452150215">0452 150 215</a><span data-en=" (Japanese available)" data-ja="（日本語でどうぞ）"> (Japanese available)</span></dd></div>
-      <div><dt data-en="Email" data-ja="メール">Email</dt><dd><a href="mailto:rencounter2012@gmail.com">rencounter2012@gmail.com</a></dd></div>
-      <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/rencounter_au" target="_blank" rel="noopener">@rencounter_au</a></dd></div>
-      <div><dt data-en="Cancellations" data-ja="キャンセル">Cancellations</dt><dd data-en="With less than 24 hours’ notice, 50% of the reserved service amount is charged. A no-show is charged 100%." data-ja="24時間前を過ぎてからのキャンセルは、ご予約の料金の50%をいただきます。ご連絡のない場合は100%です。">With less than 24 hours’ notice, 50% of the reserved service amount is charged. A no-show is charged 100%.</dd></div>
-    </dl>
-    <form class="card form" id="ask" novalidate>
+    <div>
+      <h2 data-en="Find the salon." data-ja="サロンの場所。">Find the salon.</h2>
+      <dl class="facts">
+        <div><dt data-en="Address" data-ja="住所">Address</dt><dd>Shop 1/3-5 Waters Rd, Neutral Bay NSW 2089<br><a href="https://www.google.com/maps/search/?api=1&amp;query=CREATE+by+ReNCOUNTER+Neutral+Bay" target="_blank" rel="noopener" data-en="Open in Google Maps" data-ja="Google マップで見る">Open in Google Maps</a></dd></div>
+        <div><dt data-en="Opening hours" data-ja="営業時間">Opening hours</dt><dd id="hours"></dd></div>
+        <div><dt data-en="Bookings" data-ja="ご予約">Bookings</dt><dd><a href="tel:+61452150215">0452 150 215</a><span data-en=" (Japanese available)" data-ja="（日本語でどうぞ）"> (Japanese available)</span></dd></div>
+        <div><dt data-en="Email" data-ja="メール">Email</dt><dd><a href="mailto:rencounter2012@gmail.com">rencounter2012@gmail.com</a></dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/rencounter_au" target="_blank" rel="noopener">@rencounter_au</a></dd></div>
+        <div><dt data-en="Cancellations" data-ja="キャンセル">Cancellations</dt><dd data-en="With less than 24 hours’ notice, 50% of the reserved service amount is charged. A no-show is charged 100%." data-ja="24時間前を過ぎてからのキャンセルは、ご予約の料金の50%をいただきます。ご連絡のない場合は100%です。">With less than 24 hours’ notice, 50% of the reserved service amount is charged. A no-show is charged 100%.</dd></div>
+      </dl>
+    </div>
+    <form class="form" id="ask" novalidate>
       <h3 data-en="Send a message" data-ja="問い合わせる">Send a message</h3>
       <p class="chosen" id="chosen"></p>
-      <label class="field"><span data-en="Your name" data-ja="お名前">Your name</span><input id="a-name" type="text" autocomplete="name"></label>
-      <label class="field"><span data-en="Your message" data-ja="お問い合わせの内容">Your message</span><textarea id="a-msg" rows="4"></textarea></label>
+      <label><span data-en="Your name" data-ja="お名前">Your name</span><input id="a-name" type="text" autocomplete="name"></label>
+      <label><span data-en="Your message" data-ja="お問い合わせの内容">Your message</span><textarea id="a-msg" rows="4"></textarea></label>
       <p class="err" id="ask-err" role="alert" hidden></p>
-      <button class="btn btn--wide" type="submit" data-en="Write the email" data-ja="メールを作成する">Write the email</button>
-      <p class="note" data-en="Your email app opens with the message filled in. Nothing is sent until you press send there. For bookings, please call." data-ja="ボタンを押すと、内容が入った状態でメールの画面が開きます。そこで送信するまでは送られません。ご予約は、お電話でお願いします。">Your email app opens with the message filled in. Nothing is sent until you press send there. For bookings, please call.</p>
+      <button class="btn btn--fill" type="submit" data-en="Write the email" data-ja="メールを作成する">Write the email</button>
+      <p class="fine" data-en="Your email app opens with the message filled in. Nothing is sent until you press send there. For bookings, please call." data-ja="ボタンを押すと、内容が入った状態でメールの画面が開きます。そこで送信するまでは送られません。ご予約は、お電話でお願いします。">Your email app opens with the message filled in. Nothing is sent until you press send there. For bookings, please call.</p>
     </form>
   </div>
 </section>
 </main>
-<footer class="foot"><p>CREATE by ReNCOUNTER</p><p>© 2026 by ReNCOUNTER</p></footer>
+<footer class="foot"><p class="f-word" aria-hidden="true">CREATE</p><p>CREATE by ReNCOUNTER</p><p>© 2026 by ReNCOUNTER</p></footer>
 <nav class="dock" aria-label="Quick actions"><a class="dock-main" href="tel:+61452150215" data-en="Call to book" data-ja="電話で予約">Call to book</a><a href="#price" data-en="Prices" data-ja="料金">Prices</a><a href="#visit" data-en="Visit" data-ja="アクセス">Visit</a></nav>
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="vendor/Draggable.min.js" defer></script>
+<script src="vendor/InertiaPlugin.min.js" defer></script>
 <script src="ds.js" defer></script>
 <script src="app.js" defer></script>
 </body>

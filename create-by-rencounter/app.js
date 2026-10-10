@@ -1,4 +1,4 @@
-// CREATE by ReNCOUNTER — the parts that change: the six squares, the stylist and the prices that follow. (Shared helpers are in ds.js.)
+// CREATE by ReNCOUNTER — the parts that change: the six squares, the stylist and the prices that follow. Language and Sydney-time helpers are in ds.js; motion uses GSAP (ScrollTrigger, Draggable, Inertia).
 
 /* six squares, one letter each, in the same order as the logo */
 const CELLS = [["C", "salon", ["The salon", "サロンの中"]], ["R", "shelf", ["The shelf of small things", "小物を並べた棚"]], ["E", "flowers", ["Dried flowers", "ドライフラワー"]], ["A", "pour", ["At the basin", "シャンプー台"]], ["T", "balm", ["IMA, our own products", "自分たちのプロダクト IMA"]], ["E", "petals", ["Dried rose petals", "バラの花びら"]]];
@@ -28,7 +28,7 @@ const GOODS = [
 const HOURS = [[["Monday and Tuesday", "月・火"], null], [["Wednesday to Friday", "水〜金"], [600, 1080, "10am to 6pm", "10:00〜18:00"]], [["Saturday and Sunday", "土・日"], [600, 1020, "10am to 5pm", "10:00〜17:00"]]];
 const DAY_L = [["Monday", "月曜"], ["Tuesday", "火曜"], ["Wednesday", "水曜"], ["Thursday", "木曜"], ["Friday", "金曜"], ["Saturday", "土曜"], ["Sunday", "日曜"]];
 
-let rank = 0, chosen = "", open = -1, timer;
+let rank = 0, prev = 0, chosen = "", open = 0, timer, drag = null;
 const NOW = sydney(), hoursOf = (d) => d < 2 ? null : d < 5 ? HOURS[1][1] : HOURS[2][1];
 function openNow() {
   const h = hoursOf(NOW.d), on = h && NOW.m >= h[0] && NOW.m < h[1]; $("#dot").classList.toggle("on", !!on);
@@ -39,23 +39,57 @@ function openNow() {
   $("#open").textContent = txt;
   $("#hours").innerHTML = HOURS.map((r) => `${t(r[0])}${t(["：", "　"])}${r[1] ? t([r[1][2], r[1][3]]) : t(["closed", "定休日"])}`).join("<br>").replace(/：/g, ": ");
 }
-function shelf() { $("#shelf").innerHTML = CELLS.map((c, i) => `<button type="button" class="cell${i === open ? " open" : ""}" data-cell="${i}" style="--i:${i}" aria-pressed="${i === open}"><img src="img/${c[1]}.jpg" width="640" height="640" alt="${t(c[2])}"><b aria-hidden="true">${c[0]}</b><span aria-hidden="true">${t(c[2])}</span></button>`).join(""); }
-function setOpen(i) { open = i; $$(".cell").forEach((el, k) => { el.classList.toggle("open", k === open); el.setAttribute("aria-pressed", k === open); }); }
-function people() {
-  $("#people").innerHTML = PEOPLE.map((p) => `<li class="card${rank === p.k ? " on" : ""}"><img loading="lazy" src="img/${p.img}.jpg" width="600" height="600" alt=""><div><h3>${p.n}</h3><p class="note">${t(p.role)}${t([", request fee +$", "・指名料 +$"])}${RANKS[p.k][1]}</p><p>${t(p.say)}</p><button type="button" class="chip" data-rank="${p.k}" aria-pressed="${rank === p.k}">${rank === p.k ? t([p.n + " is chosen", p.n + " を選択中"]) : t(["Choose " + p.n, p.n + " を選ぶ"])}</button></div></li>`).join("");
+/* six letters, each a window onto one photo. The chosen letter opens its photo on the stage. */
+function shelf() {
+  $("#shelf").innerHTML = CELLS.map((c, i) => `<button type="button" class="ltr" data-cell="${i}" aria-pressed="${i === open}" aria-label="${c[0]}: ${t(c[2])}" style="background-image:url(img/${c[1]}.jpg)">${c[0]}</button>`).join("");
+  $("#st-l").textContent = CELLS[open][0]; $("#st-cap").textContent = t(CELLS[open][2]);
 }
-function price(v) { return typeof v === "number" ? `<b>$${v}</b>` : Array.isArray(v) ? `<b class="moves">$${v[rank]}</b>` : v.f ? `<b>${t(["from $" + v.f, "$" + v.f + "〜"])}</b>` : `<b class="txt">${t(v.s)}</b>`; }
+function show(i, wipe) {
+  const a = $("#st-a"), b = $("#st-b"), src = `url(img/${CELLS[i][1]}.jpg)`, el = $$(".ltr")[i];
+  open = i; $$(".ltr").forEach((l, k) => l.setAttribute("aria-pressed", k === i));
+  $("#st-l").textContent = CELLS[i][0]; $("#st-cap").textContent = t(CELLS[i][2]);
+  if (!wipe || !window.gsap || reduce) { a.style.backgroundImage = src; b.style.backgroundImage = "none"; return; }
+  const r = $("#stage").getBoundingClientRect(), lr = el.getBoundingClientRect(), x = Math.max(0, Math.min(100, (lr.left + lr.width / 2 - r.left) / r.width * 100));
+  gsap.killTweensOf(b); if (b.style.backgroundImage && b.style.backgroundImage !== "none") a.style.backgroundImage = b.style.backgroundImage;
+  b.style.backgroundImage = src;
+  gsap.fromTo(b, { clipPath: `circle(0% at ${x}% 0%)` }, { clipPath: `circle(150% at ${x}% 0%)`, duration: 1.05, ease: "power3.inOut" });
+}
+function people() {
+  $("#people").innerHTML = PEOPLE.map((p) => `<li class="${rank === p.k ? "on" : ""}"><figure><img loading="lazy" src="img/${p.img}.jpg" width="600" height="600" alt=""></figure><div><h3>${p.n}</h3><p class="role">${t(p.role)}${t([", request fee +$", "・指名料 +$"])}${RANKS[p.k][1]}</p><p class="say">${t(p.say)}</p><button type="button" class="pick" data-rank="${p.k}" aria-pressed="${rank === p.k}">${rank === p.k ? t([p.n + " is chosen", p.n + " を選択中"]) : t(["Choose " + p.n, p.n + " を選ぶ"])}</button></div></li>`).join("");
+}
+function price(v) { return typeof v === "number" ? `<b>$${v}</b>` : Array.isArray(v) ? `<b class="moves" data-from="${v[prev]}" data-to="${v[rank]}">$${v[rank]}</b>` : v.f ? `<b>${t(["from $" + v.f, "$" + v.f + "〜"])}</b>` : `<b class="txt">${t(v.s)}</b>`; }
 function menu(bump) {
   $("#p-title").textContent = rank ? t([`Prices with ${rank === 1 ? "Yuzuru or another stylist" : RANKS[rank][0][0]}`, `${rank === 1 ? "Yuzuru・ほかのスタイリスト" : RANKS[rank][0][1]} を指名したときの料金`]) : t(["Prices without a stylist request", "指名なしの料金"]);
-  $("#ranks").innerHTML = RANKS.map((r, i) => `<button type="button" class="chip" role="radio" aria-checked="${i === rank}" data-rank="${i}">${t(r[0])}${r[1] ? "（+$" + r[1] + "）" : ""}</button>`).join("");
-  $("#cols").innerHTML = MENU.map((g) => `<div class="grp"><h3>${t(g.n)}</h3><ul class="rows">${g.rows.map((r) => `<li><span>${t(r)}</span><span class="pr">${price(r[2])}<a href="#ask" data-ask="${r[0]}" aria-label="${t(["Ask about", "問い合わせる"])}: ${t(r)}">${t(["Ask", "質問"])}</a></span></li>`).join("")}</ul></div>`).join("");
-  if (bump && !reduce) $$(".moves").forEach((b) => b.classList.add("bump"));
+  $("#ranks").innerHTML = RANKS.map((r, i) => `<button type="button" class="rank" role="radio" aria-checked="${i === rank}" data-rank="${i}">${t(r[0])}${r[1] ? "（+$" + r[1] + "）" : ""}</button>`).join("");
+  $("#cols").innerHTML = MENU.map((g) => `<div class="grp"><h3>${t(g.n)}</h3><ul class="rows">${g.rows.map((r) => `<li><span>${t(r)}</span>${price(r[2])}<a href="#ask" data-ask="${r[0]}" aria-label="${t(["Ask about", "問い合わせる"])}: ${t(r)}">${t(["Ask", "質問"])}</a></li>`).join("")}</ul></div>`).join("");
+  /* the prices that depend on the stylist count up or down to the new amount */
+  if (bump && window.gsap && !reduce) $$(".moves").forEach((el) => { const o = { v: +el.dataset.from }; gsap.to(o, { v: +el.dataset.to, duration: .5, ease: "power2.out", onUpdate: () => { el.textContent = "$" + Math.round(o.v); } }); });
 }
-function goods() { $("#goods").innerHTML = GOODS.map((g) => `<li class="card"><img loading="lazy" src="img/${g[2]}.jpg" width="560" height="560" alt=""><div><h3>${g[0]}</h3><p>${t(g[1])}</p>${t(g[3]) ? `<p><b>${t(g[3])}</b></p>` : ""}<a class="more" href="#ask" data-ask="${g[0]}">${t(["Ask about this", "問い合わせる"])}</a></div></li>`).join(""); }
+function goods() {
+  $("#goods").innerHTML = GOODS.map((g) => `<li><img loading="lazy" src="img/${g[2]}.jpg" width="560" height="560" alt="" draggable="false"><h3>${g[0]}</h3><p>${t(g[1])}</p>${t(g[3]) ? `<p class="pr">${t(g[3])}</p>` : ""}<a href="#ask" data-ask="${g[0]}">${t(["Ask about this", "問い合わせる"])}</a></li>`).join("");
+  $("#g-prev").setAttribute("aria-label", t(["Previous products", "前のプロダクト"])); $("#g-next").setAttribute("aria-label", t(["Next products", "次のプロダクト"]));
+  strip();
+}
+/* the product shelf: drag it sideways (GSAP Draggable with inertia), or use the arrows */
+const minX = () => Math.min(0, $("#g-view").clientWidth - $("#goods").scrollWidth);
+function strip() {
+  if (!window.Draggable) return;
+  $("#g-view").classList.add("drag"); $("#g-view").scrollLeft = 0;
+  if (drag) drag.kill(); gsap.set("#goods", { x: 0 });
+  drag = Draggable.create("#goods", { type: "x", inertia: true, bounds: { minX: minX(), maxX: 0 }, edgeResistance: .85, dragClickables: false })[0];
+}
+function slide(dir) {
+  const view = $("#g-view");
+  if (!drag) { view.scrollBy({ left: dir * 340, behavior: "smooth" }); return; }
+  const x = Math.max(minX(), Math.min(0, gsap.getProperty("#goods", "x") - dir * Math.min(view.clientWidth * .8, 736)));
+  gsap.to("#goods", { x, duration: reduce ? 0 : .7, ease: "power3.out", onUpdate: () => drag.update() });
+}
+addEventListener("resize", () => { if (drag) { drag.applyBounds({ minX: minX(), maxX: 0 }); } });
 function chosenLine() { const who = rank > 1 ? RANKS[rank][0][0] : rank === 1 ? "Yuzuru" : ""; $("#chosen").textContent = chosen || who ? t(["About: ", "ご用件："]) + [chosen, who && t(["with " + who, who + " さん希望"])].filter(Boolean).join(t([", ", "、"])) : ""; }
 document.addEventListener("click", (e) => {
-  const c = e.target.closest(".cell"); if (c) { clearInterval(timer); setOpen(open === +c.dataset.cell ? -1 : +c.dataset.cell); return; }
-  const r = e.target.closest("[data-rank]"); if (r) { const v = +r.dataset.rank; rank = v === rank && r.closest("#people") ? 0 : v; people(); menu(true); chosenLine(); return; }
+  const c = e.target.closest(".ltr"); if (c) { clearInterval(timer); if (+c.dataset.cell !== open) show(+c.dataset.cell, true); return; }
+  const r = e.target.closest("[data-rank]"); if (r) { const v = +r.dataset.rank; prev = rank; rank = v === rank && r.closest("#people") ? 0 : v; people(); menu(true); chosenLine(); return; }
+  if (e.target.id === "g-prev") { slide(-1); return; } if (e.target.id === "g-next") { slide(1); return; }
   const a = e.target.closest("[data-ask]"); if (a) { chosen = a.dataset.ask; chosenLine(); }
 });
 $("#ask").addEventListener("submit", (e) => {
@@ -65,7 +99,20 @@ $("#ask").addEventListener("submit", (e) => {
   const about = $("#chosen").textContent;
   location.href = `mailto:rencounter2012@gmail.com?subject=${encodeURIComponent(t(["Enquiry", "お問い合わせ"]) + (chosen ? ": " + chosen : ""))}&body=${encodeURIComponent((about ? about + "\n\n" : "") + msg + "\n\n" + name)}`;
 });
-onRender(() => { openNow(); shelf(); people(); menu(false); goods(); chosenLine(); });
-start(".head, .people > li, .ranks, .cols, .goods > li, .spa, .front, .visit > *");
-/* open the squares one at a time, at an even pace, until the visitor touches one */
-if (!reduce) setTimeout(() => { let k = 0; timer = setInterval(() => setOpen(k++ % 6), 2600); }, 1600);
+onRender(() => { openNow(); shelf(); people(); prev = rank; menu(false); goods(); chosenLine(); });
+applyLang(); show(0, false);
+
+/* motion (GSAP). Everything is visible without it. */
+if (window.gsap && !reduce) {
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from(".ltr", { y: 60, opacity: 0, duration: .9, stagger: .07, ease: "power4.out", clearProps: "transform,opacity" });
+  gsap.from("#stage", { clipPath: "inset(0 0 100% 0)", duration: 1.1, delay: .35, ease: "power3.inOut", clearProps: "clipPath" });
+  gsap.from(".hero-copy > *", { y: 20, opacity: 0, duration: .55, stagger: .07, delay: .5, ease: "power2.out", clearProps: "transform,opacity" });
+  /* the letters open one at a time, at an even pace, until the visitor chooses one */
+  setTimeout(() => { timer = setInterval(() => { if (!document.hidden) show((open + 1) % 6, true); }, 3400); }, 2200);
+  gsap.from(".people figure", { clipPath: "inset(100% 0 0 0)", duration: .9, stagger: .12, ease: "power3.inOut", clearProps: "clipPath", scrollTrigger: { trigger: "#people", start: "top 82%", once: true } });
+  gsap.from(".goods li", { x: 80, opacity: 0, duration: .7, stagger: .08, ease: "power3.out", clearProps: "opacity", scrollTrigger: { trigger: "#g-view", start: "top 85%", once: true }, onComplete: () => { gsap.set(".goods li", { clearProps: "transform" }); } });
+  gsap.fromTo(".front img", { yPercent: -7, scale: 1.16 }, { yPercent: 7, scale: 1.16, ease: "none", scrollTrigger: { trigger: ".front", start: "top bottom", end: "bottom top", scrub: true } });
+  gsap.fromTo(".f-word", { xPercent: -6 }, { xPercent: 0, ease: "none", scrollTrigger: { trigger: ".foot", start: "top bottom", end: "bottom bottom", scrub: true } });
+  ScrollTrigger.batch(".rate > h2, .people li > div, .p-title, .grp, .made-head > *, .spa, .visit > div > *, .form", { start: "top 92%", once: true, onEnter: (els) => gsap.from(els, { y: 26, opacity: 0, duration: .55, stagger: .05, ease: "power2.out", clearProps: "transform,opacity" }) });
+}
