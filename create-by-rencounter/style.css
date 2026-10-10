@@ -109,4 +109,17 @@ h1 { font-size: clamp(30px, 8vw, 52px); line-height: 1.45; } :lang(en) h1 { font
   .front img { aspect-ratio: 21 / 9; } .visit { grid-template-columns: 1fr 1fr; gap: 72px; padding: 80px var(--pad) 120px; } .facts dd { font-size: 16px; } .form { padding: 40px; }
   .foot { padding: 56px var(--pad); } .f-word { font-size: 21.6vw; }
 }
+/* 2026-10-10 追加：元のサイトにある情報を全部戻した（紹介文の全文、ブランドの説明、商品9点と成分・使い方、配送、返金・プライバシー・アクセシビリティ、問い合わせの項目） */
+.intro { color: var(--mute); max-width: 44em; }
+.brands { display: grid; gap: 20px; } .brands > div { display: grid; gap: 8px; align-content: start; padding-top: 16px; border-top: 2px solid var(--ink); } .brands h3 { font: 800 32px/1 "Bri", sans-serif; letter-spacing: .02em; } .brands p { font-size: 15px; max-width: none; }
+.pd { border-top: 1px solid var(--ink); } .pd summary, .acc summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr 20px; gap: 12px; align-items: center; min-height: 48px; font-weight: 700; font-size: 15px; } .pd summary::-webkit-details-marker, .acc summary::-webkit-details-marker { display: none; }
+.pd summary::after, .acc summary::after { content: "+"; font: 400 24px/1 "Bri", sans-serif; text-align: center; transition: transform .25s; } .pd[open] summary::after, .acc details[open] summary::after { transform: rotate(45deg); }
+.pd h4 { font-size: 14px; font-weight: 700; margin-top: 10px; } .pd p { font-size: 14px !important; line-height: 1.7 !important; user-select: text; } .pd { padding-bottom: 4px; }
+.ship { margin: 0 var(--pad); display: grid; gap: 0; } .ship > div { display: grid; gap: 4px; padding: 16px 0; border-top: 1px solid var(--ink); } .ship > div:last-child { border-bottom: 1px solid var(--ink); } .ship dt { font-weight: 700; font-size: 14px; } .ship dd { font-size: 15px; color: var(--mute); }
+.pol { padding: 64px var(--pad); display: grid; gap: 28px; border-top: 2px solid var(--ink); } .pol > div:first-child { display: grid; gap: 12px; align-content: start; } html[lang="en"] .ja-note { display: none; }
+.acc details { border-top: 2px solid var(--ink); } .acc details:last-child { border-bottom: 2px solid var(--ink); } .acc summary { min-height: 64px; font-size: 17px; } :lang(en) .acc summary { font-size: 20px; font-weight: 700; } .acc details > div { display: grid; gap: 10px; padding-bottom: 22px; color: var(--mute); font-size: 15px; max-width: 46em; }
+.f-lead, .v-lead { font-size: 15px; color: var(--mute); } .chk { grid-template-columns: 24px 1fr !important; align-items: start; gap: 10px !important; } .chk input { width: 22px !important; min-height: 22px !important; height: 22px; padding: 0 !important; margin-top: 2px; accent-color: var(--ink); } .chk span { font-weight: 500 !important; }
+.f-links { display: flex; flex-wrap: wrap; gap: 4px 24px; } .f-links a { display: inline-flex; min-height: 44px; align-items: center; }
+@media (min-width: 900px) { .brands { grid-template-columns: 1fr 1fr; gap: 40px; grid-column: 1 / -1; } .brands h3 { font-size: 44px; } .made-head { grid-template-columns: 1fr !important; } .made-head > p { max-width: 44em; } .ship { margin: 0 var(--pad); grid-template-columns: 1fr 1fr; column-gap: 64px; } .ship > div { border-bottom: 1px solid var(--ink); }
+  .pol { padding: 112px var(--pad); grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 64px; align-items: start; } .pol > div:first-child { position: sticky; top: 100px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
