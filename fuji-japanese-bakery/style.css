@@ -1,0 +1,212 @@
+/* Fuji Japanese Bakery（ご提案用の試作）。昭和のパン屋の値札と棚。クリーム・焼き色・朱色。 */
+@font-face { font-family: "Dela"; src: url(fonts/dela.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Rubik"; src: url(fonts/rubik.woff2) format("woff2"); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: "ZenKaku"; src: url(fonts/zk-400.woff2) format("woff2"); font-weight: 400 500; font-display: swap; }
+@font-face { font-family: "ZenKaku"; src: url(fonts/zk-700.woff2) format("woff2"); font-weight: 600 800; font-display: swap; }
+:root { --cream: #fff6e4; --paper: #fffdf7; --ink: #33200f; --crust: #5a3418; --mute: #6b5340; --toast: #b56d24; --red: #c93a22; --red-d: #a52c18; --butter: #ffd978; --line: #e6d3b3;
+  --fh: "Dela", "Hiragino Kaku Gothic StdN", sans-serif; --fb: "Rubik", "ZenKaku", "Hiragino Sans", sans-serif; --pad: 18px; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
+body { background: var(--cream); color: var(--ink); font: 400 17px/1.75 var(--fb); overflow-x: hidden; }
+body.has-tray { padding-bottom: 76px; }
+html[lang="ja"] body { line-height: 1.9; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-underline-offset: 4px; }
+ul, ol { list-style: none; }
+button, input, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--fh); font-weight: 400; line-height: 1.3; }
+[hidden] { display: none !important; }
+.proposal { background: var(--ink); color: #fff; font-size: 14px; line-height: 1.5; text-align: center; padding: 8px 16px; }
+.top { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 14px; padding: 6px var(--pad); background: var(--crust); color: #fff; border-bottom: 4px solid var(--butter); }
+.logo { margin-right: auto; }
+.logo img { height: 58px; width: auto; }
+.nav { display: none; gap: 20px; }
+.nav a { text-decoration: none; font-size: 16px; font-weight: 500; padding: 12px 0; }
+.nav a:hover { color: var(--butter); }
+.langs { display: flex; background: rgba(255, 255, 255, .14); border-radius: 10px; padding: 3px; }
+.lang { min-width: 48px; height: 40px; padding: 0 10px; background: none; border: 0; border-radius: 8px; color: #fff; font-size: 14px; font-weight: 500; cursor: pointer; }
+.lang[aria-pressed="true"] { background: var(--butter); color: var(--ink); }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 12px 26px; background: var(--red); color: #fff; border: 3px solid var(--ink); border-radius: 14px; text-decoration: none; font-weight: 700; font-size: 17px; line-height: 1.3; cursor: pointer; box-shadow: 0 5px 0 var(--ink); transition: transform .12s, box-shadow .12s; text-align: center; }
+.btn:hover { transform: translateY(2px); box-shadow: 0 3px 0 var(--ink); }
+.btn--line { background: var(--paper); color: var(--ink); }
+.tagline { display: inline-block; font-size: 15px; font-weight: 700; background: var(--butter); border: 2px solid var(--ink); border-radius: 999px; padding: 2px 16px; margin-bottom: 14px; transform: rotate(-2deg); }
+section { padding: 64px var(--pad); }
+.sec-head { max-width: 780px; margin: 0 auto 30px; }
+.sec-head h2 { font-size: clamp(26px, 4.4vw, 44px); }
+html[lang="en"] .sec-head h2 { letter-spacing: -.01em; }
+.sec-head h2 + p { margin-top: 12px; color: var(--mute); }
+.fine { font-size: 15px; color: var(--mute); line-height: 1.7; }
+
+/* 最初の画面 */
+.hero { max-width: 1180px; margin: 0 auto; display: grid; gap: 22px; padding-top: 36px; position: relative; }
+.since { justify-self: start; width: 104px; height: 104px; border-radius: 50%; background: var(--red); color: #fff; border: 3px solid var(--ink); display: grid; place-content: center; text-align: center; transform: rotate(-8deg); box-shadow: 0 5px 0 var(--ink); }
+.since b { font: 400 30px/1 var(--fh); display: block; order: 2; }
+.since span { font-size: 14px; font-weight: 700; }
+.hero h1 { font-size: clamp(32px, 8.6vw, 76px); line-height: 1.25; word-break: keep-all; overflow-wrap: anywhere; }
+html[lang="en"] .hero h1 { font-size: clamp(32px, 7.4vw, 66px); line-height: 1.12; letter-spacing: -.01em; }
+.lead { color: var(--mute); max-width: 34em; }
+.btns { display: flex; flex-direction: column; gap: 14px; }
+.window { border: 3px solid var(--ink); border-radius: 18px; overflow: hidden; box-shadow: 0 6px 0 var(--ink); background: var(--paper); max-width: 730px; }
+.window img { width: 100%; }
+.shopinfo { display: grid; gap: 0; border-top: 3px solid var(--ink); }
+.shopinfo > div { padding: 14px 0; border-bottom: 1px dashed var(--toast); }
+.shopinfo dt { font-size: 14px; font-weight: 700; color: var(--toast); }
+.shopinfo dd { font-size: 17px; }
+.shopinfo dd span { display: block; }
+.shopinfo .is-today { font-weight: 700; }
+.shopinfo dd a { display: inline-block; padding: 6px 0; }
+#today { font-weight: 700; color: var(--red-d); }
+
+/* 棚 */
+.shelf { background: var(--paper); border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); }
+.tabs { max-width: 1180px; margin: 0 auto 16px; display: flex; flex-wrap: wrap; gap: 8px; padding: 2px 2px 8px; }
+.tabs button { flex: none; min-height: 52px; padding: 8px 14px; background: var(--cream); border: 3px solid var(--ink); border-radius: 14px 14px 4px 4px; font: 400 17px var(--fh); cursor: pointer; white-space: nowrap; }
+.tabs button i { font: 500 14px var(--fb); margin-left: 8px; color: var(--mute); }
+.tabs button[aria-selected="true"] { background: var(--crust); color: #fff; }
+.tabs button[aria-selected="true"] i { color: var(--butter); }
+.cat-lead { max-width: 1180px; margin: 0 auto 14px; color: var(--mute); white-space: pre-line; }
+.subs { max-width: 1180px; margin: 0 auto 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+.subs button { min-height: 44px; padding: 6px 16px; background: transparent; border: 2px solid var(--toast); border-radius: 999px; font-size: 15px; font-weight: 500; cursor: pointer; }
+.subs button[aria-pressed="true"] { background: var(--toast); color: #fff; }
+.rack { max-width: 1180px; margin: 0 auto; display: grid; gap: 12px; }
+.item { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 14px; padding: 12px; background: var(--cream); border: 2px solid var(--line); border-radius: 16px; align-items: start; transition: border-color .2s; }
+.item.is-on { border-color: var(--red); background: #fff1dc; }
+.item img { width: 96px; height: 72px; object-fit: cover; border-radius: 10px; border: 2px solid var(--ink); background: var(--paper); }
+.item h3 { font-size: 18px; line-height: 1.35; }
+.i-price { font: 400 22px/1.2 var(--fh); color: var(--red-d); margin-top: 2px; }
+.i-price small { font: 500 15px var(--fb); color: var(--mute); }
+.i-price em { font: 700 14px var(--fb); font-style: normal; background: var(--red); color: #fff; border-radius: 6px; padding: 1px 8px; margin-right: 8px; vertical-align: 3px; }
+.i-txt { font-size: 15px; color: var(--mute); line-height: 1.6; margin-top: 4px; }
+.i-act { grid-column: 1 / -1; display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 6px; }
+.i-act button { min-width: 46px; height: 46px; border-radius: 12px; border: 2px solid var(--ink); background: var(--paper); font-size: 20px; font-weight: 700; cursor: pointer; }
+.i-act .add { padding: 0 18px; font-size: 15px; background: var(--butter); }
+.i-act output { min-width: 28px; text-align: center; font: 400 22px var(--fh); }
+.gst { max-width: 1180px; margin: 18px auto 0; font-size: 15px; color: var(--mute); }
+
+/* オーダーケーキ */
+.finder { max-width: 1180px; margin: 0 auto; display: grid; border: 3px solid var(--ink); border-radius: 20px; overflow: hidden; background: var(--paper); box-shadow: 0 6px 0 var(--ink); }
+.f-q { padding: 18px; display: grid; gap: 18px; }
+fieldset { border: 0; min-width: 0; }
+legend { font-weight: 700; font-size: 15px; color: var(--toast); margin-bottom: 8px; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opts button { min-height: 48px; padding: 6px 14px; background: var(--cream); border: 2px solid var(--ink); border-radius: 12px; font-size: 15px; font-weight: 500; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; line-height: 1.3; text-align: left; }
+.opts button small { font-size: 14px; color: var(--mute); font-weight: 400; }
+.opts button[aria-pressed="true"] { background: var(--crust); color: #fff; }
+.opts button[aria-pressed="true"] small { color: var(--butter); }
+.f-a { background: var(--butter); border-top: 3px solid var(--ink); padding: 22px 18px; display: grid; gap: 8px; align-content: center; justify-items: start; }
+.f-size { font-size: 16px; font-weight: 700; }
+.f-price { font: 400 clamp(64px, 17vw, 110px)/1 var(--fh); color: var(--red-d); }
+.f-note { font-size: 16px; margin-bottom: 8px; }
+.sp-notes { max-width: 1180px; margin: 26px auto; display: grid; gap: 8px; }
+.sp-notes li { font-size: 16px; padding-left: 22px; position: relative; }
+.sp-notes li::before { content: "●"; position: absolute; left: 0; top: .1em; font-size: 12px; color: var(--red); }
+.fold { max-width: 1180px; margin: 0 auto; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+.fold summary { cursor: pointer; list-style: none; padding: 16px 40px 16px 0; font-weight: 700; position: relative; }
+.fold summary::-webkit-details-marker { display: none; }
+.fold summary::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-size: 26px; color: var(--red); }
+.fold[open] summary::after { content: "–"; }
+.tbl-wrap { overflow-x: auto; padding-bottom: 18px; }
+.tbl { border-collapse: collapse; font-size: 15px; min-width: 760px; }
+.tbl th, .tbl td { border: 1px solid var(--line); padding: 8px 10px; text-align: center; white-space: nowrap; }
+.tbl thead th { background: var(--crust); color: #fff; font-weight: 500; }
+.tbl tbody th { text-align: left; background: var(--cream); font-weight: 500; }
+.tbl small { display: block; font-size: 14px; color: var(--mute); }
+.cake-info { max-width: 1180px; margin: 34px auto 0; display: grid; gap: 30px; }
+.cake-info dl > div { padding: 16px 0; border-top: 1px dashed var(--toast); }
+.cake-info dt { font: 400 18px var(--fh); margin-bottom: 4px; }
+.cake-info dd { font-size: 16px; color: var(--mute); }
+.examples h3 { font-size: 20px; margin-bottom: 14px; }
+.examples ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.examples img { height: 180px; width: auto; border: 2px solid var(--ink); border-radius: 12px; }
+.examples p { font-size: 15px; line-height: 1.6; margin-top: 6px; }
+
+/* お店について */
+.about { background: var(--paper); border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); }
+.story { max-width: 1180px; margin: 0 auto; display: grid; gap: 28px; }
+.st h3 { font-size: 22px; margin-bottom: 8px; color: var(--crust); }
+.st p + p { margin-top: 12px; }
+.best { padding: 14px 18px; background: var(--butter); border: 2px solid var(--ink); border-radius: 14px; transform: rotate(-1deg); }
+.best b { font: 400 20px var(--fh); color: var(--red-d); }
+.outline { max-width: 1180px; margin: 36px auto 0; border-top: 3px solid var(--ink); }
+.outline > div { display: grid; grid-template-columns: 6.5em 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px dashed var(--toast); }
+.outline dt { font-weight: 700; font-size: 15px; color: var(--toast); }
+.outline dd { font-size: 16px; }
+.outline dd span { display: block; color: var(--mute); }
+
+/* 買えるお店 */
+.partners { max-width: 1180px; margin: 0 auto; display: grid; gap: 14px; }
+.partners li { background: var(--paper); border: 2px solid var(--ink); border-radius: 16px; padding: 18px; display: grid; gap: 4px; align-content: start; }
+.partners h3 { font-size: 21px; color: var(--crust); }
+.partners p { font-size: 16px; line-height: 1.6; }
+.p-h { color: var(--mute); font-size: 15px !important; }
+.partners a { display: inline-block; padding: 8px 0; font-size: 16px; overflow-wrap: anywhere; }
+
+/* ご注文・お問い合わせ */
+.contact { background: var(--crust); color: #fff; }
+.contact .sec-head h2 + p { color: #f1dcc0; }
+.c-grid { max-width: 1180px; margin: 0 auto; display: grid; gap: 30px; }
+.tel { display: inline-block; font: 400 clamp(38px, 10vw, 68px)/1.1 var(--fh); color: var(--butter); text-decoration: none; margin-bottom: 16px; }
+.how dl > div { padding: 14px 0; border-top: 1px dashed rgba(255, 255, 255, .4); }
+.how dt { font-size: 15px; font-weight: 700; color: var(--butter); }
+.how dd { font-size: 16px; }
+.form { background: var(--paper); color: var(--ink); border: 3px solid var(--ink); border-radius: 20px; padding: 22px 18px; display: grid; gap: 14px; box-shadow: 0 6px 0 var(--ink); }
+.form h3 { font-size: 22px; }
+.form label { display: grid; gap: 6px; }
+.form label > span { font-size: 15px; font-weight: 700; }
+.form input, .form textarea { width: 100%; min-height: 52px; padding: 12px 14px; background: #fff; border: 2px solid var(--ink); border-radius: 12px; font-size: 17px; }
+.form textarea { resize: vertical; line-height: 1.6; }
+.form .btn { justify-self: start; }
+.err { color: var(--red-d); font-weight: 700; }
+.done { background: var(--butter); border: 2px solid var(--ink); border-radius: 12px; padding: 12px 14px; font-size: 16px; }
+.contact .fold { margin-top: 34px; border-color: rgba(255, 255, 255, .6); }
+.contact .fold summary::after { color: var(--butter); }
+.policy { display: grid; gap: 12px; padding-bottom: 22px; font-size: 16px; color: #f1dcc0; max-width: 52em; }
+.policy h3 { font-size: 18px; color: #fff; margin-top: 8px; }
+.foot { background: var(--ink); color: #ecd9bd; padding: 28px var(--pad) 34px; text-align: center; font-size: 15px; display: grid; gap: 6px; }
+.foot a { display: inline-block; padding: 8px 0; }
+
+/* トレー */
+.tray { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: var(--paper); border-top: 3px solid var(--ink); padding-bottom: env(safe-area-inset-bottom); max-height: 86vh; display: flex; flex-direction: column-reverse; }
+.tray-bar { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 62px; padding: 8px var(--pad); background: var(--butter); border: 0; cursor: pointer; font-weight: 700; font-size: 17px; text-align: left; }
+.t-ico { width: 44px; height: 30px; flex: none; border: 3px solid var(--ink); border-radius: 6px 6px 12px 12px; background: #fff; position: relative; }
+.t-ico::after { content: ""; position: absolute; left: 6px; right: 6px; top: 6px; height: 10px; border-radius: 6px; background: var(--toast); }
+.t-open { margin-left: auto; font-size: 15px; text-decoration: underline; text-underline-offset: 4px; }
+.tray-panel { padding: 18px var(--pad) 20px; overflow-y: auto; display: grid; gap: 12px; border-bottom: 2px solid var(--ink); max-width: 720px; width: 100%; margin: 0 auto; }
+.tray-panel h3 { font-size: 20px; }
+#tray-list li { display: grid; grid-template-columns: minmax(0, 1fr) auto 5em; gap: 10px; padding: 8px 0; border-bottom: 1px dashed var(--toast); font-size: 16px; align-items: baseline; }
+#tray-list i { font-style: normal; color: var(--mute); }
+#tray-list b { text-align: right; }
+.tray-total { display: flex; justify-content: space-between; align-items: baseline; }
+.tray-total b { font: 400 30px var(--fh); color: var(--red-d); }
+.clear { justify-self: start; min-height: 44px; background: none; border: 0; text-decoration: underline; text-underline-offset: 4px; font-size: 15px; cursor: pointer; }
+
+@media (min-width: 640px) {
+  .btns { flex-direction: row; flex-wrap: wrap; }
+  .shopinfo { grid-template-columns: 1fr 1.2fr 1.4fr; gap: 28px; }
+  .shopinfo > div { border-bottom: 0; }
+  .rack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .partners { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .examples ul { grid-template-columns: repeat(4, auto); justify-content: start; }
+}
+@media (min-width: 980px) {
+  :root { --pad: 40px; }
+  body { font-size: 18px; }
+  .nav { display: flex; }
+  .logo img { height: 66px; }
+  section { padding: 96px var(--pad); }
+  .hero { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); column-gap: 48px; align-items: center; padding-top: 60px; }
+  .since { grid-column: 1; }
+  .hero h1, .lead, .btns { grid-column: 1; }
+  .window { grid-column: 2; grid-row: 1 / 5; align-self: center; transform: rotate(1.5deg); }
+  .shopinfo { grid-column: 1 / -1; margin-top: 20px; }
+  .rack { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .finder { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); }
+  .f-q { padding: 28px; }
+  .f-a { border-top: 0; border-left: 3px solid var(--ink); padding: 28px; }
+  .cake-info { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 56px; }
+  .story { grid-template-columns: repeat(3, 1fr); gap: 44px; }
+  .partners { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .c-grid { grid-template-columns: 1fr 1fr; gap: 64px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
