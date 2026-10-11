@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maki’s Patisserie | Japanese cakes made to order, Auburn</title>
+<meta name="description" content="Maki’s Patisserie makes authentic Japanese cakes to order in Auburn, Sydney: strawberry shortcake, Uji matcha, Mont Blanc and more. Pick-up, or delivery within 20 km.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2c1b12">
+<link rel="preload" href="fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p class="proposal" data-en="A design proposal for Maki’s Patisserie (not the official website)" data-ja="Maki’s Patisserie 様へのご提案用デザインです（公式サイトではありません）">A design proposal for Maki’s Patisserie (not the official website)</p>
+<header class="top">
+  <a class="logo" href="#top" aria-label="Maki’s Patisserie"><img src="img/logo.jpg" width="445" height="289" alt="Maki’s Patisserie"></a>
+  <nav class="nav" aria-label="Main"><a href="#cakes" data-en="Menu" data-ja="メニュー">Menu</a><a href="#order" data-en="Order" data-ja="ご注文">Order</a><a href="#delivery" data-en="Delivery" data-ja="配達と受け取り">Delivery</a><a href="#gallery" data-en="Gallery" data-ja="ギャラリー">Gallery</a><a href="#about" data-en="About" data-ja="私について">About</a><a href="#contact" data-en="Contact" data-ja="お問い合わせ">Contact</a></nav>
+  <div class="langs" role="group" aria-label="Language / 言語"><button class="lang" type="button" data-lang="en">EN</button><button class="lang" type="button" data-lang="ja">日本語</button></div>
+</header>
+<main id="top">
+<section class="hero">
+  <div class="hero-copy">
+    <p class="tag" data-en="Made to order" data-ja="オーダーメイド">Made to order</p>
+    <h1 data-en="Japanese cakes, made one at a time." data-ja="ご注文をいただいてから、<wbr>一つずつ。">Japanese cakes, made one at a time.</h1>
+    <p class="lead" data-en="We craft our cakes using only pure fresh cream with zero additives, carefully whipped from scratch for that authentic, melt-in-the-mouth lightness." data-ja="添加物を一切使わない純生クリームだけを、一から丁寧に泡立てています。口の中でとける、本物の軽さのために。">We craft our cakes using only pure fresh cream with zero additives, carefully whipped from scratch for that authentic, melt-in-the-mouth lightness.</p>
+    <div class="btns"><a class="btn" href="#order" data-en="Start an order" data-ja="注文を始める">Start an order</a><a class="btn btn--line" href="#cakes" data-en="See the cakes" data-ja="ケーキを見る">See the cakes</a></div>
+    <p class="today" id="today"></p>
+  </div>
+  <figure class="hero-pic"><img src="img/hero.jpg" width="1200" height="900" alt="" data-alt-en="Chestnut tart (Mont Blanc tart) wrapped in fine ribbons of piped chestnut paste" data-alt-ja="細く絞った栗のペーストで包んだ、栗のタルト（モンブランタルト）">
+    <figcaption class="slip-note"><b data-en="3 days’ notice" data-ja="3日前までに">3 days’ notice</b><span data-en="Each cake is made from scratch." data-ja="一つずつ、一から作ります。">Each cake is made from scratch.</span></figcaption></figure>
+</section>
+
+<section class="cakes" id="cakes">
+  <div class="sec-head"><p class="tag" data-en="Menu" data-ja="メニュー">Menu</p><h2 data-en="Choose a cake and a size." data-ja="ケーキとサイズを選ぶ。">Choose a cake and a size.</h2>
+    <p data-en="Size guide: S serves 4 to 6 people, M 6 to 8, L 10 to 12. Tap a size and it goes onto the order slip." data-ja="サイズの目安：S は4〜6人、M は6〜8人、L は10〜12人分です。サイズを押すと、注文票に入ります。">Size guide: S serves 4 to 6 people, M 6 to 8, L 10 to 12. Tap a size and it goes onto the order slip.</p></div>
+  <ul class="grid" id="grid"></ul>
+  <p class="plaque" data-en="Custom chocolate message plaque: $3" data-ja="チョコレートのメッセージプレート：$3">Custom chocolate message plaque: $3</p>
+</section>
+
+<section class="order" id="order">
+  <div class="sec-head"><p class="tag" data-en="Order" data-ja="ご注文">Order</p><h2 data-en="Fill in the order slip." data-ja="注文票に書き込む。">Fill in the order slip.</h2>
+    <p data-en="To order, please contact me on 0417 213 121 or email me at order@makispatisserie.com. This slip writes the email for you." data-ja="ご注文は、お電話（0417 213 121）かメール（order@makispatisserie.com）でお受けしています。この注文票から、メールの文面を作れます。">To order, please contact me on 0417 213 121 or email me at order@makispatisserie.com. This slip writes the email for you.</p></div>
+  <div class="order-grid">
+    <form class="form" id="form" novalidate>
+      <fieldset><legend><i>1</i><span data-en="Cake" data-ja="ケーキ">Cake</span></legend>
+        <label class="sr" for="o-cake" data-en="Cake" data-ja="ケーキ">Cake</label><select id="o-cake"></select>
+        <div class="chips" id="o-size" role="radiogroup"></div>
+        <div class="qty" id="o-qty" hidden><span data-en="How many?" data-ja="個数">How many?</span><button type="button" data-q="-1" aria-label="Fewer">−</button><output id="o-n">5</output><button type="button" data-q="1" aria-label="More">＋</button><small data-en="Minimum order: 5 choux for each filling" data-ja="シュークリームは、味ごとに5個からのご注文です">Minimum order: 5 choux for each filling</small></div>
+        <label class="check"><input type="checkbox" id="o-plaque"><span data-en="Add a chocolate message plaque (+$3)" data-ja="チョコレートのメッセージプレートを付ける（+$3）">Add a chocolate message plaque (+$3)</span></label>
+        <label id="o-msg-wrap" hidden><span data-en="Message on the plaque" data-ja="プレートのメッセージ">Message on the plaque</span><input id="o-msg" type="text" maxlength="60"></label>
+      </fieldset>
+      <fieldset><legend><i>2</i><span data-en="Day" data-ja="日にち">Day</span></legend>
+        <label><span data-en="The day you need the cake" data-ja="ケーキが必要な日">The day you need the cake</span><input id="o-date" type="date"></label>
+        <p class="hintline" id="o-daynote"></p>
+      </fieldset>
+      <fieldset><legend><i>3</i><span data-en="Pick-up or delivery" data-ja="受け取りか配達か">Pick-up or delivery</span></legend>
+        <div class="chips" role="radiogroup"><button type="button" class="chip" data-how="pickup" aria-pressed="true" data-en="Pick-up in Auburn (free)" data-ja="Auburn で受け取る（無料）">Pick-up in Auburn (free)</button><button type="button" class="chip" data-how="delivery" aria-pressed="false" data-en="Delivery" data-ja="配達">Delivery</button></div>
+        <div id="o-deliv" hidden>
+          <label><span data-en="Your postcode" data-ja="お届け先の郵便番号（4桁）">Your postcode</span><input id="o-post" type="text" inputmode="numeric" maxlength="4" autocomplete="postal-code"></label>
+          <p class="zone" id="o-zone" aria-live="polite"></p>
+        </div>
+      </fieldset>
+      <fieldset><legend><i>4</i><span data-en="Your details" data-ja="お客様のこと">Your details</span></legend>
+        <div class="two"><label><span data-en="Your name" data-ja="お名前">Your name</span><input id="o-name" type="text" autocomplete="name"></label><label><span data-en="Phone" data-ja="電話番号">Phone</span><input id="o-tel" type="tel" autocomplete="tel"></label></div>
+        <label><span data-en="Anything else (allergies, changes, questions)" data-ja="そのほか（アレルギー・変更のご希望・ご質問）">Anything else (allergies, changes, questions)</span><textarea id="o-note" rows="3"></textarea></label>
+      </fieldset>
+    </form>
+    <aside class="slip" id="slip" aria-live="polite">
+      <p class="slip-h"><span data-en="Order slip" data-ja="注文票">Order slip</span><i>Maki’s Patisserie</i></p>
+      <div class="scale" id="scale"></div>
+      <dl id="s-lines"></dl>
+      <p class="s-total"><span data-en="Estimate" data-ja="お見積もり">Estimate</span><b id="s-total"></b></p>
+      <p class="err" id="o-err" role="alert" hidden></p>
+      <button class="btn" type="submit" form="form" data-en="Write the order email" data-ja="注文のメールを作る">Write the order email</button>
+      <p class="fine" id="o-done" hidden data-en="Your email app has opened with the order written out. Please press send there." data-ja="メールアプリが開き、注文の内容が入力されています。そのまま送信してください。">Your email app has opened with the order written out. Please press send there.</p>
+      <p class="fine" data-en="The order is confirmed when Maki replies. You can also call <a href='tel:+61417213121'>0417 213 121</a>." data-ja="ご注文は、Maki からの返信をもって確定します。お電話（<a href='tel:+61417213121'>0417 213 121</a>）でも承ります。">The order is confirmed when Maki replies. You can also call <a href="tel:+61417213121">0417 213 121</a>.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="delivery" id="delivery">
+  <div class="sec-head"><p class="tag" data-en="Delivery and pick-up" data-ja="配達と受け取り">Delivery and pick-up</p><h2 data-en="Delivery within 20 km of our Auburn kitchen." data-ja="Auburn のキッチンから20km以内は、配達できます。">Delivery within 20 km of our Auburn kitchen.</h2>
+    <p data-en="At Maki’s Patisserie, every cake is crafted to order with delicate Japanese sponge, fresh dairy cream, and seasonal fruits. To ensure your cake arrives in pristine condition, we operate our own dedicated delivery service across Greater Sydney (up to 20 km from our Auburn kitchen) alongside our standard in-store collection." data-ja="Maki’s Patisserie のケーキは、繊細なスポンジと生クリーム、季節のフルーツで、ご注文ごとにお作りしています。きれいな状態でお届けするために、店頭での受け取りに加えて、自社の配達（Auburn のキッチンから20kmまで）も行っています。">At Maki’s Patisserie, every cake is crafted to order with delicate Japanese sponge, fresh dairy cream, and seasonal fruits. To ensure your cake arrives in pristine condition, we operate our own dedicated delivery service across Greater Sydney (up to 20 km from our Auburn kitchen) alongside our standard in-store collection.</p></div>
+  <div class="d-grid">
+    <div class="d-block">
+      <h3 data-en="1. Delivery schedule" data-ja="1. 配達の曜日と時間">1. Delivery schedule</h3>
+      <ul class="week" id="week"></ul>
+      <p class="d-note" data-en="<b>Saturday morning or lunchtime events:</b> because our Saturday delivery run takes place in the afternoon (3:00 PM – 5:30 PM), we strongly recommend scheduling delivery for Friday (10:00 AM – 2:00 PM) if your celebration is earlier on Saturday. Our fresh cream cakes hold their texture and flavour perfectly overnight in standard home refrigeration." data-ja="<b>土曜の午前やお昼に使う場合：</b>土曜の配達は午後（3:00〜5:30）です。お祝いがそれより早い時間なら、金曜（10:00〜2:00）の配達を強くおすすめします。生クリームのケーキは、ご家庭の冷蔵庫で一晩おいても、食感と風味がしっかり保たれます。"><b>Saturday morning or lunchtime events:</b> because our Saturday delivery run takes place in the afternoon (3:00 PM – 5:30 PM), we strongly recommend scheduling delivery for Friday (10:00 AM – 2:00 PM) if your celebration is earlier on Saturday. Our fresh cream cakes hold their texture and flavour perfectly overnight in standard home refrigeration.</p>
+    </div>
+    <div class="d-block">
+      <h3 data-en="2. Delivery rates and zones" data-ja="2. 配達料金とエリア">2. Delivery rates and zones</h3>
+      <p data-en="Our delivery fees are flat-rate based on driving distance from our kitchen at 139 Parramatta Rd, Auburn NSW 2144." data-ja="配達料金は、キッチン（139 Parramatta Rd, Auburn NSW 2144）からの走行距離で決まる定額です。">Our delivery fees are flat-rate based on driving distance from our kitchen at 139 Parramatta Rd, Auburn NSW 2144.</p>
+      <ul class="zones" id="zones"></ul>
+    </div>
+    <div class="d-block">
+      <h3 data-en="3. Important delivery guidelines" data-ja="3. 配達についての大切なお願い">3. Important delivery guidelines</h3>
+      <ul class="dots">
+        <li data-en="<b>3 days’ notice preferred:</b> all cakes are made entirely from scratch to order. We would prefer orders to be placed 3 days in advance, however, if you have an urgent request, please contact me." data-ja="<b>3日前までのご注文を：</b>すべてのケーキを、ご注文ごとに一から作っています。3日前までにご注文いただけると助かりますが、お急ぎの場合はご連絡ください。"></li>
+        <li data-en="<b>15–20 minute arrival alert:</b> on the day of your delivery, our driver will send an SMS with an estimated arrival time." data-ja="<b>到着の15〜20分前にお知らせ：</b>配達の当日、ドライバーが到着予定の時刻を SMS でお送りします。"></li>
+        <li data-en="<b>Kerbside and foyer hand off:</b> deliveries to apartments and offices are ground-floor foyer or kerbside hand off. Please ensure someone is available to meet the driver downstairs." data-ja="<b>受け渡しは1階のロビーか建物の前で：</b>マンションやオフィスへの配達は、1階のロビーか建物の前でお渡しします。下でドライバーを迎えられる方をご手配ください。"></li>
+        <li data-en="<b>Recipient availability:</b> if no one is available to receive the cake, it will return to our Auburn kitchen for safe refrigerated storage. Re-delivery incurs a separate fee." data-ja="<b>お受け取りの方がいない場合：</b>ケーキは Auburn のキッチンへ戻し、冷蔵で保管します。再配達には別途料金がかかります。"></li>
+      </ul>
+    </div>
+    <div class="d-block">
+      <h3 data-en="4. In-store collection (Auburn)" data-ja="4. 店頭での受け取り（Auburn）">4. In-store collection (Auburn)</h3>
+      <p data-en="Collection is always free by appointment from our commercial kitchen address at 139 Parramatta Rd, Auburn NSW 2144. Convenient street parking is readily available along Melton Street South or Station Road just around the corner." data-ja="受け取りは予約制で、いつでも無料です。場所はキッチンのある 139 Parramatta Rd, Auburn NSW 2144。すぐ近くの Melton Street South か Station Road に、路上の駐車スペースがあります。">Collection is always free by appointment from our commercial kitchen address at 139 Parramatta Rd, Auburn NSW 2144. Convenient street parking is readily available along Melton Street South or Station Road just around the corner.</p>
+      <p class="d-note" data-en="<b>Transport tip for pick-ups:</b> fresh cream cakes must travel on a completely flat, level surface in an air-conditioned vehicle (the front passenger floorboard is best). Never transport a cake on a car seat or on someone’s lap." data-ja="<b>持ち帰りのコツ：</b>生クリームのケーキは、エアコンの効いた車の、完全に平らな場所に置いて運んでください（助手席の足元がいちばん安全です）。座席の上やひざの上には置かないでください。"><b>Transport tip for pick-ups:</b> fresh cream cakes must travel on a completely flat, level surface in an air-conditioned vehicle (the front passenger floorboard is best). Never transport a cake on a car seat or on someone’s lap.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="sec-head"><p class="tag">FAQ</p><h2 data-en="Questions people ask." data-ja="よくいただく質問。">Questions people ask.</h2></div>
+  <div class="qa">
+    <details><summary data-en="How do I place an order?" data-ja="注文はどうすればいいですか？">How do I place an order?</summary><p data-en="You can place an order either by calling me on 0417 213 121, using the contact form or sending me an email at order@makispatisserie.com. Unfortunately, as I make to order, I don’t have a shop front and am unable to accept walk-ins or ready made cakes." data-ja="お電話（0417 213 121）、お問い合わせフォーム、またはメール（order@makispatisserie.com）でご注文いただけます。オーダーメイドのため店頭の売り場はなく、申し訳ありませんが、ご予約なしのご来店や、作り置きのケーキの販売はお受けできません。"></p></details>
+    <details><summary data-en="What is the cut off time for ordering a cake?" data-ja="いつまでに注文すればいいですか？">What is the cut off time for ordering a cake?</summary><p data-en="Because each of my cakes are custom made from scratch, it would be preferable to have 3 days notice but please don’t hesitate to contact me with your request and I will endeavour to accommodate you." data-ja="一つずつ一から作っているため、3日前までにご注文いただけると助かります。それより急ぎの場合も、どうぞ遠慮なくご相談ください。できる限りお応えします。"></p></details>
+    <details><summary data-en="Can I request customisations or dietary modifications?" data-ja="アレンジや、食事制限に合わせた変更はできますか？">Can I request customisations or dietary modifications?</summary><p data-en="I will try my best to accommodate customisations and dietary modifications whenever possible! Because traditional Japanese cake recipes include light sponges, Uji matcha creams, and chestnut pastes that rely on precise ratios, we can’t always guarantee every change, but I am always happy to have a chat." data-ja="できる限りお応えします。ただ、日本のケーキは、軽いスポンジや宇治抹茶のクリーム、栗のペーストなど、正確な配合で成り立っています。すべての変更をお約束することはできませんが、いつでもご相談ください。"></p></details>
+    <details><summary data-en="How long does the cake keep fresh?" data-ja="ケーキはどのくらい日持ちしますか？">How long does the cake keep fresh?</summary><p data-en="As I rely strictly on real, fresh dairy cream and use zero artificial stabilisers or preservatives, my cakes are best enjoyed on the day of pick up while the sponge is at its fluffiest. Leftovers can be kept in the refrigerator for up to 1 day." data-ja="本物の生クリームだけを使い、安定剤や保存料は一切使っていません。スポンジがいちばんふわふわな、お受け取りの当日に召し上がるのがおすすめです。残った分は、冷蔵庫で1日まで保存できます。"></p></details>
+    <details><summary data-en="How do I safely transport my cake?" data-ja="ケーキを安全に運ぶには？">How do I safely transport my cake?</summary><p data-en="Fresh cream cakes are incredibly delicate and slide easily! Always transport your cake box on a completely flat surface. The passenger side floor of a cool, air-conditioned car is the safest spot (never on a passenger seat or a lap). Drive carefully around corners, and place the cake straight into a refrigerator as soon as you arrive at your destination." data-ja="生クリームのケーキはとても繊細で、すべりやすいものです。箱は必ず、完全に平らな場所に置いてください。エアコンの効いた車の、助手席の足元がいちばん安全です（座席の上やひざの上は避けてください）。カーブはゆっくり曲がり、着いたらすぐ冷蔵庫へ入れてください。"></p></details>
+    <details><summary data-en="Where do I pick up my cake from?" data-ja="どこで受け取れますか？">Where do I pick up my cake from?</summary><p data-en="Collection is at 139 Parramatta Road, Auburn 2144. Convenient street parking is readily available along Melton Street South or Station Road just around the corner." data-ja="139 Parramatta Road, Auburn 2144 でお渡しします。すぐ近くの Melton Street South か Station Road に、路上の駐車スペースがあります。"></p></details>
+    <details><summary data-en="Do you offer cake delivery across Sydney?" data-ja="シドニー各地への配達はしていますか？">Do you offer cake delivery across Sydney?</summary><p data-en="Yes! We are happy to be able to offer delivery for pre-orders within 20 km of our Auburn kitchen (Wednesday–Saturday). Zone 1 is $15, Zone 2 is $20 and Zone 3 is $25. Deliveries take place Wednesday – Friday (10:00 AM – 2:00 PM) and Saturday (3:00 PM – 5:30 PM). Sunday to Tuesday is in-store collection only. <a href='#delivery'>See the delivery schedule and postcode directory</a>." data-ja="はい。事前のご注文に限り、Auburn のキッチンから20km以内へ配達しています（水〜土曜）。ゾーン1は $15、ゾーン2は $20、ゾーン3は $25 です。配達は水〜金曜（10:00〜2:00）と土曜（3:00〜5:30）。日〜火曜は店頭での受け取りのみです。<a href='#delivery'>配達の曜日と郵便番号の一覧を見る</a>。"></p></details>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="sec-head"><p class="tag" data-en="Gallery" data-ja="ギャラリー">Gallery</p><h2 data-en="From the kitchen." data-ja="キッチンから。">From the kitchen.</h2>
+    <p class="hint" data-en="Swipe or scroll sideways to see more." data-ja="横に送ると、ほかのケーキも見られます。">Swipe or scroll sideways to see more.</p></div>
+  <ul class="reel" id="reel" tabindex="0" aria-label="Gallery"></ul>
+</section>
+
+<section class="about" id="about">
+  <figure class="me"><img loading="lazy" src="img/maki.jpg" width="720" height="480" alt="Maki" data-alt-en="Maki, sitting on the steps outside her kitchen in a chef’s jacket and apron" data-alt-ja="コックコートとエプロン姿で、キッチンの前の階段に座る Maki"><figcaption data-en="“Smiles pass on from one another.”" data-ja="「笑顔は笑顔を呼ぶ！」">“Smiles pass on from one another.”</figcaption></figure>
+  <div class="about-text" id="about-text"></div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="sec-head"><p class="tag" data-en="Contact" data-ja="お問い合わせ">Contact</p><h2 data-en="139 Parramatta Road, Auburn." data-ja="139 Parramatta Road, Auburn。">139 Parramatta Road, Auburn.</h2>
+    <p data-en="As I make all cakes to order, please try to place your order 3 days in advance. If you have an urgent order, please don’t hesitate to contact me and I will try to accommodate your request." data-ja="すべてオーダーメイドのため、3日前までにご注文いただけると助かります。お急ぎの場合も、どうぞ遠慮なくご連絡ください。できる限りお応えします。">As I make all cakes to order, please try to place your order 3 days in advance. If you have an urgent order, please don’t hesitate to contact me and I will try to accommodate your request.</p></div>
+  <dl class="facts">
+    <div><dt data-en="Address" data-ja="住所">Address</dt><dd>139 Parramatta Road, Auburn, NSW 2144<br><a href="https://maps.google.com/maps?q=139+Parramatta+Road,Auburn,+NSW,+2144" target="_blank" rel="noopener" data-en="Open in Google Maps" data-ja="Google マップで見る">Open in Google Maps</a></dd></div>
+    <div><dt data-en="Hours" data-ja="営業時間">Hours</dt><dd id="hours"></dd></div>
+    <div><dt data-en="Contacts" data-ja="連絡先">Contacts</dt><dd><a href="tel:+61417213121">0417 213 121</a><br><a href="mailto:order@makispatisserie.com">order@makispatisserie.com</a></dd></div>
+    <div><dt data-en="Follow" data-ja="SNS">Follow</dt><dd><a href="https://www.instagram.com/makis.patisserie/" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.facebook.com/makispatisserie/" target="_blank" rel="noopener">Facebook</a></dd></div>
+  </dl>
+</section>
+</main>
+<footer class="foot"><img src="img/logo.jpg" width="445" height="289" alt="Maki’s Patisserie" loading="lazy"><p data-en="Made to order · 139 Parramatta Road, Auburn, NSW 2144" data-ja="オーダーメイド · 139 Parramatta Road, Auburn, NSW 2144">Made to order · 139 Parramatta Road, Auburn, NSW 2144</p></footer>
+<nav class="dock" aria-label="Quick actions"><a class="dock-main" href="#order" id="dock-main"></a><a href="tel:+61417213121" data-en="Call" data-ja="電話">Call</a></nav>
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="ds.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
