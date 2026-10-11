@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nihongo-Juku | Private Japanese lessons in Sydney and online</title>
+<meta name="description" content="Nihongo-Juku is a Japanese language tutoring and coaching school in Sydney. Private lessons for HSC, JLPT, adult conversation and children, at Sydney Olympic Park and online.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1e2a4a">
+<link rel="preload" href="fonts/brico.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p class="proposal">A design proposal for Nihongo-Juku (not the official website)</p>
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="#/" data-view="home" aria-label="Nihongo-Juku, back to the start"><img src="img/logo.jpg" alt="Nihongo-Juku, Japanese and English Tutoring School" width="233" height="50"></a>
+    <p class="words" id="words" aria-live="polite">
+      <svg class="hana" viewBox="0 0 60 60" aria-hidden="true"><path class="h1" pathLength="1" d="M30 30c2-3 7-1 6 3s-8 6-11 1 1-13 8-12 12 9 8 16-16 9-22 1-2-21 9-23 21 6 20 18"/><path class="h2" pathLength="1" d="M48 34c7-1 9 7 3 9 3 6-5 10-8 5-2 6-11 5-10-2-6 3-11-4-6-8-6-3-4-12 3-10-2-7 7-10 10-4 3-6 12-3 10 4 6 0 8 6-2 6"/></svg>
+      <span>Words <b id="w-n">1</b>/5</span>
+      <span class="w-done" lang="ja">よくできました</span>
+    </p>
+  </div>
+  <nav class="tabs" aria-label="Pages">
+    <a href="#/" data-view="home"><span lang="ja">塾</span><b>Start</b></a>
+    <a href="#/courses" data-view="courses"><span lang="ja">体験</span><b>Courses</b></a>
+    <a href="#/teachers" data-view="teachers"><span lang="ja">先生</span><b>Teachers</b></a>
+    <a href="#/jp" data-view="jp"><span lang="ja">国語</span><b lang="ja">日本語</b></a>
+    <a href="#/apply" data-view="apply"><span lang="ja">申込</span><b>Apply</b></a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ============ Start ============ -->
+<section class="view" id="v-home" data-w="0">
+  <div class="page">
+    <aside class="word"><span class="w-no">Word 1 of 5</span><span class="w-k" lang="ja">塾</span><span class="w-r">juku</span><span class="w-m">a place to study, outside school</span></aside>
+    <p class="kick">Japanese Language Tutoring and Coaching School in Sydney</p>
+    <h1 class="sent">I want to <span class="blank" id="blank"><span id="goal-t">prepare for the HSC</span><span class="dot">.</span><svg class="pen" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 8C50 3 96 12 150 7s104-4 147 1"/></svg></span></h1>
+    <p class="lead">Finish the sentence. Your lesson plan is written below, with the course, the fee and who teaches it.</p>
+    <div class="goals" id="goals" role="group" aria-label="What do you want to do?">
+      <button type="button" data-goal="hsc" aria-pressed="true">prepare for the HSC</button>
+      <button type="button" data-goal="jlpt" aria-pressed="false">pass the JLPT</button>
+      <button type="button" data-goal="talk" aria-pressed="false">hold a conversation</button>
+      <button type="button" data-goal="busy" aria-pressed="false">study around my work</button>
+      <button type="button" data-goal="child" aria-pressed="false">have my child learn</button>
+    </div>
+
+    <article class="plan" id="plan" aria-live="polite">
+      <header class="plan-h"><p class="tag">Your lesson plan</p><h2 id="p-name">HSC preparation support course</h2><p id="p-sub" class="p-sub">Beginner and Continuers only</p></header>
+      <dl class="plan-d">
+        <div><dt>In class</dt><dd id="p-text"></dd></div>
+        <div id="row-where"><dt>Where</dt><dd><div class="chips" id="p-where" role="group" aria-label="Where"></div><p class="fine" id="p-wnote"></p></dd></div>
+        <div id="row-mins"><dt>How long</dt><dd><div class="chips" id="p-mins" role="group" aria-label="Minutes per class"></div><p class="fine" id="p-mnote"></p></dd></div>
+        <div class="fee"><dt>Fee</dt><dd><p class="fee-n"><b id="p-fee">$80</b><span id="p-per">for one hour, per person</span></p><p class="fine" id="p-fnote"></p></dd></div>
+        <div><dt>Teacher</dt><dd><p class="t-name" id="p-tn"></p><p class="fine">From the teachers’ profiles: <span id="p-tq"></span> <a class="link" href="#/teachers" data-view="teachers">Meet all the teachers</a></p></dd></div>
+        <div><dt>A student says</dt><dd><blockquote id="p-rev"></blockquote><p class="fine" id="p-revn"></p></dd></div>
+      </dl>
+      <footer class="plan-f">
+        <p><b>Start with a trial lesson.</b> 30 minutes, $30. Your teacher makes customised materials for it.</p>
+        <a class="btn" id="p-apply" href="#/apply" data-view="apply">Apply with this plan <span aria-hidden="true">→</span></a>
+      </footer>
+    </article>
+  </div>
+
+  <div class="page">
+    <h2 class="h">How the school works</h2>
+    <ol class="notes">
+      <li><h3>Our classes</h3><p>All of our classes are private lessons. Each teacher prepares materials and teaches according to the level and needs of the student. Since Covid, the school has also focused on its online presence, offering easy-to-understand teaching materials.</p></li>
+      <li><h3>Our Teachers</h3><p>All of our teaching staff are Japanese native teachers who are specialised in Japanese language. Main our classes are at Olympic Park, however the teachers live in various suburbs, so there is a wide range of classes available.</p></li>
+      <li><h3>JLPT Support</h3><p>Students practice with sample questions and listening exercises, followed by past exam questions. Class duration will be chosen 60, 75, or 90 minutes. The full course takes at least six months to complete. Includes training in listening and reading skills.</p></li>
+      <li><h3>Our Japanese Program</h3><p>Our focuses ultimately will need to master Japanese grammar to speak properly, we lead you to learn new grammar gradually, via typical Japanese sentences while we teach. So, not focusing grammar only, you will become able to speak slowly but surely, and you will be surprised at how naturally Japanese comes to you. Your Japanese will sound natural and you will be able to speak Japanese. Our school is also pursuing a curriculum of one on one for tutoring and coaching.</p></li>
+    </ol>
+    <figure class="wide"><img src="img/cards.jpg" alt="Word cards laid out on the table during a lesson" width="1350" height="600"></figure>
+  </div>
+
+  <div class="page">
+    <div class="rev-h"><h2 class="h">Our Reviews</h2><p class="score"><b>5.0</b><span>Based on 24 reviews on Google</span></p></div>
+    <div class="revs"><figure class="rev"><blockquote>I have been learning with Kiyoka sensei. It has been a lot of fun!</blockquote><figcaption><b>Vincent</b><span>September 2024</span></figcaption></figure>
+<figure class="rev"><blockquote>The teacher is incredibly dedicated, and the quality of the lessons is truly exceptional. Especially impressive is the use of handcrafted PowerPoint presentations, which make complex grammar and expressions visually easy to understand. The one-on-one nature of the classes ensures that instruction is tailored to each student’s pace, leading to steady improvement in Japanese skills. This is an ideal classroom for learners at any level, from beginners to advanced. I highly recommend this place for anyone serious about learning Japanese!</blockquote><figcaption><b>Kiyoka Inoue</b><span>September 2024</span></figcaption></figure>
+<figure class="rev"><blockquote>My daughter has been learning Japanese from Yuko Sensei for many years. She has been so much enjoying the lessons as well as the activities learning about Japanese culture, like origami, etc. I highly recommend Yuko Sensei and Nihongo-Juku (Sydney Japanese Language Tutoring School) to everyone who wants to learn Japanese and/or Japan’s culture. Oscar</blockquote><figcaption><b>ojisan2020</b><span>December 2022</span></figcaption></figure>
+<figure class="rev"><blockquote>Excellent teaching and very friendly people.</blockquote><figcaption><b>Robert Taylor</b><span>December 2021</span></figcaption></figure>
+<figure class="rev"><blockquote>I have been a student at Nihongo-Juku for a few months now and have been extremely pleased with the progress I have made utilising their private tutoring. Yuko Sensee is a fantastic and pleasant teacher who has made the process all the more enjoyable</blockquote><figcaption><b>Harry Price</b><span>November 2021</span></figcaption></figure>
+<figure class="rev"><blockquote>10/10, this place really helped me get my grades up and taught me some japanese school wasn’t even showing me. sensai martin’s is so nice as well definitely recommend 👍🏽👍🏽👍🏽👍🏽</blockquote><figcaption><b>Amethyst Parkes</b><span>November 2021</span></figcaption></figure>
+<figure class="rev"><blockquote>I have had a great experience with lovely people who are excellent at teaching all aspects of HSC Japanese, would definitely recommend this company.</blockquote><figcaption><b>Haley Chacos</b><span>November 2021</span></figcaption></figure>
+<figure class="rev"><blockquote>i have been learning Japanese with Nihongo-Juku Inoue-sensei for half year, She is professional teacher with passionate, specially the class preparation she did is helping me improve a lot in the grammar part, and she always very patient to listen to my choppy speaking during the class. highly recommend Nihongo-Juku to anyone who wish to learn Japanese here.</blockquote><figcaption><b>Yan Liao</b><span>August 2021</span></figcaption></figure>
+<figure class="rev"><blockquote>Really good school for taking your Japanese to the next level. They cover all areas by using both textbook style learning as well as real life/natural situations. This has been so beneficial for my listening skills. I have found the teachers very accommodating and have styled my lessons to suit my needs. Plus they do online lessons which has been very helpful during lockdown. Highly recommend this school</blockquote><figcaption><b>Emily Tarran</b><span>August 2021</span></figcaption></figure>
+<figure class="rev"><blockquote>I have enjoyed excellent Japanese lessons from Yuko-Sensei for several months. Nihongo-Juku provide group or 1-on-1 sessions for people with all levels of Japanese language skills. I highly recommend these classes for anyone wishing to learn/improve their Japanese.</blockquote><figcaption><b>Douglas Dunn</b><span>May 2021</span></figcaption></figure>
+<figure class="rev"><blockquote>My daughter has been learning Japanese for two years with Yuko-sensei. She enjoys learning Japanese thanks to the wonderful teacher. The teacher Yuko sensei is a great teacher with a warm heart. Also I like that she has a lot of teaching experience.</blockquote><figcaption><b>Sunhee Kim</b><span>May 2021</span></figcaption></figure></div>
+  </div>
+
+  <div class="page juku">
+    <p class="juku-k" lang="ja" aria-hidden="true">塾</p>
+    <div>
+      <h2 class="h">Nihongo–Juku</h2>
+      <p>The Japanese language term “Juku” refers to the practice of scholars and intellectuals who in the Heian period would take disciples into their homes, but also has come to be used to describe the modern-day “cram school” practice in which people needing extra study can have regular sessions outside of conventional schools. It is the intention of our Japanese language school, Nihongo–Juku to offer such an experience to anyone who wants to study Japanese outside of a school, at their own convenient time for studying with us.</p>
+      <p class="fine">Please feel free to inquire: <a class="link" href="tel:+61480226621">+61 48 022 6621</a>. Class location: Olympic Park, NSW, Australia.</p>
+      <a class="btn" href="#/apply" data-view="apply">Contact us <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Courses ============ -->
+<section class="view" id="v-courses" data-w="1" hidden>
+  <div class="page">
+    <aside class="word"><span class="w-no">Word 2 of 5</span><span class="w-k" lang="ja">体験</span><span class="w-r">taiken</span><span class="w-m">a trial, trying it yourself</span></aside>
+    <p class="kick">Services and Pricing</p>
+    <h1>Japanese Support</h1>
+    <div class="trial">
+      <div>
+        <h2>Trial lesson before your decision</h2>
+        <p>We offer a 30-minute trial lesson before you decide to take a course. The trial lessons are not free because our native Japanese speaking teachers will make customized materials for students each time. Please contact the school first to allow time for making a schedule for it, then you can make the payment for the trial lesson. Please take this opportunity to try it out.</p>
+        <p class="fine">Starting anytime at your convenience (individual)</p>
+      </div>
+      <p class="trial-p"><span>Trial lesson (30 minutes)</span><b>$30</b><a class="btn" href="#/apply" data-view="apply" data-apply="">Ask for a trial lesson <span aria-hidden="true">→</span></a></p>
+    </div>
+
+    <div class="courses">
+      <article class="course" id="c-hsc">
+        <header><h2>HSC preparation support course</h2><p class="p-sub">Beginner and Continuers only</p></header>
+        <div class="c-b"><p>Our HSC examination preparation course provides past exam papers for practice. These papers also show the marking guidelines. All our Nihongo-Juku teachers are native speakers of Japanese and experienced in the HSC teaching program. Therefore our Nihongo-Juku teachers are ready to discover each student’s weaknesses, so they can guide each on how best to prepare for the exam.</p>
+          <ul class="skills"><li>Improving speaking skills</li><li>Writing skill</li><li>Reading skill</li><li>Preparation for you need</li></ul></div>
+        <div class="c-f"><p class="rate"><span>Online</span><b>$80</b><i>(1 hour) per person</i></p><p class="rate"><span>In-person</span><b>$100</b><i>(1 hour) per person</i></p><p class="fine">In-person lessons are held at a location designated by the teacher.</p><a class="btn ghost" href="#/apply" data-view="apply" data-apply="Hsc">Apply for this course <span aria-hidden="true">→</span></a></div>
+      </article>
+      <article class="course" id="c-jlpt">
+        <header><h2>JLPT Preparation Course</h2><p class="p-sub">in the home-office</p></header>
+        <div class="c-b"><p>The curriculum focuses on grammar for each level. First, we will identify the weak points and pursue them thoroughly. After that, sample questions and listening practice will be given. Finally, students will try their hand at past questions. Students can choose to take 60, 75 or 90-minutes each class. Students will need a minimum of six months to complete the course.</p>
+          <ul class="skills"><li>Listening skill</li><li>Reading skill</li></ul><p class="fine">Starting anytime at your convenience (individual)</p></div>
+        <div class="c-f"><p class="rate"><b>$100</b><i>(1 hour) / per person</i></p><a class="btn ghost" href="#/apply" data-view="apply" data-apply="JLPT">Apply for this course <span aria-hidden="true">→</span></a></div>
+      </article>
+      <article class="course" id="c-talk">
+        <header><h2>Adult Classes</h2><p class="p-sub">in the home-office</p></header>
+        <div class="c-b"><p>This course is a regular conversation class. Students will progress to new grammar, vocabulary and conversation examples with textbook references. Students will gradually learn kana characters and are introduced to kanji. They will be able to experience the joy of Japanese conversation without stress. They will be enabled to have a conversation with Japanese people.</p>
+          <p>Students can choose from online classes or private lessons in the office.</p><p>Students can choose to take 60, 75 or 90-minutes each class.</p></div>
+        <div class="c-f"><p class="fine">Please ask the school for the fee.</p><a class="btn ghost" href="#/apply" data-view="apply" data-apply="Adult">Apply for this course <span aria-hidden="true">→</span></a></div>
+      </article>
+      <article class="course" id="c-busy">
+        <header><h2>Flexible Online course for Busy Adults</h2></header>
+        <div class="c-b"><p>Our online classes are designed for adults who need flexibility. Study anytime, anywhere, while maintaining a regular lesson schedule that works for you and your teacher.</p>
+          <p>New students begin with a 5-lesson package (first package only). For continuing students, 10-lesson or 20-lesson packages are available. Lesson times are arranged directly with your teacher, subject to availability.</p>
+          <p>Lessons focus on:</p><ul class="skills"><li>Improving speaking skills</li><li>Strengthening reading skills</li><li>Personalized preparation as needed</li></ul>
+          <p>To support your learning, we share teacher materials so you can review anytime. Zoom sessions are also recorded and provided along with the materials, giving you full access for thorough review.</p><p class="fine">Starting anytime at your convenience (individual)</p></div>
+        <div class="c-f"><p class="rate"><b>$70</b><i>(1 hour) / per person</i></p><a class="btn ghost" href="#/apply" data-view="apply" data-apply="Adult" data-method="Private online lesson">Apply for this course <span aria-hidden="true">→</span></a></div>
+      </article>
+      <article class="course" id="c-child">
+        <header><h2>Child Education Course</h2><p class="p-sub">private lesson in the home-office</p></header>
+        <div class="c-b"><p>The course is open to ages 9 to 11. For children who do not have a Japanese background, we offer during each one-hour class, an introduction to Japanese culture and the written kana characters. We will teach students to express what they want to say using simple grammar. The materials are also very well designed with meanings captured just by sight. Games are also incorporated to guide students brightly through the content. Depending on the child’s level, we may ask the child to learn together with his or her parent.</p>
+          <p>We also teach Japanese as a mother tongue language. According to the student’s background and level, we select an appropriate <span lang="ja">国語教本</span> as a basis for our lessons and use in class.</p></div>
+        <div class="c-f"><p class="rate"><b>$100</b><i>(1 hour) / per person</i></p><a class="btn ghost" href="#/apply" data-view="apply" data-apply="Children">Apply for this course <span aria-hidden="true">→</span></a></div>
+      </article>
+    </div>
+
+    <div class="loc">
+      <h2 class="h">Teaching Location</h2>
+      <p><b>Class location (Home Office):</b><br>2B Figtree Drive, Sydney Olympic Park 2127</p>
+      <p>Tel: <a class="link" href="tel:+61480226621">+61 48 022 6621</a><br>Email: <a class="link" href="mailto:info@nihongojuku.com.au">info@nihongojuku.com.au</a></p>
+      <p class="fine">ABN 96 982 366 755</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Teachers ============ -->
+<section class="view" id="v-teachers" data-w="2" hidden>
+  <div class="page">
+    <aside class="word"><span class="w-no">Word 3 of 5</span><span class="w-k" lang="ja">先生</span><span class="w-r">sensei</span><span class="w-m">teacher</span></aside>
+    <p class="kick">Our Teachers</p>
+    <h1>Japanese Teacher</h1>
+    <div class="teachers">
+      <article class="teacher"><img class="oval" src="img/yuko.jpg" alt="Ms. Yuko Martens" width="298" height="400"><div><h2>Ms. Yuko Martens</h2><p class="role">Headteacher in the school</p><p>She taught Japanese in Japan, Canada and Australia.</p><p>She also has taught several at schools in the Sydney area and currently focuses on her Sydney-based Japanese Language School, Nihongo-Juku, where she has further developed her teaching methods and the training of new teachers. She teaches group lessons, JLPT, HSC preparation and adult private lessons. She also focuses upon child education in the North Sydney area.</p></div></article>
+      <article class="teacher"><img src="img/kouhei.jpg" alt="Mr. Kouhei Fujioka teaching at the whiteboard" width="640" height="606"><div><h2>Mr. Kouhei Fujioka</h2><p>He taught Japanese for high school students in Thailand for two years. He was trained in teaching methods at Human Academy in Tokyo, in 2015. His focus is on what is the best for students and he often brings unique ideas to the classroom. Now that he has joined our school, our teaching team is becoming more powerful.</p></div></article>
+      <article class="teacher"><img class="oval" src="img/kiyoka.jpg" alt="Kiyoka Inoue" width="420" height="561"><div><h2>Kiyoka Inoue</h2><p>She lived in Suzhou, China, during her early teenage years. After completing the WJLC Japanese Teacher Training Course, she worked as a homeroom teacher at a Japanese supplementary school in Australia. Upon returning to Japan, she completed a 420-hour Japanese Teacher Training Course accredited by the government. Currently, she teaches beginner and intermediate learners at Nihongo-Juku.</p><p>She strives to create lessons where students can say, “That was fun!” by the end of the day.</p></div></article>
+      <article class="teacher"><img class="oval" src="img/kumi.jpg" alt="Kumi Tanaka" width="420" height="560"><div><h2>Kumi Tanaka</h2><p class="role">A new teacher</p><p>She is based in Melbourne and teaches Japanese online to students at Nihongo Juku.</p><p>She has been teaching Japanese since 2015, working with both children and adults.</p><p>She creates engaging lessons that help students stay motivated and continue learning effectively.</p><p>She enjoys rock music, but also likes city pop, and occasionally attends live music events. In addition, she volunteers as a broadcaster for the Japanese program on 3ZZZ 92.3FM, a community radio station in Melbourne, where she also serves as the representative of the Japanese broadcasting team.</p></div></article>
+    </div>
+  </div>
+  <div class="page team">
+    <h2 class="h">A team that meets every week</h2>
+    <div class="cols">
+      <p>Our Sydney Japanese Language school, Nihongo-Juku‘s teachers make a great team, meeting weekly in workshops focussing on how to develop teaching methods, etc. The school’s highly qualified Japanese language teachers are native speakers with many years of teaching experience in Japan, Canada and Australia. In combination with the English-language support offered by the school, the team is motivated to provide the most up-to-date teaching methods to make your learning experience fun and memorable.</p>
+      <p>Some teachers also have years of experience teaching children in Saturday morning classes at community language schools in Sydney, and each has received clearance, as recognized by their Working With Children Check (WWCC) number in NSW.</p>
+      <p>Students can enjoy learning Japanese using a unique method and attractive approach that is suitable for beginners (who have never studied Japanese) through to advanced learners (e.g., people wish to take the Japanese Language Proficiency Test (JLPT) from Level 5 to 1) and also students who need HSC preparation. Speaking and writing, listening and reading, all are combined in the classes.</p>
+      <p>And for students of English as a Second Language (ESL), the school offers support in preparation for the predominant tests assessing English listening, speaking, writing and reading skills, such as TOEFL, TOEIC, and IELTS. Further support also is available for building skills and confidence as a non-native speaker intending to study or work in a destination where English is used as the international language of communication.</p>
+    </div>
+  </div>
+  <div class="page">
+    <h2 class="h">Gallery</h2>
+    <div class="gal">
+      <figure><img src="img/class.jpg" alt="A teacher and two adult students working at a table" width="800" height="797"><figcaption>Class Photo</figcaption></figure>
+      <figure><img src="img/board.jpg" alt="Character magnets on the classroom whiteboard" width="300" height="400"><figcaption>Class Photo</figcaption></figure>
+      <figure><img src="img/origami.jpg" alt="Origami made in class" width="300" height="400"><figcaption>Event Photo</figcaption></figure>
+      <figure><img src="img/food.jpg" alt="Japanese home cooking shared at a school event" width="700" height="933"><figcaption>Event Photo</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 日本語 ============ -->
+<section class="view" id="v-jp" data-w="3" lang="ja" hidden>
+  <div class="page">
+    <aside class="word"><span class="w-no" lang="en">Word 4 of 5</span><span class="w-k">国語</span><span class="w-r" lang="en">kokugo</span><span class="w-m" lang="en">Japanese, as a mother tongue</span></aside>
+    <p class="kick" lang="en">Sydney Japanese Language School</p>
+    <h1>日本語を習得。</h1>
+    <div class="jp">
+      <section><h2>コンセプト</h2><p>日本語児童プログラムは継承語として家庭でも自然に日本語が使えるように、そしてまた四技能を自然に加え、徐々に日本語を習得していきます。</p></section>
+      <section><h2>児童プログラム</h2><p>当校の児童プログラムは、子供達と日本語指導経験豊かな教師で「日本語を習得」がキャッチフレーズです。</p><p>児童の年齢とレベルを考慮し、読み書き、読み聞かせ、会話へと導き、各自のレベルに合わせ独自のカリキュラムを作成します。 対象年齢は11歳から、高校生まで、幅広く指導します。小学校終了後の時間や土曜日を利用して、Sydney Olympic Parkのホームオフィスで個人レッスンを運営しております。</p><p>詳細は、直接学校までご連絡ください。</p></section>
+      <section><h2>スクールホリデープログラム</h2><p>主任教師宅で放課後から個人レッスンを行なっております。日本のバックグラウンドはもとより外国人児童も参加されています。個人レッスンなのでお子様のレベルや性格を上手く生かして取り組んでおります。是非この機会に受講ください。</p></section>
+      <figure class="wide"><img src="img/sheet1.jpg" alt="絵を見ながら日本語のことばを選ぶ教材" width="1200" height="380"></figure>
+      <section><h2>塾とは</h2><p>学者や知識人が自分の自宅で個人的に教えたもので、既に日本では平安時代から大学寮などで教える学者が自宅で別途弟子を採ったものを、家塾と呼びました。主として江戸時代末期、儒学から医学、兵学、蘭学など、学者が自宅に生徒を集めて教えたものを言います。別名私塾ともいわれていました。今日の初等教育に当たる読み書き算盤を教えたものは、寺子屋としてこれとは区別している様です。</p><p>歴史的な上記のものから派生して、今日、学校の外で補習や進学準備のために子供たちが通う学習塾。高校、大学の名称になった塾。明徳義塾、津田塾大学、慶應義塾大学 もその一つと思われます。現在、日本では一般に「塾」というと学習塾を指すことが多いと言われています。</p></section>
+      <figure class="wide"><img src="img/sheet2.jpg" alt="会話の練習に使うプリント" width="1200" height="378"></figure>
+      <div class="jp-c"><p>お気軽にお問合せください。<br><a class="link" href="tel:+61480226621">+61 48 022 6621</a>（日本語）<br><span lang="en">Class location: Olympic Park, NSW, Australia</span></p><a class="btn" href="#/apply" data-view="apply">お問合せフォームへ <span aria-hidden="true">→</span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Apply ============ -->
+<section class="view" id="v-apply" data-w="4" hidden>
+  <div class="page">
+    <aside class="word"><span class="w-no">Word 5 of 5</span><span class="w-k" lang="ja">申込</span><span class="w-r">mōshikomi</span><span class="w-m">an application</span></aside>
+    <p class="kick">Contact and Application</p>
+    <h1>Write to the school.</h1>
+    <div class="apply">
+      <form id="form" novalidate>
+        <div class="seg" role="group" aria-label="What are you writing about?">
+          <button type="button" data-kind="apply" aria-pressed="true">Application for Japanese Course</button>
+          <button type="button" data-kind="ask" aria-pressed="false">Inquiry</button>
+        </div>
+        <p class="fine">* These are required items.</p>
+        <label>* Name<input id="f-name" name="name" autocomplete="name" required></label>
+        <label>* Email<input id="f-mail" name="email" type="email" autocomplete="email" required></label>
+        <label>* Contact Number<input id="f-tel" name="tel" type="tel" autocomplete="tel" required></label>
+        <fieldset id="f-app">
+          <legend>Application for Japanese Course</legend>
+          <label>1. Which Course are you interested in taking?
+            <select id="f-course"><option value="">---</option><option value="Hsc">HSC</option><option>Children</option><option>Adult</option><option>JLPT</option><option>Intensive</option></select></label>
+          <p class="fine">Please refer to our <a class="link" href="#/courses" data-view="courses">Services &amp; Pricing</a>.</p>
+          <label>Which method do you choose?
+            <select id="f-method"><option value="">---</option><option>Private online lesson</option><option>Private face to face lesson</option></select></label>
+          <label>2. How did you find out about our Japanese and English Language School?
+            <select id="f-found"><option value="">---</option><option>Google search</option><option>Bing search</option><option>Yahoo search</option><option>MSN search</option><option>Facebook</option><option>Instagram</option><option>Gum tree</option><option>Other</option></select></label>
+        </fieldset>
+        <label>Comments<textarea id="f-msg" rows="5"></textarea></label>
+        <p class="err" id="f-err" role="alert" hidden></p>
+        <button class="btn" type="submit">Write the email <span aria-hidden="true">→</span></button>
+        <p class="fine">This opens your email app with your answers, addressed to info@nihongojuku.com.au.</p>
+        <p class="sent-ok" id="f-done" role="status" hidden><span lang="ja">ありがとうございます。</span> Your email app should now be open. Press send there to finish.</p>
+        <p class="fine">If you haven’t had any reply from us in 3 working days, please contact us on <a class="link" href="mailto:info@nihongojuku.com.au">info@nihongojuku.com.au</a></p>
+      </form>
+      <div class="contact">
+        <h2 class="h">Class location (Home Office)</h2>
+        <p>2B Figtree Drive, Sydney Olympic Park 2127</p>
+        <p><a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=2B+Figtree+Drive+Sydney+Olympic+Park+NSW+2127" target="_blank" rel="noopener">Open in Google Maps</a></p>
+        <dl>
+          <div><dt>Tel</dt><dd><a class="link" href="tel:+61480226621">+61 48 022 6621</a></dd></div>
+          <div><dt>Email</dt><dd><a class="link" href="mailto:info@nihongojuku.com.au">info@nihongojuku.com.au</a></dd></div>
+          <div><dt>ABN</dt><dd>96 982 366 755</dd></div>
+          <div><dt>Payment</dt><dd>MasterCard, Visa, or electronic bank transfer (by prior agreement between student and school)</dd></div>
+        </dl>
+        <p class="fine">In-person HSC lessons are held at a location designated by the teacher.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Terms ============ -->
+<section class="view" id="v-terms" hidden>
+  <div class="page">
+    <p class="kick">The small print</p>
+    <h1>Privacy, terms and the Act.</h1>
+    <div class="legal"><details id="l-privacy"><summary><span>Privacy Statement</span></summary><div class="l-b"><p>[NIHONGO-JUKU] Sydney Japanese Language Tutoring and Coaching respects your privacy. This website is maintained by our language school and applies to all the publicly accessible pages and properties owned by our school and also we are not responsible for the privacy policies or practices of third party sites linked to this site.</p>
+<h3>What information do we collect?</h3>
+<ul>
+<li>When you enter this site, our servers automatically record the following anonymous information:</li>
+<li>The IP (Internet Protocol) address of the machine which has accessed it;</li>
+<li>Your top-level domain name, the address of your server;</li>
+<li>The address of your server;</li>
+<li>The date and time of your visit to the site; the pages accessed and documents downloaded;</li>
+<li>The previous site visited; and</li>
+<li>The type of browser and operating system devices you have use</li>
+</ul>
+<h3>Why we collect data?</h3>
+<p>We gather data to improve our website and experience for the user.</p>
+<h3>How do we collect data?</h3>
+<p>[NIHONGO-JUKU] Sydney Japanese Language Tutoring and Coaching captures this information on its own computers and through the use of third-party analytical software programs such as Google Analytics, which may be updated. The purpose of analysis and reports are on the success of the site in determining of the objectives of the site are being met.</p>
+<h3>Cookies</h3>
+<p>This website uses cookies. They do not make your computer perform any actions or make your computer send information to any other computer via the Internet. Our Japanese Language School makes no attempt to associate cookies with users’ names or identities. Our server cannot find out your name or email address, or anything about your computer, by using cookies. This means that no direct personal information will be attained.</p>
+<h3>Personal Information</h3>
+<p>Personal information is only collected with your expressed consent e.g registration of our online newsletter. Information is never disclosed to third parties and will only be used for the sole purpose you gave consent to.</p></div></details>
+<details id="l-terms"><summary><span>Terms &amp; Conditions</span></summary><div class="l-b"><h3>1. Enrolment &amp; Fees</h3>
+<p>By enrolling in a course or purchasing a lesson package from Nihongo-Juku Sydney Japanese Language Tutoring School, students agree to comply with these Terms &amp; Conditions.</p>
+<p>All lesson fees must be paid in advance unless otherwise agreed by the School.</p>
+<p>Lesson fees are based on the number of lessons purchased and the applicable fee at the time</p>
+<p>of purchase.</p>
+<p>Lesson fees are non-refundable except where a refund is specifically provided for under these Terms &amp; Conditions or required by Australian law.</p>
+<p>The School reserves the right to change its fees, courses, lesson arrangements and other services from time to time. Any changes will apply to new enrolments or purchases made after the effective date of the change.</p>
+<h3>2. Lesson Packages &amp; Validity</h3>
+<p>Lesson packages are purchased for a specified number of lessons and must be used within the applicable validity period.</p>
+<p>The following validity periods apply:</p>
+<ul>
+<li>10-lesson package: valid for five (5) months from the date of purchase.</li>
+<li>20-lesson package: valid for eight (8) months from the date of purchase.</li>
+</ul>
+<p>The validity period begins on the date payment is received.</p>
+<p>Any lessons remaining after the expiry of the applicable validity period will normally be forfeited and will not be refundable or transferable.</p>
+<p>In exceptional circumstances, the School may, at its discretion, consider an extension of the validity period. Requests for an extension should be made in writing as soon as possible and before the package expires.</p>
+<p>These validity periods apply to lesson packages purchased on or after the effective date of this policy. Packages purchased before the effective date will remain subject to the terms applicable at the time of purchase.</p>
+<h3>3. Regular Attendance</h3>
+<p>Students are expected to attend lessons on a regular and ongoing basis.</p>
+<p>The normal recommended frequency is once a week. Students who are unable to attend weekly may arrange lessons once every two weeks, subject to teacher availability.</p>
+<p>Lessons should be scheduled regularly rather than being taken occasionally or at irregular intervals according to individual availability.</p>
+<p>Regular attendance is important for maintaining continuity in learning and for allowing teachers to plan lessons effectively.</p>
+<p>Teachers reserve specific lesson times for students. Therefore, students are expected to maintain an agreed and reasonably consistent lesson schedule.</p>
+<p>If a student is unable to maintain a regular schedule due to personal circumstances, they should contact the School as soon as possible.</p>
+<h3>4. Cancellation &amp; Rescheduling</h3>
+<p>Cancellation by the School</p>
+<p>At any time after we have accepted your enrolment application or order for products or services, we may cancel your enrolment, order or the relevant course, for any reason. If we cancel, we will refund the total amount you paid, unless otherwise permitted by law.</p>
+<p>Cancellation of enrolment after commencement of a course</p>
+<p>If, after the scheduled commencement date of the course, we cancel your enrolment (but not the course) for any reason, and we have already received your payment, we may, at our discretion, provide you with a credit voucher in whole or in part depending on the circumstances, unless we are required by law to provide a refund.</p>
+<p>Cancellation by the student</p>
+<p>If you cancel your enrolment within 24 hours of purchase, we will refund the fees in full.</p>
+<p>No refund will be issued if you cancel or request to reschedule more than 24 hours after purchase, except where otherwise provided under these Terms &amp; Conditions or required by law.</p>
+<p>Cancellation more than five (5) full business days before commencement</p>
+<p>If you cancel your enrolment more than five (5) full business days before the commencement of your course, you will receive a credit voucher for the full value of the course for future use.</p>
+<p>If you choose to transfer to another course more than five (5) full business days before commencement, you may transfer without a transfer fee, but you will be required to pay any difference in course fees.</p>
+<p>In cases involving multiple requests for rescheduling or transfer, the School may withhold an administrative charge of not less than $50 from the credit value. The student will be notified if such a charge applies.</p>
+<p>No cash refund will be provided.</p>
+<p>A credit voucher issued under this section is valid for three (3) months from the date of issue and must be used within that period.</p>
+<p>Cancellation less than five (5) full business days before commencement or failure to attend</p>
+<p>If you cancel or request to reschedule less than five (5) full business days before the scheduled commencement of your course, or fail to attend your scheduled lesson:</p>
+<ul>
+<li>no credit voucher or refund will be issued;</li>
+<li>the applicable lesson fee will be forfeited; and</li>
+<li>the lesson cannot normally be rescheduled.</li>
+</ul>
+<p>If a student is unable to attend a course within five (5) days of the course commencing, they may elect to transfer their enrolment to another individual at no cost, subject to the School&#x27;s approval. The replacement student will be subject to these Terms &amp; Conditions and will not be entitled to withdraw from the course under the exceptions available to the original student.</p>
+<h3>5. Suspension of Lessons</h3>
+<p>After commencement of a course or lesson package, a student may request a suspension of lessons for personal reasons.</p>
+<p>A suspension period of up to five (5) months may be granted at the School&#x27;s discretion.</p>
+<p>The student must notify the School in writing before or as soon as possible after the suspension becomes necessary.</p>
+<p>The suspension period will normally be calculated from the date of the student&#x27;s last attended lesson and will not exceed five (5) months.</p>
+<p>Students are expected to resume their lessons at the end of the approved suspension period.</p>
+<p>If a student is unable to resume their lessons after the approved suspension period, no refund will normally be provided for remaining lessons.</p>
+<p>However, where the student provides a medical certificate or official documentation demonstrating an unavoidable reason for discontinuation, the School may, at its discretion, consider a refund of up to 50% of the remaining tuition fees, depending on the circumstances.</p>
+<p>A suspension does not automatically extend the validity period of a lesson package unless the School confirms an extension in writing.</p>
+<h3>6. Refunds &amp; Credit Vouchers</h3>
+<p>Except where otherwise stated in these Terms &amp; Conditions or required by Australian law, lesson fees are non-refundable.</p>
+<p>Where a credit voucher is issued, the voucher is not redeemable for cash and must be used within the validity period specified by the School.</p>
+<p>Credit vouchers are generally valid for three (3) months from the date of issue unless the School agrees otherwise in writing.</p>
+<p>Credit vouchers may only be used for services offered by Nihongo-Juku and may not be exchanged for cash.</p>
+<p>Where a student transfers to another course or lesson package with a higher fee, the student must pay the difference in price.</p>
+<p>Where a student transfers to a service with a lower fee, the difference will not normally be refunded unless otherwise agreed by the School.</p>
+<h3>7. Exceptional Circumstances</h3>
+<p>Exceptions to the standard cancellation, rescheduling, suspension and refund policies may be considered at the School&#x27;s discretion in exceptional circumstances.</p>
+<p>Sickness</p>
+<p>If a student is unable to attend due to illness and provides a medical certificate, the School may provide a credit voucher or approve a suspension of lessons for an agreed period.</p>
+<p>No refund will normally be provided.</p>
+<p>If a student has a dependent child under the age of 15, or provides daily care for a person who has a disability, medical condition or is frail or aged, and the student is unable to attend because the person they care for is ill, the School may provide a credit voucher or allow a transfer without a fee upon receipt of appropriate supporting documentation.</p>
+<p>Death of a family member</p>
+<p>In the event of the death of an immediate family member, and upon provision of appropriate documentation such as a death certificate where reasonably required, the School may provide a credit voucher or allow a transfer without a fee.</p>
+<p>Internet, electricity or device problems</p>
+<p>If a student is unable to participate in an online lesson because of a problem with their internet connection, electricity supply or personal device, the lesson will normally be considered used and no refund will be provided.</p>
+<p>Where the student provides evidence of an unexpected interruption to their electricity or internet service, such as official documentation from the relevant provider, the School may provide a credit voucher or allow the lesson to be rescheduled without a fee.</p>
+<p>If the evidence demonstrates that the interruption was planned or known more than five (5) business days before the scheduled lesson, the student will not normally be entitled to a credit voucher or rescheduling.</p>
+<p>No refund will normally be provided.</p>
+<p>Teacher availability</p>
+<p>If a teacher becomes unavailable due to resignation, illness, leave or other circumstances, Nihongo-Juku will make reasonable efforts to provide an alternative teacher or arrange an alternative lesson time.</p>
+<p>Where an alternative arrangement cannot reasonably be provided, the School may provide an appropriate credit, extension or refund depending on the circumstances.</p>
+<p>Previous students returning to Nihongo-Juku</p>
+<p>If a student who has previously attended lessons at Nihongo-Juku returns and resumes lessons within six (6) months of their last attended lesson, the enrolment fee will be waived.</p>
+<p>If more than six (6) months have passed since the student&#x27;s last lesson, the student will be required to complete the admission process again and pay the applicable enrolment fee.</p>
+<h3>General Terms</h3>
+<p>Nihongo-Juku Sydney Japanese Language Tutoring School owns and operates this website.</p>
+<p>This document governs your relationship with the School and your use of its website, products and services.</p>
+<p>Access to and use of this website and the products and services available through it are subject to these Terms &amp; Conditions. By using the website or purchasing our services, you agree to these Terms &amp; Conditions, as amended from time to time.</p>
+<p>The School reserves the right to update these Terms &amp; Conditions from time to time. Students should check this page regularly for any changes.</p>
+<p>The School may, where reasonably necessary, withdraw, modify or amend its services. The School will not be liable if the website is unavailable for any reason or for any period.</p>
+<h3>Privacy Policy</h3>
+<p>Our Privacy Policy explains how we collect, use and protect your personal information.</p>
+<p>By using our website and services, you consent to the handling of your personal information in accordance with our Privacy Policy.</p>
+<p>[Privacy Policy Link]</p>
+<h3>Prohibited Use</h3>
+<p>You must not misuse this website or our services.</p>
+<p>You must not:</p>
+<ul>
+<li>commit or encourage a criminal offence;</li>
+<li>transmit or distribute viruses, malware or other technologically harmful material;</li>
+<li>hack into or attempt to gain unauthorised access to any part of the website or services;</li>
+<li>corrupt or interfere with data;</li>
+<li>interfere with the operation or security of the website;</li>
+<li>infringe the intellectual property or other rights of another person;</li>
+<li>send unsolicited advertising or promotional material; or</li>
+<li>attempt to affect the performance or functionality of the website or its associated systems.</li>
+</ul>
+<p>We reserve the right to take appropriate action where these provisions are breached.</p></div></details>
+<details id="l-act"><summary><span>Act on specified commercial transactions</span></summary><div class="l-b"><h3>Company Name</h3>
+<p>Nihongo-Juku Sydney Japanese Language School</p>
+<h3>Representative</h3>
+<p>Yuko Martens</p>
+<p>St Leonards, NSW, Australia</p>
+<h3>Phone</h3>
+<p>+61 48 022 6621</p>
+<h3>E-mail</h3>
+<p>info@nihongojuku.com.au</p>
+<h3>Payment methods</h3>
+<p>We accept the following methods for the payment of amounts payable to us in respect of courses, products and services.</p>
+<ul>
+<li>MasterCard</li>
+<li>Visa</li>
+<li>Electronic bank transfer (by prior agreement between student and school)</li>
+</ul>
+<h3>Price</h3>
+<p>The amount of money varies depending on the contents of the program/options.</p>
+<p>Please check the amount on the program, application form at the time of application.</p>
+<p>All prices include consumption tax.</p>
+<h3>Cancellation of course before commencement</h3>
+<h3>Cancellation of enrolment or order by you</h3>
+<p>If you cancel your enrolment or order within 24 hours of your purchase, we will refund the fees in full.</p>
+<p>No refund will be issued if you cancel or re-schedule your enrolment more than 24 hours after your purchase.</p>
+<p>If you cancel or re-schedule your enrolment more than five (5) full business days prior to the commencement of your course you will receive a credit voucher only for future course use. We may withhold an administrative charge of not less than $50.00 from the amount of the credit value and participants will be notified. No refund will be issued.</p></div></details></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><a href="#/terms" data-view="terms" data-open="l-privacy">Privacy Statement</a> | <a href="#/terms" data-view="terms" data-open="l-terms">Terms &amp; Conditions</a> | <a href="#/terms" data-view="terms" data-open="l-act">Act on specified commercial transactions</a></p>
+  <p>Copyright © Nihongo-Juku Sydney Japanese Language School All Rights Reserved.</p>
+</footer>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="ds.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
