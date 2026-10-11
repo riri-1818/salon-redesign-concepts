@@ -99,4 +99,12 @@ fieldset { border: 0; min-width: 0; } legend { font-size: 15px; letter-spacing: 
   .visit { padding: 112px var(--pad) 120px; gap: 40px; } .v-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 64px; align-items: start; } .facts > div { grid-template-columns: 9em 1fr; } .partners { padding: 36px; }
   .foot { grid-template-columns: auto 1fr; align-items: center; gap: 32px; padding: 56px var(--pad); }
 }
+/* 2026-10-11 追加：押せるものは、ホバーで色が変わるようにする（指で触る画面では出さない） */
+@media (hover: hover) {
+  .lang:hover { color: var(--ink); border-bottom-color: var(--gold); }
+  .opt:hover { border-color: var(--gold); background: var(--nude); }
+  .cat-h:hover { background: var(--nude); }
+  .cat-h:hover b { color: var(--gold-d); }
+  .more:hover { color: var(--gold); background: var(--nude); }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
