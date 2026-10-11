@@ -209,4 +209,21 @@ legend { font-weight: 700; font-size: 15px; color: var(--toast); margin-bottom: 
   .partners { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .c-grid { grid-template-columns: 1fr 1fr; gap: 64px; }
 }
+/* 2026-10-11 追加：押せるものは、ホバーで色が変わるようにする（指で触る画面では出さない） */
+@media (hover: hover) {
+  .lang:hover { background: rgba(255, 255, 255, .22); }
+  .lang[aria-pressed="true"]:hover { background: #ffe9a8; }
+  .tabs button:hover { background: var(--butter); }
+  .tabs button[aria-selected="true"]:hover { background: var(--red); }
+  .subs button:hover { background: #f6e2c2; }
+  .subs button[aria-pressed="true"]:hover { background: var(--crust); border-color: var(--crust); }
+  .i-act button:hover { background: var(--butter); }
+  .i-act .add:hover { background: var(--red); color: #fff; }
+  .opts button:hover { background: var(--butter); }
+  .opts button[aria-pressed="true"]:hover { background: var(--red); }
+  .opts button[aria-pressed="true"]:hover small { color: #fff; }
+  .fold summary:hover { color: var(--red); }
+  .contact .fold summary:hover { color: var(--butter); }
+  .tray-bar:hover { background: #ffe9a8; }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
