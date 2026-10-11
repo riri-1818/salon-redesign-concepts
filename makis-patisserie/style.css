@@ -211,8 +211,8 @@ html[lang="ja"] .about-text .first { font-weight: 700; font-size: clamp(21px, 3v
   .two { grid-template-columns: 1fr 1fr; }
   #s-lines > div { grid-template-columns: 5.2em minmax(0, 1fr) auto; }
   #s-lines dt { grid-column: auto; margin-bottom: 0; }
-  .week { grid-template-columns: repeat(7, minmax(0, 1fr)); }
-  .week li { flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px 10px; font-size: 15px; line-height: 1.4; min-height: 104px; }
+  .week { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .week li { flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px 10px; font-size: 15px; line-height: 1.4; min-height: 88px; overflow-wrap: anywhere; }
 }
 @media (min-width: 960px) {
   :root { --pad: 40px; }
