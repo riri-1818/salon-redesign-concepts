@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TOTONOU 整う | Japanese head spa, Sussex Street, Sydney</title>
+<meta name="description" content="TOTONOU is a Japanese head spa on Sussex Street, Sydney: wet and dry head spa, Japanese relaxation massage, facial lift up massage and SHR hair removal.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0f1a2b">
+<link rel="preload" href="fonts/news.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p class="proposal">A design proposal for TOTONOU Japanese Head Spa (not the official website)</p>
+<div class="app">
+  <aside class="rail">
+    <a class="brand" href="#/"><img src="img/mark.png" width="249" height="251" alt=""><span><b>TOTONOU</b><i lang="ja">整う</i></span></a>
+    <nav class="views" aria-label="Sections">
+      <a href="#/" data-view="home"><span lang="ja">整う</span><b>The state</b></a>
+      <a href="#/menu" data-view="menu"><span lang="ja">品書</span><b>Menu</b></a>
+      <a href="#/removal" data-view="removal"><span lang="ja">脱毛</span><b>Hair removal</b></a>
+      <a href="#/visit" data-view="visit"><span lang="ja">来店</span><b>Visit</b></a>
+    </nav>
+    <div class="rail-foot">
+      <p class="status" id="status"><span class="dot" aria-hidden="true"></span><span id="status-t"></span></p>
+      <p class="where">Level 2 (Right Side)<br>380 Sussex Street, Sydney</p>
+      <a class="tel" href="tel:+61481224475">0481 224 475</a>
+      <a class="btn" href="#/visit">Request a booking</a>
+    </div>
+  </aside>
+
+  <main class="stage" id="stage">
+    <section class="view view--home is-on" id="v-home" aria-labelledby="h-home">
+      <div class="state">
+        <p class="kanji" lang="ja" aria-hidden="true">整う</p>
+        <p class="pre">Because we don’t just offer a massage. We guide you to a state of being, where</p>
+        <h1 id="h-home" class="align"><span class="ln">your mind is <em>clear,</em></span><span class="ln">your body is <em>light,</em></span><span class="ln">and your breath is <em>at peace.</em></span></h1>
+        <p class="post">That state is called <b>“TOTONOU”</b>.</p>
+        <div class="state-actions"><a class="btn" href="#/menu">Choose head, body, face</a><a class="btn btn--ghost" href="#/visit">Hours and how to find us</a><button class="replay" id="replay" type="button">Watch it settle again</button></div>
+      </div>
+      <ul class="doors">
+        <li><a href="#/menu"><span class="d-n">01</span><b>Head spa</b><i>Wet or dry, with shoulder or body massage</i><span class="d-p">60 minutes · $125</span></a></li>
+        <li><a href="#/menu"><span class="d-n">02</span><b>Body and face</b><i>Japanese relaxation massage, facial lift up massage</i><span class="d-p">from 30 minutes · $75</span></a></li>
+        <li><a href="#/removal"><span class="d-n">03</span><b>SHR hair removal</b><i>15 areas, 1 to 12 times</i><span class="d-p">from $20</span></a></li>
+      </ul>
+      <div class="ask">
+        <p class="ask-q">Do you have experience Japanese traditional service?</p>
+        <p class="ask-a">Something we can for you now,<br>Something we can for your future.</p>
+      </div>
+    </section>
+    <section class="view" id="v-menu" hidden aria-labelledby="h-menu">
+      <header class="vh"><p class="vh-k"><span lang="ja">品書</span>Menu</p><h2 id="h-menu">Head, body, face. <em>Switch on what you need.</em></h2></header>
+      <div class="mixer">
+        <div class="parts" role="group" aria-label="Parts of the treatment">
+          <button type="button" class="part" role="switch" aria-checked="true" data-part="head"><span class="p-k" lang="ja">頭</span><span class="p-n">Head</span><span class="p-s">Head spa</span><span class="sw" aria-hidden="true"><i></i></span></button>
+          <button type="button" class="part" role="switch" aria-checked="false" data-part="body"><span class="p-k" lang="ja">体</span><span class="p-n">Body</span><span class="p-s">Relaxation massage</span><span class="sw" aria-hidden="true"><i></i></span></button>
+          <button type="button" class="part" role="switch" aria-checked="false" data-part="face"><span class="p-k" lang="ja">顔</span><span class="p-n">Face</span><span class="p-s">Facial lift up</span><span class="sw" aria-hidden="true"><i></i></span></button>
+        </div>
+        <div class="result" aria-live="polite">
+          <p class="r-sum" id="r-sum"></p>
+          <ul class="courses" id="courses"></ul>
+          <p class="r-note">Save $5 when paying by Cash or PayID.</p>
+        </div>
+      </div>
+
+      <div class="wetdry" id="wetdry">
+        <div class="wd-head"><h3>Wet or dry?</h3><div class="seg" role="radiogroup" aria-label="Kind of head spa"><button type="button" role="radio" aria-checked="true" data-wd="wet">Wet head spa</button><button type="button" role="radio" aria-checked="false" data-wd="dry">Dry head spa</button><span class="seg-thumb" aria-hidden="true"></span></div></div>
+        <div class="wd-body" id="wd-body"></div>
+      </div>
+
+      <div class="knows">
+        <article><h3>Body massage</h3><ul><li>Muscle tension relief</li><li>Deep relaxation</li><li>Better sleep quality</li><li>Fatigue recovery</li></ul><p class="fine">Oil or deep tissue body massage.</p></article>
+        <article><h3>Foot massage</h3><ul><li>Improved blood circulation</li><li>Pain relief</li></ul></article>
+        <article><h3>Facial</h3><ul><li>Cleansing</li><li>Face wash</li><li>Oil lift up massage</li><li>Pore care</li></ul><p class="fine">Facial machine: Photo Facial $100, Radio Frequency $100.</p></article>
+      </div>
+
+      <div class="benefit">
+        <h3>The benefits of head massage</h3>
+        <p>Feeling stressed or mentally tired? Our head massage offers the perfect way to release tension, refresh your mind, and restore balance to your body.</p>
+        <ol><li>Natural face-lifting effect</li><li>Relief from tired eyes and head pressure</li><li>Deep relaxation and stress reduction</li><li>Better quality of sleep</li><li>Improved focus and mental clarity</li><li>Improves scalp environment. By continuing to use the product, your scalp environment will gradually improve, making it less prone to irritation and more conducive to strong hair growth.</li></ol>
+        <p>Gentle stimulation of the scalp promotes deep rest, almost like drifting into a peaceful sleep. Come experience the ultimate head spa for your body and soul.</p>
+      </div>
+      <p class="groups"><b>Coming with someone?</b> For 2 guests at the same time, please make separate bookings for each guest or contact us directly. For groups of 3 or more guests, please contact us directly before booking.</p>
+    </section>
+
+    <section class="view" id="v-removal" hidden aria-labelledby="h-removal">
+      <header class="vh"><p class="vh-k"><span lang="ja">脱毛</span>Hair removal</p><h2 id="h-removal">SHR hair removal. <em>Choose the areas, see the total.</em></h2>
+        <p class="vh-p">SHR hair removal, an abbreviation for “Super Hair Removal”, is a type of “heat storage hair removal” that repeatedly exposes hair follicles to weak light while storing heat. It damages the “bulge area” where hair is produced, allowing hair removal regardless of the hair growth cycle, making it highly effective on sunburned skin, fine hair, and gray hair, and is characterized by its ability to shorten treatment times and duration.</p></header>
+      <div class="shr">
+        <div class="shr-pick">
+          <div class="times-row"><span>How many times</span><div class="seg seg--4" role="radiogroup" aria-label="Number of times" id="times"></div></div>
+          <ul class="areas" id="areas"></ul>
+        </div>
+        <aside class="bill" aria-live="polite">
+          <p class="bill-k">Your areas</p>
+          <ul id="bill-list"></ul>
+          <p class="bill-total"><span id="bill-times"></span><b id="bill-sum">$0</b></p>
+          <p class="fine" id="bill-per"></p>
+          <a class="btn" href="#/visit" id="bill-go">Request these areas</a>
+          <button class="textbtn" type="button" id="bill-clear">Clear</button>
+        </aside>
+      </div>
+      <details class="fold"><summary>See the whole price table</summary><div class="tbl-wrap"><table class="tbl" id="shr-table"></table></div></details>
+    </section>
+
+    <section class="view" id="v-visit" hidden aria-labelledby="h-visit">
+      <header class="vh"><p class="vh-k"><span lang="ja">来店</span>Visit</p><h2 id="h-visit">Level 2, <em>on the right side.</em></h2></header>
+      <div class="visit">
+        <div class="v-info">
+          <p class="v-status" id="v-status"></p>
+          <ul class="week" id="week"></ul>
+          <dl class="facts">
+            <div><dt>Address</dt><dd>Level 2 (Right Side)<br>380 Sussex Street, Sydney<br><a class="tl" href="https://www.google.com/maps/search/?api=1&amp;query=Totonou+Japanese+Head+Spa+380+Sussex+St+Sydney+NSW+2000" target="_blank" rel="noopener">Open in Google Maps</a></dd></div>
+            <div><dt>Tel</dt><dd><a class="tl" href="tel:+61481224475">0481 224 475</a> <span class="tag">Shop</span><br><a class="tl" href="tel:+61431540059">0431 540 059</a> <span class="tag">Staff</span></dd></div>
+            <div><dt>Email</dt><dd><a class="tl" href="mailto:totonou.offical380@gmail.com">totonou.offical380@gmail.com</a></dd></div>
+            <div><dt>Follow</dt><dd><a class="tl" href="https://www.instagram.com/totonou_japanese_headspa" target="_blank" rel="noopener">Instagram</a> · <a class="tl" href="https://www.facebook.com/profile.php?id=100093648138417&amp;sk=about" target="_blank" rel="noopener">Facebook</a></dd></div>
+          </dl>
+          <div class="gift"><h3>Gift card</h3><p>$50 · $100 · $110 · $120 · $140 · $150 · $170 · $200 · Other amount</p><button class="textbtn" type="button" data-req="Gift card: $">Ask for a gift card</button></div>
+        </div>
+        <form class="book" id="form" novalidate>
+          <h3>Make a reservation</h3>
+          <label><span>What you would like</span><textarea id="f-what" rows="3" placeholder="Choose in Menu or Hair removal, or write here"></textarea></label>
+          <div class="f2"><label><span>Day</span><input id="f-day" type="date"></label><label><span>Time</span><select id="f-time"></select></label></div>
+          <div class="f2"><label><span>Your name</span><input id="f-name" type="text" autocomplete="name"></label><label><span>Phone</span><input id="f-tel" type="tel" autocomplete="tel"></label></div>
+          <label><span>Message</span><textarea id="f-msg" rows="2"></textarea></label>
+          <p class="err" id="f-err" role="alert" hidden></p>
+          <button class="btn" type="submit">Write the email</button>
+          <p class="fine" id="f-done" hidden>Your email app has opened with the request filled in. Please press send there.</p>
+          <p class="fine">This opens your email app with the request filled in. The booking is confirmed when the shop replies.</p>
+        </form>
+      </div>
+      <div class="policy">
+        <details class="fold"><summary>Cancellation fees</summary><p>In the event of a cancellation within 12hr of your appointments, 100% of your reservation deposit will be charged as a cancellation fee.</p></details>
+        <details class="fold"><summary>Regarding late arrivals</summary><p>If you are unable to arrive for your appointment due to unavoidable circumstances, please contact us as soon as possible.</p><p>We apologize for any inconvenience, but if you arrive after your scheduled appointment time, we may have to shorten your treatment time or refuse your appointment. (Please note that even if we have to shorten part of your treatment, you will still be charged the full price of the original treatment.)</p><p>In addition, if you are more than 10 minutes late for your appointment, we regret that we may have to cancel your appointment due to the convenience of subsequent appointments. In such cases, we will charge you the full treatment deposit in accordance with our cancellation fee policy.</p></details>
+        <details class="fold"><summary>Regarding cases where we refuse to welcome you</summary><p>We will refuse you from visiting us if you are intoxicated.</p></details>
+      </div>
+    </section>
+  </main>
+</div>
+<nav class="tabs" aria-label="Sections">
+  <a href="#/" data-view="home"><span lang="ja">整う</span><b>State</b></a>
+  <a href="#/menu" data-view="menu"><span lang="ja">品書</span><b>Menu</b></a>
+  <a href="#/removal" data-view="removal"><span lang="ja">脱毛</span><b>Removal</b></a>
+  <a href="#/visit" data-view="visit"><span lang="ja">来店</span><b>Visit</b></a>
+</nav>
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/SplitText.min.js" defer></script>
+<script src="ds.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
