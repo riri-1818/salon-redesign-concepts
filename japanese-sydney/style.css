@@ -298,4 +298,17 @@ body[data-yomi="kana"] .word .yomi { font-family: var(--fj); font-weight: 600; f
   .www { grid-template-columns: repeat(3, 1fr); gap: 36px; }
   .c-grid { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 72px; }
 }
+/* 2026-10-11 追加：押せるものは、ホバーで色が変わるようにする（指で触る画面では出さない） */
+@media (hover: hover) {
+  .yomi-sw button:hover { background: var(--rose); }
+  .yomi-sw button[aria-pressed="true"]:hover { background: var(--red); }
+  .steps button:hover { border-color: var(--ink); background: var(--rose); }
+  .seg button:hover:not(:disabled) { background: var(--rose); }
+  .seg button[aria-pressed="true"]:hover { background: var(--red); border-color: var(--red); }
+  .cats button:hover { background: var(--rose); }
+  .cats button[aria-pressed="true"]:hover { background: var(--red); border-color: var(--red); }
+  .fold summary:hover, .qa summary:hover { color: var(--red); }
+  .jlpt .fold summary:hover { color: #ff8f85; }
+  .nav a:hover { text-decoration: underline; }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
