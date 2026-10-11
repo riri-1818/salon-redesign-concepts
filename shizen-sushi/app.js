@@ -82,7 +82,7 @@ function noren(again) {
   tl.to("#cur-l", { xPercent: -100, skewY: -1.5, duration: 0.95, ease: "power3.inOut" }, again ? 0.6 : 0.5)
     .to("#cur-r", { xPercent: 100, skewY: 1.5, duration: 0.95, ease: "power3.inOut" }, "<0.06")
     .to(".cur", { skewY: 0, duration: 0.5, ease: "elastic.out(1, .6)" }, ">-0.2")
-    .fromTo(".inside > *", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.07, ease: "power2.out", clearProps: "opacity,transform" }, again ? 0.9 : 0.8);
+    .fromTo(".in-l > *, .shots figure", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.07, ease: "power2.out", clearProps: "opacity,transform" }, again ? 0.9 : 0.8);
 }
 
 document.addEventListener("click", (e) => {
@@ -108,5 +108,5 @@ $("#news").addEventListener("submit", (e) => {
 });
 
 render(false); how("in", false);
-start(".ab, .platter, #form, #news");
+start(".ab, .platter, .gram-g li, #form, #news");
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => noren(false)); else noren(false);
