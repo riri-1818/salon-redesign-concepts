@@ -32,7 +32,9 @@ html[lang="ja"] .mark i { font-style: normal; font-size: 14px; }
 .nav a:hover::after { transform: scaleX(1); }
 .langs { display: flex; border: 1px solid var(--line); }
 .lang { min-width: 48px; height: 44px; padding: 0 10px; background: none; border: 0; font-size: 14px; cursor: pointer; }
+.lang:hover { background: var(--blush); }
 .lang[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.lang[aria-pressed="true"]:hover { background: var(--plum); }
 .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 12px 28px; background: var(--plum); color: #fff; border: 1px solid var(--plum); text-decoration: none; font: 400 16px/1.3 var(--fh); letter-spacing: .12em; text-transform: uppercase; cursor: pointer; transition: background .25s, color .25s; text-align: center; }
 html[lang="ja"] .btn { letter-spacing: .06em; font-weight: 500; }
 .btn:hover { background: var(--ink); border-color: var(--ink); }
@@ -59,9 +61,11 @@ html[lang="ja"] .hero h1 { font-size: clamp(34px, 7.6vw, 84px); letter-spacing: 
 .scope-foot { display: flex; flex-direction: column; gap: 12px; padding-top: 14px; }
 .hint { font-size: 15px; color: var(--mute); }
 .picks { display: flex; gap: 8px; }
-.picks button { flex: 1; max-width: 96px; padding: 0; border: 0; background: none; cursor: pointer; outline: 1px solid var(--line); outline-offset: 0; opacity: .7; transition: opacity .2s; }
+.picks button { flex: 1; max-width: 96px; padding: 0; border: 0; background: none; cursor: pointer; outline: 1px solid var(--line); outline-offset: 0; opacity: .6; transition: opacity .2s, outline-color .2s, transform .2s; }
 .picks button img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.picks button:hover { opacity: 1; outline: 2px solid var(--red); outline-offset: 2px; transform: translateY(-3px); }
 .picks button[aria-pressed="true"] { opacity: 1; outline: 2px solid var(--ink); outline-offset: 2px; }
+.picks button[aria-pressed="true"]:hover { outline-color: var(--red); transform: none; }
 .hero-foot { max-width: 1080px; margin: 28px auto 0; display: flex; flex-direction: column; gap: 18px; align-items: stretch; }
 .today { font-size: 16px; padding-left: 18px; position: relative; }
 .today::before { content: ""; position: absolute; left: 0; top: .72em; width: 8px; height: 8px; background: var(--red); border-radius: 50%; }
@@ -87,6 +91,7 @@ html[lang="ja"] .three b { font-weight: 500; }
 .tabs button { flex: none; min-height: 52px; padding: 10px 16px; background: none; border: 0; border-bottom: 2px solid transparent; font: 400 17px var(--fh); letter-spacing: .08em; cursor: pointer; color: var(--mute); margin-bottom: -1px; }
 html[lang="ja"] .tabs button { font-weight: 500; }
 .tabs button i { font: 400 14px var(--fb); margin-left: 6px; color: var(--mute); }
+.tabs button:hover { color: var(--ink); background: var(--blush); }
 .tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--red); }
 .ruler { display: none; }
 .rows { max-width: 1080px; margin: 0 auto; }
@@ -147,7 +152,8 @@ html[lang="ja"] .about-text h2 { font: 500 clamp(24px, 3.6vw, 34px)/1.6 var(--fh
 .wall .sq img { aspect-ratio: 1; }
 .wall figcaption { font-size: 15px; line-height: 1.55; color: var(--mute); padding: 8px 2px 6px; }
 .insta { text-align: center; margin-top: 28px; }
-.more { font-size: 17px; display: inline-block; padding: 12px 0; }
+.more { font-size: 17px; display: inline-block; padding: 12px 0; transition: color .2s; }
+.more:hover, .visit dd a:hover { color: var(--red); }
 
 /* ご予約 */
 .book-grid { max-width: 1080px; margin: 0 auto; display: grid; gap: 40px; }
