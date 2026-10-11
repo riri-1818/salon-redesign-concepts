@@ -235,4 +235,16 @@ html[lang="ja"] .about-text .first { font-weight: 700; font-size: clamp(21px, 3v
   .reel { padding-left: max(var(--pad), calc((100vw - 1280px) / 2)); }
   .reel li { width: 420px; }
 }
+/* 2026-10-11 追加：押せるものは、ホバーで色が変わるようにする（指で触る画面では出さない） */
+@media (hover: hover) {
+  .lang:hover { background: rgba(255, 255, 255, .22); }
+  .lang[aria-pressed="true"]:hover { background: var(--matcha-l); }
+  .chip:hover { border-color: var(--ink); background: var(--matcha-l); }
+  .chip[aria-pressed="true"]:hover { background: var(--matcha); border-color: var(--matcha); }
+  .size:hover { background: var(--matcha-l); }
+  .size[aria-pressed="true"]:hover { background: var(--matcha); }
+  .zones summary:hover { color: var(--berry); }
+  .qa summary:hover { color: var(--berry); }
+  .qty button:hover { background: var(--matcha-l); }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
