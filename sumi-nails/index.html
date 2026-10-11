@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sumi Nails | Luxury Japanese nail salon in Sydney CBD</title>
+<meta name="description" content="Sumi Nails is a Japanese nail salon in Sydney CBD. Everything is done by hand: manicure, pedicure, Shellac, Ladiposh soft gel, acrylic, nail art, eyelash and eyebrow. Appointments preferred: (02) 8592 3556.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" href="fonts/raleway.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p class="proposal">A design proposal for Sumi Nails (not the official website)</p>
+<header class="top">
+  <a class="logo" href="#top"><img src="img/logo.svg" width="508" height="81" alt="Sumi Nails"></a>
+  <nav class="nav" aria-label="Main"><a href="#about">About</a><a href="#menu">Menu</a><a href="#voucher">Gift voucher</a><a href="#academy">Academy</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn--s" href="tel:+61285923556">Call (02) 8592 3556</a>
+</header>
+<main id="top">
+<section class="hero">
+  <img class="blob b1" src="img/blob-pink.png" width="420" height="404" alt="" aria-hidden="true">
+  <img class="blob b2" src="img/blob-green.png" width="404" height="420" alt="" aria-hidden="true">
+  <div class="hero-copy">
+    <p class="kicker">Luxury Japanese Nail Salon · Sydney CBD</p>
+    <h1>Everything <br>by hand.</h1>
+    <p class="lead">We do everything by hand. No drills, only gentle cuticle care and removal.</p>
+    <div class="btns"><a class="btn" href="tel:+61285923556">Call to make an appointment</a><a class="btn btn--line" href="#menu">See the menu</a></div>
+    <p class="today" id="today"></p>
+  </div>
+  <figure class="founder">
+    <img src="img/sumi.png" width="360" height="360" alt="Sumi Kakihara, founder of Sumi Nails">
+    <blockquote><p>I believe that beautifully manicured hands increase a woman’s confidence, happiness and femininity.</p><p>My wish is for Sumi Nails to be a place where women come to have a peaceful relaxing moment away from reality.</p><p>My joy comes from seeing happy clients with beautiful, healthy nails.</p></blockquote>
+    <figcaption><b>Sumi Kakihara</b><span>Founder</span></figcaption>
+  </figure>
+</section>
+
+<section class="about" id="about">
+  <div class="sec-head"><p class="kicker">About us</p><h2>Three things we care about.</h2></div>
+  <ul class="three">
+    <li><img src="img/blob-ink.png" width="420" height="409" alt="" aria-hidden="true" loading="lazy"><h3>hand crafted</h3><p>We do everything by hand. No drills, only gentle cuticle care and removal.</p></li>
+    <li><img src="img/blob-pink.png" width="420" height="404" alt="" aria-hidden="true" loading="lazy"><h3>omotenashi</h3><p>Meaning ‘Japanese Hospitality’, your care and comfort are our number one priority.</p></li>
+    <li><img src="img/blob-green.png" width="404" height="420" alt="" aria-hidden="true" loading="lazy"><h3>art</h3><p>We specialise in nail art and offer a wide range of colours and designs.</p></li>
+  </ul>
+  <div class="ladi">
+    <h3>Ladiposh</h3>
+    <p>Ladiposh is a <b>soft gel</b> nail system from Japan. It’s a <b>breathable, long-lasting</b> material and one we recommend to our clients.</p>
+    <p>Ladiposh allows for <b>unlimited design and nail art</b>, but most importantly it is <b>healthier</b> for the nail.</p>
+    <p>It is <b>safe and easy</b> to remove and does not require the use of UV.</p>
+    <a class="link" href="https://ladiposh.com/" target="_blank" rel="noopener">Learn more about Ladiposh</a>
+    <p class="brands">Young Nails · CND Shellac · OPI</p>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="sec-head"><p class="kicker">Menu</p><h2>How long do you have?</h2><p>Choose a time and the treatments that fit stay bright. So that we can best be of service, appointments are preferred.</p></div>
+  <div class="time" id="time" role="group" aria-label="Time you have"></div>
+  <div class="tabs" id="tabs" role="tablist" aria-label="Menu sections"></div>
+  <div class="sheet" id="sheet"></div>
+  <p class="call-line">Please call <a href="tel:+61285923556">(02) 8592 3556</a>.</p>
+</section>
+
+<section class="voucher" id="voucher">
+  <div class="v-text"><p class="kicker">Gift voucher</p><h2>Spoil your loved ones with a treatment from us!</h2>
+    <p>Vouchers can be picked up at the Salon or purchased online.</p>
+    <p class="fine">Note: Vouchers are valid for 6 months. Not transferable for cash. Menu items are exchangeable.</p></div>
+  <form class="form" id="v-form" novalidate>
+    <h3>Online voucher</h3>
+    <fieldset><legend>From</legend><div class="row3"><label><span>Name</span><input id="v-name" type="text" autocomplete="name"></label><label><span>Phone</span><input id="v-tel" type="tel" autocomplete="tel"></label><label><span>Email</span><input id="v-mail" type="email" autocomplete="email"></label></div></fieldset>
+    <fieldset><legend>To</legend><div class="row3"><label><span>Name</span><input id="v-name2" type="text"></label><label><span>Phone</span><input id="v-tel2" type="tel"></label><label><span>Email</span><input id="v-mail2" type="email"></label></div></fieldset>
+    <div class="row3"><label><span>Amount</span><input id="v-amt" type="text" inputmode="decimal" placeholder="$"></label><label><span>Occasion</span><input id="v-occ" type="text"></label></div>
+    <label><span>Message</span><textarea id="v-msg" rows="3"></textarea></label>
+    <p class="err" id="v-err" role="alert" hidden></p>
+    <button class="btn" type="submit">Check the voucher request</button>
+    <p class="done" id="v-done" hidden>This is a sample, so nothing has been sent. On the finished site, this request would go to the salon, just as the current form does.</p>
+  </form>
+</section>
+
+<section class="academy" id="academy">
+  <div class="sec-head"><p class="kicker">Academy</p><h2>Sumi Academy.</h2>
+    <p>At Sumi Academy, we offer full training courses ranging from beginner levels to advanced professionals. Our courses are designed to be flexible and work in with your life.</p>
+    <p class="call-line">Please call <a href="tel:+61285923556">(02) 8592 3556</a> to schedule a free 20 minute consultation.</p></div>
+  <ul class="four">
+    <li><h3>1-on-1 Training</h3><p>Lessons are tailored to you, maximising learning effectiveness and skill absorption.</p></li>
+    <li><h3>Flexible timetable</h3><p>Our courses are flexible so you can complete them at your own pace.</p></li>
+    <li><h3>Resources</h3><p>All tools and resources are available for purchase. Students can practise in their own time.</p></li>
+    <li><h3>After care</h3><p>We provide post-training support to all our students.</p></li>
+  </ul>
+  <h3 class="sub">Courses</h3>
+  <ol class="courses">
+    <li><div class="c-h"><b>Hand Care</b><span>3 hours</span><em>$360</em></div><p>This lesson is the perfect way to learn all about the basics. For those interested, we cover what you can expect in becoming a nail technician. All students must complete this module before moving on to the others.</p><p class="areas"><i>Areas covered</i>Sanitation + Hygiene · Shaping · Buffing · Wet Cuticle Care · Hand Massages · Polish Application</p></li>
+    <li><div class="c-h"><b>Basic Nail Art with Polish</b><span>2.5 hours</span><em>$300</em></div><p>In this lesson, you will learn basic Nail Art using polish materials. The skills you learn can also be applied to gel or acrylic materials.</p><p class="areas"><i>Areas covered</i>French Manicure · Paint Art · Marble Art · Stones + Decorations · Hologram</p></li>
+    <li><div class="c-h"><b>The Acrylic Course</b><span>7.5 hours</span><em>$900</em></div><p>This set of 4 modules/lessons span 7.5 hours. Learning how to work with acrylic will expand your range of skills and services. Acrylic is usually used to create long, artificial nails, broken nails and nail biters. In this course, you will deepen your understanding of nail shapes and improve your filing skills.</p><p class="areas"><i>Areas covered</i>3D Art + Design · Preparation + Tip Overlay · Sculpture, Infill and Removal · Live Model Work + Revision</p></li>
+    <li><div class="c-h"><b>The Ladiposh + Soft Gel Course</b><span></span><em>$1320</em></div><p>This assumes you have completed the Ladiposh DVD Lectures. Designed for more advanced levels.</p><p class="areas"><i>Areas covered</i>Nail Preparation + Gel Application · Tip Overlay · Sculpture + Repair · Infill + Removal · Gel Art · Live Model Work including Theory Test</p></li>
+  </ol>
+</section>
+
+<section class="contact" id="contact">
+  <div class="sec-head"><p class="kicker">Contact us</p><h2>Appointments are preferred.</h2><p>So that we can best be of service, appointments are preferred. Please call (02) 8592 3556.</p></div>
+  <div class="c-grid">
+    <div class="info">
+      <a class="tel" href="tel:+61285923556">(02) 8592 3556</a>
+      <dl>
+        <div><dt>Hours</dt><dd><ul class="week" id="week"></ul></dd></div>
+        <div><dt>Address</dt><dd>Level 4. Shop 15.<br>227 Elizabeth Street<br>Sydney CBD.<span class="way">Enter via Bathurst St and take the stairs down to your right.</span><a href="https://www.google.com/maps/search/?api=1&amp;query=suminails+227+Elizabeth+St+Sydney+NSW+2000" target="_blank" rel="noopener">Get directions</a></dd></div>
+        <div><dt>Follow</dt><dd><a href="https://www.instagram.com/sumi.nails/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/suminails/" target="_blank" rel="noopener">Facebook</a></dd></div>
+      </dl>
+    </div>
+    <form class="form" id="form" novalidate>
+      <h3>Enquiry form</h3>
+      <div class="row3"><label><span>Name</span><input id="f-name" type="text" autocomplete="name"></label><label><span>Phone</span><input id="f-tel" type="tel" autocomplete="tel"></label><label><span>Email</span><input id="f-mail" type="email" autocomplete="email"></label></div>
+      <label><span>Purpose</span><select id="f-purpose"><option>General</option><option>Services</option><option>Academy</option><option>Recruitment</option><option>Other</option></select></label>
+      <label><span>Message</span><textarea id="f-msg" rows="4"></textarea></label>
+      <p class="err" id="f-err" role="alert" hidden></p>
+      <button class="btn" type="submit">Check the message</button>
+      <p class="done" id="f-done" hidden>This is a sample, so nothing has been sent. On the finished site, this message would go to the salon, just as the current form does.</p>
+    </form>
+  </div>
+</section>
+</main>
+<footer class="foot"><img src="img/logo.svg" width="508" height="81" alt="Sumi Nails" loading="lazy"><p>Level 4, Shop 15, 227 Elizabeth Street, Sydney CBD · (02) 8592 3556</p></footer>
+<nav class="dock" aria-label="Quick actions"><a class="dock-main" href="tel:+61285923556">Call</a><a href="#menu">Menu</a><a href="https://www.google.com/maps/search/?api=1&amp;query=suminails+227+Elizabeth+St+Sydney+NSW+2000" target="_blank" rel="noopener">Directions</a></nav>
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="ds.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
