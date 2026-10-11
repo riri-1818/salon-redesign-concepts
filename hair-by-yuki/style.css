@@ -93,4 +93,10 @@ h1 { font-size: clamp(34px, 9.6vw, 68px); } :lang(ja) h1 { font-size: clamp(27px
   .visit { padding: 112px var(--pad); grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 72px; } .facts > div { grid-template-columns: 9em 1fr; }
   .foot { grid-template-columns: auto 1fr; align-items: center; gap: 32px; padding: 56px var(--pad); }
 }
+/* 2026-10-11 追加：押せるものは、ホバーで色が変わるようにする（指で触る画面では出さない） */
+@media (hover: hover) {
+  .lang:hover { background: var(--blush); color: var(--ink); }
+  .tab:hover { color: var(--ink); border-bottom-color: var(--sand); }
+  .more:hover { color: var(--ink); }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
