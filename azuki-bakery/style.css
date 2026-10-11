@@ -153,4 +153,12 @@ legend { margin-bottom: 6px; }
   .team { position: sticky; top: 110px; }
   .c-grid { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 72px; }
 }
+/* 2026-10-11 追加：押せるものは、ホバーで色が変わるようにする（指で触る画面では出さない） */
+@media (hover: hover) {
+  .seg button:hover { background: var(--sand); }
+  .seg button[aria-pressed="true"]:hover { background: var(--azuki); border-color: var(--azuki); }
+  .pick button:hover { background: var(--sand); }
+  .pick button[aria-selected="true"]:hover { background: var(--azuki); }
+  .now .more:hover, .follow li a:hover, .store dd a:hover { color: var(--azuki); }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
