@@ -1,9 +1,9 @@
 // Nails by Miho（ご提案用の試作）。文言と料金は、いまのサイト（2026-10-11 取得）にあるものだけ。
 const SETS = [
-  ["s1", ["Deep red nails with white marble art and fine gold lines", "深い赤に、白い大理石の模様と細い金の線"], [[28, 46], [62, 40], [74, 62]]],
-  ["s2", ["Blue-grey ombre with gold crescent moons and gold flakes", "青みのグレーのグラデーションに、金の三日月と箔"], [[22, 34], [58, 62], [80, 56]]],
-  ["s3", ["Pastel flowers painted on a sheer base", "透ける下地に描いた、パステルの花"], [[28, 34], [66, 30], [14, 72]]],
-  ["s4", ["Terracotta red with marbled accent nails", "テラコッタの赤に、大理石模様のアクセント"], [[30, 30], [62, 50], [18, 40]]],
+  ["s1", ["Deep red nails with white marble art and fine gold lines", "深い赤に、白い大理石の模様と細い金の線"]],
+  ["s2", ["Blue-grey ombre with gold crescent moons and gold flakes", "青みのグレーのグラデーションに、金の三日月と箔"]],
+  ["s3", ["Pastel flowers painted on a sheer base", "透ける下地に描いた、パステルの花"]],
+  ["s4", ["Terracotta red with marbled accent nails", "テラコッタの赤に、大理石模様のアクセント"]],
 ];
 const WALL = [
   ["g2", "tall", ["Sheer peach marble with gold leaf", "透けるピーチの大理石模様に金箔"]],
@@ -34,50 +34,26 @@ const GROUPS = [
 ];
 const HOURS = [[540, 1260], [540, 1260], [540, 1260], [540, 1260], [540, 1260], [540, 1260], null]; // 月〜日
 const DAYS = [["Monday", "月曜"], ["Tuesday", "火曜"], ["Wednesday", "水曜"], ["Thursday", "木曜"], ["Friday", "金曜"], ["Saturday", "土曜"], ["Sunday", "日曜"]];
-let tab = "mani", cur = 0, picked = [], auto = null;
+let tab = "mani", cur = 0, picked = [];
 
 const dur = (m) => lang === "en" ? (m >= 60 ? `${Math.floor(m / 60)} hr${m % 60 ? ` ${m % 60} min` : ""}` : `${m} min`) : (m >= 60 ? `${Math.floor(m / 60)}時間${m % 60 ? `${m % 60}分` : ""}` : `${m}分`);
 const clock = (m) => { const h = Math.floor(m / 60), mm = String(m % 60).padStart(2, "0"); return lang === "en" ? `${h % 12 || 12}:${mm}${h < 12 ? "am" : "pm"}` : `${h}:${mm}`; };
 const key = (g, i) => `${g}-${i}`;
 
-// ---------- レンズ ----------
-const scope = $("#scope"), lens = $("#lens"), Z = 2.3;
-function place(px, py) {            // px, py は 0〜1
-  const w = scope.clientWidth, h = scope.clientHeight, r = lens.offsetWidth / 2;
-  px = Math.min(1, Math.max(0, px)); py = Math.min(1, Math.max(0, py));
-  lens.style.transform = `translate(${px * w - r}px, ${py * h - r}px)`;
-  lens.style.backgroundSize = `${w * Z}px ${h * Z}px`;
-  lens.style.backgroundPosition = `${-(px * w * Z - r)}px ${-(py * h * Z - r)}px`;
-  scope._p = [px, py];
-}
-function drift() {
-  if (auto) auto.kill();
-  const pts = SETS[cur][2], o = { x: pts[0][0] / 100, y: pts[0][1] / 100 };
-  place(o.x, o.y);
-  if (reduce || !window.gsap) return;
-  auto = gsap.timeline({ repeat: -1, yoyo: true, defaults: { duration: 2.6, ease: "sine.inOut", onUpdate: () => place(o.x, o.y) } });
-  pts.slice(1).forEach((p) => auto.to(o, { x: p[0] / 100, y: p[1] / 100 }, ">0.5"));
-}
-function setPhoto(i, user) {
-  cur = i; const s = SETS[i];
-  $("#sc-img").src = `img/${s[0]}.jpg`; scope.setAttribute("aria-label", t(s[1]));
-  lens.style.backgroundImage = `url(img/${s[0]}.jpg)`;
-  const big = new Image(); big.onload = () => { if (cur === i) lens.style.backgroundImage = `url(img/${s[0]}z.jpg)`; }; big.src = `img/${s[0]}z.jpg`;
+// ---------- 写真の切り替え ----------
+const scope = $("#scope");
+function setPhoto(i) {
+  cur = i; const s = SETS[i], im = $("#sc-img");
+  scope.setAttribute("aria-label", t(s[1])); $("#sc-cap").textContent = t(s[1]);
   $$("#picks button").forEach((b, k) => b.setAttribute("aria-pressed", k === i));
-  if (user && scope._p) { if (auto) auto.kill(); place(...scope._p); } else drift();
+  if (im.getAttribute("src") === `img/${s[0]}.jpg`) return;
+  if (window.gsap && !reduce) gsap.to(im, { opacity: 0, duration: 0.2, onComplete: () => { im.src = `img/${s[0]}.jpg`; gsap.to(im, { opacity: 1, duration: 0.35 }); } });
+  else im.src = `img/${s[0]}.jpg`;
 }
 function picks() {
   $("#picks").innerHTML = SETS.map((s, i) => `<button type="button" data-pick="${i}" aria-pressed="${i === cur}" aria-label="${t(s[1])}"><img src="img/${s[0]}t.jpg" width="240" height="160" alt=""></button>`).join("");
-  scope.setAttribute("aria-label", t(SETS[cur][1]));
+  scope.setAttribute("aria-label", t(SETS[cur][1])); $("#sc-cap").textContent = t(SETS[cur][1]);
 }
-function move(e) {
-  const b = scope.getBoundingClientRect();
-  if (auto) { auto.kill(); auto = null; }
-  place((e.clientX - b.left) / b.width, (e.clientY - b.top) / b.height);
-}
-scope.addEventListener("pointermove", (e) => { if (e.pointerType === "mouse" || e.buttons || e.pointerType === "touch") move(e); });
-scope.addEventListener("pointerdown", move);
-addEventListener("resize", () => scope._p && place(...scope._p));
 
 // ---------- メニュー ----------
 function tabs() {
@@ -124,7 +100,7 @@ function form() {
 }
 
 document.addEventListener("click", (e) => {
-  const p = e.target.closest("[data-pick]"); if (p) return setPhoto(+p.dataset.pick, true);
+  const p = e.target.closest("[data-pick]"); if (p) return setPhoto(+p.dataset.pick);
   const tb = e.target.closest("[data-tab]"); if (tb) { tab = tb.dataset.tab; tabs(); rows(true); return; }
   const go = e.target.closest("[data-go]"); if (go) { tab = go.dataset.go; tabs(); rows(true); }
   const tp = e.target.closest("[data-topic]"); if (tp) { $("#f-svc").value = tp.dataset.topic; }
@@ -153,7 +129,6 @@ if (window.gsap && !reduce) {
   gsap.registerPlugin(ScrollTrigger);
   gsap.from(".hero-head > *", { y: 18, opacity: 0, duration: 0.6, ease: "power2.out", stagger: 0.08, clearProps: "all" });
   gsap.from(".scope", { clipPath: "inset(0 50% 0 50%)", duration: 0.9, ease: "power3.out", delay: 0.15, clearProps: "clipPath" });
-  gsap.from(".lens", { scale: 0, opacity: 0, duration: 0.5, ease: "back.out(1.6)", delay: 0.9 });
   ScrollTrigger.batch(".sec-head, .w-text, .three li, .lp-text, .lp-pics, .portrait, .about-text, .wall li, .form, .visit, .svc-more > *", {
     start: "top 88%", once: true,
     onEnter: (els) => gsap.from(els, { y: 22, opacity: 0, duration: 0.55, ease: "power2.out", stagger: 0.06, clearProps: "all" }),
