@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shizen sushi &amp; more | Japanese eat-in and take-away in Bondi Junction</title>
+<meta name="description" content="Shizen sushi & more: freshly-made sushi, bento boxes and contemporary Japanese dishes in Bondi Junction. Eat in, take away or order delivery.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#c94f4f">
+<link rel="preload" href="fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/dela.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p class="proposal">A design proposal for Shizen sushi &amp; more (not the official website)</p>
+<header class="top">
+  <a class="logo" href="#top" aria-label="Shizen sushi and more, back to the top"><img src="img/logo.png" alt="Shizen sushi &amp; more" width="84" height="40"></a>
+  <nav class="nav" aria-label="Sections"><a href="#menu">Menu</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  <a class="call" href="tel:+61280950305"><span class="call-l">Call</span> (02) 8095 0305</a>
+</header>
+
+<main id="top">
+
+<!-- のれん -->
+<section class="entry" id="entry">
+  <div class="inside">
+    <p class="kick">Bondi Junction · Japanese eat-in &amp; take-away</p>
+    <h1>Fresh Japanese food, <em>an everyday experience.</em></h1>
+    <p class="mean"><b lang="ja">自然</b><span><i>shizen</i> means nature or natural in Japanese.</span><button type="button" class="textbtn" id="again">Walk in again</button></p>
+
+    <div class="how" id="how">
+      <h2>How would you like it today?</h2>
+      <div class="how-t" role="tablist" aria-label="How would you like it today?">
+        <button type="button" role="tab" id="t-in" aria-controls="p-in" aria-selected="true" data-how="in">Eat in</button>
+        <button type="button" role="tab" id="t-away" aria-controls="p-away" aria-selected="false" data-how="away" tabindex="-1">Take away</button>
+        <button type="button" role="tab" id="t-del" aria-controls="p-del" aria-selected="false" data-how="del" tabindex="-1">Delivery</button>
+      </div>
+      <div class="how-p" role="tabpanel" id="p-in" aria-labelledby="t-in">
+        <p>A casual, vibrant setting on a bustling corner of Bondi Junction. Perfect for eating solo, among friends or family mealtimes.</p>
+        <p class="addr">Shop 4/33 Bronte Rd, Bondi Junction NSW 2022</p>
+        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Shizen+sushi+%26+more+33+Bronte+Rd+Bondi+Junction" target="_blank" rel="noopener">Open in Google Maps <span aria-hidden="true">→</span></a><a class="btn ghost" href="#menu">See the menu</a></div>
+      </div>
+      <div class="how-p" role="tabpanel" id="p-away" aria-labelledby="t-away" hidden>
+        <p>Freshly-made sushi, bento boxes and a la carte dishes to take away. Call the shop, then pick up at Shop 4/33 Bronte Rd.</p>
+        <p class="addr">Sushi party platter available on request.</p>
+        <div class="acts"><a class="btn" href="tel:+61280950305">Call (02) 8095 0305 <span aria-hidden="true">→</span></a><a class="btn ghost" href="#menu">See the menu</a></div>
+      </div>
+      <div class="how-p" role="tabpanel" id="p-del" aria-labelledby="t-del" hidden>
+        <p>Order through the delivery service you already use. Each button takes you to Shizen’s page on that service.</p>
+        <div class="acts apps">
+          <a class="btn" href="https://www.ubereats.com/au/store/shizen-sushi-and-more/CYlSu3o9TRa2K5MPHYoVVw" target="_blank" rel="noopener">Go to Uber Eats <span aria-hidden="true">→</span></a>
+          <a class="btn" href="https://www.menulog.com.au/restaurants-shizen-sushi-and-more/menu" target="_blank" rel="noopener">Go to Menulog <span aria-hidden="true">→</span></a>
+          <a class="btn" href="https://deliveroo.com.au/menu/sydney/bondi-junction/shizen-sushi-and-more" target="_blank" rel="noopener">Go to Deliveroo <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cur cur-l" id="cur-l" aria-hidden="true"><span lang="ja">自</span></div>
+  <div class="cur cur-r" id="cur-r" aria-hidden="true"><span lang="ja">然</span></div>
+  <noscript><style>.cur{display:none}</style></noscript>
+</section>
+
+<!-- 品書き -->
+<section class="menu" id="menu">
+  <div class="menu-h">
+    <h2>Menu</h2>
+    <p class="count" aria-live="polite"><b id="m-n">0</b> <span id="m-w">dishes</span></p>
+  </div>
+  <div class="filters" id="filters">
+    <div role="group" aria-label="Price" class="scroll" id="f-price">
+      <button type="button" data-price="any" aria-pressed="true">Any price</button><button type="button" data-price="a" aria-pressed="false">Under $10</button><button type="button" data-price="b" aria-pressed="false">$10 to $20</button><button type="button" data-price="c" aria-pressed="false">Over $20</button>
+    </div>
+    <button type="button" class="vegan" id="f-vegan" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20c0-9 6-15 16-16-1 10-7 16-16 16Zm0 0c3-5 6-8 11-11"/></svg>Vegan only <span id="v-n"></span></button>
+  </div>
+  <div class="cats"><div class="scroll" id="f-cat" role="group" aria-label="Section"></div></div>
+  <div class="board" id="board"></div>
+  <p class="none" id="none" hidden>No dishes match. <button type="button" class="textbtn" id="reset">Show the whole menu</button></p>
+  <p class="legend"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20c0-9 6-15 16-16-1 10-7 16-16 16Zm0 0c3-5 6-8 11-11"/></svg> vegan. Prices in Australian dollars.</p>
+  <div class="platter"><p><b>Sushi party platter</b> available on request.</p><a class="btn" href="tel:+61280950305">Call (02) 8095 0305 <span aria-hidden="true">→</span></a></div>
+</section>
+
+<!-- 店について -->
+<section class="about" id="about">
+  <p class="big" lang="ja" aria-hidden="true">自然</p>
+  <div class="about-b">
+    <h2>About us</h2>
+    <div class="ab"><h3>Our inspiration</h3><p>The co-founders of Shizen sushi &amp; more are from Tokyo Japan, a mecca of top-quality Japanese and international cuisine that is a part of everyday life. We are passionate about bringing that quality and standard to Australia to make contemporary authentic fresh Japanese food an everyday experience for Australians.</p></div>
+    <div class="ab"><h3>Our concept</h3><p>‘Shizen’ (<span lang="ja">自然</span>) means nature or natural in Japanese and was chosen as a reflection of the natural and fresh ingredients used in Japanese cuisine.</p></div>
+    <div class="ab"><h3>Our mission</h3><p>To provide the best high-quality modern Japanese eat-in and take-away sushi and dishes that are fresh and authentic for the everyday Australian lifestyle.</p></div>
+    <div class="ab"><h3>Our offering</h3><ul><li>A range of freshly-made sushi, bento boxes and contemporary Japanese-fusion a la carte menu dishes.</li><li>Convenience of take-away or eat-in in a casual, vibrant setting on a bustling corner of Bondi Junction. Perfect for eating solo, among friends or family mealtimes.</li></ul></div>
+    <p class="sign"><b>Koichi Sakai</b><span>Co-Founder and Head of Operations<br>Shizen sushi &amp; more</span></p>
+  </div>
+</section>
+
+<!-- 連絡 -->
+<section class="contact" id="contact">
+  <div class="c-info">
+    <h2>Contact us</h2>
+    <p class="addr">Shop 4/33 Bronte Rd,<br>Bondi Junction NSW 2022</p>
+    <p>Tel: <a class="link" href="tel:+61280950305">(02) 8095 0305</a></p>
+    <ul class="c-links">
+      <li><a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=Shizen+sushi+%26+more+33+Bronte+Rd+Bondi+Junction" target="_blank" rel="noopener">Open in Google Maps</a></li>
+      <li><a class="link" href="https://www.instagram.com/shizensushiandmore/" target="_blank" rel="noopener">Instagram @shizensushiandmore</a></li>
+      <li><a class="link" href="https://www.ubereats.com/au/store/shizen-sushi-and-more/CYlSu3o9TRa2K5MPHYoVVw" target="_blank" rel="noopener">Uber Eats</a> · <a class="link" href="https://www.menulog.com.au/restaurants-shizen-sushi-and-more/menu" target="_blank" rel="noopener">Menulog</a> · <a class="link" href="https://deliveroo.com.au/menu/sydney/bondi-junction/shizen-sushi-and-more" target="_blank" rel="noopener">Deliveroo</a></li>
+    </ul>
+  </div>
+  <form id="form" novalidate>
+    <h3>Send a message</h3>
+    <label>Name<input id="f-name" autocomplete="name" placeholder="enter your name" required></label>
+    <label>Email<input id="f-mail" type="email" autocomplete="email" placeholder="enter your email" required></label>
+    <label>Subject<input id="f-sub" placeholder="enter the subject"></label>
+    <label>Message<textarea id="f-msg" rows="4" placeholder="enter your message"></textarea></label>
+    <p class="err" id="f-err" role="alert" hidden></p>
+    <button class="btn" type="submit">Write the email <span aria-hidden="true">→</span></button>
+    <p class="fine">This opens your email app, addressed to shizen.sushisydney@gmail.com.</p>
+    <p class="ok" id="f-ok" role="status" hidden>Your email app should now be open. Press send there to finish.</p>
+  </form>
+  <form id="news" novalidate>
+    <h3>Get updates!!</h3>
+    <label>Name<input id="n-name" autocomplete="name" placeholder="enter your name" required></label>
+    <label>Email<input id="n-mail" type="email" autocomplete="email" placeholder="enter your email" required></label>
+    <p class="err" id="n-err" role="alert" hidden></p>
+    <button class="btn ghost" type="submit">Sign up</button>
+    <p class="ok" id="n-ok" role="status" hidden>Thank you. This page is a design sample, so nothing was sent.</p>
+  </form>
+</section>
+
+</main>
+<footer class="foot"><p>COPYRIGHT 2024@SHIZEN | ACN: 639 591 227</p></footer>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="ds.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
