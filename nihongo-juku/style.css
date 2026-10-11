@@ -23,21 +23,22 @@ button { cursor: pointer; }
 
 .proposal { background: var(--deep); color: #fff; font-size: 14px; line-height: 1.5; text-align: center; padding: 7px 16px; }
 
-/* 表紙の色の帯と、見出しタブ */
-.top { position: sticky; top: 0; z-index: 30; background: var(--ink); color: #fff; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 0 28px; padding: 10px max(24px, calc((100vw - 1120px) / 2)) 0; }
+/* 表紙の色の帯と、見出しタブ（1段にまとめる。2026-10-12：2段だと上が重いという指摘） */
+.top { position: sticky; top: 0; z-index: 30; background: var(--ink); color: #fff; display: grid; grid-template-columns: auto 1fr auto; align-items: end; gap: 0 22px; padding: 7px max(24px, calc((100vw - 1120px) / 2)) 0; }
 .top-in { display: contents; }
-.logo { align-self: center; justify-self: start; display: block; background: #fff; border-radius: 6px; padding: 5px 12px 5px 8px; margin-bottom: 10px; transition: transform .2s; }
-.logo img { width: 190px; }
-.words { grid-column: 2; grid-row: 1; justify-self: end; align-self: center; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #cfd8ee; margin-bottom: 6px; }
-.words b { color: #fff; font-size: 16px; }
+.logo { grid-column: 1; grid-row: 1; align-self: center; display: block; background: #fff; border-radius: 5px; padding: 3px 9px 3px 6px; margin-bottom: 7px; transition: transform .2s; }
+.logo .l-full { width: 132px; }
+.logo .l-mark { display: none; }
+.words { grid-column: 3; grid-row: 1; justify-self: end; align-self: center; display: flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; color: #cfd8ee; margin-bottom: 7px; white-space: nowrap; }
+.words b { color: #fff; font-size: 15px; }
 .w-done { color: var(--hi); display: none; }
 .words.done .w-done { display: inline; }
-.hana { width: 34px; height: 34px; flex: none; }
-.hana path { fill: none; stroke: #ff6a5c; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .8s cubic-bezier(.6, 0, .2, 1); }
+.hana { width: 26px; height: 26px; flex: none; }
+.hana path { fill: none; stroke: #ff6a5c; stroke-width: 3.6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .8s cubic-bezier(.6, 0, .2, 1); }
 .words.done .hana .h2 { stroke-dashoffset: 0; transition-delay: .5s; }
-.tabs { grid-column: 1 / -1; display: flex; gap: 5px; margin-top: 2px; }
-.tabs a { display: grid; justify-items: center; gap: 0; min-width: 104px; padding: 7px 16px 8px; border-radius: 10px 10px 0 0; background: var(--tab); color: #dfe6f7; text-decoration: none; line-height: 1.25; transition: background .2s, color .2s, transform .2s; }
-.tabs a span { font: 600 20px/1.2 var(--fj); }
+.tabs { grid-column: 2; grid-row: 1; display: flex; gap: 4px; }
+.tabs a { display: flex; align-items: baseline; gap: 7px; padding: 10px 15px 11px; border-radius: 9px 9px 0 0; background: var(--tab); color: #dfe6f7; text-decoration: none; line-height: 1.25; white-space: nowrap; transition: background .2s, color .2s, transform .2s; }
+.tabs a span { font: 600 17px/1.25 var(--fj); }
 .tabs a b { font-size: 14px; font-weight: 600; }
 .tabs a[aria-current="page"] { background: var(--desk); color: var(--ink); }
 .tabs a[aria-current="page"] span { color: var(--red); }
@@ -237,13 +238,15 @@ details[open] summary::after { transform: rotate(45deg); }
 }
 @media (max-width: 640px) {
   body { font-size: 16.5px; }
-  .top { position: sticky; top: -58px; padding: 8px 10px 0; gap: 0 12px; }
-  .logo { margin-bottom: 8px; padding: 4px 9px 4px 6px; }
-  .logo img { width: 150px; }
-  .w-done { display: none !important; }
-  .tabs { gap: 3px; }
-  .tabs a { flex: 1; min-width: 0; padding: 6px 2px 7px; border-radius: 8px 8px 0 0; }
-  .tabs a span { font-size: 18px; }
+  .top { grid-template-columns: auto 1fr auto; padding: 6px 8px 0; gap: 0 6px; }
+  .logo { padding: 2px; margin-bottom: 6px; border-radius: 50%; overflow: hidden; }
+  .logo .l-full { display: none; }
+  .logo .l-mark { display: block; width: 34px; height: 34px; border-radius: 50%; }
+  .words { margin-bottom: 6px; }
+  .words > span { display: none !important; }
+  .tabs { gap: 2px; justify-content: space-between; }
+  .tabs a { flex-direction: column; align-items: center; gap: 0; padding: 5px 6px 6px; border-radius: 7px 7px 0 0; }
+  .tabs a span { font-size: 16px; }
   main { padding: 12px 0 4px; }
   .page { padding: 30px 20px 40px 30px; margin-bottom: 12px; border-radius: 0; }
   .page::before { left: 14px; }
