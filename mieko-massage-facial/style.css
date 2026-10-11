@@ -215,4 +215,11 @@ section { padding: 76px var(--pad); }
   .why { grid-template-columns: repeat(3, 1fr); }
   .c-grid { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 80px; }
 }
+/* 2026-10-11 追加：押せるものは、ホバーで色が変わるようにする（指で触る画面では出さない） */
+@media (hover: hover) {
+  .chips button:hover { background: var(--pale); }
+  .chips button[aria-pressed="true"]:hover { background: var(--clay); border-color: var(--clay); }
+  .svc summary:hover .s-name b, .qa summary:hover, .fulls summary:hover { color: var(--clay); }
+  .link:hover { color: var(--sumi); }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
