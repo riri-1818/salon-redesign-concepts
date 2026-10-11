@@ -133,4 +133,9 @@ section { padding: 72px var(--pad); }
   .c-grid { grid-template-columns: 1fr 1fr; gap: 72px; }
   .form { padding: 34px 30px; }
 }
+/* 2026-10-11 追加：押せるものは、ホバーで色が変わるようにする（指で触る画面では出さない） */
+@media (hover: hover) {
+  .tier button:hover { background: var(--stone); }
+  .tier button[aria-pressed="true"]:hover { background: var(--sun); border-color: var(--sun); }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
