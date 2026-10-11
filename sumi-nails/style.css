@@ -154,4 +154,11 @@ legend { font: 600 14px var(--fh); letter-spacing: .2em; text-transform: upperca
   .four { grid-template-columns: repeat(4, 1fr); }
   .c-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 72px; }
 }
+/* 2026-10-11 追加：押せるものは、ホバーで色が変わるようにする（指で触る画面では出さない） */
+@media (hover: hover) {
+  .time button:hover { background: var(--pink); }
+  .time button[aria-pressed="true"]:hover { background: var(--ink); border-color: var(--ink); }
+  .tabs button:hover { color: var(--rose-d); border-bottom-color: var(--pink); }
+  .link:hover { color: var(--ink); }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
