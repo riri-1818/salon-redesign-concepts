@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menu | RaRa Ramen</title>
+<meta name="description" content="The RaRa Ramen menu: snacks, ramen, mazesoba and rice bowls, drinks and merch, with prices for Redfern and Randwick.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#121212">
+<link rel="preload" href="../fonts/rb.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/mr.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body data-page="menu" data-up="../">
+<p class="proposal">Preview of a new RaRa Ramen website. This is not the official website yet.</p>
+<header class="top">
+  <a class="brand" href="../" aria-label="RaRa Ramen, home"><img src="../img/logo.png" width="600" height="208" alt="RaRa"></a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="../menu/" aria-current="page">Menu</a>
+    <a href="../locations/">Locations</a>
+    <a href="../bookings/">Bookings</a>
+    <a href="../rara-gift-cards/">Gift cards</a>
+    <a href="../insta-feed/">Instagram</a>
+  </nav>
+  <div class="loc" role="radiogroup" aria-label="Your RaRa">
+    <button type="button" role="radio" aria-checked="true" data-loc="redfern">Redfern</button><button type="button" role="radio" aria-checked="false" data-loc="randwick">Randwick</button>
+  </div>
+  <a class="hd-cta" href="../bookings/">Book a table</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span class="bars" aria-hidden="true"></span><span class="sr">Menu</span></button>
+</header>
+<main id="main">
+
+<section class="phead">
+  <p class="kicker">Menu</p>
+  <h1 class="ph1">The menu</h1>
+  <p class="phead__p">Our takeaway menu, from our online ordering pages. Items marked with a store name are only at that RaRa. <span class="fine">Updated 16 October 2026.</span></p>
+  <div class="locbtns "><a class="btn btn--red" href="#" data-href="order" target="_blank" rel="noopener">Go to order page <svg class="ext" aria-hidden="true"><use href="#ext"/></svg></a><a class="btn btn--line" href="#" data-href="book" target="_blank" rel="noopener">Go to booking page <svg class="ext" aria-hidden="true"><use href="#ext"/></svg></a></div>
+</section>
+<nav class="cats" id="cats" aria-label="Menu sections"></nav>
+<div class="menu" id="menu"></div>
+<section class="notes">
+  <p><b>Seasoned eggs</b> contain fish, soy and mushroom.</p>
+  <p><b>Gyoza</b> may contain tree nuts.</p>
+  <p><b>Chicken Karaage</b> is a GF dish but not coeliac safe, due to soy sauce in the seasoning.</p>
+</section>
+<section class="finder finder--menu" id="finder" aria-labelledby="finder-h">
+  <div class="finder__q">
+    <h2 class="h2" id="finder-h">Find your bowl</h2>
+    <p class="finder__step" id="f-step1">How do you like it?</p>
+    <div class="opts" id="f-a" role="radiogroup" aria-labelledby="f-step1">
+      <button type="button" role="radio" aria-checked="false" data-a="pork">Rich pork broth</button>
+      <button type="button" role="radio" aria-checked="false" data-a="chicken">Creamy chicken broth</button>
+      <button type="button" role="radio" aria-checked="false" data-a="vegan">Plant-based</button>
+      <button type="button" role="radio" aria-checked="false" data-a="maze">No broth, mix it</button>
+      <button type="button" role="radio" aria-checked="false" data-a="rice">Rice, not noodles</button>
+    </div>
+    <p class="finder__step" id="f-step2" hidden>And&hellip;</p>
+    <div class="opts" id="f-b" role="radiogroup" aria-labelledby="f-step2" hidden></div>
+  </div>
+  <div class="finder__a" id="f-out" aria-live="polite"><p class="finder__hint">Pick an answer and we will point you to a bowl.</p></div>
+</section>
+</main>
+<footer class="foot">
+  <div class="foot__brand"><img src="../img/logo.png" width="600" height="208" alt="RaRa" loading="lazy"><p>Ramen crafted with intention, not imitation. Est. 2018.</p></div>
+  <div class="foot__col"><h2>Redfern</h2><p>66b Regent St<br>Redfern NSW 2016</p><a href="../locations/#redfern">Hours &amp; map</a></div>
+  <div class="foot__col"><h2>Randwick</h2><p>Shop 1/162-164 Barker St<br>Randwick NSW 2031</p><a href="../locations/#randwick">Hours &amp; map</a></div>
+  <div class="foot__col"><h2>Say hello</h2><p><a href="mailto:hello@rararedfern.com.au?subject=Contact%20the%20RaRa%20team">hello@rararedfern.com.au</a></p>
+    <p class="social"><a href="https://www.instagram.com/rara__ramen" target="_blank" rel="noopener">Instagram</a> <a href="https://www.tiktok.com/@rara__ramen" target="_blank" rel="noopener">TikTok</a> <a href="https://www.facebook.com/rararedfern/" target="_blank" rel="noopener">Facebook</a></p></div>
+  <p class="foot__c">&copy; Copyright RaRa Ramen</p>
+</footer>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ext" viewBox="0 0 16 16"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol></svg>
+<script src="../vendor/gsap.min.js" defer></script>
+<script src="../vendor/ScrollTrigger.min.js" defer></script>
+<script src="../vendor/Flip.min.js" defer></script>
+<script src="../vendor/SplitText.min.js" defer></script>
+<script src="../data.js" defer></script>
+<script src="../app.js" defer></script>
+</body>
+</html>
