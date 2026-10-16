@@ -94,7 +94,7 @@ html.op .top, html.op .hero { visibility: hidden; }
 .pill { font: 700 14px/1 var(--f); padding: 7px 10px; border-radius: 99px; background: #4a3633; color: #e6d6d3; white-space: nowrap; }
 .pill--open { background: #7bd389; color: #10260f; }
 .pill--soon { background: var(--bake); color: var(--ink); }
-.tag { font: 700 13px/1 var(--f); letter-spacing: .06em; text-transform: uppercase; color: var(--pink); }
+.tag { font: 700 14px/1 var(--f); letter-spacing: .06em; text-transform: uppercase; color: var(--pink); }
 .st__more { display: none; padding: 4px 6px 18px; }
 .st.is-open .st__more { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px 24px; align-items: start; }
 .st.is-open .st__btn { background: #3a2826; }
