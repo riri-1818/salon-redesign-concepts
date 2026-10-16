@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lode Pies &amp; Pastries | Pies and pastries in Surry Hills, Sydney CBD, North Sydney, Rozelle and Chatswood</title>
+<meta name="description" content="Wagyu beef pies, croissants, bombolone and sourdough, baked daily. Five Lode stores in Surry Hills, Sydney CBD, North Sydney, Rozelle and Chatswood.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f1d4d1">
+<link rel="preload" href="fonts/jo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js");if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("op");</script>
+</head>
+<body>
+<p class="proposal">A design proposal for Lode Pies &amp; Pastries. This is not the official website.</p>
+
+<header class="top">
+  <a class="brand" href="#top" aria-label="Lode Pies &amp; Pastries, back to top"><img src="img/logo.jpg" width="600" height="600" alt=""><span>Pies &amp; Pastries</span></a>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="#stores">Stores</a>
+    <a href="#case">Menu</a>
+    <a href="#box">Pastry box</a>
+    <a href="#drinks">Drinks</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="hd-cta" href="https://www.lodepies.com/s/order" target="_blank" rel="noopener">Go to order page <span aria-hidden="true">&nearr;</span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span class="bars" aria-hidden="true"></span><span class="sr">Menu</span></button>
+</header>
+
+<div class="opening" aria-hidden="true"><div class="op__logo"><i class="q q1"></i><i class="q q2"></i><i class="q q3"></i><i class="q q4"></i></div></div>
+
+<main id="main">
+
+<!-- ================= HERO：いま開いている Lode ================= -->
+<section class="hero" id="top">
+  <div class="hero__txt">
+    <p class="kicker">Pies &amp; pastries &middot; 5 Sydney stores</p>
+    <h1 class="hero__h">Layers of <em>goodness</em>, baked every day.</h1>
+    <p class="hero__p">Wagyu beef pies, croissants and bombolone at Surry Hills, Sydney CBD, North Sydney, Rozelle and Chatswood.</p>
+    <figure class="hero__ph"><img src="img/m05.jpg" width="900" height="1200" alt="A Pistachio X: croissant dough with pistachio cream and caramelised pistachio" fetchpriority="high"></figure>
+  </div>
+  <div class="board" id="stores" aria-labelledby="board-h">
+    <div class="board__head">
+      <h2 id="board-h">Which Lode is open?</h2>
+      <p class="board__now"><span class="dot" aria-hidden="true"></span><span id="now-clock">&nbsp;</span> in Sydney</p>
+    </div>
+    <ol class="stores" id="store-list"></ol>
+    <p class="board__fine">Times from our store pages. Public holidays may differ.</p>
+  </div>
+</section>
+
+<div class="sour" aria-label="Now making and baking sourdough, available every day at Rozelle and Chatswood">
+  <div class="sour__track" aria-hidden="true">
+    <span>Now making &amp; baking sourdough</span><span>Available every day @ Rozelle &amp; Chatswood</span><span>Now making &amp; baking sourdough</span><span>Available every day @ Rozelle &amp; Chatswood</span><span>Now making &amp; baking sourdough</span><span>Available every day @ Rozelle &amp; Chatswood</span>
+  </div>
+</div>
+
+<!-- ================= SHOWCASE ================= -->
+<section class="case" id="case">
+  <div class="case__head">
+    <div>
+      <p class="kicker">The menu</p>
+      <h2 class="h2">In the case today</h2>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Filter the menu">
+      <button type="button" role="tab" aria-selected="true" data-g="all">All <small>16</small></button>
+      <button type="button" role="tab" aria-selected="false" data-g="pies">Pies &amp; rolls</button>
+      <button type="button" role="tab" aria-selected="false" data-g="pastry">Croissant &amp; co</button>
+      <button type="button" role="tab" aria-selected="false" data-g="sweet">Sweet</button>
+    </div>
+  </div>
+  <ul class="tray" id="tray"></ul>
+  <p class="case__fine">Prices from our online ordering page (pick-up at Rozelle).</p>
+</section>
+
+<dialog class="drawer" id="drawer" aria-labelledby="dr-n">
+  <div class="drawer__in">
+    <button type="button" class="drawer__x" id="dr-x" aria-label="Close">&times;</button>
+    <figure class="drawer__ph" id="dr-ph"></figure>
+    <div class="drawer__txt">
+      <p class="drawer__g" id="dr-g"></p>
+      <h3 class="drawer__n" id="dr-n"></h3>
+      <p class="drawer__d" id="dr-d"></p>
+      <p class="drawer__p" id="dr-p"></p>
+      <a class="btn btn--ink" href="https://www.lodepies.com/s/order" target="_blank" rel="noopener">Go to order page <span aria-hidden="true">&nearr;</span></a>
+    </div>
+  </div>
+</dialog>
+
+<!-- ================= PASTRY BOX ================= -->
+<section class="box" id="box">
+  <div class="box__card">
+    <p class="kicker kicker--inv">Pre-order and pick-up</p>
+    <h2 class="h2 h2--inv">Celebration <em>Pastry Box</em></h2>
+    <p class="box__p">This week&rsquo;s box contains&hellip;</p>
+    <ol class="box__list" id="box-list">
+      <li><span>01</span>Bombolone with Vanilla Custard</li>
+      <li><span>02</span>LoDe Cookie</li>
+      <li><span>03</span>Pistachio Croissant</li>
+      <li><span>04</span>Let&rsquo;s Apple Krumble Tart</li>
+    </ol>
+    <div class="box__foot"><p class="box__price">$35</p><a class="btn btn--pink" href="https://www.lodepies.com/s/order" target="_blank" rel="noopener">Pre-order on the order page <span aria-hidden="true">&nearr;</span></a></div>
+  </div>
+  <figure class="box__ph"><img src="img/ig07.jpg" width="480" height="640" alt="A layered pastry being cut on a Lode plate" loading="lazy"></figure>
+  <figure class="box__ph box__ph--b"><img src="img/ig14.jpg" width="480" height="640" alt="A raspberry pastry on pink paper" loading="lazy"></figure>
+</section>
+
+<!-- ================= DRINKS ================= -->
+<section class="drinks" id="drinks">
+  <div class="drinks__head">
+    <p class="kicker">Coffee &amp; matcha</p>
+    <h2 class="h2">Something to go with it</h2>
+    <p>Prices shown as small &ndash; large where there are two sizes. Tap a drink for the description.</p>
+  </div>
+  <div class="drinks__cols">
+    <div><h3 class="h3">Coffee &amp; more</h3><ul class="dlist" id="d-coffee"></ul></div>
+    <div><h3 class="h3">Matcha &amp; iced</h3><ul class="dlist" id="d-iced"></ul>
+      <figure class="drinks__ph"><img src="img/ig09.jpg" width="480" height="640" alt="Chocolate croissants on a Lode wrapper" loading="lazy"></figure></div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gal" id="gallery">
+  <div class="gal__head"><p class="kicker">@lode_pies</p><h2 class="h2">Layers of goodness</h2>
+    <a class="btn btn--line" href="https://www.instagram.com/lode_pies" target="_blank" rel="noopener">Follow on Instagram <span aria-hidden="true">&nearr;</span></a></div>
+  <div class="gal__grid">
+    <img src="img/ig16.jpg" width="484" height="640" alt="Trays of croissants with a Lode trading hours tag" loading="lazy">
+    <img src="img/ig06.jpg" width="360" height="640" alt="A customer holding a Lode paper bag" loading="lazy">
+    <img src="img/ig15.jpg" width="512" height="640" alt="A savoury pastry with spinach on pink marble" loading="lazy">
+    <img src="img/ig11.jpg" width="361" height="640" alt="A filled doughnut broken open" loading="lazy">
+    <img src="img/ig13.jpg" width="361" height="640" alt="Hands pulling apart a filled pastry" loading="lazy">
+    <img src="img/ig08.jpg" width="360" height="640" alt="A customer eating at a Lode table" loading="lazy">
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="contact__l">
+    <p class="kicker">Contact us</p>
+    <h2 class="h2">Say hello</h2>
+    <p>Reach out to us and let us know if there is anything we can do for you.</p>
+    <dl class="info">
+      <div><dt>Email</dt><dd><a href="mailto:hello@lodepies.com">hello@lodepies.com</a></dd></div>
+      <div><dt>Rozelle</dt><dd><a href="tel:+61298187289">(02) 9818 7289</a></dd></div>
+      <div><dt>Follow</dt><dd><a href="https://www.instagram.com/lode_pies" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.facebook.com/lodepies" target="_blank" rel="noopener">Facebook</a></dd></div>
+    </dl>
+  </div>
+  <div class="contact__r">
+    <form class="form" id="form" novalidate>
+      <label class="fld"><span>Your name *</span><input name="name" autocomplete="name" required></label>
+      <label class="fld"><span>Email *</span><input name="email" type="email" autocomplete="email" required></label>
+      <label class="fld"><span>Your Lode</span><select name="store" id="f-store"><option value="">Any store</option></select></label>
+      <label class="fld"><span>Message *</span><textarea name="msg" rows="4" required></textarea></label>
+      <p class="err" id="f-err" role="alert" hidden>Please fill in the fields marked with *.</p>
+      <button class="btn btn--ink" type="submit">Write the email</button>
+      <p class="fine">This is a sample, so the button opens your email app with the message ready to send to Lode.</p>
+    </form>
+    <form class="loop" id="loop" novalidate>
+      <p class="loop__h">Stay in the loop</p>
+      <div class="loop__row"><label class="sr" for="loop-e">Email</label><input id="loop-e" name="email" type="email" placeholder="Your email" autocomplete="email"><button class="btn btn--pink" type="submit">Sign up</button></div>
+      <p class="fine" id="loop-msg" aria-live="polite">News and new pastries, straight to your inbox.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <img src="img/logo.jpg" width="600" height="600" alt="Lode" loading="lazy">
+  <p>lode pies and pastries PTY LTD &middot; &copy; 2026</p>
+  <p>A design proposal: text, prices and photos are from the current Lode website, online ordering page and Instagram.</p>
+</footer>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/Flip.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="data.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
