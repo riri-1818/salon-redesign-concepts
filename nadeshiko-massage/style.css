@@ -103,6 +103,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .row__n em { display: inline-block; margin-left: 8px; padding: 1px 7px; border: 1px solid var(--moss); font: 600 14px/1.4 var(--sans); font-style: normal; color: var(--moss); vertical-align: 3px; }
 .row__n em.new { border-color: var(--rose); color: var(--rose); }
 .row__t { display: grid; gap: 4px; font-size: 14px; color: var(--soft); }
+.row__t small { font-size: 14px; }
 .ruler { position: relative; display: block; height: 8px; background: repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px calc(100% / 8)), linear-gradient(var(--line), var(--line)) 0 50% / 100% 1px no-repeat; }
 .ruler b { position: absolute; top: 1px; bottom: 1px; left: calc(var(--a) * 100%); width: calc((var(--b) - var(--a)) * 100%); min-width: 6px; background: var(--moss); }
 .row__p { text-align: right; font: 600 22px/1 var(--serif); white-space: nowrap; }
