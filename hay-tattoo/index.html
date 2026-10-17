@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hay Tattoo | Tattoo studio in Haymarket, Sydney</title>
+<meta name="description" content="Hay Tattoo, Shop s8 Sussex Centre, 401 Sussex St, Haymarket. Six artists, open every day 11am to 7pm. Book by email or Instagram.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#111111">
+<link rel="preload" href="fonts/lg.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/sg.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js");if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&(!location.hash||location.hash==="#/"))document.documentElement.classList.add("op");</script>
+</head>
+<body>
+<p class="proposal">A design proposal for Hay Tattoo. This is not the official website.</p>
+
+<header class="top">
+  <a class="brand" href="#/" aria-label="Hay Tattoo, home"><img src="img/logo.jpg" width="315" height="400" alt=""><span>Hay Tattoo</span></a>
+  <nav class="nav" id="nav" aria-label="Pages">
+    <a href="#/flash">Flash</a>
+    <a href="#/artists">Artists</a>
+    <a href="#/info">FAQ &amp; care</a>
+  </nav>
+  <a class="hd-cta" href="#/book">Book a tattoo</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span class="bars" aria-hidden="true"></span><span class="sr">Menu</span></button>
+</header>
+
+<div class="opening" aria-hidden="true"><img src="img/logo.jpg" width="315" height="400" alt=""></div>
+
+<main id="main">
+
+<!-- ================= HOME ================= -->
+<section class="view" id="v-home" data-title="Tattoo studio in Haymarket, Sydney">
+  <div class="hero">
+    <div class="hero__txt">
+      <p class="kicker">Hay Tattoo &middot; Haymarket, Sydney</p>
+      <h1 class="hero__h">Get your ink<br>started <span class="red">here.</span></h1>
+      <p class="hero__p">Six artists, sixty designs to choose from, open every day. Let&rsquo;s have fun.</p>
+      <div class="hero__act"><a class="btn btn--ink" href="#/book">Book a tattoo</a><a class="txtlink" href="#/flash">See the flash</a></div>
+    </div>
+    <div class="wall-mini" id="wall-mini" aria-label="Some of our flash"></div>
+  </div>
+  <ul class="facts">
+    <li><b id="open-now">Open every day</b><span>Mon &ndash; Sun: 11am &ndash; 7pm</span></li>
+    <li><b>From $120</b><span>Our minimum charge for a tattoo</span></li>
+    <li><b>Cash only</b><span>There are ATMs nearby</span></li>
+    <li><b>Sussex Centre</b><span>Shop s8, 401 Sussex St, Haymarket</span></li>
+  </ul>
+  <section class="crew">
+    <div class="crew__head"><h2 class="h2">The artists</h2><p>Check ink. Pick an artist to see their flash and Instagram.</p></div>
+    <ul class="crew__list" id="crew"></ul>
+  </section>
+  <section class="steps">
+    <h2 class="h2">How to book</h2>
+    <ol>
+      <li><b>01</b><h3>Tell us your idea</h3><p>Size in cm, placement on body, a description, reference pictures and your day preference.</p></li>
+      <li><b>02</b><h3>We send availability</h3><p>We will send through our availabilities based on your preference, and a rough estimate if you ask.</p></li>
+      <li><b>03</b><h3>Pay a deposit</h3><p>A deposit holds your session time. Deposits are non-refundable and non-transferable.</p></li>
+    </ol>
+    <a class="btn btn--red" href="#/book">Write my booking request</a>
+  </section>
+</section>
+
+<!-- ================= FLASH ================= -->
+<section class="view" id="v-flash" data-title="Flash">
+  <header class="vhead"><p class="kicker">Check ink</p><h2 class="vh">The flash wall</h2><p class="vp">Designs from all six artists. Tap one to see it larger, or book with it.</p></header>
+  <div class="chips" role="tablist" aria-label="Filter by artist" id="flash-chips"></div>
+  <div class="wall" id="wall"></div>
+</section>
+
+<dialog class="lb" id="lb" aria-labelledby="lb-a">
+  <button type="button" class="lb__x" id="lb-x" aria-label="Close" autofocus>&times;</button>
+  <figure class="lb__fig"><img id="lb-img" src="img/f/mojo01.jpg" alt=""></figure>
+  <div class="lb__bar">
+    <p class="lb__a" id="lb-a"></p>
+    <div class="lb__nav"><button type="button" class="sq sq--inv" data-lb="-1" aria-label="Previous design">&larr;</button><button type="button" class="sq sq--inv" data-lb="1" aria-label="Next design">&rarr;</button></div>
+    <a class="btn btn--red" href="#/book" id="lb-book">Book this design</a>
+  </div>
+</dialog>
+
+<!-- ================= ARTISTS ================= -->
+<section class="view" id="v-artists" data-title="Artists">
+  <header class="vhead"><p class="kicker">Let&rsquo;s have fun</p><h2 class="vh">The artists</h2></header>
+  <div class="artist" id="artist">
+    <div class="artist__tabs" role="tablist" aria-label="Artists" id="artist-tabs"></div>
+    <div class="artist__body">
+      <figure class="artist__ph"><img id="ar-img" src="img/p-mojo.jpg" width="700" height="700" alt=""></figure>
+      <div class="artist__txt">
+        <h3 class="artist__n" id="ar-n"></h3>
+        <p class="artist__c" id="ar-c"></p>
+        <a class="txtlink" id="ar-ig" href="https://www.instagram.com/hay_tattoo/" target="_blank" rel="noopener">Instagram page</a>
+        <a class="btn btn--ink" href="#/book" id="ar-book">Book with this artist</a>
+      </div>
+      <div class="artist__works" id="ar-works"></div>
+    </div>
+    <p class="vp">This is just the beginning. Call us to discuss your tattoo dreams: <a class="txtlink" href="tel:+61279016052">(02) 7901 6052</a></p>
+  </div>
+</section>
+
+<!-- ================= BOOK ================= -->
+<section class="view" id="v-book" data-title="Book a tattoo">
+  <header class="vhead"><p class="kicker">Get your new ink</p><h2 class="vh">Booking request</h2><p class="vp">To make things easier, please send us a message with the following information. Fill it in here and we&rsquo;ll write the message for you.</p></header>
+  <div class="book">
+    <form class="bform" id="bform" novalidate>
+      <fieldset class="row"><legend>Artist</legend><div class="chips chips--sm" id="b-artist"></div></fieldset>
+      <div class="row">
+        <label for="b-size" class="lab">Size in cm <span class="val"><output id="b-size-out">8</output> cm</span></label>
+        <input type="range" id="b-size" name="size" min="2" max="40" value="8">
+        <div class="ruler" id="ruler" aria-hidden="true"></div>
+      </div>
+      <fieldset class="row"><legend>Placement on body</legend><div class="chips chips--sm" id="b-place"></div>
+        <label class="fld fld--sm"><span class="sr">Other placement</span><input name="placeOther" placeholder="Somewhere else? Type it here"></label></fieldset>
+      <label class="row fld"><span class="lab">Description of your idea *</span><textarea name="idea" rows="4" required placeholder="What would you like? Style, colours, meaning..."></textarea></label>
+      <div class="row ref"><span class="lab">Reference pictures</span><p>Highly recommended, it makes us understand your idea better. Attach them to your email or Instagram message.</p><p class="ref__d" id="ref-d" hidden></p></div>
+      <fieldset class="row"><legend>Day preference</legend><div class="chips chips--sm" id="b-day"></div></fieldset>
+      <label class="row fld"><span class="lab">Your name *</span><input name="name" autocomplete="name" required></label>
+      <p class="err" id="b-err" role="alert" hidden>Please add a description of your idea and your name.</p>
+    </form>
+    <aside class="msg">
+      <p class="msg__k">Your message</p>
+      <pre class="msg__t" id="msg-t" aria-live="polite"></pre>
+      <div class="msg__act">
+        <button type="button" class="btn btn--red" id="send-mail">Email it to the shop</button>
+        <button type="button" class="btn btn--line btn--inv" id="send-ig">Copy &amp; open Instagram</button>
+      </div>
+      <p class="msg__fine" id="msg-fine">This is a sample. Email opens your email app addressed to haytattoo.syd@gmail.com. Instagram copies the message so you can paste it into a DM to @hay_tattoo.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= INFO ================= -->
+<section class="view" id="v-info" data-title="FAQ, aftercare and visit">
+  <header class="vhead"><p class="kicker">Somethings you may want to know</p><h2 class="vh">FAQ &amp; care</h2></header>
+  <div class="money">
+    <div><b>$120</b><span>Our minimum charge for a tattoo</span></div>
+    <div><b>Deposit</b><span>Required to hold your session time. Non-refundable and non-transferable.</span></div>
+    <div><b>Cash only</b><span>There are ATMs nearby for your convenience.</span></div>
+  </div>
+  <div class="faq">
+    <details open><summary>How do I make a booking?</summary><p>You can make a booking by emailing the shop (<a class="txtlink" href="mailto:haytattoo.syd@gmail.com">haytattoo.syd@gmail.com</a>) or sending a direct message via Instagram (<a class="txtlink" href="https://www.instagram.com/hay_tattoo/" target="_blank" rel="noopener">@hay_tattoo</a>).</p><p>Make sure to specify the size, placement and design of your new tattoo. Include any reference photos you may have as inspiration.</p></details>
+    <details><summary>Do I need a deposit for the booking?</summary><p>Yes, to make a booking a deposit is required to hold your session time. Deposits are non-refundable and non-transferable.</p></details>
+    <details><summary>How much do tattoos cost?</summary><p>Our minimum charge for a tattoo is $120.</p><p>Tattoos vary in price depending on the size and detail, but you can ask the artist for a rough estimate of the price prior to the appointment. In order to get a quote make sure to specify the size, placement and design of your new tattoo. Include any reference photos you may have as inspiration.</p></details>
+    <details><summary>How to care for your new tattoo?</summary><p>Care instructions vary from artist to artist so make sure you follow the advice given specifically to you.</p><p>General care includes the application of anti-septic cream at least 3 times daily for 2&ndash;3 weeks, avoid alcohol for 2 days after and avoid swimming for 2 weeks post tattoo.</p></details>
+    <details><summary>About the payment.</summary><p>We are cash only, there are ATMs nearby for your convenience.</p></details>
+  </div>
+  <section class="care" aria-labelledby="care-h">
+    <h3 class="h3" id="care-h">General care, day by day</h3>
+    <p class="vp">Follow the advice your artist gives you first. This is the general care from our FAQ.</p>
+    <div class="care__track" id="care">
+      <div class="care__axis"><span style="--d:0">Day 0</span><span style="--d:7">1 week</span><span style="--d:14">2 weeks</span><span style="--d:21">3 weeks</span></div>
+      <div class="care__bar" style="--a:0;--b:21" data-k="cream"><i style="--a:0;--b:14"></i><span>Anti-septic cream, at least 3 times daily, for 2&ndash;3 weeks</span></div>
+      <div class="care__bar" style="--a:0;--b:2" data-k="alcohol"><span>Avoid alcohol, 2 days</span></div>
+      <div class="care__bar" style="--a:0;--b:14" data-k="swim"><span>No swimming, 2 weeks</span></div>
+    </div>
+  </section>
+  <section class="visit">
+    <div>
+      <h3 class="h3">We are here</h3>
+      <p class="addr">Shop s8, Sussex Centre<br>401 Sussex Street, Haymarket 2000</p>
+      <p>Opening hours: Mon &ndash; Sun, 11am &ndash; 7pm</p>
+      <a class="btn btn--ink" href="https://www.google.com/maps/search/?api=1&amp;query=Hay+Tattoo+401+Sussex+St+Haymarket" target="_blank" rel="noopener">Get directions <span aria-hidden="true">&nearr;</span></a>
+    </div>
+    <dl class="info">
+      <div><dt>Email</dt><dd><a href="mailto:haytattoo.syd@gmail.com">haytattoo.syd@gmail.com</a></dd></div>
+      <div><dt>Phone</dt><dd><a href="tel:+61279016052">(02) 7901 6052</a></dd></div>
+      <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/hay_tattoo/" target="_blank" rel="noopener">@hay_tattoo</a></dd></div>
+    </dl>
+  </section>
+</section>
+</main>
+
+<footer class="foot">
+  <img src="img/logo.jpg" width="315" height="400" alt="Hay Tattoo" loading="lazy">
+  <p>Hay Tattoo &middot; Shop s8, Sussex Centre, 401 Sussex St, Haymarket 2000 &middot; Open every day 11am &ndash; 7pm</p>
+  <p>A design proposal: text and designs are from the current Hay Tattoo website.</p>
+</footer>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/Flip.min.js" defer></script>
+<script src="data.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
