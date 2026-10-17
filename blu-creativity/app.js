@@ -89,7 +89,7 @@
   // ---------- 今日の営業 ----------
   const D = [["Mon", "11:00–20:00"], ["Tue", "11:00–20:00"], ["Wed", "11:00–20:00"], ["Thu", "11:00–20:00"], ["Fri", "11:00–20:00"], ["Sat", "10:00–18:00"], ["Sun", "10:00–18:00"]];
   const wd = new Intl.DateTimeFormat("en-AU", { timeZone: "Australia/Sydney", weekday: "short" }).format(new Date()).slice(0, 3);
-  $("#days").innerHTML = D.map(([d, h]) => `<div class="day${d === wd ? " today" : ""}"><b>${d.toUpperCase()}</b><span>${h}</span></div>`).join("");
+  $("#days").innerHTML = D.map(([d, h]) => `<div class="day${d === wd ? " today" : ""}"><b>${d.toUpperCase()}</b><span>${h.replace("–", "<br>")}</span></div>`).join("");
 
   // ---------- 案内・メニュー ----------
   const here = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) $$("#nav a").forEach((a) => a.classList.toggle("is-here", a.getAttribute("href") === "#" + e.target.id)); }), { rootMargin: "-45% 0px -50% 0px" });

@@ -184,9 +184,9 @@ p { margin: 0 0 1em; }
 .how li { display: flex; gap: 14px; align-items: baseline; font-size: 17px; }
 .how b { font: 400 30px/1 var(--s); color: var(--cu); min-width: 22px; }
 .days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; margin-bottom: 24px; }
-.day { aspect-ratio: 1; border-radius: 50%; background: var(--white); border: 1px solid var(--line); display: grid; place-content: center; text-align: center; transition: background .3s; }
+.day { min-height: 92px; padding: 12px 4px; border-radius: 999px; background: var(--white); border: 1px solid var(--line); display: grid; place-content: center; text-align: center; transition: background .3s; }
 .day b { font: 400 clamp(16px, 1.6vw, 22px)/1 var(--s); }
-.day span { font-size: 13px; color: var(--mute); margin-top: 2px; }
+.day span { font-size: 14px; line-height: 1.25; color: var(--mute); margin-top: 4px; }
 .day.today { background: var(--cu); border-color: var(--cu); color: var(--white); }
 .day.today span { color: var(--white); }
 .info { margin: 0; }
