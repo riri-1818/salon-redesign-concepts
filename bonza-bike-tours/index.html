@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bonza Bike Tours | Sydney guided bike tours &amp; bike hire since 2004</title>
+<meta name="description" content="Bonza Bike Tours, 30 Harrington Street, The Rocks. Sydney’s original guided bike tours and rentals since 2004: Sydney Classic, Highlights, Harbour Bridge Ride, Manly Beach &amp; Sunset Cruise, bike hire and private tours.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b3156">
+<link rel="preload" href="fonts/rb.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/mr.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<p class="proposal">A design proposal for Bonza Bike Tours. This is not the official website.</p>
+
+<div class="shell">
+<!-- ================= 左の柱：出発案内板 ================= -->
+<aside class="board" id="board" aria-label="Departures">
+  <div class="board__top">
+    <a class="brand" href="#top"><img src="img/bonza-bike-tours-logo-white.png" width="250" height="70" alt="Bonza Bike Tours"></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span class="burger" aria-hidden="true"></span><span class="sr">Menu</span></button>
+  </div>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="#tours">Tours</a><a href="#hire">Hire</a><a href="#groups">Groups</a><a href="#gift">Gift vouchers</a><a href="#faq">FAQ</a><a href="#visit">Visit</a>
+  </nav>
+  <div class="dep" id="departures">
+    <p class="dep__h">Departures from The Rocks</p>
+    <div class="dep__days" role="group" aria-label="Choose a day">
+      <button type="button" data-d="0" aria-pressed="true">Today</button>
+      <button type="button" data-d="1" aria-pressed="false">Tomorrow</button>
+      <label class="dep__pick"><span class="sr">Pick a date</span><input type="date" id="dep-date"></label>
+    </div>
+    <p class="dep__date" id="dep-label" aria-live="polite">&nbsp;</p>
+    <ol class="dep__rows" id="dep-rows"></ol>
+    <p class="dep__note" id="dep-note"></p>
+    <a class="bk" href="https://bonzabiketours.com/book-now/" target="_blank" rel="noopener">Go to booking page <span aria-hidden="true">&nearr;</span></a>
+    <p class="dep__fine">30 Harrington Street, The Rocks &middot; <a href="tel:+61292478800">02 9247 8800</a><br>We have a 24-hour cancellation policy.</p>
+  </div>
+</aside>
+
+<main class="flow" id="top">
+<!-- ================= 最初の画面 ================= -->
+<section class="hero">
+  <figure class="hero__ph"><img src="img/quay.jpg" width="1400" height="933" alt="Five riders in red Bonza helmets cycling past the Sydney Harbour Bridge at Circular Quay"></figure>
+  <div class="hero__txt">
+    <p class="hero__kick">Welcome down under mate!</p>
+    <h1>Sydney&rsquo;s original &amp; best guided bike tours and rentals</h1>
+    <p class="hero__sub">Over <b class="count" data-to="50000">50,000</b> guests have enjoyed a Bonza Bike Tour since 2004.</p>
+  </div>
+</section>
+
+<section class="intro">
+  <p>We believe in not only giving you a great Sydney bike tour, but making your entire time in Sydney truly memorable. Our staff will give you great tips on what to do while in town, the best places to eat and drink, and how to make the most of your time in Sydney. So, sit back, and enjoy a fun, safe ride as our expert guides show you the way.</p>
+  <p class="intro__e"><b>Bonza Bike Tours offers e-bikes (electric bicycles) as an upgrade on any guided tour!</b> <span>(as per Fair Trade regulations: Before using this vehicle, check the applicable local laws relating to your intended use of the vehicle on roads and road related areas.)</span></p>
+</section>
+
+<!-- ================= ツアー ================= -->
+<section class="tours" id="tours">
+  <header class="sh"><p class="sh__k">Guided bike tours</p><h2>Sydney&rsquo;s best bike tours since 2004</h2></header>
+  <div class="tabs" role="tablist" aria-label="Tours" id="tour-tabs"></div>
+  <div class="tour" id="tour">
+    <div class="tour__main">
+      <p class="tour__tag" id="t-tag"></p>
+      <h3 id="t-name"></h3>
+      <p class="tour__fit" id="t-fit"></p>
+      <p id="t-desc"></p>
+      <dl class="tour__facts"><div><dt>Duration</dt><dd id="t-dur"></dd></div><div><dt>Tour meets at</dt><dd id="t-meet"></dd></div></dl>
+      <p class="tour__note" id="t-note" hidden></p>
+      <details class="incl"><summary>Inclusions</summary><ul id="t-incl"></ul></details>
+      <div class="party">
+        <p class="party__h">Who&rsquo;s riding?</p>
+        <div class="ctr" data-k="a"><span>Adults <small id="pa"></small></span><button type="button" data-step="-1" aria-label="One adult fewer">&minus;</button><b>2</b><button type="button" data-step="1" aria-label="One adult more">+</button></div>
+        <div class="ctr" data-k="c"><span>Children <small id="pc"></small></span><button type="button" data-step="-1" aria-label="One child fewer">&minus;</button><b>0</b><button type="button" data-step="1" aria-label="One child more">+</button></div>
+        <div class="ctr" data-k="e"><span>e-Bike upgrades <small>+$40 each, added to base rate</small></span><button type="button" data-step="-1" aria-label="One e-bike fewer">&minus;</button><b>0</b><button type="button" data-step="1" aria-label="One e-bike more">+</button></div>
+        <p class="party__tot"><span>$</span><b id="p-tot">298</b> <small>AUD</small></p>
+        <p class="party__how" id="p-how"></p>
+        <a class="bk bk--red" href="https://bonzabiketours.com/book-now/" target="_blank" rel="noopener">Go to booking page <span aria-hidden="true">&nearr;</span></a>
+      </div>
+    </div>
+    <div class="route">
+      <p class="route__h">Route highlights</p>
+      <ol class="route__line" id="t-stops"></ol>
+    </div>
+  </div>
+  <p class="fine">Bonza Bike Tours is closed on the following days: Christmas Day, Boxing Day, New Years Day, Australia Day, Good Friday, and ANZAC Day. Bring your own bike: the cost of the tour is 50% off the regular price.</p>
+
+  <div class="holiday" id="holiday">
+    <div><p class="sh__k">Holiday tour schedule 2026&ndash;2027</p><div class="orig" id="full-holiday"></div></div>
+    <figure><img src="img/holiday-schedule.jpg" width="957" height="604" alt="Public tour schedule for Christmas and New Year 2026 to 2027" loading="lazy"><figcaption>The holiday schedule table from the current site.</figcaption></figure>
+  </div>
+</section>
+
+<!-- ================= レンタル ================= -->
+<section class="hire" id="hire">
+  <header class="sh"><p class="sh__k">Bike hire / rental</p><h2>Self guided bike tours of Sydney</h2></header>
+  <div class="hire__grid">
+    <div>
+      <p>Want to explore Sydney on your own? Bonza Bike Tours will provide you with top of the line equipment to allow you the freedom to explore all of Sydney. We provide you with information on some of the best areas to visit, as well as the peace of mind that you will have quality equipment to get you there and back safely.</p>
+      <div class="calc">
+        <div class="seg" role="group" aria-label="How long" id="h-len">
+          <button type="button" data-i="0" aria-pressed="false">1 hour</button><button type="button" data-i="1" aria-pressed="true">4 hours</button><button type="button" data-i="2" aria-pressed="false">24 hours</button>
+        </div>
+        <div class="ctr ctr--sm" data-k="d"><span>Additional days</span><button type="button" data-step="-1" aria-label="One day fewer">&minus;</button><b>0</b><button type="button" data-step="1" aria-label="One day more">+</button></div>
+        <div class="hire__out"><div><span>Per person</span><b id="h-pp">$35</b></div><div><span>Per family (2 adults / 2 children)</span><b id="h-pf">$119</b></div></div>
+        <p class="fine">* Please Note: e-bikes are not available for bike hires.</p>
+        <a class="bk bk--red" href="https://bonzabiketours.com/book-now/" target="_blank" rel="noopener">Go to booking page <span aria-hidden="true">&nearr;</span></a>
+      </div>
+      <table class="rates"><caption class="sr">Bike hire rates</caption><thead><tr><th>Rates</th><th>per Person</th><th>per Family (2 Adults/2 Children)</th></tr></thead>
+        <tbody><tr><td>1 hour</td><td>$20 AUD</td><td>$69 AUD</td></tr><tr><td>4 hours</td><td>$35 AUD</td><td>$119 AUD</td></tr><tr><td>24 hours</td><td>$50 AUD</td><td>$159 AUD</td></tr><tr><td>Additional days</td><td>$20 AUD</td><td>$69 AUD</td></tr></tbody></table>
+    </div>
+    <div>
+      <p class="sub-h">Suggested routes</p>
+      <p>We&rsquo;ll give you the maps and directions, so you can just sit back and enjoy the ride!</p>
+      <ul class="routes">
+        <li>City Loop <span>(Sydney Harbour Bridge, Sydney Opera House, Darling Harbour, Hyde Park, Baranagaroo, ANZAC Memorial, Art Gallery of NSW, and much more)</span></li>
+        <li>Centennial Park</li><li>Olympic Park/Homebush Bay</li><li>Manly &amp; Northern Beaches</li><li>Eastern Beaches <span>(Bondi, Bronte, Coogee)</span></li><li>Inner West <span>(Glebe, Newtown, Leichardt)</span></li><li>Anywhere you want!</li>
+      </ul>
+      <details class="incl"><summary>Inclusions</summary><ul>
+        <li>Super comfortable bicycle (child bikes, baby seats, and trail alongs available)</li><li>Custom, shiny red Bonza helmets</li><li>Bicycle lock</li><li>Spare tube, pump, and tyre levers</li><li>Bicycle mounted bags for small items (camera, wallet, etc.)</li><li>Secure bag storage (while you are out on your ride)</li><li>After hours secure bicycle drop off available</li><li>Long term bike hires available on request</li></ul></details>
+    </div>
+  </div>
+  <p class="sub-h">The fleet</p>
+  <p class="fleet__tip">Scroll sideways for more bikes.</p>
+  <ul class="fleet" id="fleet" tabindex="0" aria-label="Bikes for hire"></ul>
+</section>
+
+<!-- ================= 団体 ================= -->
+<section class="groups" id="groups">
+  <header class="sh"><p class="sh__k">Group &amp; private tours</p><h2>Sydney&rsquo;s finest custom tours and events</h2></header>
+  <div class="g3">
+    <article class="g">
+      <h3>Private &amp; Custom Tours</h3>
+      <p>Sometimes a group tour just isn&rsquo;t going to cut it for the experience you want in a city. Whether you simply want a private guide to yourself or want to visit areas that will make your friends jealous of your adventurous spirit, we can help! We&rsquo;re happy to create custom tours that include dinner, a picnic, a special route, a birthday party, a bucks/hens party, a proposal or virtually anything else that would make your trip unique for you.</p>
+      <table class="rates rates--sm"><caption>Private Tour Rates (Per Person), up to 4 hours</caption><tbody><tr><td>2&ndash;4 Guests</td><td>$369 AUD</td></tr><tr><td>5&ndash;9 Guests</td><td>$349 AUD</td></tr><tr><td>10+ Guests</td><td>$329 AUD</td></tr></tbody></table>
+      <p class="fine">Fully Customized Tours On Request.</p>
+      <button type="button" class="lnk" data-ask="Private &amp; custom tour">Ask about a private tour <span aria-hidden="true">&rarr;</span></button>
+    </article>
+    <article class="g">
+      <h3>Corporate Tours &amp; Teambuilding Events</h3>
+      <p>We believe that corporate outings should have something to please everyone, that&rsquo;s why our corporate bike tours don&rsquo;t always have to include bikes or any physical activity!</p>
+      <details class="incl"><summary>Bonza Teamworks, our sister company</summary><div class="orig" id="full-teamworks"></div><p>Events: <a href="mailto:events@bonzateamworks.com">events@bonzateamworks.com</a></p></details>
+      <button type="button" class="lnk" data-ask="Corporate tour or teambuilding event">Ask about a corporate event <span aria-hidden="true">&rarr;</span></button>
+    </article>
+    <article class="g">
+      <h3>Educational Tours</h3>
+      <p>Children love bikes. We teach them about Sydney and meet your curriculum needs, while they pedal until their hearts are content.</p>
+      <ol class="quote"><li>Initial call to discuss requirements</li><li>Review initial tour concepts</li><li>Refine tour idea and create full quote</li><li>Accept quote and start planning!</li></ol>
+      <details class="incl"><summary>Bonza Education: excursions &amp; incursions</summary><div class="orig" id="full-education"></div><div class="orig" id="full-edu-groups"></div></details>
+      <button type="button" class="lnk" data-ask="School excursion or incursion">Ask about a school event <span aria-hidden="true">&rarr;</span></button>
+    </article>
+  </div>
+
+  <form class="ask" id="ask" novalidate>
+    <div><p class="sh__k">Enquire now</p><h3>Ask us anything&hellip; we&rsquo;re here to help!</h3><p class="fine">Your message opens in your email app, addressed to info@bonzabiketours.com.</p></div>
+    <div class="ask__f">
+      <label>What is it about?<select id="ask-t" name="topic"><option>Daily tour</option><option>Bike hire</option><option>Private &amp; custom tour</option><option>Corporate tour or teambuilding event</option><option>School excursion or incursion</option><option>Gift voucher</option><option>Something else</option></select></label>
+      <div class="two"><label>Your name<input name="name" autocomplete="name" required></label><label>Your email<input name="email" type="email" autocomplete="email" required></label></div>
+      <div class="two"><label>Preferred date<input name="date" type="date"></label><label>Number of guests<input name="n" id="ask-n" type="number" min="1" inputmode="numeric"></label></div>
+      <label>Message<textarea name="msg" id="ask-m" rows="4" required></textarea></label>
+      <p class="err" id="ask-err" role="alert" hidden></p>
+      <button class="bk bk--red" type="submit">Write the email</button>
+    </div>
+  </form>
+</section>
+
+<!-- ================= ギフト ================= -->
+<section class="gift" id="gift">
+  <div>
+    <p class="sh__k">Gift vouchers</p>
+    <h2>The perfect gift to explore Sydney</h2>
+    <p>A Bonza Bike gift certificate is the ultimate gift of Sydney Adventure! The experience is truly one to remember and a memory the recipient will cherish for life. Ride around Sydney&rsquo;s iconic sites and learn the history of this beautiful city from your local tour guide. We have different tours to suit everyone from 2.5 hours up to 5 hours long. If you&rsquo;re looking for a gift that stands out and is as every bit unique as the person you&rsquo;re buying for, look no further than a Bonza Bike Gift Certificate.</p>
+    <p>Treat family, friends, and colleagues with a gift of a relaxing bike ride. You choose how much to give.</p>
+  </div>
+  <div class="gift__v">
+    <p class="gift__amts"><span>$25</span><span>$50</span><span>$100</span></p>
+    <p>Purchase a $25, $50, or $100 gift voucher, today!</p>
+    <a class="bk" href="https://bonzabiketours.com/gift/" target="_blank" rel="noopener">Go to gift voucher page <span aria-hidden="true">&nearr;</span></a>
+    <a class="lnk lnk--l" href="https://shop.bonzabiketours.com/" target="_blank" rel="noopener">Online shop <span aria-hidden="true">&nearr;</span></a>
+  </div>
+</section>
+
+<!-- ================= よくある質問 ================= -->
+<section class="faq" id="faq">
+  <header class="sh"><p class="sh__k">Frequently asked questions</p><h2>Rain or shine, we ride!</h2></header>
+  <div class="orig faq__all" id="full-faq"></div>
+</section>
+
+<section class="featured" aria-label="As featured in">
+  <p class="sh__k">As featured in</p>
+  <img src="img/Logo-Group-1-new.png" width="720" height="171" alt="Lonely Planet, Fodor’s, Time Out, Virgin Blue inflight magazine, Jetstar inflight magazine, KLM, RTL" loading="lazy">
+  <img src="img/Logo-Group-2-new.png" width="720" height="171" alt="Frommer’s, Tripadvisor, British Airways inflight magazine, DK Eyewitness Travel, CBS, Channel 7, Sydney Weekender" loading="lazy">
+</section>
+
+<!-- ================= 来店 ================= -->
+<section class="visit" id="visit">
+  <div>
+    <p class="sh__k">Find us</p>
+    <h2>30 Harrington Street, The Rocks</h2>
+    <p>Corner of Harrington &amp; Argyle Streets in The Rocks, Sydney&rsquo;s historic district.</p>
+    <ul class="ct">
+      <li><span>International</span><a href="tel:+61292478800">+61 2 9247 8800</a></li>
+      <li><span>Within Australia</span><a href="tel:+61292478800">02 9247 8800</a></li>
+      <li><span>Email</span><a href="mailto:info@bonzabiketours.com">info@bonzabiketours.com</a></li>
+      <li><span>Private tours &amp; jobs</span><a href="mailto:service@bonzabiketours.com">service@bonzabiketours.com</a></li>
+      <li><span>Directions</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Bonza+Bike+Tours+30+Harrington+Street+The+Rocks" target="_blank" rel="noopener">Open in Google Maps <span aria-hidden="true">&nearr;</span></a></li>
+      <li><span>Facebook</span><a href="https://www.facebook.com/bonzabiketours" target="_blank" rel="noopener">facebook.com/bonzabiketours <span aria-hidden="true">&nearr;</span></a></li>
+    </ul>
+  </div>
+  <div class="visit__more">
+    <details class="incl"><summary>Job opportunities: become a guide</summary><div class="orig" id="full-jobs"></div><div class="orig" id="full-guide-job"></div></details>
+    <details class="incl"><summary>New Year&rsquo;s Eve Victory Lap: full details</summary><div class="orig" id="full-nye"></div></details>
+    <details class="incl"><summary>Privacy policy</summary><div class="orig" id="full-privacy"></div></details>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>Bonza Bike Tours Pty Ltd &middot; 30 Harrington Street, The Rocks, Sydney, NSW 2000</p>
+  <p>A design proposal: text, prices and photos are from the current Bonza Bike Tours website.</p>
+</footer>
+</main>
+</div>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="data.js" defer></script>
+<script src="full.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
