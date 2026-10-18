@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Croydon Tennis Centre | Tennis, swim school and holiday camps since 1958</title>
+<meta name="description" content="Croydon Tennis Centre, 43 Brighton Street, Croydon NSW. Four synthetic grass floodlit courts for hire, tennis coaching for all ages, FunFitness Swim School, holiday camps and OOSH, since 1958.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0d1b33">
+<link rel="preload" href="fonts/of.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ns.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<p class="proposal">A design proposal for Croydon Tennis Centre. This is not the official website.</p>
+
+<header class="top">
+  <a class="brand" href="#/" aria-label="Croydon Tennis Centre, home"><img src="img/logo.png" width="330" height="103" alt="Croydon Tennis Centre, since 1958"></a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="#/kids">Kids</a><a href="#/adults">Adults</a><a href="#/swim">Swim</a><a href="#/holidays">Holidays</a><a href="#/care">OOSH</a><a href="#/courts">Courts</a><a href="#/club">Club</a>
+  </nav>
+  <a class="app" href="https://apps.apple.com/us/app/croydon-tennis-centre/id1575546740" target="_blank" rel="noopener">Book in the app <span aria-hidden="true">&nearr;</span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span class="burger" aria-hidden="true"></span><span class="sr">Menu</span></button>
+</header>
+
+<main id="main">
+<!-- ================= ホーム ================= -->
+<section class="view" data-view="home" aria-label="Home">
+  <div class="hero">
+    <img class="hero__ph" src="img/courts-night.jpg" width="1200" height="800" alt="The synthetic grass courts at Croydon Tennis Centre under floodlights at dusk">
+    <div class="hero__txt">
+      <p class="kick">Since 1958 &middot; 43 Brighton Street, Croydon</p>
+      <h1>Tennis, swimming and holiday fun for every age</h1>
+      <p class="hero__sub">Croydon Tennis Centre has been providing a wide range of tennis activities since 1958. Four synthetic grass floodlit courts, professional coaching, and the FunFitness Swim School.</p>
+      <p class="now" aria-live="polite"><span class="dot" aria-hidden="true"></span><span id="now">&nbsp;</span></p>
+    </div>
+  </div>
+
+  <div class="pick" id="pick">
+    <div class="pick__q">
+      <h2>Who&rsquo;s playing?</h2>
+      <div class="chips" role="group" aria-label="Age" id="p-age"></div>
+      <h2 class="pick__h2">What would you like?</h2>
+      <div class="chips" role="group" aria-label="Interest" id="p-want"></div>
+    </div>
+    <div class="pick__a"><p class="pick__lab" id="p-lab" aria-live="polite"></p><ul class="cards cards--pick" id="p-out"></ul></div>
+  </div>
+
+  <div class="season" id="season">
+    <div class="season__h"><h2>The 2026 season</h2><p id="season-now" aria-live="polite"></p></div>
+    <div class="tl" id="tl" aria-hidden="true"></div>
+    <ul class="tl__list" id="tl-list"></ul>
+    <a class="lnk" href="#/holidays" data-open="term-dates">Full term dates <span aria-hidden="true">&rarr;</span></a>
+  </div>
+
+  <div class="hubs">
+    <h2 class="sr">Everything at Croydon Tennis Centre</h2>
+    <ul class="hub" id="hub"></ul>
+  </div>
+
+  <div class="about">
+    <p>We offer tennis activities for everyone, whether you are a beginner or advanced player. At Croydon Tennis centre, our team works hard to keep tennis affordable and accessible for all ages and levels of ability.</p>
+    <a class="lnk" href="#/club" data-open="about-us">About us <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</section>
+
+<!-- ================= 分類ごとの画面（中身は app.js で） ================= -->
+<section class="view" data-view="cat" aria-live="polite">
+  <div class="v-marks" aria-hidden="true"><span id="v-kids"></span><span id="v-adults"></span><span id="v-swim"></span><span id="v-holidays"></span><span id="v-care"></span><span id="v-courts"></span><span id="v-club"></span><span id="v-shop"></span><span id="v-info"></span></div>
+  <div class="cat__head" id="cat-head"></div>
+  <div class="cat__extra" id="cat-extra"></div>
+  <h2 class="cat__all" id="cat-all-h">All pages</h2>
+  <ul class="cards" id="cat-cards"></ul>
+</section>
+</main>
+
+<dialog class="reader" id="reader" aria-labelledby="reader-h">
+  <div class="reader__bar"><p class="reader__cat" id="reader-cat"></p><button type="button" class="reader__x" data-close aria-label="Close">&times;</button></div>
+  <h2 id="reader-h"></h2>
+  <div class="reader__body orig" id="reader-body"></div>
+  <p class="reader__fine">From the current Croydon Tennis Centre website, kept in full.</p>
+</dialog>
+
+<footer class="foot">
+  <div class="foot__c">
+    <img src="img/logo.png" width="330" height="103" alt="" loading="lazy">
+    <p>43 Brighton Street, Croydon NSW 2132<br>Access off Brighton Street between houses 43 and 45. Off street parking is available. A 5 min walk from Croydon Train Station.</p>
+  </div>
+  <ul class="foot__l">
+    <li><a href="tel:+61297474259">(02) 9747 4259</a></li>
+    <li><a href="mailto:info@croydontenniscentre.com.au">info@croydontenniscentre.com.au</a></li>
+    <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Croydon+Tennis+Centre+43+Brighton+Street+Croydon+NSW" target="_blank" rel="noopener">Directions <span aria-hidden="true">&nearr;</span></a></li>
+    <li><a href="https://www.facebook.com/CroydonTennisCentre/" target="_blank" rel="noopener">Facebook <span aria-hidden="true">&nearr;</span></a> &middot; <a href="https://www.instagram.com/croydontenniscentre/" target="_blank" rel="noopener">Instagram <span aria-hidden="true">&nearr;</span></a></li>
+  </ul>
+  <ul class="foot__l">
+    <li><a href="#/shop">Pro shop</a></li><li><a href="#/info">Office hours &amp; policies</a></li><li><a href="#/club" data-open="join-team">Join the team</a></li><li><a href="#/info" data-open="security-privacy-statement">Privacy</a></li>
+  </ul>
+  <p class="foot__p">A design proposal: text and prices are from the current Croydon Tennis Centre website.</p>
+</footer>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="pages.js" defer></script>
+<script src="data.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
