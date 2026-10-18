@@ -184,7 +184,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 @media (max-width: 860px) {
   .call { display: none; }
-  .tabs a { font-size: 0; gap: 0; padding: 0 5px; }
+  .tabs a { gap: 0; padding: 0 5px; }
+  .tabs a .tl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .tabs a b { font-size: 17px; width: 32px; height: 32px; }
   .plan, .bk, .duo { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .ch--1 .ch__in { display: block; }
