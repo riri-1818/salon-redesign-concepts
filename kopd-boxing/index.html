@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KOPD | Boxing for Parkinson's in Chatswood, Gladesville and Hobart</title>
+<meta name="description" content="Knock Out Parkinson's Disease (KOPD): non-contact boxing, strength, balance and Reformer Pilates classes for people living with Parkinson's, led by Accredited Exercise Physiologists. Your first class is free.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0e1d3d">
+<link rel="preload" href="fonts/ah.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/os.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ahb.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js");try{var z=localStorage.getItem("kopd-size");if(z)document.documentElement.dataset.size=z}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<p class="proposal">A design proposal for KOPD. This is not the official website.</p>
+
+<header class="top">
+  <a class="brand" href="#top" aria-label="KOPD, Knock Out Parkinson's Disease, back to top"><img src="img/logo-white.png" width="336" height="337" alt=""><span>KOPD</span></a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="#locations">Locations</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#faq">FAQ</a><a href="#articles">Articles</a>
+    <div class="size size--menu" role="group" aria-label="Text size"><span>Text size</span><button type="button" data-size="1" aria-pressed="true" aria-label="Normal text">A</button><button type="button" data-size="2" aria-pressed="false" aria-label="Larger text">A</button><button type="button" data-size="3" aria-pressed="false" aria-label="Largest text">A</button></div>
+  </nav>
+  <div class="size" role="group" aria-label="Text size">
+    <button type="button" data-size="1" aria-pressed="true" aria-label="Normal text">A</button><button type="button" data-size="2" aria-pressed="false" aria-label="Larger text">A</button><button type="button" data-size="3" aria-pressed="false" aria-label="Largest text">A</button>
+  </div>
+  <a class="cta" href="#start">Get started</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span class="burger" aria-hidden="true"></span><span class="sr">Menu</span></button>
+</header>
+
+<main id="main">
+<!-- ================= 最初の画面：ここから始める ================= -->
+<section class="hero" id="top">
+  <figure class="hero__ph"><img src="img/bag-woman.jpg" width="1400" height="1074" alt="A KOPD member in red boxing gloves punching a heavy bag at Chatswood"></figure>
+  <div class="hero__body">
+    <p class="kick">Knock Out Parkinson’s Disease</p>
+    <h1><span class="w">Fighting</span> <span class="w">Parkinson’s</span> <span class="w w--red">together</span></h1>
+    <p class="lede">Empower your fight against Parkinson’s with tailor-made exercise classes, designed to improve your strength, balance, and quality of life.</p>
+
+    <div class="finder" id="finder">
+      <p class="finder__q" id="q1">1. Where would you like to train?</p>
+      <div class="opts" role="group" aria-labelledby="q1" id="f-loc"></div>
+      <p class="finder__q" id="q2">2. What would you like to do?</p>
+      <div class="opts" role="group" aria-labelledby="q2" id="f-act"></div>
+      <div class="answer" id="answer" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 始め方 ================= -->
+<section class="steps" aria-labelledby="steps-h">
+  <h2 id="steps-h" class="h2">Starting is simple</h2>
+  <ol class="steps__list">
+    <li><b>Tell us about you</b><span>Fill in the Get Started form and we will be in contact within 1 business day.</span></li>
+    <li><b>A short medical form</b><span>No experience is required. All you need is clearance from your GP or Neurologist via a short medical form we’ll send you during registration.</span></li>
+    <li><b>Your first class is free</b><span>Observe, participate, or simply meet the team, with no pressure and no charge. Your level will be assessed before or during your first session.</span></li>
+  </ol>
+  <p class="steps__nc"><span>Non-contact.</span> You’ll be punching bags and focus pads, not sparring or fighting.</p>
+</section>
+
+<!-- ================= 拠点 ================= -->
+<section class="locs" id="locations" aria-labelledby="loc-h">
+  <header class="sec-h"><p class="kick kick--dark">Locations</p><h2 id="loc-h" class="h2">Three places to train</h2><p>Coming soon to a place near you.</p></header>
+  <div class="tabs" role="tablist" aria-label="Choose a location" id="loc-tabs"></div>
+  <div class="loc" id="loc"></div>
+</section>
+
+<!-- ================= 料金 ================= -->
+<section class="pricing" id="pricing" aria-labelledby="pr-h">
+  <header class="sec-h sec-h--light"><p class="kick">Pricing</p><h2 id="pr-h" class="h2">Simple weekly prices</h2><p>All prices are per week. Choose the option that best suits your goals and lifestyle. Your first class is free.</p></header>
+  <div class="builder" id="builder">
+    <h3>Build your week at Chatswood</h3>
+    <div class="b-row"><span class="b-lab" id="bl1">Boxing, strength &amp; balance</span><div class="opts opts--sm" role="group" aria-labelledby="bl1" id="b-box"></div></div>
+    <div class="b-row"><span class="b-lab" id="bl2">Reformer Pilates</span><div class="opts opts--sm" role="group" aria-labelledby="bl2" id="b-ref"></div></div>
+    <div class="b-row"><span class="b-lab" id="bl3">A family member or carer joins Reformer</span><div class="opts opts--sm" role="group" aria-labelledby="bl3" id="b-car"></div></div>
+    <div class="b-out" aria-live="polite"><p class="b-plan" id="b-plan"></p><p class="b-price"><span>$</span><b id="b-tot">45</b><small>/week</small></p></div>
+  </div>
+  <div class="ptables">
+    <article class="pt"><h3>KOPD</h3><p class="pt__s">Includes boxing, strength &amp; conditioning, and balance</p><dl id="pt-kopd"></dl></article>
+    <article class="pt"><h3>KOPD Reformer</h3><p class="pt__s">Reformer Pilates options</p><dl id="pt-ref"></dl></article>
+    <article class="pt"><h3>Combo options</h3><p class="pt__s">For clients who want both boxing and Reformer Pilates</p><dl id="pt-combo"></dl></article>
+  </div>
+  <div class="pt-row">
+    <article class="pt pt--wide"><h3>Add-on option</h3><p class="pt__s">Family member or carer – Reformer</p><p>Family members or carers can join a Reformer class as an add-on to a client’s Reformer booking.</p><dl><div><dt>Per class</dt><dd>$30</dd></div></dl></article>
+    <article class="pt pt--wide"><h3>Reformer as an add-on to an existing membership</h3><p class="pt__s">From our Reformer for Parkinson’s page</p><dl><div><dt>One class per week</dt><dd>$30</dd></div><div><dt>Two classes per week</dt><dd>$50</dd></div></dl></article>
+  </div>
+  <h3 class="h3">Gladesville</h3>
+  <div class="ptables ptables--2" id="pt-glad"></div>
+  <h3 class="h3">Getting started and one-on-one support</h3>
+  <div class="ptables ptables--2">
+    <article class="pt pt--offer"><p class="flag">New client offer</p><h3>KOPD Starter Pack</h3><p class="pt__s">Everything you need to get started with KOPD.</p>
+      <ul class="ticks"><li>Exercise Physiology Initial Functional Assessment (60 minutes)</li><li>Detailed Functional Report</li><li>Quality Boxing Gloves</li><li>KOPD Activewear Uniform Shirt</li></ul>
+      <p class="was">Normally valued at <s>$610</s></p><p class="now">Now <b>$300</b> <span>Save $310</span></p><p class="pt__f">Limited time offer. Start your KOPD journey today.</p></article>
+    <article class="pt"><p class="flag flag--navy">In collaboration with ATHOS</p><h3>Semi-Private Sessions</h3><p class="pt__s">Accessible Exercise Physiology</p>
+      <p>Small-group exercise physiology sessions designed to provide personalised support in an accessible format.</p>
+      <ul class="ticks"><li>60-minute sessions</li><li>Individualised tailored programs</li><li>Supervised by an Exercise Physiologist in a 1:4 setting</li></ul>
+      <p class="now">Now <b>$65</b> <span>per session</span></p></article>
+  </div>
+  <div class="notes">
+    <p><b>Corner Pass.</b> One carer or family member can join selected KOPD sessions for free. The Corner Pass applies to KOPD Boxing, Strength &amp; Conditioning, and Balance. It does not apply to Reformer Pilates.</p>
+    <p><b>NDIS and Home Care Packages.</b> KOPD and ATHOS services can be accessed through NDIS, Home Care Packages, and other support arrangements, depending on your funding type, goals, and plan.</p>
+    <p><b>Pausing and cancelling.</b> Pause for 2 weeks or more with 1 week’s notice (up to 12 weeks per calendar year). Cancelling needs 2 weeks’ notice.</p>
+  </div>
+</section>
+
+<!-- ================= 声 ================= -->
+<section class="voices" aria-labelledby="v-h">
+  <h2 id="v-h" class="h2">What people say</h2>
+  <ul class="voices__list" id="voices"></ul>
+</section>
+
+<!-- ================= 私たちについて ================= -->
+<section class="about" id="about" aria-labelledby="ab-h">
+  <div class="about__story">
+    <figure><img src="img/gloves-friends.jpg" width="1400" height="933" alt="Two KOPD members in gloves smiling together at the gym" loading="lazy"></figure>
+    <div>
+      <p class="kick kick--dark">Who we are</p>
+      <h2 id="ab-h" class="h2">Our journey</h2>
+      <p>Knock Out Parkinson’s Disease (KOPD) was conceived from a personal journey with Parkinson’s and a passion for combat sports. Adrian Unger, a boxing enthusiast diagnosed with Parkinson’s, discovered the profound benefits of high-intensity exercise for managing his condition.</p>
+      <p>Adrian then joined forces with Dylan Resnekov, a world champion Muay Thai fighter, and Nate, an exercise physiologist and kickboxer, to create KOPD.</p>
+      <p>The resulting program integrates the intensity and discipline of fight sports with the evidence-based approaches of exercise physiology to offer a powerful and targeted intervention for individuals with Parkinson’s.</p>
+    </div>
+  </div>
+  <div class="mission"><p class="kick">Our mission</p><p class="mission__n" aria-hidden="true"><span id="m-n">1000</span></p><p class="mission__t">Help the lives of <b>1000</b> people living with Parkinson’s Disease for the better.</p><p class="mission__s">Stronger together. Fighting Parkinson’s.</p></div>
+  <h3 class="h3">Our core values</h3>
+  <div class="values">
+    <article><h4>Community</h4><p>We are community first, always. We ride the highs and lows together, when one suffers we all struggle together, and when one wins we celebrate as one.</p><p>Beyond the training floor, we create space for connection through shared moments like coffee and lunch, building a compassionate and personal environment grounded in genuine camaraderie.</p><p>No one faces Parkinson’s alone here, everyone is supported, seen, and part of the family.</p></article>
+    <article><h4>Authenticity</h4><p>Our approach is deeply personal and individually designed from the moment someone walks through the door.</p><p>From initial conversations to tailored classes and ongoing follow up, everything we do is built around the individual.</p><p>Guided by integrity and evidence, we deliver high quality, safe, and thoughtful programs that are as unique as the people we serve.</p></article>
+    <article><h4>Progress with purpose</h4><p>We believe in showing up each day with the desire to be better and bringing whatever energy and capacity you have.</p><p>Parkinson’s is a hard and relentless disease and we meet it with a fighting spirit that is pragmatic, intentional, and focused on what truly matters.</p><p>By prioritising progress over perfection, we support meaningful and consistent improvement that empowers people to keep moving forward.</p></article>
+  </div>
+  <div class="logos">
+    <div><p class="kick kick--dark">Proudly partnered with</p><ul><li><img src="img/p-athos.jpg" alt="ATHOS Exercise Physiology &amp; Sport Science" loading="lazy"></li><li><img src="img/p-topperformance.jpg" alt="Top Performance Physio Chatswood" loading="lazy"></li><li><img src="img/p-ptj.jpg" alt="PTJ Muay Thai Gym" loading="lazy"></li><li><img src="img/p-htc.jpg" alt="Hybrid Training Centre" loading="lazy"></li></ul></div>
+    <div><p class="kick kick--dark">As seen on</p><ul><li><img src="img/m-abc.jpg" alt="ABC" loading="lazy"></li><li><img src="img/m-sunrise.jpg" alt="Sunrise" loading="lazy"></li><li><img src="img/m-studio10.jpg" alt="Studio 10" loading="lazy"></li></ul></div>
+  </div>
+  <div class="strip" aria-hidden="true"><img src="img/huddle.jpg" alt="" loading="lazy"><img src="img/steps.jpg" alt="" loading="lazy"><img src="img/pads.jpg" alt="" loading="lazy"><img src="img/ropes.jpg" alt="" loading="lazy"></div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq" id="faq" aria-labelledby="faq-h">
+  <header class="sec-h"><p class="kick kick--dark">Frequently asked questions</p><h2 id="faq-h" class="h2">Everything you need to know before getting started</h2></header>
+  <div class="faq__list" id="faq-list"></div>
+</section>
+
+<!-- ================= 記事 ================= -->
+<section class="arts" id="articles" aria-labelledby="ar-h">
+  <header class="sec-h"><p class="kick kick--dark">Articles</p><h2 id="ar-h" class="h2">Living well with Parkinson’s</h2><p>22 articles from our Exercise Physiologists.</p></header>
+  <div class="tabs tabs--chips" role="group" aria-label="Filter articles" id="ar-topics"></div>
+  <ol class="arts__list" id="ar-list"></ol>
+</section>
+
+<!-- ================= 申込み ================= -->
+<section class="start" id="start" aria-labelledby="st-h">
+  <div class="start__txt">
+    <p class="kick">Get started</p>
+    <h2 id="st-h" class="h2">Ready to get started?</h2>
+    <p>Got questions or want to join the KOPD community?</p><p>Fill in the form below &amp; we will be in contact within 1 business day.</p>
+    <ul class="contact">
+      <li><span>Email</span><a href="mailto:info@kopd.com.au">info@kopd.com.au</a></li>
+      <li><span>Phone (Chatswood)</span><a href="tel:+61400396339">0400 396 339</a></li>
+      <li><span>Follow us</span><a href="https://www.facebook.com/kopd.boxing" target="_blank" rel="noopener">Facebook <span aria-hidden="true">&nearr;</span></a> · <a href="https://www.instagram.com/kopd.boxing/" target="_blank" rel="noopener">Instagram <span aria-hidden="true">&nearr;</span></a> · <a href="https://www.youtube.com/channel/UC0x_1T4hE8rdswaxbQA5Rog" target="_blank" rel="noopener">YouTube <span aria-hidden="true">&nearr;</span></a></li>
+    </ul>
+    <figure class="start__ph"><img src="img/welcome.jpg" width="1400" height="933" alt="A smiling KOPD member being welcomed by the group"></figure>
+  </div>
+  <form class="form" id="form" novalidate>
+    <p class="form__sel" id="f-sel" hidden></p>
+    <label>Your name<input name="name" autocomplete="name" required></label>
+    <div class="two"><label>Phone<input name="phone" type="tel" autocomplete="tel"></label><label>Email<input name="email" type="email" autocomplete="email"></label></div>
+    <fieldset class="radio"><legend>I am</legend>
+      <label><input type="radio" name="who" value="Living with Parkinson’s" checked><span>Living with Parkinson’s</span></label>
+      <label><input type="radio" name="who" value="A family member or carer"><span>A family member or carer</span></label>
+      <label><input type="radio" name="who" value="A health professional"><span>A health professional</span></label>
+    </fieldset>
+    <div class="two"><label>Location<select name="loc" id="f-loc2"><option>Chatswood</option><option>Gladesville</option><option>Hobart</option><option>Not sure yet</option></select></label>
+      <label>Interested in<select name="act" id="f-act2"><option>Free trial class</option><option>Boxing</option><option>Reformer Pilates</option><option>Starter Pack</option><option>Semi-Private Sessions</option><option>NDIS / Home Care Package</option></select></label></div>
+    <label>Message (optional)<textarea name="msg" rows="4"></textarea></label>
+    <p class="err" id="err" role="alert" hidden></p>
+    <button class="btn" type="submit">Send my details</button>
+    <p class="form__fine">Your message opens in your email app, addressed to info@kopd.com.au.</p>
+  </form>
+</section>
+</main>
+
+<dialog class="reader" id="reader" aria-labelledby="r-h">
+  <div class="reader__bar"><span class="kick kick--dark">KOPD article</span><button type="button" class="reader__x" data-close>Close <span aria-hidden="true">&times;</span></button></div>
+  <h2 id="r-h"></h2>
+  <div class="reader__body orig" id="r-body"></div>
+</dialog>
+
+<footer class="foot">
+  <img src="img/logo-white.png" width="336" height="337" alt="" loading="lazy">
+  <p>© Knock Out Parkinson’s Disease Pty Ltd · ACN 659 289 406 · <a href="mailto:info@kopd.com.au">info@kopd.com.au</a></p>
+  <p><button type="button" class="linkbtn" data-open="privacy">Privacy policy</button></p>
+  <p class="foot__p">A design proposal: text, prices and photos are from the current KOPD website.</p>
+</footer>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="data.js" defer></script>
+<script src="full.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
