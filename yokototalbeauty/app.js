@@ -28,6 +28,10 @@ const QUOTES = [
 ];
 const COURSES = ["Nano Eyebrow Course", "Eyebrow Microblading / Combination Course", "Eyebrow Microblading / Nanofeather Course", "Ombre / Powder Brow Course", "Lip Blush Tattoo Course", "Eyeliner Tattoo Course", "Hairline Microblading Course", "Hyaluron Pen Course", "Eyelash Extension Course", "Keratin Lash Lift Course", "Teeth Whitening Course", "Scalp Micropigmentation Course"];
 
+const CSLUG = ["nano-eyebrow-course", "microblading-combination-course", "microblading-nanofeather-course", "ombre-powder-brow-course", "lip-tattoo-course", "eyeliner-tattoo-course", "hairline-microblading-course", "hyaluronic-pen-course", "eyelash-extension-course", "keratin-lash-lift-course", "teeth-whitening-course", "smp-course"];
+const PLINK = { brows: [["microblading", ["Microblading", "マイクロブレーディング"]], ["powder-brow", ["Powder Brow", "シェーディング"]], ["combination", ["Combination", "コンビネーション"]], ["nano-brow", ["Nano Brow", "ナノブロウ"]]],
+  eyes: [["eyelash-extensions", ["Eyelash Extensions", "まつ毛エクステ"]], ["yumi-lash-lift", ["Yumi Lash Lift", "Yumi ラッシュリフト"]], ["eyeliner", ["Eyeliner", "アイライン"]]],
+  lips: [["lip-blush", ["Lip Blush Tattoo", "リップアートメイク"]]], hair: [["hairline", ["Hairline", "ヘアライン"]], ["smp", ["Scalp Micropigmentation", "スカルプマイクロピグメンテーション"]]] };
 let cur = 0, asked = "", view = null, said = null;
 const money = (v) => typeof v === "number" ? "$" + v.toLocaleString("en-AU") : v;
 const row = (r) => `<li><span>${t(r)}</span><b>${money(r[2])}</b><a href="#ask" data-ask="${r[0]}" aria-label="${t(["Ask about", "質問する"])}: ${t(r)}">${t(["Ask", "質問する"])}</a></li>`;
@@ -36,7 +40,7 @@ function panel(move) {
   const f = PARTS[cur];
   $("#index").innerHTML = PARTS.map((p, i) => `<button type="button" class="word" role="tab" aria-selected="${i === cur}" data-part="${i}">${t(p.w)}</button>`).join("");
   $("#p-cap").textContent = t(f.cap); $("#p-lead").textContent = t(f.lead);
-  $("#p-groups").innerHTML = f.groups.map((g) => `<div class="grp"><h3>${t(g.n)}</h3><ul class="rows">${g.rows.map(row).join("")}</ul></div>`).join("");
+  $("#p-groups").innerHTML = f.groups.map((g) => `<div class="grp"><h3>${t(g.n)}</h3><ul class="rows">${g.rows.map(row).join("")}</ul></div>`).join("") + `<p class="p-more"><span>${t(["Read in full", "くわしい説明（全文）"])}</span>${PLINK[f.id].map((x) => `<a href="p/${x[0]}.html">${t(x[1])}</a>`).join("")}</p>`;
   $("#touch").hidden = f.id !== "brows"; touch();
   $$("#view-list img").forEach((im, i) => { im.alt = t(PARTS[i].cap); });
   if (move && window.gsap && !reduce) gsap.from("#p-lead, #p-groups .grp, #touch:not([hidden])", { y: 20, opacity: 0, duration: .45, stagger: .07, ease: "power2.out", clearProps: "transform,opacity" });
@@ -46,14 +50,14 @@ function touch() {
   $("#t-when").textContent = t([`${m} month${m === 1 ? "" : "s"} ago (${b[1][0]})`, `${m}か月前（${b[1][1]}）`]); $("#t-price").textContent = "$" + b[2];
   $("#months").style.setProperty("--p", ((m - 1) / 29 * 100) + "%");
 }
-function count() { if (said) { $("#q-count").textContent = `${said.activeIndex + 1} / ${QUOTES.length}`; } }
+function count() { if (said && $("#q-count")) { $("#q-count").textContent = `${said.activeIndex + 1} / ${QUOTES.length}`; } }
 function rest() {
   $("#more").innerHTML = MORE.map(row).join("") + `<li><span>${t(["Plasma skin tightening, Hyaluron Pen", "プラズマ・スキンタイトニング、ヒアルロンペン"])}</span><b></b><a href="#ask" data-ask="Other treatments">${t(["Ask", "質問する"])}</a></li>`;
-  $("#quotes").innerHTML = QUOTES.map((x) => `<blockquote class="swiper-slide"><p>${t(x[0])}</p><footer>${x[1]}</footer></blockquote>`).join("");
-  $("#c-list").innerHTML = COURSES.map((c) => `<li>${c}</li>`).join("");
+  if ($("#quotes")) $("#quotes").innerHTML = QUOTES.map((x) => `<blockquote class="swiper-slide"><p>${t(x[0])}</p><footer>${x[1]}</footer></blockquote>`).join("");
+  $("#c-list").innerHTML = COURSES.map((c, i) => `<li><a href="p/${CSLUG[i]}.html">${c}<span aria-hidden="true">→</span></a></li>`).join("");
   const opts = [...PARTS.flatMap((f) => f.groups.flatMap((g) => g.rows.map((r) => [r[0], t(r)]))), ...MORE.map((r) => [r[0], t(r)]), ["Other treatments", t(["Other treatments", "そのほかのメニュー"])], ["Courses", t(["Courses", "技術コース"])]];
   $("#a-what").innerHTML = `<option value="">${t(["Please choose", "選んでください"])}</option>` + opts.map((o) => `<option value="${o[0]}"${o[0] === asked ? " selected" : ""}>${o[1]}</option>`).join("");
-  $("#q-prev").setAttribute("aria-label", t(["Previous review", "前のレビュー"])); $("#q-next").setAttribute("aria-label", t(["Next review", "次のレビュー"]));
+  if ($("#q-prev")) { $("#q-prev").setAttribute("aria-label", t(["Previous review", "前のレビュー"])); $("#q-next").setAttribute("aria-label", t(["Next review", "次のレビュー"])); }
   if (said) { said.update(); count(); }
 }
 $("#view-list").innerHTML = PARTS.map((f) => `<div class="swiper-slide"><img src="img/${f.img}.jpg" width="1000" height="1000" alt="" style="object-position:${f.pos}"></div>`).join("");
@@ -75,7 +79,8 @@ applyLang();
 /* Swiper: the photo fades to the chosen part (and can be swiped); the reviews are a strip you can drag */
 if (window.Swiper) {
   view = new Swiper("#view", { effect: "fade", fadeEffect: { crossFade: true }, speed: reduce ? 0 : 700, on: { slideChange(s) { cur = s.activeIndex; panel(true); } } });
-  said = new Swiper("#said", { slidesPerView: "auto", spaceBetween: 16, speed: reduce ? 0 : 500, grabCursor: true, breakpoints: { 900: { spaceBetween: 28 } }, navigation: { prevEl: "#q-prev", nextEl: "#q-next", disabledClass: "is-off" }, on: { slideChange: count } });
+  if (0) said = new Swiper(".rv-swiper", { slidesPerView: "auto", spaceBetween: 16, speed: reduce ? 0 : 500, grabCursor: true, breakpoints: { 900: { spaceBetween: 24 } }, navigation: { prevEl: ".rv-prev", nextEl: ".rv-next", disabledClass: "is-off" } });
+  if (0) new Swiper("#said", { slidesPerView: "auto", spaceBetween: 16, speed: reduce ? 0 : 500, grabCursor: true, breakpoints: { 900: { spaceBetween: 28 } }, navigation: { prevEl: "#q-prev", nextEl: "#q-next", disabledClass: "is-off" }, on: { slideChange: count } });
   count();
 }
 /* motion (GSAP). Photos open like a page being uncovered; nothing is hidden without it. */
@@ -86,6 +91,18 @@ if (window.gsap && !reduce) {
   gsap.from(".hero-copy > *", { y: 22, opacity: 0, duration: .6, stagger: .08, ease: "power2.out", clearProps: "transform,opacity" });
   gsap.to(".c-b", { yPercent: -16, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
   gsap.from(".word", { yPercent: 60, opacity: 0, duration: .7, stagger: .08, ease: "power3.out", clearProps: "transform,opacity", scrollTrigger: { trigger: "#index", start: "top 88%", once: true } });
-  open($("#view"), 0, "#view"); open($(".about .clip"), 0, ".about figure");
-  ScrollTrigger.batch(".h-small, .also, .about-copy > *, .said-head > *, #quotes blockquote, .courses > div > *, .c-list li, .visit > div > *, .form", { start: "top 92%", once: true, onEnter: (els) => gsap.from(els, { y: 24, opacity: 0, duration: .55, stagger: .05, ease: "power2.out", clearProps: "transform,opacity" }) });
+  open($("#view"), 0, "#view"); $$(".rv-img").forEach((f) => open(f, 0, f));
+  ScrollTrigger.batch(".h-small, .also, .yk-copy > *, .concept-head > *, .concept .prose p, .vals li, .vm > div, .team-head > *, .people li, .salon-copy > *, .said-head > *, .rv-card, .courses > div > *, .c-list li, .shop-head > *, .sh, .plist li, .card, .book-side > *, .allp-head > *, .pg, .visit > div > *, .form", { start: "top 92%", once: true, onEnter: (els) => gsap.from(els, { y: 24, opacity: 0, duration: .55, stagger: .05, ease: "power2.out", clearProps: "transform,opacity" }) });
 }
+
+/* booking: the current Phorest page, loaded only when the section comes near */
+(() => {
+  const fr = $(".book-frame iframe"); if (!fr) return;
+  const go = () => { if (!fr.src) { fr.src = fr.dataset.src; fr.addEventListener("load", () => $(".book-frame").classList.add("ready")); setTimeout(() => $(".book-frame").classList.add("ready"), 6000); } };
+  if ("IntersectionObserver" in window) { const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { go(); io.disconnect(); } }, { rootMargin: "600px 0px" }); io.observe(fr); } else go();
+  document.addEventListener("click", (e) => { if (e.target.closest('a[href="#book"]')) go(); });
+})();
+/* the detail pages open in the language chosen here */
+document.addEventListener("click", (e) => { const a = e.target.closest('a[href^="p/"]'); if (a) { a.href = a.getAttribute("href").split("?")[0] + "?lang=" + lang; } });
+
+document.addEventListener("click", (e) => { const b = e.target.closest(".rv-all"); if (b) { $(".rv-grid").classList.add("open"); b.hidden = true; } });
