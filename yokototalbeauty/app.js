@@ -40,7 +40,7 @@ function panel(move) {
   const f = PARTS[cur];
   $("#index").innerHTML = PARTS.map((p, i) => `<button type="button" class="word" role="tab" aria-selected="${i === cur}" data-part="${i}">${t(p.w)}</button>`).join("");
   $("#p-cap").textContent = t(f.cap); $("#p-lead").textContent = t(f.lead);
-  $("#p-groups").innerHTML = f.groups.map((g) => `<div class="grp"><h3>${t(g.n)}</h3><ul class="rows">${g.rows.map(row).join("")}</ul></div>`).join("") + `<p class="p-more"><span>${t(["Read in full", "くわしい説明（全文）"])}</span>${PLINK[f.id].map((x) => `<a href="p/${x[0]}.html">${t(x[1])}</a>`).join("")}</p>`;
+  $("#p-groups").innerHTML = f.groups.map((g) => `<div class="grp"><h3>${t(g.n)}</h3><ul class="rows">${g.rows.map(row).join("")}</ul></div>`).join("") + `<p class="p-more"><span>${t(["Read in full", "くわしい説明（全文）"])}</span>${PLINK[f.id].map((x) => `<a href="p/${x[0]}.html">${t(x[1])}</a>`).join("")}</p>` + `<a class="pill pill--fill p-book" href="#book">${t(["Book this treatment", "この施術を予約する"])} <span aria-hidden="true">→</span></a>`;
   $("#touch").hidden = f.id !== "brows"; touch();
   $$("#view-list img").forEach((im, i) => { im.alt = t(PARTS[i].cap); });
   if (move && window.gsap && !reduce) gsap.from("#p-lead, #p-groups .grp, #touch:not([hidden])", { y: 20, opacity: 0, duration: .45, stagger: .07, ease: "power2.out", clearProps: "transform,opacity" });
@@ -106,3 +106,62 @@ if (window.gsap && !reduce) {
 document.addEventListener("click", (e) => { const a = e.target.closest('a[href^="p/"]'); if (a) { a.href = a.getAttribute("href").split("?")[0] + "?lang=" + lang; } });
 
 document.addEventListener("click", (e) => { const b = e.target.closest(".rv-all"); if (b) { $(".rv-grid").classList.add("open"); b.hidden = true; } });
+
+/* ---- v3 の動き：なめらかなスクロール・流れる言葉・作品の横送り・数字・引用・視差 ---- */
+(() => {
+  if (!window.gsap || reduce) { document.documentElement.classList.add("no-motion"); return; }
+  gsap.registerPlugin(ScrollTrigger); if (window.SplitText) gsap.registerPlugin(SplitText);
+  let lenis = null;
+  if (window.Lenis) {
+    lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 0.95 });
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add((t) => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest('a[href^="#"]'); if (!a) return;
+      const id = a.getAttribute("href"); const el = id.length > 1 && document.querySelector(id); if (!el) return;
+      e.preventDefault(); lenis.scrollTo(el, { offset: -70, duration: 1.4 });
+    });
+  }
+  /* 流れる言葉：ずっと流れ、スクロールの速さで加速する */
+  const mq = gsap.to(".marq-row", { xPercent: -50, duration: 38, ease: "none", repeat: -1 });
+  ScrollTrigger.create({ onUpdate: (st) => { const v = Math.min(Math.abs(st.getVelocity()) / 500, 4); gsap.to(mq, { timeScale: (st.direction > 0 ? 1 : -1) * (1 + v), duration: .3, overwrite: true }); } });
+  /* 作品：PC では画面に留めて横に送る。スマホは指で送る */
+  const mm = gsap.matchMedia();
+  mm.add("(min-width: 900px)", () => {
+    const track = $(".work-track"); if (!track) return;
+    const dist = () => track.scrollWidth - track.clientWidth;
+    const tw = gsap.to(track, { x: () => -dist(), ease: "none", scrollTrigger: { trigger: ".work", start: "top top", end: () => "+=" + dist(), pin: true, scrub: 0.8, invalidateOnRefresh: true,
+      onUpdate: (st) => { const n = Math.min(10, Math.floor(st.progress * 9.99) + 1); $(".wc-now").textContent = String(n).padStart(2, "0"); $(".wc-bar i").style.transform = `scaleX(${st.progress})`; } } });
+    $$(".wk-img img").forEach((im) => gsap.fromTo(im, { scale: 1.25, xPercent: 6 }, { scale: 1, xPercent: -6, ease: "none", scrollTrigger: { trigger: im.closest(".wk"), containerAnimation: tw, start: "left right", end: "right left", scrub: true } }));
+  });
+  mm.add("(max-width: 899px)", () => {
+    const tr = $(".work-track"); if (!tr) return;
+    const upd = () => { const p = tr.scrollLeft / Math.max(1, tr.scrollWidth - tr.clientWidth); $(".wc-now").textContent = String(Math.min(10, Math.round(p * 9) + 1)).padStart(2, "0"); $(".wc-bar i").style.transform = `scaleX(${p})`; };
+    tr.addEventListener("scroll", upd, { passive: true }); upd();
+  });
+  /* 数字が数えあがる */
+  $$("[data-count]").forEach((el) => { const to = parseFloat(el.dataset.count), d = +el.dataset.dec, o = { v: 0 };
+    gsap.to(o, { v: to, duration: 1.6, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%", once: true }, onUpdate: () => { el.textContent = o.v.toFixed(d); }, onComplete: () => { el.textContent = to.toFixed(d); } }); });
+  gsap.from(".stats li", { y: 30, opacity: 0, duration: .8, stagger: .08, ease: "power3.out", scrollTrigger: { trigger: ".stats", start: "top 85%", once: true } });
+  /* 引用：読む速さで、言葉が一つずつ濃くなる */
+  if (window.SplitText) $$(".bigq p").forEach((p) => {
+    const sp = new SplitText(p, { type: p.lang === "ja" ? "chars" : "words" });
+    gsap.fromTo(p.lang === "ja" ? sp.chars : sp.words, { opacity: .14 }, { opacity: 1, stagger: .1, ease: "none", scrollTrigger: { trigger: ".bigq", start: "top 78%", end: "bottom 45%", scrub: true } });
+  });
+  /* 見出しが下からせり上がる */
+  $$(".book h2, .work h2, .yk h2, .concept h2, .team h2, .salon h2, .said2 h2, .shop h2, .allp h2, .courses h2, .visit h2").forEach((h) => {
+    gsap.from(h, { yPercent: 40, opacity: 0, duration: 1, ease: "power4.out", scrollTrigger: { trigger: h, start: "top 88%", once: true } });
+  });
+  /* 写真の視差と、額縁の線 */
+  gsap.fromTo(".yk-photo .fi img", { yPercent: -6 }, { yPercent: 6, ease: "none", scrollTrigger: { trigger: ".yk", start: "top bottom", end: "bottom top", scrub: true } });
+  ScrollTrigger.create({ trigger: ".yk-photo", start: "top 75%", once: true, onEnter: () => $(".yk-photo .frame").classList.add("drawn") });
+  $$(".people li").forEach((li, i) => gsap.fromTo(li, { y: 60 + i * 40 }, { y: -20 * i, ease: "none", scrollTrigger: { trigger: ".team", start: "top bottom", end: "bottom top", scrub: true } }));
+  gsap.fromTo(".salon-a img", { scale: 1.15 }, { scale: 1, ease: "none", scrollTrigger: { trigger: ".salon", start: "top bottom", end: "bottom top", scrub: true } });
+  /* 線が伸びる */
+  $$(".vals li, .certs2 li, .bk-facts > div").forEach((el) => el.classList.add("line"));
+  ScrollTrigger.batch(".line", { start: "top 90%", once: true, onEnter: (els) => els.forEach((el, i) => setTimeout(() => el.classList.add("drawn"), i * 90)) });
+  gsap.from(".book-frame", { y: 60, opacity: 0, duration: 1.1, ease: "power3.out", scrollTrigger: { trigger: ".book", start: "top 75%", once: true } });
+  /* 開いたり閉じたりで高さが変わったら、位置を計算し直す */
+  document.addEventListener("toggle", () => ScrollTrigger.refresh(), true);
+  addEventListener("load", () => ScrollTrigger.refresh());
+})();
