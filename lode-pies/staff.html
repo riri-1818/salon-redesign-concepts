@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lode staff · Products</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f1d4d1">
+<link rel="stylesheet" href="style.css">
+<style>
+/* スタッフ画面：主な作業（商品を足す）を先に、一覧はその下、細かい操作は畳む */
+body { background: var(--pink2); }
+.sf-top { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 14px; height: 60px; padding: 0 var(--pad); background: var(--pink); border-bottom: 2px solid var(--ink); }
+.sf-top img { width: 40px; height: 40px; border-radius: 2px; }
+.sf-top b { font: 800 19px/1 var(--f); }
+.sf-top a { margin-left: auto; font: 700 15px/1 var(--f); color: var(--ink); text-underline-offset: 4px; }
+.sf { max-width: 980px; margin: 0 auto; padding: 24px var(--pad) 80px; display: grid; gap: 22px; }
+.sf-note { margin: 0; font-size: 15px; line-height: 1.5; background: var(--dough); border: 2px solid var(--ink); border-left-width: 8px; border-radius: var(--r); padding: 12px 16px; }
+.panel { background: #fff; border: 2px solid var(--ink); border-radius: var(--r); padding: clamp(18px, 3vw, 30px); }
+.panel h1, .panel h2 { font-size: clamp(30px, 4vw, 44px); margin: 0 0 6px; }
+.panel .sub { margin: 0 0 20px; color: var(--mute); }
+.addf { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 22px; }
+.ph-pick { display: grid; gap: 8px; align-content: start; }
+.ph-box { position: relative; aspect-ratio: 1; border: 2px dashed var(--mauve); border-radius: var(--r); background: var(--pink2); display: grid; place-items: center; text-align: center; overflow: hidden; cursor: pointer; transition: background .2s; }
+.ph-box:hover { background: var(--pink); }
+.ph-box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ph-box span { font: 700 16px/1.3 var(--f); color: var(--mauve2); padding: 12px; }
+.ph-box input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.fields { display: grid; gap: 14px; }
+.row2 { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 12px; }
+.price-in { position: relative; }
+.price-in::before { content: "$"; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-weight: 700; color: var(--mute); }
+.price-in input { padding-left: 28px !important; width: 100%; }
+.stores-ck { display: flex; flex-wrap: wrap; gap: 6px; }
+.stores-ck label { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 2px solid var(--line); border-radius: 99px; font: 600 15px/1 var(--f); cursor: pointer; transition: border-color .2s, background .2s; }
+.stores-ck label:has(input:checked) { border-color: var(--ink); background: var(--pink); }
+.stores-ck input { width: 18px; height: 18px; accent-color: var(--ink); }
+.go { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.ok { margin: 0; font-weight: 700; color: var(--green); }
+.ok a { color: var(--green); }
+.plist { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.pr { display: grid; grid-template-columns: 56px minmax(0, 1fr) 120px auto auto; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.pr.is-hidden .pr__n, .pr.is-hidden .pr__th { opacity: .4; }
+.pr__th { width: 56px; height: 56px; border-radius: var(--r); object-fit: cover; background: var(--pink); display: grid; place-items: center; font: 800 18px/1 var(--f); color: var(--mauve2); }
+.pr__n b { display: block; font: 700 17px/1.2 var(--f); }
+.pr__n small { display: block; font-size: 13px; color: var(--mute); margin-top: 2px; }
+.pr__n .new { color: var(--bake); font-weight: 800; }
+.pr .price-in input { min-height: 44px; font-size: 16px; border: 2px solid var(--line); border-radius: var(--r); background: var(--dough); }
+.sw { display: inline-flex; align-items: center; gap: 8px; font: 600 14px/1.1 var(--f); cursor: pointer; white-space: nowrap; }
+.sw input { appearance: none; width: 44px; height: 26px; border-radius: 99px; background: var(--line); position: relative; cursor: pointer; transition: background .2s; flex: none; }
+.sw input::after { content: ""; position: absolute; left: 3px; top: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; transition: transform .2s; }
+.sw input:checked { background: var(--ink); }
+.sw input:checked::after { transform: translateX(18px); }
+.sw--out input:checked { background: #b3261e; }
+.del { border: 0; background: none; color: #b3261e; font: 700 14px/1 var(--f); text-decoration: underline; text-underline-offset: 3px; padding: 6px 0; }
+details.more summary { cursor: pointer; font: 700 15px/1 var(--f); color: var(--mauve2); padding: 6px 0; }
+details.more p { color: var(--mute); font-size: 15px; }
+.saved { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 10px); opacity: 0; background: var(--ink); color: var(--dough); padding: 12px 18px; border-radius: var(--r); font: 600 15px/1.2 var(--f); transition: opacity .25s, transform .25s; pointer-events: none; }
+.saved.on { opacity: 1; transform: translate(-50%, 0); }
+@media (max-width: 720px) {
+  .addf { grid-template-columns: minmax(0, 1fr); }
+  .ph-pick { max-width: 220px; }
+  .row2 { grid-template-columns: minmax(0, 1fr); }
+  .pr { grid-template-columns: 48px minmax(0, 1fr) 104px; row-gap: 8px; }
+  .pr__th { width: 48px; height: 48px; }
+  .pr .sw, .pr .del { grid-column: 2 / -1; }
+}
+</style>
+</head>
+<body>
+<p class="proposal">A design proposal for Lode Pies &amp; Pastries. This is not the official website.</p>
+<header class="sf-top"><img src="img/logo.jpg" alt=""><b>Lode staff · Products</b><a href="./#case">View the website &rarr;</a></header>
+
+<main class="sf">
+  <p class="sf-note"><b>Sample:</b> changes are saved in this browser only. On the live site, saving here also updates your Square, so a new product shows up at the counter and on the website at the same time.</p>
+
+  <section class="panel" aria-labelledby="add-h">
+    <h1 id="add-h">Add a new product</h1>
+    <p class="sub">Fill in the name and price, choose the stores, and press Add. It goes on the menu straight away.</p>
+    <form class="addf" id="addf" novalidate>
+      <div class="ph-pick">
+        <label class="ph-box" id="ph-box"><span>Add a photo<br><small>(optional)</small></span><input type="file" accept="image/*" id="ph-in" aria-label="Product photo"></label>
+        <p class="fine" style="margin:0">A square photo looks best. You can take one with your phone.</p>
+      </div>
+      <div class="fields">
+        <label class="fld"><span>Product name *</span><input name="name" required placeholder="e.g. Pumpkin & Feta Roll"></label>
+        <div class="row2">
+          <label class="fld"><span>Price *</span><span class="price-in"><input name="price" inputmode="decimal" required placeholder="12.00"></span></label>
+          <label class="fld"><span>Type</span><select name="g"><option value="pies">Pies &amp; rolls</option><option value="pastry">Croissant &amp; co</option><option value="sweet">Sweet</option><option value="box">Pre-order box</option></select></label>
+        </div>
+        <label class="fld"><span>Short description</span><input name="desc" placeholder="e.g. Roast pumpkin, feta and thyme in flaky pastry."></label>
+        <div class="fld"><span>Sold at</span><div class="stores-ck" id="ck"></div></div>
+        <p class="err" id="add-err" role="alert" hidden></p>
+        <div class="go"><button class="btn btn--ink" type="submit">Add to the menu</button><p class="ok" id="add-ok" aria-live="polite"></p></div>
+      </div>
+    </form>
+  </section>
+
+  <section class="panel" aria-labelledby="list-h">
+    <h2 id="list-h">Your products</h2>
+    <p class="sub">Change a price, mark something sold out for today, or hide it from the website. Changes save by themselves.</p>
+    <ul class="plist" id="plist"></ul>
+  </section>
+
+  <details class="more">
+    <summary>Reset this sample</summary>
+    <p>Removes the products you added and undoes your changes in this browser.</p>
+    <button class="btn btn--line" type="button" id="reset">Reset</button>
+  </details>
+</main>
+<div class="saved" id="saved" role="status" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script src="menu.js"></script>
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const GN = { pies: "Pies & rolls", pastry: "Croissant & co", sweet: "Sweet", box: "Pre-order box" };
+  let photo = null, tt;
+  const saved = (m = "Saved") => { const t = $("#saved"); t.textContent = m; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 1600); };
+
+  $("#ck").innerHTML = STORES.map((s) => `<label><input type="checkbox" value="${s.id}" checked>${s.name}</label>`).join("");
+
+  // 写真：縮めてから保存（大きい写真でもすぐ載る）
+  $("#ph-in").addEventListener("change", (e) => {
+    const f = e.target.files[0]; if (!f) return;
+    const img = new Image();
+    img.onload = () => {
+      const n = Math.min(800, img.width, img.height), c = document.createElement("canvas");
+      c.width = c.height = n;
+      const sq = Math.min(img.width, img.height);
+      c.getContext("2d").drawImage(img, (img.width - sq) / 2, (img.height - sq) / 2, sq, sq, 0, 0, n, n);
+      photo = c.toDataURL("image/jpeg", 0.8);
+      $("#ph-box").querySelector("span").hidden = true;
+      $("#ph-box img")?.remove();
+      $("#ph-box").insertAdjacentHTML("afterbegin", `<img src="${photo}" alt="">`);
+      URL.revokeObjectURL(img.src);
+    };
+    img.src = URL.createObjectURL(f);
+  });
+
+  $("#addf").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const f = e.target, d = Object.fromEntries(new FormData(f));
+    const price = parseFloat(String(d.price).replace(/[^0-9.]/g, ""));
+    const only = $$("#ck input:checked").map((i) => i.value);
+    const err = [];
+    if (!d.name.trim()) err.push("a product name");
+    if (!(price > 0)) err.push("a price");
+    if (!only.length) err.push("at least one store");
+    $("#add-err").hidden = !err.length; $("#add-err").textContent = err.length ? `Please add ${err.join(", ")}.` : "";
+    if (err.length) return;
+    const item = { name: d.name.trim(), desc: d.desc.trim(), price, g: d.g, isNew: true };
+    if (only.length < STORES.length) item.only = only;
+    if (photo) item.img = photo;
+    const ok = Menu.add(item);
+    if (!ok) { $("#add-err").hidden = false; $("#add-err").textContent = "Couldn't save. Try a smaller photo."; return; }
+    $("#add-ok").innerHTML = `Added! &ldquo;${esc(item.name)}&rdquo; is on the menu. <a href="./#case">See it on the website</a>`;
+    f.reset(); photo = null; $("#ph-box img")?.remove(); $("#ph-box span").hidden = false; $$("#ck input").forEach((i) => (i.checked = true));
+    render();
+  });
+
+  function render() {
+    const items = Menu.allFood();
+    $("#plist").innerHTML = items.map((f) => {
+      const th = f.img ? `<img class="pr__th" src="${f.img.startsWith("data:") ? f.img : `img/${f.img}.jpg`}" alt="">` : `<span class="pr__th">${esc(f.name[0])}</span>`;
+      const where = f.only ? "Only at " + f.only.map((id) => STORES.find((s) => s.id === id).name).join(", ") : f.not ? "Not at " + f.not.map((id) => STORES.find((s) => s.id === id).name).join(", ") : "All stores";
+      const diff = f.at ? ` · ${Object.entries(f.at).map(([id, p]) => `${STORES.find((s) => s.id === id).name} $${p.toFixed(2)}`).join(", ")}` : "";
+      return `<li class="pr${f.hidden ? " is-hidden" : ""}" data-id="${f.id}">${th}
+        <div class="pr__n"><b>${esc(f.name)}</b><small>${f.isNew ? '<span class="new">New · </span>' : ""}${GN[f.g]} · ${where}${diff}</small></div>
+        <span class="price-in"><input aria-label="Price of ${esc(f.name)}" inputmode="decimal" value="${Number(f.price).toFixed(2)}" data-f="price"></span>
+        <label class="sw sw--out"><input type="checkbox" data-f="soldOut"${f.soldOut ? " checked" : ""}>Sold out</label>
+        ${Menu.isAdded(f.id) ? `<button type="button" class="del" data-del>Delete</button>` : `<label class="sw"><input type="checkbox" data-f="show"${f.hidden ? "" : " checked"}>On website</label>`}
+      </li>`;
+    }).join("");
+  }
+  $("#plist").addEventListener("change", (e) => {
+    const li = e.target.closest(".pr"); if (!li) return;
+    const k = e.target.dataset.f, id = li.dataset.id;
+    if (k === "price") { const p = parseFloat(e.target.value.replace(/[^0-9.]/g, "")); if (!(p > 0)) { render(); return; } Menu.change(id, { price: p }); e.target.value = p.toFixed(2); }
+    if (k === "soldOut") Menu.change(id, { soldOut: e.target.checked });
+    if (k === "show") { Menu.change(id, { hidden: !e.target.checked }); li.classList.toggle("is-hidden", !e.target.checked); }
+    saved();
+  });
+  $("#plist").addEventListener("click", (e) => {
+    if (!e.target.matches("[data-del]")) return;
+    const li = e.target.closest(".pr");
+    if (confirm(`Delete "${$("b", li).textContent}"?`)) { Menu.remove(li.dataset.id); render(); saved("Deleted"); }
+  });
+  $("#reset").addEventListener("click", () => { Menu.reset(); render(); saved("Sample reset"); });
+  render();
+})();
+</script>
+</body>
+</html>

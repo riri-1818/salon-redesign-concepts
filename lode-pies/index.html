@@ -23,7 +23,7 @@
     <a href="#drinks">Drinks</a>
     <a href="#contact">Contact</a>
   </nav>
-  <a class="hd-cta" href="https://www.lodepies.com/s/order" target="_blank" rel="noopener">Go to order page <span aria-hidden="true">&nearr;</span></a>
+  <button class="hd-cta" type="button" id="bag-open" aria-label="Open your bag">Bag <span class="hd-cta__n" id="bag-n">0</span></button>
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span class="bars" aria-hidden="true"></span><span class="sr">Menu</span></button>
 </header>
 
@@ -63,14 +63,15 @@
       <h2 class="h2">In the case today</h2>
     </div>
     <div class="tabs" role="tablist" aria-label="Filter the menu">
-      <button type="button" role="tab" aria-selected="true" data-g="all">All <small>16</small></button>
+      <button type="button" role="tab" aria-selected="true" data-g="all">All <small id="n-all"></small></button>
       <button type="button" role="tab" aria-selected="false" data-g="pies">Pies &amp; rolls</button>
       <button type="button" role="tab" aria-selected="false" data-g="pastry">Croissant &amp; co</button>
       <button type="button" role="tab" aria-selected="false" data-g="sweet">Sweet</button>
     </div>
   </div>
+  <div class="pick" id="pick" role="radiogroup" aria-label="Choose your store for pick-up"><span class="pick__l">Pick-up at</span><div class="pick__opts" id="pick-opts"></div></div>
   <ul class="tray" id="tray"></ul>
-  <p class="case__fine">Prices from our online ordering page (pick-up at Rozelle).</p>
+  <p class="case__fine" id="case-fine"></p>
 </section>
 
 <dialog class="drawer" id="drawer" aria-labelledby="dr-n">
@@ -82,10 +83,19 @@
       <h3 class="drawer__n" id="dr-n"></h3>
       <p class="drawer__d" id="dr-d"></p>
       <p class="drawer__p" id="dr-p"></p>
-      <a class="btn btn--ink" href="https://www.lodepies.com/s/order" target="_blank" rel="noopener">Go to order page <span aria-hidden="true">&nearr;</span></a>
+      <div class="dr-buy" id="dr-buy">
+        <div class="qty"><button type="button" data-q="-1" aria-label="One less">&minus;</button><output id="dr-q" aria-live="polite">1</output><button type="button" data-q="1" aria-label="One more">+</button></div>
+        <button class="btn btn--ink" type="button" id="dr-add">Add to bag</button>
+      </div>
+      <p class="fine" id="dr-note"></p>
     </div>
   </div>
 </dialog>
+
+<!-- ================= BAG：サイトの中で注文・支払いまで ================= -->
+<dialog class="drawer bag" id="bag" aria-labelledby="bag-h"><div class="bag__in" id="bag-in"></div></dialog>
+<button class="bagbar" type="button" id="bagbar" hidden><span id="bagbar-t">View bag</span><b id="bagbar-p"></b></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <!-- ================= PASTRY BOX ================= -->
 <section class="box" id="box">
@@ -99,7 +109,7 @@
       <li><span>03</span>Pistachio Croissant</li>
       <li><span>04</span>Let&rsquo;s Apple Krumble Tart</li>
     </ol>
-    <div class="box__foot"><p class="box__price">$35</p><a class="btn btn--pink" href="https://www.lodepies.com/s/order" target="_blank" rel="noopener">Pre-order on the order page <span aria-hidden="true">&nearr;</span></a></div>
+    <div class="box__foot"><p class="box__price">$35</p><button class="btn btn--pink" type="button" id="box-add">Pre-order &middot; add to bag</button></div>
   </div>
   <figure class="box__ph"><img src="img/ig07.jpg" width="480" height="640" alt="A layered pastry being cut on a Lode plate" loading="lazy"></figure>
   <figure class="box__ph box__ph--b"><img src="img/ig14.jpg" width="480" height="640" alt="A raspberry pastry on pink paper" loading="lazy"></figure>
@@ -168,12 +178,14 @@
   <img src="img/logo.jpg" width="600" height="600" alt="Lode" loading="lazy">
   <p>lode pies and pastries PTY LTD &middot; &copy; 2026</p>
   <p>A design proposal: text, prices and photos are from the current Lode website, online ordering page and Instagram.</p>
+  <p><a href="staff.html">For Lode staff: add or change products</a></p>
 </footer>
 
 <script src="vendor/gsap.min.js" defer></script>
 <script src="vendor/Flip.min.js" defer></script>
 <script src="vendor/ScrollTrigger.min.js" defer></script>
 <script src="data.js" defer></script>
+<script src="menu.js" defer></script>
 <script src="app.js" defer></script>
 </body>
 </html>
